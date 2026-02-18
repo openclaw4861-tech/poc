@@ -1,4 +1,25 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function Home() {
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Increment visitor count when page loads
+    fetch('/api/visitors', { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        setVisitorCount(data.count);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch visitor count:', err);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Hero Section */}
@@ -129,6 +150,57 @@ export default function Home() {
               <p className="text-gray-300">
                 Tailor every aspect to your needs. Flexible architecture that
                 grows with your vision.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visitor Counter Section */}
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <svg
+                  className="w-8 h-8 text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+                <h3 className="text-2xl font-bold text-white">
+                  Live Visitor Counter
+                </h3>
+              </div>
+              <p className="text-gray-300 mb-6">
+                Powered by Neon Database + Drizzle ORM
+              </p>
+              <div className="inline-block bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20">
+                {loading ? (
+                  <div className="flex items-center gap-3">
+                    <div className="w-6 h-6 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                    <span className="text-xl text-gray-300">Loading...</span>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center">
+                    <div className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+                      {visitorCount?.toLocaleString() ?? '—'}
+                    </div>
+                    <div className="text-sm text-gray-400 mt-2">
+                      Total Visitors
+                    </div>
+                  </div>
+                )}
+              </div>
+              <p className="text-sm text-gray-400 mt-4">
+                This counter increments each time someone visits this page
               </p>
             </div>
           </div>
