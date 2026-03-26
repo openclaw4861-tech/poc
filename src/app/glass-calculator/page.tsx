@@ -210,6 +210,8 @@ export default function GlassCalculator() {
         heightDiff,
         widthDiff,
         squarenessVariance,
+        varianceAsString: squarenessVariance.toString(),
+        varianceForDisplay: parseFloat(squarenessVariance.toString()).toFixed(3),
       });
       notes.push(`⚠️ Frame is out-of-square by ${squarenessVariance.toFixed(3)}" - verify before fabrication`);
     }
@@ -272,7 +274,7 @@ export default function GlassCalculator() {
       }
     }
 
-    setResult({
+    const resultData = {
       id: 0, // Will be set after save
       jobName,
       frameNumber,
@@ -287,7 +289,16 @@ export default function GlassCalculator() {
       measuredAt: new Date().toISOString(),
       frameNotes,
       glassLites: lites,
+    };
+
+    // Debug: log what we're setting as the result
+    console.log('Setting result:', {
+      squarenessVariance: resultData.squarenessVariance,
+      isOutOfSquare: resultData.isOutOfSquare,
+      varianceParsed: parseFloat(resultData.squarenessVariance),
     });
+
+    setResult(resultData);
   };
 
   const saveMeasurement = async () => {
