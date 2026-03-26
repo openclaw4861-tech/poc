@@ -97,18 +97,25 @@ export async function POST(request: NextRequest) {
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
 
+    // Convert glass bites to proper decimal strings (ensure leading zero)
+    const toDecimalString = (value: any, defaultValue: number = 0.375): string => {
+      const num = typeof value === 'number' ? value : parseFloat(value);
+      if (isNaN(num)) return defaultValue.toFixed(4);
+      return num.toFixed(4);
+    };
+
     // Insert measurement - use explicit type to satisfy drizzle-orm
     const measurementData: NewMeasurement = {
       jobName: jobName as string,
       frameNumber: frameNumber as string,
       numberOfLites: numberOfLites as number,
-      glassBiteTop: glassBiteTop as string,
-      glassBiteBottom: glassBiteBottom as string,
-      glassBiteLeft: glassBiteLeft as string,
-      glassBiteRight: glassBiteRight as string,
+      glassBiteTop: toDecimalString(glassBiteTop, 0.375),
+      glassBiteBottom: toDecimalString(glassBiteBottom, 0.375),
+      glassBiteLeft: toDecimalString(glassBiteLeft, 0.375),
+      glassBiteRight: toDecimalString(glassBiteRight, 0.375),
       glassType: glassType as string,
       glassThickness: glassThickness as string,
-      mullionWidth: mullionWidth as string | null,
+      mullionWidth: toDecimalString(mullionWidth, 0.25),
       frameNotes: frameNotes as string | null,
       photoUrl: photoUrl as string | null,
       photoCaption: photoCaption as string | null,
@@ -263,18 +270,25 @@ export async function PUT(request: NextRequest) {
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
 
+    // Convert glass bites to proper decimal strings (ensure leading zero)
+    const toDecimalString = (value: any, defaultValue: number = 0.375): string => {
+      const num = typeof value === 'number' ? value : parseFloat(value);
+      if (isNaN(num)) return defaultValue.toFixed(4);
+      return num.toFixed(4);
+    };
+
     // Update measurement
     const measurementData = {
       jobName: jobName as string,
       frameNumber: frameNumber as string,
       numberOfLites: numberOfLites as number,
-      glassBiteTop: glassBiteTop as string,
-      glassBiteBottom: glassBiteBottom as string,
-      glassBiteLeft: glassBiteLeft as string,
-      glassBiteRight: glassBiteRight as string,
+      glassBiteTop: toDecimalString(glassBiteTop, 0.375),
+      glassBiteBottom: toDecimalString(glassBiteBottom, 0.375),
+      glassBiteLeft: toDecimalString(glassBiteLeft, 0.375),
+      glassBiteRight: toDecimalString(glassBiteRight, 0.375),
       glassType: glassType as string,
       glassThickness: glassThickness as string,
-      mullionWidth: mullionWidth as string | null,
+      mullionWidth: toDecimalString(mullionWidth, 0.25),
       frameNotes: frameNotes as string | null,
       photoUrl: photoUrl as string | null,
       photoCaption: photoCaption as string | null,
