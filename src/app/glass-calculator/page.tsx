@@ -460,6 +460,17 @@ export default function GlassCalculator() {
     const whole = Math.floor(inches);
     const decimal = inches - whole;
     
+    // If decimal is very close to 0, just return whole number
+    if (decimal < 0.03) {
+      return `${whole}"`;
+    }
+    
+    // If decimal is very close to 1, round up
+    if (decimal > 0.97) {
+      return `${whole + 1}"`;
+    }
+    
+    // Find closest fraction
     let closest = fractions[0];
     let minDiff = Math.abs(decimal - closest.decimal);
     
@@ -473,8 +484,6 @@ export default function GlassCalculator() {
 
     if (whole === 0) {
       return closest.fraction;
-    } else if (minDiff < 0.01) {
-      return `${whole}"`;
     } else {
       return `${whole} ${closest.fraction}"`;
     }
