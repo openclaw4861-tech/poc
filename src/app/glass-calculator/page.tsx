@@ -312,7 +312,7 @@ export default function GlassCalculator() {
         notes: frameNotes,
       };
 
-      const url = editingId ? `/api/measurements/${editingId}` : '/api/measurements';
+      const url = editingId ? `/api/measurements?id=${editingId}` : '/api/measurements';
       const method = editingId ? 'PUT' : 'POST';
 
       const res = await fetch(url, {
