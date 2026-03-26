@@ -20,10 +20,10 @@ interface Measurement {
   numberOfLites: number;
   glassType: string;
   glassThickness: string;
-  totalFrameWidth: number;
-  totalFrameHeight: number;
+  totalFrameWidth: string;
+  totalFrameHeight: string;
   isOutOfSquare: boolean;
-  squarenessVariance: number;
+  squarenessVariance: string;
   measuredBy: string;
   measuredAt: string;
   frameNotes?: string;
@@ -80,7 +80,7 @@ export default function GlassCalculator() {
       const res = await fetch('/api/measurements');
       const data = await res.json();
       if (data.success) {
-        const uniqueJobs = Array.from(new Set(data.data.map((m: Measurement) => m.jobName)));
+        const uniqueJobs: string[] = Array.from(new Set(data.data.map((m: Measurement) => m.jobName)));
         setJobs(uniqueJobs);
       }
     } catch (err) {
@@ -227,10 +227,10 @@ export default function GlassCalculator() {
       numberOfLites,
       glassType,
       glassThickness,
-      totalFrameWidth,
-      totalFrameHeight,
+      totalFrameWidth: totalFrameWidth.toString(),
+      totalFrameHeight: totalFrameHeight.toString(),
       isOutOfSquare,
-      squarenessVariance,
+      squarenessVariance: squarenessVariance.toString(),
       measuredBy,
       measuredAt: new Date().toISOString(),
       frameNotes,
@@ -774,7 +774,7 @@ export default function GlassCalculator() {
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
               <h4 className="font-medium text-gray-800 mb-2">⚠️ Out of Square:</h4>
               <p className="text-sm text-gray-700">
-                Frame varies by {result.squarenessVariance.toFixed(3)}" — verify before fabrication
+                Frame varies by {parseFloat(result.squarenessVariance).toFixed(3)}" — verify before fabrication
               </p>
             </div>
           )}

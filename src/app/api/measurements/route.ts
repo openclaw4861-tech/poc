@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
-import { measurements, glassLites } from '@/db/schema';
+import { measurements, glassLites, type NewMeasurement, type NewGlassLite } from '@/db/schema';
 
 export async function POST(request: NextRequest) {
   try {
@@ -56,37 +56,39 @@ export async function POST(request: NextRequest) {
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
 
-    // Insert measurement
-    const [newMeasurement] = await db.insert(measurements).values({
-      jobName,
-      frameNumber,
-      numberOfLites,
-      glassBiteTop,
-      glassBiteBottom,
-      glassBiteLeft,
-      glassBiteRight,
-      glassType,
-      glassThickness,
-      mullionWidth,
-      frameNotes,
-      photoUrl,
-      photoCaption,
-      levelToHeadLeft,
-      levelToHeadRight,
-      levelToSillLeft,
-      levelToSillRight,
-      plumbToLeftHead,
-      plumbToRightHead,
-      plumbToLeftSill,
-      plumbToRightSill,
-      totalFrameWidth,
-      totalFrameHeight,
-      isOutOfSquare,
-      squarenessVariance,
-      measuredBy,
+    // Insert measurement - use explicit type to satisfy drizzle-orm
+    const measurementData: NewMeasurement = {
+      jobName: jobName as string,
+      frameNumber: frameNumber as string,
+      numberOfLites: numberOfLites as number,
+      glassBiteTop: glassBiteTop as string,
+      glassBiteBottom: glassBiteBottom as string,
+      glassBiteLeft: glassBiteLeft as string,
+      glassBiteRight: glassBiteRight as string,
+      glassType: glassType as string,
+      glassThickness: glassThickness as string,
+      mullionWidth: mullionWidth as string | null,
+      frameNotes: frameNotes as string | null,
+      photoUrl: photoUrl as string | null,
+      photoCaption: photoCaption as string | null,
+      levelToHeadLeft: levelToHeadLeft as string,
+      levelToHeadRight: levelToHeadRight as string,
+      levelToSillLeft: levelToSillLeft as string,
+      levelToSillRight: levelToSillRight as string,
+      plumbToLeftHead: plumbToLeftHead as string,
+      plumbToRightHead: plumbToRightHead as string,
+      plumbToLeftSill: plumbToLeftSill as string,
+      plumbToRightSill: plumbToRightSill as string,
+      totalFrameWidth: totalFrameWidth.toString(),
+      totalFrameHeight: totalFrameHeight.toString(),
+      isOutOfSquare: isOutOfSquare,
+      squarenessVariance: squarenessVariance.toString(),
+      measuredBy: measuredBy as string,
       measuredAt: new Date(measuredAt),
-      notes,
-    }).returning();
+      notes: notes as string | null,
+    };
+
+    const [newMeasurement] = await db.insert(measurements).values(measurementData).returning();
 
     // Calculate glass sizes and insert lites
     const glassBiteTotal = parseFloat(glassBiteLeft) + parseFloat(glassBiteRight);
@@ -101,13 +103,13 @@ export async function POST(request: NextRequest) {
       await db.insert(glassLites).values({
         measurementId: newMeasurement.id,
         liteNumber: 1,
-        width: liteWidth,
-        height: liteHeight,
-        widthDecimal: liteWidth,
-        heightDecimal: liteHeight,
-        glassType,
-        glassThickness,
-        liteNotes: frameNotes,
+        width: liteWidth.toString(),
+        height: liteHeight.toString(),
+        widthDecimal: liteWidth.toString(),
+        heightDecimal: liteHeight.toString(),
+        glassType: glassType as string,
+        glassThickness: glassThickness as string,
+        liteNotes: frameNotes as string | null,
       });
     } else {
       // Multiple lites with mullions
@@ -116,18 +118,18 @@ export async function POST(request: NextRequest) {
       liteWidth = availableWidth / numberOfLites;
       liteHeight = totalFrameHeight - (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
 
-      const litesToInsert = [];
+      const litesToInsert: NewGlassLite[] = [];
       for (let i = 0; i < numberOfLites; i++) {
         litesToInsert.push({
           measurementId: newMeasurement.id,
           liteNumber: i + 1,
-          width: liteWidth,
-          height: liteHeight,
-          widthDecimal: liteWidth,
-          heightDecimal: liteHeight,
-          glassType,
-          glassThickness,
-          liteNotes: frameNotes,
+          width: liteWidth.toString(),
+          height: liteHeight.toString(),
+          widthDecimal: liteWidth.toString(),
+          heightDecimal: liteHeight.toString(),
+          glassType: glassType as string,
+          glassThickness: glassThickness as string,
+          liteNotes: frameNotes as string | null,
         });
       }
 
