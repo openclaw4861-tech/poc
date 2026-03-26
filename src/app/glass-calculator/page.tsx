@@ -36,7 +36,10 @@ export default function GlassCalculator() {
   const [jobName, setJobName] = useState('');
   const [frameNumber, setFrameNumber] = useState('');
   const [numberOfLites, setNumberOfLites] = useState(1);
-  const [glassBite, setGlassBite] = useState(0.375);
+  const [glassBiteTop, setGlassBiteTop] = useState(0.375);
+  const [glassBiteBottom, setGlassBiteBottom] = useState(0.375);
+  const [glassBiteLeft, setGlassBiteLeft] = useState(0.375);
+  const [glassBiteRight, setGlassBiteRight] = useState(0.375);
   const [glassType, setGlassType] = useState('Annealed');
   const [glassThickness, setGlassThickness] = useState('1/4"');
   const [mullionWidth, setMullionWidth] = useState(0.25);
@@ -117,11 +120,22 @@ export default function GlassCalculator() {
     setResult(null);
     setSaved(false);
 
-    // Validate inputs
-    const requiredFields = [
-      { name: 'Job Name', value: jobName },
-      { name: 'Frame Number', value: frameNumber },
-      { name: 'Measured By', value: measuredBy },
+    // Validate text fields (not numbers)
+    if (!jobName || jobName.trim() === '') {
+      setError('Please enter Job Name');
+      return;
+    }
+    if (!frameNumber || frameNumber.trim() === '') {
+      setError('Please enter Frame Number');
+      return;
+    }
+    if (!measuredBy || measuredBy.trim() === '') {
+      setError('Please enter Measured By');
+      return;
+    }
+
+    // Validate numeric fields (level/plumb measurements only)
+    const numericFields = [
       { name: 'Level to Head (Left)', value: levelToHeadLeft },
       { name: 'Level to Head (Right)', value: levelToHeadRight },
       { name: 'Level to Sill (Left)', value: levelToSillLeft },
@@ -132,7 +146,7 @@ export default function GlassCalculator() {
       { name: 'Plumb to Right (Sill)', value: plumbToRightSill },
     ];
 
-    for (const field of requiredFields) {
+    for (const field of numericFields) {
       if (!field.value || field.value.trim() === '') {
         setError(`Please enter ${field.name}`);
         return;
@@ -182,13 +196,13 @@ export default function GlassCalculator() {
       measurements.plumbToLeftSill + measurements.plumbToRightSill
     ) / 2;
 
-    // Calculate glass dimensions
+    // Calculate glass dimensions with individual glass bites per side
     const lites: GlassLite[] = [];
-    const glassBiteTotal = glassBite * 2;
     
     if (numberOfLites === 1) {
-      const liteWidth = totalFrameWidth - glassBiteTotal;
-      const liteHeight = totalFrameHeight - glassBiteTotal;
+      // Single lite - subtract glass bite from each side
+      const liteWidth = totalFrameWidth - glassBiteLeft - glassBiteRight;
+      const liteHeight = totalFrameHeight - glassBiteTop - glassBiteBottom;
       
       lites.push({
         liteNumber: 1,
@@ -201,10 +215,13 @@ export default function GlassCalculator() {
         liteNotes: frameNotes,
       });
     } else {
+      // Multiple lites with mullions/joints between them
       const totalMullionWidth = (numberOfLites - 1) * mullionWidth;
-      const availableWidth = totalFrameWidth - glassBiteTotal - totalMullionWidth;
+      // Available width = total width - left bite - right bite - all mullions
+      const availableWidth = totalFrameWidth - glassBiteLeft - glassBiteRight - totalMullionWidth;
       const liteWidth = availableWidth / numberOfLites;
-      const liteHeight = totalFrameHeight - glassBiteTotal;
+      // Height uses top and bottom bites only
+      const liteHeight = totalFrameHeight - glassBiteTop - glassBiteBottom;
 
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
@@ -249,10 +266,10 @@ export default function GlassCalculator() {
         jobName: result.jobName,
         frameNumber: result.frameNumber,
         numberOfLites: result.numberOfLites,
-        glassBiteTop: glassBite,
-        glassBiteBottom: glassBite,
-        glassBiteLeft: glassBite,
-        glassBiteRight: glassBite,
+        glassBiteTop: glassBiteTop,
+        glassBiteBottom: glassBiteBottom,
+        glassBiteLeft: glassBiteLeft,
+        glassBiteRight: glassBiteRight,
         glassType: result.glassType,
         glassThickness: result.glassThickness,
         mullionWidth,
@@ -509,13 +526,52 @@ export default function GlassCalculator() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Glass Bite (inches)
+              Glass Bite - Top (inches)
             </label>
             <input
               type="number"
               step="0.0625"
-              value={glassBite}
-              onChange={(e) => setGlassBite(parseFloat(e.target.value))}
+              value={glassBiteTop}
+              onChange={(e) => setGlassBiteTop(parseFloat(e.target.value))}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Glass Bite - Bottom (inches)
+            </label>
+            <input
+              type="number"
+              step="0.0625"
+              value={glassBiteBottom}
+              onChange={(e) => setGlassBiteBottom(parseFloat(e.target.value))}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Glass Bite - Left (inches)
+            </label>
+            <input
+              type="number"
+              step="0.0625"
+              value={glassBiteLeft}
+              onChange={(e) => setGlassBiteLeft(parseFloat(e.target.value))}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Glass Bite - Right (inches)
+            </label>
+            <input
+              type="number"
+              step="0.0625"
+              value={glassBiteRight}
+              onChange={(e) => setGlassBiteRight(parseFloat(e.target.value))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
             />
           </div>
