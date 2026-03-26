@@ -32,6 +32,15 @@ interface Measurement {
   glassBiteBottom?: string;
   glassBiteLeft?: string;
   glassBiteRight?: string;
+  mullionWidth?: string;
+  levelToHeadLeft?: string;
+  levelToHeadRight?: string;
+  levelToSillLeft?: string;
+  levelToSillRight?: string;
+  plumbToLeftHead?: string;
+  plumbToRightHead?: string;
+  plumbToLeftSill?: string;
+  plumbToRightSill?: string;
   glassLites: GlassLite[];
 }
 
@@ -204,12 +213,18 @@ export default function GlassCalculator() {
     ) / 2;
 
     // Calculate glass dimensions with individual glass bites per side
+    // Ensure glass bites are numbers (not strings) to avoid concatenation
     const lites: GlassLite[] = [];
+    const biteTop = Number(glassBiteTop);
+    const biteBottom = Number(glassBiteBottom);
+    const biteLeft = Number(glassBiteLeft);
+    const biteRight = Number(glassBiteRight);
+    const mullion = Number(mullionWidth);
     
     if (numberOfLites === 1) {
       // Single lite - ADD glass bite to each side (glass goes into the pocket)
-      const liteWidth = totalFrameWidth + glassBiteLeft + glassBiteRight;
-      const liteHeight = totalFrameHeight + glassBiteTop + glassBiteBottom;
+      const liteWidth = totalFrameWidth + biteLeft + biteRight;
+      const liteHeight = totalFrameHeight + biteTop + biteBottom;
       
       lites.push({
         liteNumber: 1,
@@ -224,12 +239,12 @@ export default function GlassCalculator() {
     } else {
       // Multiple lites with mullions/joints between them
       const numberOfJoints = numberOfLites - 1;
-      const totalMullionWidth = numberOfJoints * mullionWidth;
+      const totalMullionWidth = numberOfJoints * mullion;
       // Available width = frame width + left bite + right bite - all mullions
-      const availableWidth = totalFrameWidth + glassBiteLeft + glassBiteRight - totalMullionWidth;
+      const availableWidth = totalFrameWidth + biteLeft + biteRight - totalMullionWidth;
       const liteWidth = availableWidth / numberOfLites;
       // Height uses top and bottom bites (added)
-      const liteHeight = totalFrameHeight + glassBiteTop + glassBiteBottom;
+      const liteHeight = totalFrameHeight + biteTop + biteBottom;
 
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
@@ -369,19 +384,22 @@ export default function GlassCalculator() {
     setMeasuredBy(measurement.measuredBy);
     setFrameNotes(measurement.frameNotes || '');
     
-    // Note: glass bites are not stored in the measurement object returned from API
-    // They're in the database but we'd need to fetch them separately
-    // For now, keep current values or use defaults
+    // Load glass bites (parse from strings to numbers)
+    setGlassBiteTop(parseFloat(measurement.glassBiteTop || '0.375'));
+    setGlassBiteBottom(parseFloat(measurement.glassBiteBottom || '0.375'));
+    setGlassBiteLeft(parseFloat(measurement.glassBiteLeft || '0.375'));
+    setGlassBiteRight(parseFloat(measurement.glassBiteRight || '0.375'));
+    setMullionWidth(parseFloat(measurement.mullionWidth || '0.25'));
     
-    // Clear level/plumb measurements - user needs to re-enter or we'd need to store them
-    setLevelToHeadLeft('');
-    setLevelToHeadRight('');
-    setLevelToSillLeft('');
-    setLevelToSillRight('');
-    setPlumbToLeftHead('');
-    setPlumbToRightHead('');
-    setPlumbToLeftSill('');
-    setPlumbToRightSill('');
+    // Load level/plumb measurements
+    setLevelToHeadLeft(measurement.levelToHeadLeft || '');
+    setLevelToHeadRight(measurement.levelToHeadRight || '');
+    setLevelToSillLeft(measurement.levelToSillLeft || '');
+    setLevelToSillRight(measurement.levelToSillRight || '');
+    setPlumbToLeftHead(measurement.plumbToLeftHead || '');
+    setPlumbToRightHead(measurement.plumbToRightHead || '');
+    setPlumbToLeftSill(measurement.plumbToLeftSill || '');
+    setPlumbToRightSill(measurement.plumbToRightSill || '');
     
     // Clear previous result
     setResult(null);
