@@ -200,9 +200,9 @@ export default function GlassCalculator() {
     const lites: GlassLite[] = [];
     
     if (numberOfLites === 1) {
-      // Single lite - subtract glass bite from each side
-      const liteWidth = totalFrameWidth - glassBiteLeft - glassBiteRight;
-      const liteHeight = totalFrameHeight - glassBiteTop - glassBiteBottom;
+      // Single lite - ADD glass bite to each side (glass goes into the pocket)
+      const liteWidth = totalFrameWidth + glassBiteLeft + glassBiteRight;
+      const liteHeight = totalFrameHeight + glassBiteTop + glassBiteBottom;
       
       lites.push({
         liteNumber: 1,
@@ -216,12 +216,13 @@ export default function GlassCalculator() {
       });
     } else {
       // Multiple lites with mullions/joints between them
-      const totalMullionWidth = (numberOfLites - 1) * mullionWidth;
-      // Available width = total width - left bite - right bite - all mullions
-      const availableWidth = totalFrameWidth - glassBiteLeft - glassBiteRight - totalMullionWidth;
+      const numberOfJoints = numberOfLites - 1;
+      const totalMullionWidth = numberOfJoints * mullionWidth;
+      // Available width = frame width + left bite + right bite - all mullions
+      const availableWidth = totalFrameWidth + glassBiteLeft + glassBiteRight - totalMullionWidth;
       const liteWidth = availableWidth / numberOfLites;
-      // Height uses top and bottom bites only
-      const liteHeight = totalFrameHeight - glassBiteTop - glassBiteBottom;
+      // Height uses top and bottom bites (added)
+      const liteHeight = totalFrameHeight + glassBiteTop + glassBiteBottom;
 
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
