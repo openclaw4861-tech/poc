@@ -28,6 +28,10 @@ interface Measurement {
   measuredAt: string;
   frameNotes?: string;
   photoUrl?: string;
+  glassBiteTop?: string;
+  glassBiteBottom?: string;
+  glassBiteLeft?: string;
+  glassBiteRight?: string;
   glassLites: GlassLite[];
 }
 
@@ -72,6 +76,9 @@ export default function GlassCalculator() {
   const [savedMeasurements, setSavedMeasurements] = useState<Measurement[]>([]);
   const [selectedJob, setSelectedJob] = useState<string>('');
   const [jobs, setJobs] = useState<string[]>([]);
+
+  // Edit mode
+  const [editingId, setEditingId] = useState<number | null>(null);
 
   // Load jobs on mount
   useEffect(() => {
@@ -290,8 +297,11 @@ export default function GlassCalculator() {
         notes: frameNotes,
       };
 
-      const res = await fetch('/api/measurements', {
-        method: 'POST',
+      const url = editingId ? `/api/measurements/${editingId}` : '/api/measurements';
+      const method = editingId ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
@@ -302,6 +312,13 @@ export default function GlassCalculator() {
         setResult(data.data);
         setSaved(true);
         fetchJobs(); // Refresh job list
+        fetchMeasurementsByJob(result.jobName); // Refresh saved frames
+        
+        // Auto-apply defaults for next entry
+        if (!editingId) {
+          applyDefaultsFromLast();
+        }
+        setEditingId(null);
       } else {
         setError(data.error || 'Failed to save measurement');
       }
@@ -311,6 +328,87 @@ export default function GlassCalculator() {
     } finally {
       setSaving(false);
     }
+  };
+
+  // Auto-fill defaults from last saved measurement
+  const applyDefaultsFromLast = () => {
+    if (savedMeasurements.length === 0) return;
+    
+    const lastMeasurement = savedMeasurements[0]; // Most recent
+    
+    // Auto-fill job name, measured by, glass specs, bites, and notes
+    setJobName(lastMeasurement.jobName);
+    setMeasuredBy(lastMeasurement.measuredBy);
+    setGlassType(lastMeasurement.glassType);
+    setGlassThickness(lastMeasurement.glassThickness);
+    setGlassBiteTop(parseFloat(lastMeasurement.glassBiteTop || '0.375'));
+    setGlassBiteBottom(parseFloat(lastMeasurement.glassBiteBottom || '0.375'));
+    setGlassBiteLeft(parseFloat(lastMeasurement.glassBiteLeft || '0.375'));
+    setGlassBiteRight(parseFloat(lastMeasurement.glassBiteRight || '0.375'));
+    setFrameNotes(lastMeasurement.frameNotes || '');
+    
+    // Auto-increment frame number if it has a number at the end
+    const match = lastMeasurement.frameNumber.match(/^(.*?)(\d+)$/);
+    if (match) {
+      const prefix = match[1];
+      const num = parseInt(match[2]);
+      setFrameNumber(`${prefix}${num + 1}`);
+    }
+  };
+
+  // Edit existing measurement
+  const editMeasurement = (measurement: Measurement) => {
+    setEditingId(measurement.id);
+    
+    // Load all values from the measurement
+    setJobName(measurement.jobName);
+    setFrameNumber(measurement.frameNumber);
+    setNumberOfLites(measurement.numberOfLites);
+    setGlassType(measurement.glassType);
+    setGlassThickness(measurement.glassThickness);
+    setMeasuredBy(measurement.measuredBy);
+    setFrameNotes(measurement.frameNotes || '');
+    
+    // Note: glass bites are not stored in the measurement object returned from API
+    // They're in the database but we'd need to fetch them separately
+    // For now, keep current values or use defaults
+    
+    // Clear level/plumb measurements - user needs to re-enter or we'd need to store them
+    setLevelToHeadLeft('');
+    setLevelToHeadRight('');
+    setLevelToSillLeft('');
+    setLevelToSillRight('');
+    setPlumbToLeftHead('');
+    setPlumbToRightHead('');
+    setPlumbToLeftSill('');
+    setPlumbToRightSill('');
+    
+    // Clear previous result
+    setResult(null);
+    setError(null);
+    setSaved(false);
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Clear form but keep defaults
+  const clearForm = () => {
+    // Keep: jobName, measuredBy, glassType, glassThickness, glassBites, frameNotes
+    // Clear: frameNumber, level/plumb measurements, result
+    setFrameNumber('');
+    setLevelToHeadLeft('');
+    setLevelToHeadRight('');
+    setLevelToSillLeft('');
+    setLevelToSillRight('');
+    setPlumbToLeftHead('');
+    setPlumbToRightHead('');
+    setPlumbToLeftSill('');
+    setPlumbToRightSill('');
+    setResult(null);
+    setError(null);
+    setSaved(false);
+    setEditingId(null);
   };
 
   const formatDimension = (inches: number) => {
@@ -403,7 +501,7 @@ export default function GlassCalculator() {
                 onClick={() => setResult(measurement)}
               >
                 <div className="flex justify-between items-center">
-                  <div>
+                  <div className="flex-1">
                     <p className="font-semibold text-gray-900">
                       Frame {measurement.frameNumber}
                     </p>
@@ -414,15 +512,24 @@ export default function GlassCalculator() {
                       Measured by {measurement.measuredBy} on {new Date(measurement.measuredAt).toLocaleDateString()}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-gray-900">
-                      {formatDimension(parseFloat(measurement.totalFrameWidth))}" × {formatDimension(parseFloat(measurement.totalFrameHeight))}"
-                    </p>
-                    {measurement.isOutOfSquare && (
-                      <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded mt-1">
-                        ⚠️ Out of square
-                      </span>
-                    )}
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={() => editMeasurement(measurement)}
+                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                      title="Edit this frame"
+                    >
+                      ✏️
+                    </button>
+                    <div className="text-right">
+                      <p className="text-lg font-bold text-gray-900">
+                        {formatDimension(parseFloat(measurement.totalFrameWidth))}" × {formatDimension(parseFloat(measurement.totalFrameHeight))}"
+                      </p>
+                      {measurement.isOutOfSquare && (
+                        <span className="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded mt-1">
+                          ⚠️ Out of square
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -749,13 +856,27 @@ export default function GlassCalculator() {
         </div>
       </div>
 
-      {/* Calculate Button */}
-      <button
-        onClick={calculateGlassSizes}
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors mb-6"
-      >
-        🔧 Calculate Glass Sizes
-      </button>
+      {/* Action Buttons */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+        <button
+          onClick={calculateGlassSizes}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+        >
+          🔧 Calculate Glass Sizes
+        </button>
+        <button
+          onClick={clearForm}
+          className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+        >
+          🔄 Clear Form
+        </button>
+        <button
+          onClick={applyDefaultsFromLast}
+          className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+        >
+          📋 Use Last Defaults
+        </button>
+      </div>
 
       {/* Error Display */}
       {error && (
@@ -843,21 +964,39 @@ export default function GlassCalculator() {
             </div>
           )}
 
-          {/* Save Button */}
+          {/* Save/Update Button */}
           {!saved ? (
-            <button
-              onClick={saveMeasurement}
-              disabled={saving}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
-            >
-              {saving ? '💾 Saving...' : '💾 Save to Database'}
-            </button>
+            <div className="space-y-3">
+              <button
+                onClick={saveMeasurement}
+                disabled={saving}
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
+              >
+                {editingId ? '✏️ Update Measurement' : '💾 Save to Database'}
+              </button>
+              {editingId && (
+                <button
+                  onClick={clearForm}
+                  className="w-full bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  ❌ Cancel Edit
+                </button>
+              )}
+            </div>
           ) : (
             <div className="bg-green-100 border border-green-300 rounded-lg p-4 text-center">
-              <p className="text-green-800 font-semibold">✅ Saved to database!</p>
+              <p className="text-green-800 font-semibold">
+                ✅ {editingId ? 'Updated' : 'Saved'} to database!
+              </p>
               <p className="text-sm text-green-700 mt-1">
                 Measurement ID: {result.id} | View in "Saved Measurements" above
               </p>
+              <button
+                onClick={clearForm}
+                className="mt-3 text-green-700 hover:text-green-900 underline text-sm font-medium"
+              >
+                ➕ Enter Another Frame
+              </button>
             </div>
           )}
         </div>
