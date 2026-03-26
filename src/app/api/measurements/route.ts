@@ -139,14 +139,15 @@ export async function POST(request: NextRequest) {
     const [newMeasurement] = await db.insert(measurements).values(measurementData).returning();
 
     // Calculate glass sizes and insert lites
+    // Glass bite is ADDED to daylight opening (glass goes into the pocket)
     const glassBiteTotal = parseFloat(glassBiteLeft) + parseFloat(glassBiteRight);
     let liteWidth: number;
     let liteHeight: number;
 
     if (numberOfLites === 1) {
-      // Single lite
-      liteWidth = totalFrameWidth - glassBiteTotal;
-      liteHeight = totalFrameHeight - (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
+      // Single lite - ADD glass bites
+      liteWidth = totalFrameWidth + glassBiteTotal;
+      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
       
       await db.insert(glassLites).values({
         measurementId: newMeasurement.id,
@@ -160,11 +161,11 @@ export async function POST(request: NextRequest) {
         liteNotes: frameNotes as string | null,
       });
     } else {
-      // Multiple lites with mullions
+      // Multiple lites with mullions - ADD glass bites, subtract mullions
       const totalMullionWidth = (numberOfLites - 1) * parseFloat(mullionWidth || '0.25');
-      const availableWidth = totalFrameWidth - glassBiteTotal - totalMullionWidth;
+      const availableWidth = totalFrameWidth + glassBiteTotal - totalMullionWidth;
       liteWidth = availableWidth / numberOfLites;
-      liteHeight = totalFrameHeight - (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
+      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
 
       const litesToInsert: NewGlassLite[] = [];
       for (let i = 0; i < numberOfLites; i++) {
@@ -316,6 +317,7 @@ export async function PUT(request: NextRequest) {
     await db.delete(glassLites).where(eq(glassLites.measurementId, parseInt(id)));
 
     // Calculate and insert new lites
+    // Glass bite is ADDED to daylight opening (glass goes into the pocket)
     const glassBiteTotal = parseFloat(glassBiteLeft) + parseFloat(glassBiteRight);
     let liteWidth: number;
     let liteHeight: number;
