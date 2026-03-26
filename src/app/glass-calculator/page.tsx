@@ -385,11 +385,20 @@ export default function GlassCalculator() {
     setFrameNotes(measurement.frameNotes || '');
     
     // Load glass bites (parse from strings to numbers)
-    setGlassBiteTop(parseFloat(measurement.glassBiteTop || '0.375'));
-    setGlassBiteBottom(parseFloat(measurement.glassBiteBottom || '0.375'));
-    setGlassBiteLeft(parseFloat(measurement.glassBiteLeft || '0.375'));
-    setGlassBiteRight(parseFloat(measurement.glassBiteRight || '0.375'));
-    setMullionWidth(parseFloat(measurement.mullionWidth || '0.25'));
+    // Handle cases where value might be stored without leading zero (e.g., ".1875" vs "0.1875")
+    const parseBite = (value: string | undefined, defaultValue: number) => {
+      if (!value) return defaultValue;
+      const parsed = parseFloat(value);
+      // If parsed value is > 1, it was likely stored without the decimal (e.g., "1875" instead of "0.1875")
+      // This shouldn't happen, but handle it just in case
+      return isNaN(parsed) ? defaultValue : parsed;
+    };
+    
+    setGlassBiteTop(parseBite(measurement.glassBiteTop, 0.375));
+    setGlassBiteBottom(parseBite(measurement.glassBiteBottom, 0.375));
+    setGlassBiteLeft(parseBite(measurement.glassBiteLeft, 0.375));
+    setGlassBiteRight(parseBite(measurement.glassBiteRight, 0.375));
+    setMullionWidth(parseBite(measurement.mullionWidth, 0.25));
     
     // Load level/plumb measurements
     setLevelToHeadLeft(measurement.levelToHeadLeft || '');
@@ -656,10 +665,14 @@ export default function GlassCalculator() {
             </label>
             <input
               type="number"
-              step="0.0625"
+              step="0.0001"
               value={glassBiteTop}
-              onChange={(e) => setGlassBiteTop(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const val = e.target.value;
+                setGlassBiteTop(val === '' ? 0 : parseFloat(val));
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="0.375"
             />
           </div>
 
@@ -669,10 +682,14 @@ export default function GlassCalculator() {
             </label>
             <input
               type="number"
-              step="0.0625"
+              step="0.0001"
               value={glassBiteBottom}
-              onChange={(e) => setGlassBiteBottom(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const val = e.target.value;
+                setGlassBiteBottom(val === '' ? 0 : parseFloat(val));
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="0.375"
             />
           </div>
 
@@ -682,10 +699,14 @@ export default function GlassCalculator() {
             </label>
             <input
               type="number"
-              step="0.0625"
+              step="0.0001"
               value={glassBiteLeft}
-              onChange={(e) => setGlassBiteLeft(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const val = e.target.value;
+                setGlassBiteLeft(val === '' ? 0 : parseFloat(val));
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="0.375"
             />
           </div>
 
@@ -695,10 +716,14 @@ export default function GlassCalculator() {
             </label>
             <input
               type="number"
-              step="0.0625"
+              step="0.0001"
               value={glassBiteRight}
-              onChange={(e) => setGlassBiteRight(parseFloat(e.target.value))}
+              onChange={(e) => {
+                const val = e.target.value;
+                setGlassBiteRight(val === '' ? 0 : parseFloat(val));
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="0.375"
             />
           </div>
         </div>
