@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 
 interface GlassLite {
   liteNumber: number;
-  width: number;
-  height: number;
-  widthDecimal: number;
-  heightDecimal: number;
+  width: string;
+  height: string;
+  widthDecimal: string;
+  heightDecimal: string;
   glassType?: string;
   glassThickness?: string;
   liteNotes?: string;
@@ -206,10 +206,10 @@ export default function GlassCalculator() {
       
       lites.push({
         liteNumber: 1,
-        width: liteWidth,
-        height: liteHeight,
-        widthDecimal: liteWidth,
-        heightDecimal: liteHeight,
+        width: liteWidth.toString(),
+        height: liteHeight.toString(),
+        widthDecimal: liteWidth.toString(),
+        heightDecimal: liteHeight.toString(),
         glassType,
         glassThickness,
         liteNotes: frameNotes,
@@ -226,10 +226,10 @@ export default function GlassCalculator() {
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
           liteNumber: i + 1,
-          width: liteWidth,
-          height: liteHeight,
-          widthDecimal: liteWidth,
-          heightDecimal: liteHeight,
+          width: liteWidth.toString(),
+          height: liteHeight.toString(),
+          widthDecimal: liteWidth.toString(),
+          heightDecimal: liteHeight.toString(),
           glassType,
           glassThickness,
           liteNotes: frameNotes,
@@ -812,11 +812,11 @@ export default function GlassCalculator() {
                   {result.glassLites.map((lite) => (
                     <tr key={lite.liteNumber} className="border-b border-gray-100">
                       <td className="py-3 px-3 text-gray-900 font-medium">{lite.liteNumber}</td>
-                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(lite.width)}</td>
-                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(lite.height)}</td>
+                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(parseFloat(lite.width))}</td>
+                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(parseFloat(lite.height))}</td>
                       <td className="py-3 px-3 text-gray-600 text-sm">{lite.glassType}</td>
                       <td className="py-3 px-3 text-gray-600 text-sm">
-                        {lite.widthDecimal.toFixed(3)}" × {lite.heightDecimal.toFixed(3)}"
+                        {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"
                       </td>
                     </tr>
                   ))}

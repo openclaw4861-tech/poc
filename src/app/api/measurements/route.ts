@@ -2,6 +2,46 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { measurements, glassLites, type NewMeasurement, type NewGlassLite } from '@/db/schema';
 
+// GET - Fetch all measurements or filter by jobName
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const jobName = searchParams.get('jobName');
+
+    let result;
+    if (jobName) {
+      // Fetch measurements for a specific job
+      result = await db.query.measurements.findMany({
+        where: (m, { eq }) => eq(m.jobName, jobName),
+        with: {
+          glassLites: true,
+        },
+        orderBy: (m, { desc }) => desc(m.measuredAt),
+      });
+    } else {
+      // Fetch all measurements
+      result = await db.query.measurements.findMany({
+        with: {
+          glassLites: true,
+        },
+        orderBy: (m, { desc }) => desc(m.measuredAt),
+      });
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.error('Error fetching measurements:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to fetch measurements' },
+      { status: 500 }
+    );
+  }
+}
+
+// POST - Create a new measurement
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
