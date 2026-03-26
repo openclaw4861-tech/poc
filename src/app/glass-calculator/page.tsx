@@ -11,6 +11,13 @@ interface GlassLite {
   glassType?: string;
   glassThickness?: string;
   liteNotes?: string;
+  // For tapered glass
+  widthTop?: string;
+  widthBottom?: string;
+  heightLeft?: string;
+  heightRight?: string;
+  isTapered?: boolean;
+  squareCorners?: string; // "Top corners square", "Bottom corners square", etc.
 }
 
 interface Measurement {
@@ -53,6 +60,7 @@ export default function GlassCalculator() {
   const [glassBiteBottom, setGlassBiteBottom] = useState(0.375);
   const [glassBiteLeft, setGlassBiteLeft] = useState(0.375);
   const [glassBiteRight, setGlassBiteRight] = useState(0.375);
+  const [biteTolerance, setBiteTolerance] = useState(0.0625); // ±1/16" default
   const [glassType, setGlassType] = useState('Annealed');
   const [glassThickness, setGlassThickness] = useState('1/4"');
   const [mullionWidth, setMullionWidth] = useState(0.25);
@@ -770,6 +778,23 @@ export default function GlassCalculator() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               placeholder="0.375"
             />
+          </div>
+
+          <div className="border-t pt-4 mt-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              ⚙️ Bite Tolerance (± inches)
+            </label>
+            <input
+              type="number"
+              step="0.0625"
+              value={biteTolerance}
+              onChange={(e) => setBiteTolerance(parseFloat(e.target.value) || 0.0625)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              placeholder="0.0625"
+            />
+            <p className="text-xs text-gray-500 mt-1">
+              Glass bite can vary ±{biteTolerance.toFixed(4)}" from target before taper is needed
+            </p>
           </div>
         </div>
 
