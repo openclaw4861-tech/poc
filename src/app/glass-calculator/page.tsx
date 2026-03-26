@@ -198,7 +198,19 @@ export default function GlassCalculator() {
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
 
+    // Debug logging for out-of-square detection
     if (isOutOfSquare) {
+      console.log('Out of square debug:', {
+        levelToHeadLeft: measurements.levelToHeadLeft,
+        levelToSillLeft: measurements.levelToSillLeft,
+        levelToHeadRight: measurements.levelToHeadRight,
+        levelToSillRight: measurements.levelToSillRight,
+        leftHeight: measurements.levelToHeadLeft + measurements.levelToSillLeft,
+        rightHeight: measurements.levelToHeadRight + measurements.levelToSillRight,
+        heightDiff,
+        widthDiff,
+        squarenessVariance,
+      });
       notes.push(`⚠️ Frame is out-of-square by ${squarenessVariance.toFixed(3)}" - verify before fabrication`);
     }
 
