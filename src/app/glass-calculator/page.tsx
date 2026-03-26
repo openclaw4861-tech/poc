@@ -186,15 +186,16 @@ export default function GlassCalculator() {
     };
 
     // Check for squareness
+    // Height: compare LEFT side (head+sill) vs RIGHT side (head+sill)
+    // Width: compare HEAD (left+right) vs SILL (left+right)
     const notes: string[] = [];
-    const heightDiff = Math.abs(
-      (measurements.levelToHeadLeft + measurements.levelToSillLeft) -
-      (measurements.levelToHeadRight + measurements.levelToSillRight)
-    );
-    const widthDiff = Math.abs(
-      (measurements.plumbToLeftHead + measurements.plumbToLeftSill) -
-      (measurements.plumbToRightHead + measurements.plumbToRightSill)
-    );
+    const leftHeight = measurements.levelToHeadLeft + measurements.levelToSillLeft;
+    const rightHeight = measurements.levelToHeadRight + measurements.levelToSillRight;
+    const headWidth = measurements.plumbToLeftHead + measurements.plumbToRightHead;
+    const sillWidth = measurements.plumbToLeftSill + measurements.plumbToRightSill;
+    
+    const heightDiff = Math.abs(leftHeight - rightHeight);
+    const widthDiff = Math.abs(headWidth - sillWidth);
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
 
