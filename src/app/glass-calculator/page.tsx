@@ -261,6 +261,19 @@ export default function GlassCalculator() {
       // Height uses top and bottom bites (added)
       const liteHeight = totalFrameHeight + biteTop + biteBottom;
 
+      // Debug logging for multi-lite calculation
+      console.log('Multi-lite calculation:', {
+        totalFrameWidth,
+        biteLeft,
+        biteRight,
+        mullion,
+        numberOfLites,
+        numberOfJoints,
+        totalMullionWidth,
+        availableWidth,
+        liteWidth,
+      });
+
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
           liteNumber: i + 1,
