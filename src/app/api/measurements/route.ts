@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
     const measurementData: NewMeasurement = {
       jobName: jobName as string,
       frameNumber: frameNumber as string,
-      numberOfLites: numberOfLites as number,
+      numberOfLites: Number(numberOfLites) || 1,
       glassBiteTop: toDecimalString(glassBiteTop, 0.375),
       glassBiteBottom: toDecimalString(glassBiteBottom, 0.375),
       glassBiteLeft: toDecimalString(glassBiteLeft, 0.375),
@@ -282,7 +282,7 @@ export async function PUT(request: NextRequest) {
     const measurementData = {
       jobName: jobName as string,
       frameNumber: frameNumber as string,
-      numberOfLites: numberOfLites as number,
+      numberOfLites: Number(numberOfLites) || 1,
       glassBiteTop: toDecimalString(glassBiteTop, 0.375),
       glassBiteBottom: toDecimalString(glassBiteBottom, 0.375),
       glassBiteLeft: toDecimalString(glassBiteLeft, 0.375),

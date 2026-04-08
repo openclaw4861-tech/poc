@@ -719,7 +719,9 @@ export default function GlassCalculator() {
     // Load all values from the measurement
     setJobName(measurement.jobName);
     setFrameNumber(measurement.frameNumber);
-    setNumberOfLites(measurement.numberOfLites);
+    // Use actual glassLites count if available, otherwise use stored numberOfLites
+    const savedLitesCount = (measurement as any).glassLites?.length || measurement.numberOfLites;
+    setNumberOfLites(savedLitesCount);
     setGlassType(measurement.glassType);
     setGlassThickness(measurement.glassThickness);
     setMeasuredBy(measurement.measuredBy);
@@ -914,7 +916,7 @@ export default function GlassCalculator() {
                       Frame {measurement.frameNumber}
                     </p>
                     <p className="text-sm text-gray-600">
-                      {measurement.numberOfLites} lite{measurement.numberOfLites > 1 ? 's' : ''} | {measurement.glassType} | {measurement.glassThickness}
+                      {(measurement as any).glassLites?.length || measurement.numberOfLites} lite{((measurement as any).glassLites?.length || measurement.numberOfLites) > 1 ? 's' : ''} | {measurement.glassType} | {measurement.glassThickness}
                     </p>
                     <p className="text-xs text-gray-500 mt-1">
                       Measured by {measurement.measuredBy} on {new Date(measurement.measuredAt).toLocaleDateString()}
