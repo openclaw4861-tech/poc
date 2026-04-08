@@ -70,43 +70,18 @@ function FractionalInput({
   const [displayValue, setDisplayValue] = useState(String(value || ''));
 
   useEffect(() => {
-    setDisplayValue(String(value || ''));
+    // When value changes from parent (e.g., loading from DB), format it as fraction
+    if (value !== undefined && value !== null && value !== '') {
+      const num = typeof value === 'number' ? value : parseFloat(String(value));
+      if (!isNaN(num)) {
+        setDisplayValue(formatToFraction(num));
+      } else {
+        setDisplayValue(String(value));
+      }
+    } else {
+      setDisplayValue('');
+    }
   }, [value]);
-
-  const parseFraction = (input: string): number | null => {
-    if (!input || input.trim() === '') return null;
-    
-    const trimmed = input.trim();
-    
-    // Handle pure decimals (e.g., "5.25", "0.375")
-    if (/^\d+\.?\d*$/.test(trimmed)) {
-      return parseFloat(trimmed);
-    }
-
-    // Handle fractions with space: "5 1/4" or hyphen: "5-1/4"
-    const withSpaceOrHyphen = trimmed.match(/^(\d+)[\s\-]+(\d+)\/(\d+)$/);
-    if (withSpaceOrHyphen) {
-      const whole = parseInt(withSpaceOrHyphen[1]);
-      const numerator = parseInt(withSpaceOrHyphen[2]);
-      const denominator = parseInt(withSpaceOrHyphen[3]);
-      return whole + (numerator / denominator);
-    }
-    
-    // Handle pure fractions: "1/4", "3/8" (NO whole number)
-    const pureFraction = trimmed.match(/^(\d+)\/(\d+)$/);
-    if (pureFraction) {
-      const numerator = parseInt(pureFraction[1]);
-      const denominator = parseInt(pureFraction[2]);
-      return numerator / denominator;
-    }
-
-    // Handle whole numbers
-    if (/^\d+$/.test(trimmed)) {
-      return parseInt(trimmed);
-    }
-
-    return null;
-  };
 
   const formatToFraction = (decimal: number): string => {
     const fractions = [
@@ -149,6 +124,43 @@ function FractionalInput({
       return `${whole} ${closest.fraction}`;
     }
   };
+
+  const parseFraction = (input: string): number | null => {
+    if (!input || input.trim() === '') return null;
+    
+    const trimmed = input.trim();
+    
+    // Handle pure decimals (e.g., "5.25", "0.375")
+    if (/^\d+\.?\d*$/.test(trimmed)) {
+      return parseFloat(trimmed);
+    }
+
+    // Handle fractions with space: "5 1/4" or hyphen: "5-1/4"
+    const withSpaceOrHyphen = trimmed.match(/^(\d+)[\s\-]+(\d+)\/(\d+)$/);
+    if (withSpaceOrHyphen) {
+      const whole = parseInt(withSpaceOrHyphen[1]);
+      const numerator = parseInt(withSpaceOrHyphen[2]);
+      const denominator = parseInt(withSpaceOrHyphen[3]);
+      return whole + (numerator / denominator);
+    }
+    
+    // Handle pure fractions: "1/4", "3/8" (NO whole number)
+    const pureFraction = trimmed.match(/^(\d+)\/(\d+)$/);
+    if (pureFraction) {
+      const numerator = parseInt(pureFraction[1]);
+      const denominator = parseInt(pureFraction[2]);
+      return numerator / denominator;
+    }
+
+    // Handle whole numbers
+    if (/^\d+$/.test(trimmed)) {
+      return parseInt(trimmed);
+    }
+
+    return null;
+  };
+
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
