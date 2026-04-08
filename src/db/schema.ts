@@ -37,6 +37,40 @@ export const measurements = pgTable('measurements', {
   plumbToLeftSill: decimal('plumb_to_left_sill', { precision: 8, scale: 4 }).notNull(),
   plumbToRightSill: decimal('plumb_to_right_sill', { precision: 8, scale: 4 }).notNull(),
   
+  // Joint height measurements (when numberOfLites > 1)
+  // Each joint: 2 measurements at that boundary (up to head, down to sill from level line)
+  levelToHeadJoint1: decimal('level_to_head_joint_1', { precision: 8, scale: 4 }),
+  levelToSillJoint1: decimal('level_to_sill_joint_1', { precision: 8, scale: 4 }),
+  levelToHeadJoint2: decimal('level_to_head_joint_2', { precision: 8, scale: 4 }),
+  levelToSillJoint2: decimal('level_to_sill_joint_2', { precision: 8, scale: 4 }),
+  levelToHeadJoint3: decimal('level_to_head_joint_3', { precision: 8, scale: 4 }),
+  levelToSillJoint3: decimal('level_to_sill_joint_3', { precision: 8, scale: 4 }),
+  levelToHeadJoint4: decimal('level_to_head_joint_4', { precision: 8, scale: 4 }),
+  levelToSillJoint4: decimal('level_to_sill_joint_4', { precision: 8, scale: 4 }),
+  levelToHeadJoint5: decimal('level_to_head_joint_5', { precision: 8, scale: 4 }),
+  levelToSillJoint5: decimal('level_to_sill_joint_5', { precision: 8, scale: 4 }),
+  levelToHeadJoint6: decimal('level_to_head_joint_6', { precision: 8, scale: 4 }),
+  levelToSillJoint6: decimal('level_to_sill_joint_6', { precision: 8, scale: 4 }),
+  levelToHeadJoint7: decimal('level_to_head_joint_7', { precision: 8, scale: 4 }),
+  levelToSillJoint7: decimal('level_to_sill_joint_7', { precision: 8, scale: 4 }),
+  levelToHeadJoint8: decimal('level_to_head_joint_8', { precision: 8, scale: 4 }),
+  levelToSillJoint8: decimal('level_to_sill_joint_8', { precision: 8, scale: 4 }),
+  levelToHeadJoint9: decimal('level_to_head_joint_9', { precision: 8, scale: 4 }),
+  levelToSillJoint9: decimal('level_to_sill_joint_9', { precision: 8, scale: 4 }),
+  levelToHeadJoint10: decimal('level_to_head_joint_10', { precision: 8, scale: 4 }),
+  levelToSillJoint10: decimal('level_to_sill_joint_10', { precision: 8, scale: 4 }),
+  levelToHeadJoint11: decimal('level_to_head_joint_11', { precision: 8, scale: 4 }),
+  levelToSillJoint11: decimal('level_to_sill_joint_11', { precision: 8, scale: 4 }),
+  levelToHeadJoint12: decimal('level_to_head_joint_12', { precision: 8, scale: 4 }),
+  levelToSillJoint12: decimal('level_to_sill_joint_12', { precision: 8, scale: 4 }),
+  levelToHeadJoint13: decimal('level_to_head_joint_13', { precision: 8, scale: 4 }),
+  levelToSillJoint13: decimal('level_to_sill_joint_13', { precision: 8, scale: 4 }),
+  levelToHeadJoint14: decimal('level_to_head_joint_14', { precision: 8, scale: 4 }),
+  levelToSillJoint14: decimal('level_to_sill_joint_14', { precision: 8, scale: 4 }),
+  levelToHeadJoint15: decimal('level_to_head_joint_15', { precision: 8, scale: 4 }),
+  levelToSillJoint15: decimal('level_to_sill_joint_15', { precision: 8, scale: 4 }),
+
+  
   // Calculated dimensions
   totalFrameWidth: decimal('total_frame_width', { precision: 8, scale: 4 }).notNull(),
   totalFrameHeight: decimal('total_frame_height', { precision: 8, scale: 4 }).notNull(),
@@ -65,6 +99,23 @@ export const glassLites = pgTable('glass_lites', {
   height: decimal('height', { precision: 8, scale: 4 }).notNull(),
   widthDecimal: decimal('width_decimal', { precision: 10, scale: 6 }).notNull(),
   heightDecimal: decimal('height_decimal', { precision: 10, scale: 6 }).notNull(),
+  
+  // Per-boundary height measurements for this lite
+  // Left boundary (head/sill = up/down from level line)
+  leftHead: decimal('left_head', { precision: 8, scale: 4 }),
+  leftSill: decimal('left_sill', { precision: 8, scale: 4 }),
+  // Right boundary (head/sill = up/down from level line)
+  rightHead: decimal('right_head', { precision: 8, scale: 4 }),
+  rightSill: decimal('right_sill', { precision: 8, scale: 4 }),
+  
+  // Square status for this lite
+  topSquare: boolean('top_square').notNull().default(true),
+  bottomSquare: boolean('bottom_square').notNull().default(true),
+  // Which corners are square (e.g. "Top corners square" or "Bottom corners square")
+  squareCornersNote: varchar('square_corners_note', { length: 100 }),
+  
+  // Lite shape
+  liteShape: varchar('lite_shape', { length: 30 }).notNull().default('rectangular'),
   
   // Glass properties (inherited from frame, but can override per lite)
   glassType: varchar('glass_type', { length: 50 }),

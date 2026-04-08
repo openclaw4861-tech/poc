@@ -69,6 +69,21 @@ export async function POST(request: NextRequest) {
       plumbToRightHead,
       plumbToLeftSill,
       plumbToRightSill,
+      levelToHeadJoint1, levelToSillJoint1,
+      levelToHeadJoint2, levelToSillJoint2,
+      levelToHeadJoint3, levelToSillJoint3,
+      levelToHeadJoint4, levelToSillJoint4,
+      levelToHeadJoint5, levelToSillJoint5,
+      levelToHeadJoint6, levelToSillJoint6,
+      levelToHeadJoint7, levelToSillJoint7,
+      levelToHeadJoint8, levelToSillJoint8,
+      levelToHeadJoint9, levelToSillJoint9,
+      levelToHeadJoint10, levelToSillJoint10,
+      levelToHeadJoint11, levelToSillJoint11,
+      levelToHeadJoint12, levelToSillJoint12,
+      levelToHeadJoint13, levelToSillJoint13,
+      levelToHeadJoint14, levelToSillJoint14,
+      levelToHeadJoint15, levelToSillJoint15,
       measuredBy,
       measuredAt,
       notes,
@@ -127,6 +142,36 @@ export async function POST(request: NextRequest) {
       plumbToRightHead: plumbToRightHead as string,
       plumbToLeftSill: plumbToLeftSill as string,
       plumbToRightSill: plumbToRightSill as string,
+      levelToHeadJoint1: (body as any).levelToHeadJoint1 as string || null,
+      levelToSillJoint1: (body as any).levelToSillJoint1 as string || null,
+      levelToHeadJoint2: (body as any).levelToHeadJoint2 as string || null,
+      levelToSillJoint2: (body as any).levelToSillJoint2 as string || null,
+      levelToHeadJoint3: (body as any).levelToHeadJoint3 as string || null,
+      levelToSillJoint3: (body as any).levelToSillJoint3 as string || null,
+      levelToHeadJoint4: (body as any).levelToHeadJoint4 as string || null,
+      levelToSillJoint4: (body as any).levelToSillJoint4 as string || null,
+      levelToHeadJoint5: (body as any).levelToHeadJoint5 as string || null,
+      levelToSillJoint5: (body as any).levelToSillJoint5 as string || null,
+      levelToHeadJoint6: (body as any).levelToHeadJoint6 as string || null,
+      levelToSillJoint6: (body as any).levelToSillJoint6 as string || null,
+      levelToHeadJoint7: (body as any).levelToHeadJoint7 as string || null,
+      levelToSillJoint7: (body as any).levelToSillJoint7 as string || null,
+      levelToHeadJoint8: (body as any).levelToHeadJoint8 as string || null,
+      levelToSillJoint8: (body as any).levelToSillJoint8 as string || null,
+      levelToHeadJoint9: (body as any).levelToHeadJoint9 as string || null,
+      levelToSillJoint9: (body as any).levelToSillJoint9 as string || null,
+      levelToHeadJoint10: (body as any).levelToHeadJoint10 as string || null,
+      levelToSillJoint10: (body as any).levelToSillJoint10 as string || null,
+      levelToHeadJoint11: (body as any).levelToHeadJoint11 as string || null,
+      levelToSillJoint11: (body as any).levelToSillJoint11 as string || null,
+      levelToHeadJoint12: (body as any).levelToHeadJoint12 as string || null,
+      levelToSillJoint12: (body as any).levelToSillJoint12 as string || null,
+      levelToHeadJoint13: (body as any).levelToHeadJoint13 as string || null,
+      levelToSillJoint13: (body as any).levelToSillJoint13 as string || null,
+      levelToHeadJoint14: (body as any).levelToHeadJoint14 as string || null,
+      levelToSillJoint14: (body as any).levelToSillJoint14 as string || null,
+      levelToHeadJoint15: (body as any).levelToHeadJoint15 as string || null,
+      levelToSillJoint15: (body as any).levelToSillJoint15 as string || null,
       totalFrameWidth: totalFrameWidth.toString(),
       totalFrameHeight: totalFrameHeight.toString(),
       isOutOfSquare: isOutOfSquare,
@@ -141,49 +186,75 @@ export async function POST(request: NextRequest) {
     // Calculate glass sizes and insert lites
     // Glass bite is ADDED to daylight opening (glass goes into the pocket)
     const glassBiteTotal = parseFloat(glassBiteLeft) + parseFloat(glassBiteRight);
-    let liteWidth: number;
-    let liteHeight: number;
+    const glassBiteHeightTotal = parseFloat(glassBiteTop) + parseFloat(glassBiteBottom);
+    const TOLERANCE = 0.0625;
 
-    if (numberOfLites === 1) {
-      // Single lite - ADD glass bites
-      liteWidth = totalFrameWidth + glassBiteTotal;
-      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
-      
-      await db.insert(glassLites).values({
+    // Build boundary arrays: boundary 0 = left jamb, boundary N = right jamb
+    const leftHeadBoundary = [parseFloat(levelToHeadLeft)];
+    const leftSillBoundary = [parseFloat(levelToSillLeft)];
+    const rightHeadBoundary = [parseFloat(levelToHeadRight)];
+    const rightSillBoundary = [parseFloat(levelToSillRight)];
+
+    for (let j = 1; j <= 15; j++) {
+      const lh = (body as any)[`levelToHeadJoint${j}`];
+      const ls = (body as any)[`levelToSillJoint${j}`];
+      if (lh !== undefined && lh !== null && lh !== '') leftHeadBoundary.push(parseFloat(lh));
+      if (ls !== undefined && ls !== null && ls !== '') leftSillBoundary.push(parseFloat(ls));
+      if (lh !== undefined && lh !== null && lh !== '') rightHeadBoundary.unshift(parseFloat(lh));
+      if (ls !== undefined && ls !== null && ls !== '') rightSillBoundary.unshift(parseFloat(ls));
+    }
+
+    const litesToInsert: NewGlassLite[] = [];
+    for (let i = 0; i < numberOfLites; i++) {
+      const lh = leftHeadBoundary[i];
+      const ls = leftSillBoundary[i];
+      const rh = rightHeadBoundary[i + 1];
+      const rs = rightSillBoundary[i + 1];
+
+      const leftAvg = (lh + ls) / 2;
+      const rightAvg = (rh + rs) / 2;
+      const liteHeight = ((leftAvg + rightAvg) / 2) + glassBiteHeightTotal;
+      const liteWidth = totalFrameWidth + glassBiteTotal;
+
+      const topDiff = Math.abs(lh - rh);
+      const bottomDiff = Math.abs(ls - rs);
+      const topSquare = topDiff <= TOLERANCE;
+      const bottomSquare = bottomDiff <= TOLERANCE;
+
+      let squareCornersNote = 'All corners square';
+      let liteShape = 'rectangular';
+      if (!topSquare && !bottomSquare) {
+        squareCornersNote = 'Top and bottom corners square';
+      } else if (!topSquare) {
+        squareCornersNote = 'Top corners square';
+        liteShape = 'trapezoid-vertical';
+      } else if (!bottomSquare) {
+        squareCornersNote = 'Bottom corners square';
+        liteShape = 'trapezoid-vertical';
+      }
+
+      litesToInsert.push({
         measurementId: newMeasurement.id,
-        liteNumber: 1,
+        liteNumber: i + 1,
         width: liteWidth.toString(),
         height: liteHeight.toString(),
         widthDecimal: liteWidth.toString(),
         heightDecimal: liteHeight.toString(),
+        leftHead: lh.toString(),
+        leftSill: ls.toString(),
+        rightHead: rh.toString(),
+        rightSill: rs.toString(),
+        topSquare,
+        bottomSquare,
+        squareCornersNote,
+        liteShape,
         glassType: glassType as string,
         glassThickness: glassThickness as string,
         liteNotes: frameNotes as string | null,
       });
-    } else {
-      // Multiple lites with mullions - ADD glass bites, subtract mullions
-      const totalMullionWidth = (numberOfLites - 1) * parseFloat(mullionWidth || '0.25');
-      const availableWidth = totalFrameWidth + glassBiteTotal - totalMullionWidth;
-      liteWidth = availableWidth / numberOfLites;
-      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
-
-      const litesToInsert: NewGlassLite[] = [];
-      for (let i = 0; i < numberOfLites; i++) {
-        litesToInsert.push({
-          measurementId: newMeasurement.id,
-          liteNumber: i + 1,
-          width: liteWidth.toString(),
-          height: liteHeight.toString(),
-          widthDecimal: liteWidth.toString(),
-          heightDecimal: liteHeight.toString(),
-          glassType: glassType as string,
-          glassThickness: glassThickness as string,
-          liteNotes: frameNotes as string | null,
-        });
-      }
-
-      await db.insert(glassLites).values(litesToInsert);
     }
+
+    await db.insert(glassLites).values(litesToInsert);
 
     // Fetch the complete measurement with lites
     const completeMeasurement = await db.query.measurements.findFirst({
@@ -243,6 +314,21 @@ export async function PUT(request: NextRequest) {
       plumbToRightHead,
       plumbToLeftSill,
       plumbToRightSill,
+      levelToHeadJoint1, levelToSillJoint1,
+      levelToHeadJoint2, levelToSillJoint2,
+      levelToHeadJoint3, levelToSillJoint3,
+      levelToHeadJoint4, levelToSillJoint4,
+      levelToHeadJoint5, levelToSillJoint5,
+      levelToHeadJoint6, levelToSillJoint6,
+      levelToHeadJoint7, levelToSillJoint7,
+      levelToHeadJoint8, levelToSillJoint8,
+      levelToHeadJoint9, levelToSillJoint9,
+      levelToHeadJoint10, levelToSillJoint10,
+      levelToHeadJoint11, levelToSillJoint11,
+      levelToHeadJoint12, levelToSillJoint12,
+      levelToHeadJoint13, levelToSillJoint13,
+      levelToHeadJoint14, levelToSillJoint14,
+      levelToHeadJoint15, levelToSillJoint15,
       measuredBy,
       measuredAt,
       notes,
@@ -301,6 +387,36 @@ export async function PUT(request: NextRequest) {
       plumbToRightHead: plumbToRightHead as string,
       plumbToLeftSill: plumbToLeftSill as string,
       plumbToRightSill: plumbToRightSill as string,
+      levelToHeadJoint1: (body as any).levelToHeadJoint1 as string || null,
+      levelToSillJoint1: (body as any).levelToSillJoint1 as string || null,
+      levelToHeadJoint2: (body as any).levelToHeadJoint2 as string || null,
+      levelToSillJoint2: (body as any).levelToSillJoint2 as string || null,
+      levelToHeadJoint3: (body as any).levelToHeadJoint3 as string || null,
+      levelToSillJoint3: (body as any).levelToSillJoint3 as string || null,
+      levelToHeadJoint4: (body as any).levelToHeadJoint4 as string || null,
+      levelToSillJoint4: (body as any).levelToSillJoint4 as string || null,
+      levelToHeadJoint5: (body as any).levelToHeadJoint5 as string || null,
+      levelToSillJoint5: (body as any).levelToSillJoint5 as string || null,
+      levelToHeadJoint6: (body as any).levelToHeadJoint6 as string || null,
+      levelToSillJoint6: (body as any).levelToSillJoint6 as string || null,
+      levelToHeadJoint7: (body as any).levelToHeadJoint7 as string || null,
+      levelToSillJoint7: (body as any).levelToSillJoint7 as string || null,
+      levelToHeadJoint8: (body as any).levelToHeadJoint8 as string || null,
+      levelToSillJoint8: (body as any).levelToSillJoint8 as string || null,
+      levelToHeadJoint9: (body as any).levelToHeadJoint9 as string || null,
+      levelToSillJoint9: (body as any).levelToSillJoint9 as string || null,
+      levelToHeadJoint10: (body as any).levelToHeadJoint10 as string || null,
+      levelToSillJoint10: (body as any).levelToSillJoint10 as string || null,
+      levelToHeadJoint11: (body as any).levelToHeadJoint11 as string || null,
+      levelToSillJoint11: (body as any).levelToSillJoint11 as string || null,
+      levelToHeadJoint12: (body as any).levelToHeadJoint12 as string || null,
+      levelToSillJoint12: (body as any).levelToSillJoint12 as string || null,
+      levelToHeadJoint13: (body as any).levelToHeadJoint13 as string || null,
+      levelToSillJoint13: (body as any).levelToSillJoint13 as string || null,
+      levelToHeadJoint14: (body as any).levelToHeadJoint14 as string || null,
+      levelToSillJoint14: (body as any).levelToSillJoint14 as string || null,
+      levelToHeadJoint15: (body as any).levelToHeadJoint15 as string || null,
+      levelToSillJoint15: (body as any).levelToSillJoint15 as string || null,
       totalFrameWidth: totalFrameWidth.toString(),
       totalFrameHeight: totalFrameHeight.toString(),
       isOutOfSquare: isOutOfSquare,
@@ -319,47 +435,81 @@ export async function PUT(request: NextRequest) {
     // Calculate and insert new lites
     // Glass bite is ADDED to daylight opening (glass goes into the pocket)
     const glassBiteTotal = parseFloat(glassBiteLeft) + parseFloat(glassBiteRight);
-    let liteWidth: number;
-    let liteHeight: number;
+    const glassBiteHeightTotal = parseFloat(glassBiteTop) + parseFloat(glassBiteBottom);
+    const TOLERANCE = 0.0625;
 
-    if (numberOfLites === 1) {
-      liteWidth = totalFrameWidth + glassBiteTotal;
-      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
-      
-      await db.insert(glassLites).values({
+    // Build boundary arrays: boundary 0 = left jamb, boundary N = right jamb
+    const leftHeadBoundary = [parseFloat(levelToHeadLeft)];
+    const leftSillBoundary = [parseFloat(levelToSillLeft)];
+    const rightHeadBoundary = [parseFloat(levelToHeadRight)];
+    const rightSillBoundary = [parseFloat(levelToSillRight)];
+
+    for (let j = 1; j <= 15; j++) {
+      const lh = (body as any)[`levelToHeadJoint${j}`];
+      const ls = (body as any)[`levelToSillJoint${j}`];
+      if (lh !== undefined && lh !== null && lh !== '') leftHeadBoundary.push(parseFloat(lh));
+      if (ls !== undefined && ls !== null && ls !== '') leftSillBoundary.push(parseFloat(ls));
+      if (lh !== undefined && lh !== null && lh !== '') rightHeadBoundary.unshift(parseFloat(lh));
+      if (ls !== undefined && ls !== null && ls !== '') rightSillBoundary.unshift(parseFloat(ls));
+    }
+
+    const litesToInsert: NewGlassLite[] = [];
+    for (let i = 0; i < numberOfLites; i++) {
+      // Left boundary = boundary i, Right boundary = boundary i+1
+      const lh = leftHeadBoundary[i];
+      const ls = leftSillBoundary[i];
+      const rh = rightHeadBoundary[i + 1];
+      const rs = rightSillBoundary[i + 1];
+
+      // Average height at each boundary side
+      const leftAvg = (lh + ls) / 2;
+      const rightAvg = (rh + rs) / 2;
+
+      // Per-lite glass dimensions (add glass bite)
+      const liteHeight = ((leftAvg + rightAvg) / 2) + glassBiteHeightTotal;
+      const liteWidth = totalFrameWidth + glassBiteTotal;
+
+      // Per-lite square check
+      const topDiff = Math.abs(lh - rh);
+      const bottomDiff = Math.abs(ls - rs);
+      const topSquare = topDiff <= TOLERANCE;
+      const bottomSquare = bottomDiff <= TOLERANCE;
+
+      // Determine square corners note
+      let squareCornersNote = 'All corners square';
+      let liteShape = 'rectangular';
+      if (!topSquare && !bottomSquare) {
+        squareCornersNote = 'Top and bottom corners square';
+      } else if (!topSquare) {
+        squareCornersNote = 'Top corners square';
+        liteShape = 'trapezoid-vertical';
+      } else if (!bottomSquare) {
+        squareCornersNote = 'Bottom corners square';
+        liteShape = 'trapezoid-vertical';
+      }
+
+      litesToInsert.push({
         measurementId: parseInt(id),
-        liteNumber: 1,
+        liteNumber: i + 1,
         width: liteWidth.toString(),
         height: liteHeight.toString(),
         widthDecimal: liteWidth.toString(),
         heightDecimal: liteHeight.toString(),
+        leftHead: lh.toString(),
+        leftSill: ls.toString(),
+        rightHead: rh.toString(),
+        rightSill: rs.toString(),
+        topSquare,
+        bottomSquare,
+        squareCornersNote,
+        liteShape,
         glassType: glassType as string,
         glassThickness: glassThickness as string,
         liteNotes: frameNotes as string | null,
       });
-    } else {
-      const totalMullionWidth = (numberOfLites - 1) * parseFloat(mullionWidth || '0.25');
-      const availableWidth = totalFrameWidth + glassBiteTotal - totalMullionWidth;
-      liteWidth = availableWidth / numberOfLites;
-      liteHeight = totalFrameHeight + (parseFloat(glassBiteTop) + parseFloat(glassBiteBottom));
-
-      const litesToInsert: NewGlassLite[] = [];
-      for (let i = 0; i < numberOfLites; i++) {
-        litesToInsert.push({
-          measurementId: parseInt(id),
-          liteNumber: i + 1,
-          width: liteWidth.toString(),
-          height: liteHeight.toString(),
-          widthDecimal: liteWidth.toString(),
-          heightDecimal: liteHeight.toString(),
-          glassType: glassType as string,
-          glassThickness: glassThickness as string,
-          liteNotes: frameNotes as string | null,
-        });
-      }
-
-      await db.insert(glassLites).values(litesToInsert);
     }
+
+    await db.insert(glassLites).values(litesToInsert);
 
     // Fetch the complete measurement with lites
     const completeMeasurement = await db.query.measurements.findFirst({

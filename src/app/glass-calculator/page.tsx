@@ -19,6 +19,13 @@ interface GlassLite {
   liteTop?: string;         // top edge width
   liteNotesDetail?: string | null;  // "Bottom corners square", etc.
   liteSlopedEdge?: string | null;  // which edge slopes: 'top' | 'bottom' | 'left' | 'right'
+  // Per-boundary measurements for multi-lite frames
+  leftHead?: string;
+  leftSill?: string;
+  rightHead?: string;
+  rightSill?: string;
+  topSquare?: boolean;
+  bottomSquare?: boolean;
 }
 
 interface Measurement {
@@ -244,6 +251,10 @@ export default function GlassCalculator() {
   const [levelToHeadLeft, setLevelToHeadLeft] = useState('');
   const [levelToHeadRight, setLevelToHeadRight] = useState('');
   const [levelToSillLeft, setLevelToSillLeft] = useState('');
+
+  // Joint height measurements (when numberOfLites > 1)
+  // Each joint has: levelToHeadJointN (up from level to head) and levelToSillJointN (down from level to sill)
+  const [jointMeasurements, setJointMeasurements] = useState<Record<number, { head: string; sill: string }>>({});
   const [levelToSillRight, setLevelToSillRight] = useState('');
   
   // Plumb line measurements
@@ -538,14 +549,50 @@ export default function GlassCalculator() {
         liteSlopedEdge: slopedEdge,
       });
     } else {
-      // Multiple lites with mullions/joints between them
-      const numberOfJoints = numberOfLites - 1;
-      const totalMullionWidth = numberOfJoints * mullion;
-      const availableWidth = totalFrameWidth + biteLeft + biteRight - totalMullionWidth;
-      const liteWidth = availableWidth / numberOfLites;
-      const liteHeight = totalFrameHeight + biteTop + biteBottom;
+      // Multiple lites — build boundary arrays
+      const bHead: number[] = [parseFloat(levelToHeadLeft)];
+      const bSill: number[] = [parseFloat(levelToSillLeft)];
+      for (let j = 1; j <= 15; j++) {
+        const joint = jointMeasurements[j];
+        if (joint && (joint.head !== '' || joint.sill !== '')) {
+          bHead.push(parseFloat(joint.head) || 0);
+          bSill.push(parseFloat(joint.sill) || 0);
+        }
+      }
+      bHead.push(parseFloat(levelToHeadRight));
+      bSill.push(parseFloat(levelToSillRight));
+
+      // Equal width split
+      const totalMullionWidth = (numberOfLites - 1) * mullion;
+      const liteWidth = (totalFrameWidth + biteLeft + biteRight - totalMullionWidth) / numberOfLites;
 
       for (let i = 0; i < numberOfLites; i++) {
+        const lh = bHead[i];
+        const ls = bSill[i];
+        const rh = bHead[i + 1];
+        const rs = bSill[i + 1];
+
+        const leftAvg = (lh + ls) / 2;
+        const rightAvg = (rh + rs) / 2;
+        const liteHeight = ((leftAvg + rightAvg) / 2) + biteTop + biteBottom;
+
+        const topDiff = Math.abs(lh - rh);
+        const bottomDiff = Math.abs(ls - rs);
+        const topSquare = topDiff <= biteTolerance;
+        const bottomSquare = bottomDiff <= biteTolerance;
+
+        let shape = 'rectangular';
+        let squareCornersNote = 'All corners square';
+        if (!topSquare && !bottomSquare) {
+          squareCornersNote = 'Top and bottom corners square';
+        } else if (!topSquare) {
+          squareCornersNote = 'Top corners square';
+          shape = 'trapezoid-vertical';
+        } else if (!bottomSquare) {
+          squareCornersNote = 'Bottom corners square';
+          shape = 'trapezoid-vertical';
+        }
+
         lites.push({
           liteNumber: i + 1,
           width: liteWidth.toString(),
@@ -555,12 +602,18 @@ export default function GlassCalculator() {
           glassType,
           glassThickness,
           liteNotes: frameNotes,
-          liteShape: 'rectangular',
+          liteShape: shape,
           liteBottom: liteWidth.toString(),
           liteLeft: liteHeight.toString(),
           liteRight: liteHeight.toString(),
           liteTop: liteWidth.toString(),
-          liteNotesDetail: null,
+          liteNotesDetail: squareCornersNote,
+          leftHead: lh.toString(),
+          leftSill: ls.toString(),
+          rightHead: rh.toString(),
+          rightSill: rs.toString(),
+          topSquare,
+          bottomSquare,
         });
       }
     }
@@ -618,6 +671,13 @@ export default function GlassCalculator() {
         levelToHeadRight,
         levelToSillLeft,
         levelToSillRight,
+        // Include joint measurements in payload
+        ...Object.fromEntries(
+          Object.entries(jointMeasurements).flatMap(([j, data]) => [
+            [`levelToHeadJoint${j}`, data.head],
+            [`levelToSillJoint${j}`, data.sill],
+          ])
+        ),
         plumbToLeftHead,
         plumbToRightHead,
         plumbToLeftSill,
@@ -1015,7 +1075,19 @@ export default function GlassCalculator() {
               type="number"
               min="1"
               value={numberOfLites}
-              onChange={(e) => setNumberOfLites(parseInt(e.target.value) || 1)}
+              onChange={(e) => {
+                const n = parseInt(e.target.value) || 1;
+                setNumberOfLites(n);
+                // Trim joint measurements if lites decreased
+                setJointMeasurements(prev => {
+                  const trimmed: Record<number, { head: string; sill: string }> = {};
+                  for (const [j, data] of Object.entries(prev)) {
+                    const jNum = parseInt(j);
+                    if (jNum < n) trimmed[jNum] = data;
+                  }
+                  return trimmed;
+                });
+              }}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
               placeholder="1"
             />
@@ -1195,6 +1267,52 @@ export default function GlassCalculator() {
                 />
               </div>
             </div>
+
+            {/* Joint measurements (when numberOfLites > 1) */}
+            {numberOfLites > 1 && (
+              <div className="mt-4 space-y-3">
+                <div className="border-t border-blue-200 pt-3">
+                  <p className="text-sm font-medium text-gray-600 mb-2">
+                    Joint Measurements — {numberOfLites - 1} joint{numberOfLites > 2 ? 's' : ''} ({2 * (numberOfLites - 1)} fields)
+                  </p>
+                  <p className="text-xs text-gray-500 mb-3">
+                    Measure up to the head and down to the sill at each butt joint location.
+                  </p>
+                </div>
+                {Array.from({ length: numberOfLites - 1 }, (_, idx) => idx + 1).map((jointNum) => {
+                  const joint = jointMeasurements[jointNum] || { head: '', sill: '' };
+                  return (
+                    <div key={jointNum} className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                      <p className="text-xs font-semibold text-blue-700 mb-2">
+                        Joint {jointNum} — between lites {jointNum} and {jointNum + 1}
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <FractionalInput
+                          value={joint.head}
+                          onChange={(val) => setJointMeasurements(prev => ({
+                            ...prev,
+                            [jointNum]: { ...(prev[jointNum] || { head: '', sill: '' }), head: val }
+                          }))}
+                          label={`Up to Head`}
+                          placeholder="e.g., 53 1/4"
+                          colorClass="blue"
+                        />
+                        <FractionalInput
+                          value={joint.sill}
+                          onChange={(val) => setJointMeasurements(prev => ({
+                            ...prev,
+                            [jointNum]: { ...(prev[jointNum] || { head: '', sill: '' }), sill: val }
+                          }))}
+                          label={`Down to Sill`}
+                          placeholder="e.g., 50 1/2"
+                          colorClass="blue"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
 
           {/* Plumb Line */}
