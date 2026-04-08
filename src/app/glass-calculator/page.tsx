@@ -209,18 +209,22 @@ export default function GlassCalculator() {
 
     // Check for squareness
     const notes: string[] = [];
-    const heightDiff = Math.abs(
-      (inputs.levelToHeadLeft! + inputs.levelToSillLeft!) -
-      (inputs.levelToHeadRight! + inputs.levelToSillRight!)
-    );
-    const widthDiffHead = Math.abs(inputs.plumbToLeftHead! - inputs.plumbToRightHead!);
-    const widthDiffSill = Math.abs(inputs.plumbToLeftSill! - inputs.plumbToRightSill!);
+    
+    // Height check: does left side = right side?
+    const leftHeight = inputs.levelToHeadLeft! + inputs.levelToSillLeft!;
+    const rightHeight = inputs.levelToHeadRight! + inputs.levelToSillRight!;
+    const heightDiff = Math.abs(leftHeight - rightHeight);
 
-    if (heightDiff > 0.25) {
-      notes.push(`⚠️ Height varies by ${heightDiff.toFixed(3)}" (left vs right) - check for out-of-square`);
+    // Width check: does head width = sill width?
+    const headWidth = inputs.plumbToLeftHead! + inputs.plumbToRightHead!;
+    const sillWidth = inputs.plumbToLeftSill! + inputs.plumbToRightSill!;
+    const widthDiff = Math.abs(headWidth - sillWidth);
+
+    if (heightDiff > 0.0625) {
+      notes.push(`⚠️ Out of square: Left height (${leftHeight.toFixed(3)}") ≠ Right height (${rightHeight.toFixed(3)}") — diff: ${heightDiff.toFixed(3)}"`);
     }
-    if (widthDiffHead > 0.25 || widthDiffSill > 0.25) {
-      notes.push(`⚠️ Width varies - head: ${widthDiffHead.toFixed(3)}", sill: ${widthDiffSill.toFixed(3)}" - check for out-of-square`);
+    if (widthDiff > 0.0625) {
+      notes.push(`⚠️ Out of square: Head width (${headWidth.toFixed(3)}") ≠ Sill width (${sillWidth.toFixed(3)}") — diff: ${widthDiff.toFixed(3)}"`);
     }
 
     // Calculate totals
