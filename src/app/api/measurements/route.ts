@@ -69,24 +69,10 @@ export async function POST(request: NextRequest) {
       plumbToRightHead,
       plumbToLeftSill,
       plumbToRightSill,
-      levelToHeadJoint1, levelToSillJoint1,
-      levelToHeadJoint2, levelToSillJoint2,
-      levelToHeadJoint3, levelToSillJoint3,
-      levelToHeadJoint4, levelToSillJoint4,
-      levelToHeadJoint5, levelToSillJoint5,
-      levelToHeadJoint6, levelToSillJoint6,
-      levelToHeadJoint7, levelToSillJoint7,
-      levelToHeadJoint8, levelToSillJoint8,
-      levelToHeadJoint9, levelToSillJoint9,
-      levelToHeadJoint10, levelToSillJoint10,
-      levelToHeadJoint11, levelToSillJoint11,
-      levelToHeadJoint12, levelToSillJoint12,
-      levelToHeadJoint13, levelToSillJoint13,
-      levelToHeadJoint14, levelToSillJoint14,
-      levelToHeadJoint15, levelToSillJoint15,
       measuredBy,
       measuredAt,
       notes,
+      jointData,
     } = body;
 
     // Calculate frame dimensions
@@ -142,36 +128,7 @@ export async function POST(request: NextRequest) {
       plumbToRightHead: plumbToRightHead as string,
       plumbToLeftSill: plumbToLeftSill as string,
       plumbToRightSill: plumbToRightSill as string,
-      levelToHeadJoint1: (body as any).levelToHeadJoint1 as string || null,
-      levelToSillJoint1: (body as any).levelToSillJoint1 as string || null,
-      levelToHeadJoint2: (body as any).levelToHeadJoint2 as string || null,
-      levelToSillJoint2: (body as any).levelToSillJoint2 as string || null,
-      levelToHeadJoint3: (body as any).levelToHeadJoint3 as string || null,
-      levelToSillJoint3: (body as any).levelToSillJoint3 as string || null,
-      levelToHeadJoint4: (body as any).levelToHeadJoint4 as string || null,
-      levelToSillJoint4: (body as any).levelToSillJoint4 as string || null,
-      levelToHeadJoint5: (body as any).levelToHeadJoint5 as string || null,
-      levelToSillJoint5: (body as any).levelToSillJoint5 as string || null,
-      levelToHeadJoint6: (body as any).levelToHeadJoint6 as string || null,
-      levelToSillJoint6: (body as any).levelToSillJoint6 as string || null,
-      levelToHeadJoint7: (body as any).levelToHeadJoint7 as string || null,
-      levelToSillJoint7: (body as any).levelToSillJoint7 as string || null,
-      levelToHeadJoint8: (body as any).levelToHeadJoint8 as string || null,
-      levelToSillJoint8: (body as any).levelToSillJoint8 as string || null,
-      levelToHeadJoint9: (body as any).levelToHeadJoint9 as string || null,
-      levelToSillJoint9: (body as any).levelToSillJoint9 as string || null,
-      levelToHeadJoint10: (body as any).levelToHeadJoint10 as string || null,
-      levelToSillJoint10: (body as any).levelToSillJoint10 as string || null,
-      levelToHeadJoint11: (body as any).levelToHeadJoint11 as string || null,
-      levelToSillJoint11: (body as any).levelToSillJoint11 as string || null,
-      levelToHeadJoint12: (body as any).levelToHeadJoint12 as string || null,
-      levelToSillJoint12: (body as any).levelToSillJoint12 as string || null,
-      levelToHeadJoint13: (body as any).levelToHeadJoint13 as string || null,
-      levelToSillJoint13: (body as any).levelToSillJoint13 as string || null,
-      levelToHeadJoint14: (body as any).levelToHeadJoint14 as string || null,
-      levelToSillJoint14: (body as any).levelToSillJoint14 as string || null,
-      levelToHeadJoint15: (body as any).levelToHeadJoint15 as string || null,
-      levelToSillJoint15: (body as any).levelToSillJoint15 as string || null,
+      jointData: body.jointData ? JSON.stringify(body.jointData) : null,
       totalFrameWidth: totalFrameWidth.toString(),
       totalFrameHeight: totalFrameHeight.toString(),
       isOutOfSquare: isOutOfSquare,
@@ -189,20 +146,20 @@ export async function POST(request: NextRequest) {
     const glassBiteHeightTotal = parseFloat(glassBiteTop) + parseFloat(glassBiteBottom);
     const TOLERANCE = 0.0625;
 
-    // Build boundary arrays: boundary 0 = left jamb, boundary N = right jamb
-    const leftHeadBoundary = [parseFloat(levelToHeadLeft)];
-    const leftSillBoundary = [parseFloat(levelToSillLeft)];
-    const rightHeadBoundary = [parseFloat(levelToHeadRight)];
-    const rightSillBoundary = [parseFloat(levelToSillRight)];
+    // Build boundary arrays from jointData JSON
+    // jointData: { head: string[], sill: string[] } — one entry per intermediate boundary
+    let jointHead: number[] = [];
+    let jointSill: number[] = [];
+    try {
+      const jd = typeof jointData === 'string' ? JSON.parse(jointData) : jointData;
+      jointHead = (jd?.head || []).map(Number);
+      jointSill = (jd?.sill || []).map(Number);
+    } catch (_) { /* ignore malformed JSON */ }
 
-    for (let j = 1; j <= 15; j++) {
-      const lh = (body as any)[`levelToHeadJoint${j}`];
-      const ls = (body as any)[`levelToSillJoint${j}`];
-      if (lh !== undefined && lh !== null && lh !== '') leftHeadBoundary.push(parseFloat(lh));
-      if (ls !== undefined && ls !== null && ls !== '') leftSillBoundary.push(parseFloat(ls));
-      if (lh !== undefined && lh !== null && lh !== '') rightHeadBoundary.unshift(parseFloat(lh));
-      if (ls !== undefined && ls !== null && ls !== '') rightSillBoundary.unshift(parseFloat(ls));
-    }
+    const leftHeadBoundary = [parseFloat(levelToHeadLeft), ...jointHead];
+    const leftSillBoundary = [parseFloat(levelToSillLeft), ...jointSill];
+    const rightHeadBoundary = [...jointHead, parseFloat(levelToHeadRight)];
+    const rightSillBoundary = [...jointSill, parseFloat(levelToSillRight)];
 
     const litesToInsert: NewGlassLite[] = [];
     for (let i = 0; i < numberOfLites; i++) {
@@ -240,14 +197,6 @@ export async function POST(request: NextRequest) {
         height: liteHeight.toString(),
         widthDecimal: liteWidth.toString(),
         heightDecimal: liteHeight.toString(),
-        leftHead: lh.toString(),
-        leftSill: ls.toString(),
-        rightHead: rh.toString(),
-        rightSill: rs.toString(),
-        topSquare,
-        bottomSquare,
-        squareCornersNote,
-        liteShape,
         glassType: glassType as string,
         glassThickness: glassThickness as string,
         liteNotes: frameNotes as string | null,
@@ -314,24 +263,10 @@ export async function PUT(request: NextRequest) {
       plumbToRightHead,
       plumbToLeftSill,
       plumbToRightSill,
-      levelToHeadJoint1, levelToSillJoint1,
-      levelToHeadJoint2, levelToSillJoint2,
-      levelToHeadJoint3, levelToSillJoint3,
-      levelToHeadJoint4, levelToSillJoint4,
-      levelToHeadJoint5, levelToSillJoint5,
-      levelToHeadJoint6, levelToSillJoint6,
-      levelToHeadJoint7, levelToSillJoint7,
-      levelToHeadJoint8, levelToSillJoint8,
-      levelToHeadJoint9, levelToSillJoint9,
-      levelToHeadJoint10, levelToSillJoint10,
-      levelToHeadJoint11, levelToSillJoint11,
-      levelToHeadJoint12, levelToSillJoint12,
-      levelToHeadJoint13, levelToSillJoint13,
-      levelToHeadJoint14, levelToSillJoint14,
-      levelToHeadJoint15, levelToSillJoint15,
       measuredBy,
       measuredAt,
       notes,
+      jointData,
     } = body;
 
     // Calculate frame dimensions
@@ -387,36 +322,7 @@ export async function PUT(request: NextRequest) {
       plumbToRightHead: plumbToRightHead as string,
       plumbToLeftSill: plumbToLeftSill as string,
       plumbToRightSill: plumbToRightSill as string,
-      levelToHeadJoint1: (body as any).levelToHeadJoint1 as string || null,
-      levelToSillJoint1: (body as any).levelToSillJoint1 as string || null,
-      levelToHeadJoint2: (body as any).levelToHeadJoint2 as string || null,
-      levelToSillJoint2: (body as any).levelToSillJoint2 as string || null,
-      levelToHeadJoint3: (body as any).levelToHeadJoint3 as string || null,
-      levelToSillJoint3: (body as any).levelToSillJoint3 as string || null,
-      levelToHeadJoint4: (body as any).levelToHeadJoint4 as string || null,
-      levelToSillJoint4: (body as any).levelToSillJoint4 as string || null,
-      levelToHeadJoint5: (body as any).levelToHeadJoint5 as string || null,
-      levelToSillJoint5: (body as any).levelToSillJoint5 as string || null,
-      levelToHeadJoint6: (body as any).levelToHeadJoint6 as string || null,
-      levelToSillJoint6: (body as any).levelToSillJoint6 as string || null,
-      levelToHeadJoint7: (body as any).levelToHeadJoint7 as string || null,
-      levelToSillJoint7: (body as any).levelToSillJoint7 as string || null,
-      levelToHeadJoint8: (body as any).levelToHeadJoint8 as string || null,
-      levelToSillJoint8: (body as any).levelToSillJoint8 as string || null,
-      levelToHeadJoint9: (body as any).levelToHeadJoint9 as string || null,
-      levelToSillJoint9: (body as any).levelToSillJoint9 as string || null,
-      levelToHeadJoint10: (body as any).levelToHeadJoint10 as string || null,
-      levelToSillJoint10: (body as any).levelToSillJoint10 as string || null,
-      levelToHeadJoint11: (body as any).levelToHeadJoint11 as string || null,
-      levelToSillJoint11: (body as any).levelToSillJoint11 as string || null,
-      levelToHeadJoint12: (body as any).levelToHeadJoint12 as string || null,
-      levelToSillJoint12: (body as any).levelToSillJoint12 as string || null,
-      levelToHeadJoint13: (body as any).levelToHeadJoint13 as string || null,
-      levelToSillJoint13: (body as any).levelToSillJoint13 as string || null,
-      levelToHeadJoint14: (body as any).levelToHeadJoint14 as string || null,
-      levelToSillJoint14: (body as any).levelToSillJoint14 as string || null,
-      levelToHeadJoint15: (body as any).levelToHeadJoint15 as string || null,
-      levelToSillJoint15: (body as any).levelToSillJoint15 as string || null,
+      jointData: body.jointData ? JSON.stringify(body.jointData) : null,
       totalFrameWidth: totalFrameWidth.toString(),
       totalFrameHeight: totalFrameHeight.toString(),
       isOutOfSquare: isOutOfSquare,
@@ -438,20 +344,20 @@ export async function PUT(request: NextRequest) {
     const glassBiteHeightTotal = parseFloat(glassBiteTop) + parseFloat(glassBiteBottom);
     const TOLERANCE = 0.0625;
 
-    // Build boundary arrays: boundary 0 = left jamb, boundary N = right jamb
-    const leftHeadBoundary = [parseFloat(levelToHeadLeft)];
-    const leftSillBoundary = [parseFloat(levelToSillLeft)];
-    const rightHeadBoundary = [parseFloat(levelToHeadRight)];
-    const rightSillBoundary = [parseFloat(levelToSillRight)];
+    // Build boundary arrays from jointData JSON
+    // jointData: { head: string[], sill: string[] } — one entry per intermediate boundary
+    let jointHead: number[] = [];
+    let jointSill: number[] = [];
+    try {
+      const jd = typeof jointData === 'string' ? JSON.parse(jointData) : jointData;
+      jointHead = (jd?.head || []).map(Number);
+      jointSill = (jd?.sill || []).map(Number);
+    } catch (_) { /* ignore malformed JSON */ }
 
-    for (let j = 1; j <= 15; j++) {
-      const lh = (body as any)[`levelToHeadJoint${j}`];
-      const ls = (body as any)[`levelToSillJoint${j}`];
-      if (lh !== undefined && lh !== null && lh !== '') leftHeadBoundary.push(parseFloat(lh));
-      if (ls !== undefined && ls !== null && ls !== '') leftSillBoundary.push(parseFloat(ls));
-      if (lh !== undefined && lh !== null && lh !== '') rightHeadBoundary.unshift(parseFloat(lh));
-      if (ls !== undefined && ls !== null && ls !== '') rightSillBoundary.unshift(parseFloat(ls));
-    }
+    const leftHeadBoundary = [parseFloat(levelToHeadLeft), ...jointHead];
+    const leftSillBoundary = [parseFloat(levelToSillLeft), ...jointSill];
+    const rightHeadBoundary = [...jointHead, parseFloat(levelToHeadRight)];
+    const rightSillBoundary = [...jointSill, parseFloat(levelToSillRight)];
 
     const litesToInsert: NewGlassLite[] = [];
     for (let i = 0; i < numberOfLites; i++) {
@@ -495,14 +401,6 @@ export async function PUT(request: NextRequest) {
         height: liteHeight.toString(),
         widthDecimal: liteWidth.toString(),
         heightDecimal: liteHeight.toString(),
-        leftHead: lh.toString(),
-        leftSill: ls.toString(),
-        rightHead: rh.toString(),
-        rightSill: rs.toString(),
-        topSquare,
-        bottomSquare,
-        squareCornersNote,
-        liteShape,
         glassType: glassType as string,
         glassThickness: glassThickness as string,
         liteNotes: frameNotes as string | null,

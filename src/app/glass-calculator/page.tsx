@@ -19,13 +19,6 @@ interface GlassLite {
   liteTop?: string;         // top edge width
   liteNotesDetail?: string | null;  // "Bottom corners square", etc.
   liteSlopedEdge?: string | null;  // which edge slopes: 'top' | 'bottom' | 'left' | 'right'
-  // Per-boundary measurements for multi-lite frames
-  leftHead?: string;
-  leftSill?: string;
-  rightHead?: string;
-  rightSill?: string;
-  topSquare?: boolean;
-  bottomSquare?: boolean;
 }
 
 interface Measurement {
@@ -608,12 +601,6 @@ export default function GlassCalculator() {
           liteRight: liteHeight.toString(),
           liteTop: liteWidth.toString(),
           liteNotesDetail: squareCornersNote,
-          leftHead: lh.toString(),
-          leftSill: ls.toString(),
-          rightHead: rh.toString(),
-          rightSill: rs.toString(),
-          topSquare,
-          bottomSquare,
         });
       }
     }
@@ -671,13 +658,15 @@ export default function GlassCalculator() {
         levelToHeadRight,
         levelToSillLeft,
         levelToSillRight,
-        // Include joint measurements in payload
-        ...Object.fromEntries(
-          Object.entries(jointMeasurements).flatMap(([j, data]) => [
-            [`levelToHeadJoint${j}`, data.head],
-            [`levelToSillJoint${j}`, data.sill],
-          ])
-        ),
+        // Include joint measurements as JSON
+        jointData: {
+          head: Object.entries(jointMeasurements)
+            .sort(([a], [b]) => Number(a) - Number(b))
+            .map(([, v]) => v.head),
+          sill: Object.entries(jointMeasurements)
+            .sort(([a], [b]) => Number(a) - Number(b))
+            .map(([, v]) => v.sill),
+        },
         plumbToLeftHead,
         plumbToRightHead,
         plumbToLeftSill,
