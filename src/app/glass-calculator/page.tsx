@@ -544,7 +544,33 @@ export default function GlassCalculator() {
         plumbToRightSill,
         measuredBy: result.measuredBy,
         measuredAt: result.measuredAt,
-        notes: notes.join('\n'),
+        notes: (() => {
+          const TOLERANCE = 0.0625;
+          const leftH = result.levelToHeadLeft + result.levelToSillLeft;
+          const rightH = result.levelToHeadRight + result.levelToSillRight;
+          const headW = result.plumbToLeftHead + result.plumbToRightHead;
+          const sillW = result.plumbToLeftSill + result.plumbToRightSill;
+          const hDiff = Math.abs(leftH - rightH);
+          const wDiff = Math.abs(headW - sillW);
+          const m = Math.max(hDiff, wDiff);
+          const calcNotes: string[] = [];
+          if (hDiff <= TOLERANCE && wDiff <= TOLERANCE) {
+            calcNotes.push('✅ RECTANGULAR GLASS (within 1/16" tolerance)');
+          } else if (hDiff <= TOLERANCE && wDiff > TOLERANCE) {
+            calcNotes.push('📐 TRAPEZOID GLASS (horizontal): Head/sill widths differ by ' + wDiff.toFixed(3) + '"');
+            calcNotes.push('   • Square corners: All 4 vertical corners');
+            calcNotes.push('   • Head: ' + headW.toFixed(3) + '" | Sill: ' + sillW.toFixed(3) + '"');
+          } else if (wDiff <= TOLERANCE && hDiff > TOLERANCE) {
+            calcNotes.push('📐 TRAPEZOID GLASS (vertical): Left/right heights differ by ' + hDiff.toFixed(3) + '"');
+            calcNotes.push('   • Square corners: All 4 horizontal corners');
+            calcNotes.push('   • Left: ' + leftH.toFixed(3) + '" | Right: ' + rightH.toFixed(3) + '"');
+          } else {
+            calcNotes.push('⚠️ OUT OF SQUARE: Frame cannot be made as clean trapezoid');
+            calcNotes.push('   • Height variance: ' + hDiff.toFixed(3) + '" | Width variance: ' + wDiff.toFixed(3) + '"');
+            calcNotes.push('   • ⚠️ VERIFY DIMENSIONS BEFORE FABRICATION');
+          }
+          return calcNotes.join('\n');
+        })(),
       };
 
       const url = editingId ? `/api/measurements?id=${editingId}` : '/api/measurements';
