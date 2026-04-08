@@ -149,3 +149,10 @@ export type Measurement = typeof measurements.$inferSelect;
 export type NewMeasurement = typeof measurements.$inferInsert;
 export type GlassLite = typeof glassLites.$inferSelect;
 export type NewGlassLite = typeof glassLites.$inferInsert;
+
+
+export const visitors = pgTable('visitors', {
+  id: serial('id').primaryKey(),
+  count: integer('count').notNull().default(0),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
