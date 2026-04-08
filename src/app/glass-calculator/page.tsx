@@ -501,6 +501,7 @@ export default function GlassCalculator() {
       measuredAt: new Date().toISOString(),
       frameNotes,
       glassLites: lites,
+      notes: notes.join('\n'),
     };
 
     // Debug: log what we're setting as the result
