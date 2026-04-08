@@ -85,21 +85,37 @@ function FractionalInput({
 
   const formatToFraction = (decimal: number): string => {
     const fractions = [
+      { decimal: 0.03125, fraction: '1/32' },
       { decimal: 0.0625, fraction: '1/16' },
+      { decimal: 0.09375, fraction: '3/32' },
       { decimal: 0.125, fraction: '1/8' },
+      { decimal: 0.15625, fraction: '5/32' },
       { decimal: 0.1875, fraction: '3/16' },
+      { decimal: 0.21875, fraction: '7/32' },
       { decimal: 0.25, fraction: '1/4' },
+      { decimal: 0.28125, fraction: '9/32' },
       { decimal: 0.3125, fraction: '5/16' },
+      { decimal: 0.34375, fraction: '11/32' },
       { decimal: 0.375, fraction: '3/8' },
+      { decimal: 0.40625, fraction: '13/32' },
       { decimal: 0.4375, fraction: '7/16' },
+      { decimal: 0.46875, fraction: '15/32' },
       { decimal: 0.5, fraction: '1/2' },
+      { decimal: 0.53125, fraction: '17/32' },
       { decimal: 0.5625, fraction: '9/16' },
+      { decimal: 0.59375, fraction: '19/32' },
       { decimal: 0.625, fraction: '5/8' },
+      { decimal: 0.65625, fraction: '21/32' },
       { decimal: 0.6875, fraction: '11/16' },
+      { decimal: 0.71875, fraction: '23/32' },
       { decimal: 0.75, fraction: '3/4' },
+      { decimal: 0.78125, fraction: '25/32' },
       { decimal: 0.8125, fraction: '13/16' },
+      { decimal: 0.84375, fraction: '27/32' },
       { decimal: 0.875, fraction: '7/8' },
+      { decimal: 0.90625, fraction: '29/32' },
       { decimal: 0.9375, fraction: '15/16' },
+      { decimal: 0.96875, fraction: '31/32' },
     ];
 
     const whole = Math.floor(decimal);
