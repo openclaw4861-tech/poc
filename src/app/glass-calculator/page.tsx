@@ -11,13 +11,13 @@ interface GlassLite {
   glassType?: string;
   glassThickness?: string;
   liteNotes?: string;
-  // For tapered glass
-  widthTop?: string;
-  widthBottom?: string;
-  heightLeft?: string;
-  heightRight?: string;
-  isTapered?: boolean;
-  squareCorners?: string; // "Top corners square", "Bottom corners square", etc.
+  // Trapezoid glass dimensions
+  liteShape?: string;       // 'rectangular' | 'trapezoid-vertical' | 'trapezoid-horizontal' | 'irregular'
+  liteBottom?: string;      // bottom edge width
+  liteLeft?: string;        // left edge height
+  liteRight?: string;       // right edge height
+  liteTop?: string;         // top edge width
+  liteNotesDetail?: string | null;  // "Bottom, left, top corners square", etc.
 }
 
 interface Measurement {
@@ -426,19 +426,79 @@ export default function GlassCalculator() {
     ) / 2;
 
     // Calculate glass dimensions with individual glass bites per side
-    // Ensure glass bites are numbers (not strings) to avoid concatenation
+    // Determine glass shape based on frame squareness
+    // Determine sloped edge based on which dimension differs
+    // shape: 'rectangular' | 'trapezoid-vertical' | 'trapezoid-horizontal'
+    const shape = (heightDiff > TOLERANCE && widthDiff > TOLERANCE)
+      ? 'irregular'  // can't make clean trapezoid
+      : heightDiff > TOLERANCE
+        ? 'trapezoid-vertical'   // left/right heights differ → top/bottom are sloped
+        : widthDiff > TOLERANCE
+          ? 'trapezoid-horizontal' // head/sill widths differ → sides are sloped
+          : 'rectangular';
+
     const lites: GlassLite[] = [];
     const biteTop = Number(glassBiteTop);
     const biteBottom = Number(glassBiteBottom);
     const biteLeft = Number(glassBiteLeft);
     const biteRight = Number(glassBiteRight);
     const mullion = Number(mullionWidth);
-    
+
+    // Compute the 4 frame corner positions (outer frame)
+    // Left: level-to-head-left + level-to-sill-left (left side total)
+    // Right: level-to-head-right + level-to-sill-right (right side total)
+    // Head: plumb-to-left-head + plumb-to-right-head (top width)
+    // Sill: plumb-to-left-sill + plumb-to-right-sill (bottom width)
+    const frameLeft = measurements.levelToHeadLeft + measurements.levelToSillLeft;
+    const frameRight = measurements.levelToHeadRight + measurements.levelToSillRight;
+    const frameHead = measurements.plumbToLeftHead + measurements.plumbToRightHead;
+    const frameSill = measurements.plumbToLeftSill + measurements.plumbToRightSill;
+
+    // Glass corner offsets from frame corners (using bites)
+    // Each glass corner is offset inward from the frame corner
+    // by the bite on that side
+    const gBottom = biteBottom;     // sill-adjacent edge
+    const gTop = biteTop;           // head-adjacent edge
+    const gLeft = biteLeft;         // left-adjacent edge
+    const gRight = biteRight;       // right-adjacent edge
+
     if (numberOfLites === 1) {
       // Single lite - ADD glass bite to each side (glass goes into the pocket)
       const liteWidth = totalFrameWidth + biteLeft + biteRight;
       const liteHeight = totalFrameHeight + biteTop + biteBottom;
-      
+
+      // For trapezoids, compute per-side glass dimensions
+      // Vertical trap (heights differ): left/right heights are different
+      const glassLeftHeight = frameLeft + biteTop + biteBottom;
+      const glassRightHeight = frameRight + biteTop + biteBottom;
+      // Horizontal trap (widths differ): top/bottom widths are different
+      const glassTopWidth = frameHead + biteLeft + biteRight;
+      const glassBottomWidth = frameSill + biteLeft + biteRight;
+
+      // Determine which corners are square
+      // The sloped side is the one that differs
+      let squareCornersNote: string | null = null;
+      if (shape === 'trapezoid-vertical') {
+        // Heights differ - one side is taller
+        // The shorter side slopes toward the taller side
+        // Square corners are on the 3 non-sloped sides
+        if (frameLeft > frameRight) {
+          // Right side is shorter → top-right corner slopes down
+          squareCornersNote = 'Bottom, left, top corners square';
+        } else {
+          // Left side is shorter → top-left corner slopes down
+          squareCornersNote = 'Bottom, right, top corners square';
+        }
+      } else if (shape === 'trapezoid-horizontal') {
+        if (frameHead > frameSill) {
+          // Sill is narrower → bottom slopes inward
+          squareCornersNote = 'Left, top, right corners square';
+        } else {
+          // Head is narrower → top slopes inward
+          squareCornersNote = 'Left, bottom, right corners square';
+        }
+      }
+
       lites.push({
         liteNumber: 1,
         width: liteWidth.toString(),
@@ -448,29 +508,21 @@ export default function GlassCalculator() {
         glassType,
         glassThickness,
         liteNotes: frameNotes,
+        // Trapezoid dimensions
+        liteShape: shape,
+        liteBottom: glassBottomWidth.toString(),
+        liteLeft: glassLeftHeight.toString(),
+        liteRight: glassRightHeight.toString(),
+        liteTop: glassTopWidth.toString(),
+        liteNotesDetail: squareCornersNote,
       });
     } else {
       // Multiple lites with mullions/joints between them
       const numberOfJoints = numberOfLites - 1;
       const totalMullionWidth = numberOfJoints * mullion;
-      // Available width = frame width + left bite + right bite - all mullions
       const availableWidth = totalFrameWidth + biteLeft + biteRight - totalMullionWidth;
       const liteWidth = availableWidth / numberOfLites;
-      // Height uses top and bottom bites (added)
       const liteHeight = totalFrameHeight + biteTop + biteBottom;
-
-      // Debug logging for multi-lite calculation
-      console.log('Multi-lite calculation:', {
-        totalFrameWidth,
-        biteLeft,
-        biteRight,
-        mullion,
-        numberOfLites,
-        numberOfJoints,
-        totalMullionWidth,
-        availableWidth,
-        liteWidth,
-      });
 
       for (let i = 0; i < numberOfLites; i++) {
         lites.push({
@@ -482,6 +534,12 @@ export default function GlassCalculator() {
           glassType,
           glassThickness,
           liteNotes: frameNotes,
+          liteShape: 'rectangular',
+          liteBottom: liteWidth.toString(),
+          liteLeft: liteHeight.toString(),
+          liteRight: liteHeight.toString(),
+          liteTop: liteWidth.toString(),
+          liteNotesDetail: null,
         });
       }
     }
@@ -1225,31 +1283,75 @@ export default function GlassCalculator() {
               Glass Sizes ({result.glassLites.length} lite{result.glassLites.length > 1 ? 's' : ''})
             </h3>
             
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-2 px-3 text-sm font-medium text-gray-600">Lite #</th>
-                    <th className="text-left py-2 px-3 text-sm font-medium text-gray-600">Width</th>
-                    <th className="text-left py-2 px-3 text-sm font-medium text-gray-600">Height</th>
-                    <th className="text-left py-2 px-3 text-sm font-medium text-gray-600">Glass Type</th>
-                    <th className="text-left py-2 px-3 text-sm font-medium text-gray-600">Dimensions (Decimal)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {result.glassLites.map((lite) => (
-                    <tr key={lite.liteNumber} className="border-b border-gray-100">
-                      <td className="py-3 px-3 text-gray-900 font-medium">{lite.liteNumber}</td>
-                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(parseFloat(lite.width))}</td>
-                      <td className="py-3 px-3 text-gray-900 font-mono">{formatDimension(parseFloat(lite.height))}</td>
-                      <td className="py-3 px-3 text-gray-600 text-sm">{lite.glassType}</td>
-                      <td className="py-3 px-3 text-gray-600 text-sm">
-                        {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="space-y-3">
+              {result.glassLites.map((lite: any) => (
+                <div key={lite.liteNumber} className={`border rounded-lg p-4 ${lite.liteShape && lite.liteShape !== 'rectangular' ? 'border-yellow-300 bg-yellow-50' : 'border-gray-200 bg-white'}`}>
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-medium text-gray-900">Lite #{lite.liteNumber}</span>
+                    <span className="text-sm text-gray-600">{lite.glassType} — {result.glassThickness}</span>
+                  </div>
+                  
+                  {lite.liteShape && lite.liteShape !== 'rectangular' ? (
+                    /* Trapezoid display: 3 dimensions + square corners note */
+                    <div>
+                      <div className="grid grid-cols-3 gap-2 mb-2">
+                        {lite.liteShape === 'trapezoid-vertical' ? (
+                          /* TOP slopes — show: Bottom, Left, Right */
+                          <>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Bottom</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
+                            </div>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Left</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
+                            </div>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Right</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteRight || lite.height))}"</div>
+                            </div>
+                          </>
+                        ) : (
+                          /* Horizontal trap — show: Left, Top, Bottom */
+                          <>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Left</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
+                            </div>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Top</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteTop || lite.width))}"</div>
+                            </div>
+                            <div className="text-center bg-white rounded p-2 border">
+                              <div className="text-xs text-gray-500">Bottom</div>
+                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      <div className="text-sm font-medium text-yellow-800 bg-yellow-100 rounded px-3 py-1.5">
+                        📐 {lite.liteNotesDetail || 'Trapezoid glass'}
+                      </div>
+                    </div>
+                  ) : (
+                    /* Rectangular display: width × height */
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="text-center bg-gray-50 rounded p-2 border">
+                        <div className="text-xs text-gray-500">Width</div>
+                        <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.width))}"</div>
+                      </div>
+                      <div className="text-center bg-gray-50 rounded p-2 border">
+                        <div className="text-xs text-gray-500">Height</div>
+                        <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.height))}"</div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div className="text-xs text-gray-500 mt-2">
+                    Decimal: {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
