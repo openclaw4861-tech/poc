@@ -15,6 +15,8 @@ interface CalculationResult {
   totalHeight: number;
   lites: GlassLite[];
   glassBite: number;
+  glassType: string;
+  isOutOfSquare: boolean;
   notes: string[];
   timestamp: number;
 }
@@ -207,24 +209,49 @@ export default function GlassCalculator() {
       }
     }
 
-    // Check for squareness
+    // Check for squareness and determine glass type
     const notes: string[] = [];
+    const TOLERANCE = 0.0625; // 1/16"
     
-    // Height check: does left side = right side?
+    // Calculate frame dimensions
     const leftHeight = inputs.levelToHeadLeft! + inputs.levelToSillLeft!;
     const rightHeight = inputs.levelToHeadRight! + inputs.levelToSillRight!;
-    const heightDiff = Math.abs(leftHeight - rightHeight);
-
-    // Width check: does head width = sill width?
     const headWidth = inputs.plumbToLeftHead! + inputs.plumbToRightHead!;
     const sillWidth = inputs.plumbToLeftSill! + inputs.plumbToRightSill!;
+    
+    const heightDiff = Math.abs(leftHeight - rightHeight);
     const widthDiff = Math.abs(headWidth - sillWidth);
-
-    if (heightDiff > 0.0625) {
-      notes.push(`⚠️ Out of square: Left height (${leftHeight.toFixed(3)}") ≠ Right height (${rightHeight.toFixed(3)}") — diff: ${heightDiff.toFixed(3)}"`);
-    }
-    if (widthDiff > 0.0625) {
-      notes.push(`⚠️ Out of square: Head width (${headWidth.toFixed(3)}") ≠ Sill width (${sillWidth.toFixed(3)}") — diff: ${widthDiff.toFixed(3)}"`);
+    
+    let glassType = 'RECTANGULAR';
+    let isOutOfSquare = false;
+    
+    // Determine glass type
+    if (heightDiff <= TOLERANCE && widthDiff <= TOLERANCE) {
+      // Within tolerance - make rectangular
+      glassType = 'RECTANGULAR';
+      notes.push(`✅ Frame is square (within 1/16" tolerance)`);
+    } else if (heightDiff <= TOLERANCE && widthDiff > TOLERANCE) {
+      // Heights match, widths differ → Horizontal trapezoid
+      glassType = 'TRAPEZOID (horizontal)';
+      isOutOfSquare = true;
+      notes.push(`📐 TRAPEZOID GLASS: Left/right heights match, head/sill widths differ by ${widthDiff.toFixed(3)}"`);
+      notes.push(`   • Square corners: Left top & bottom, Right top & bottom`);
+      notes.push(`   • Head width: ${headWidth.toFixed(3)}" | Sill width: ${sillWidth.toFixed(3)}"`);
+    } else if (widthDiff <= TOLERANCE && heightDiff > TOLERANCE) {
+      // Widths match, heights differ → Vertical trapezoid
+      glassType = 'TRAPEZOID (vertical)';
+      isOutOfSquare = true;
+      notes.push(`📐 TRAPEZOID GLASS: Head/sill widths match, left/right heights differ by ${heightDiff.toFixed(3)}"`);
+      notes.push(`   • Square corners: Top left & right, Bottom left & right`);
+      notes.push(`   • Left height: ${leftHeight.toFixed(3)}" | Right height: ${rightHeight.toFixed(3)}"`);
+    } else {
+      // Both differ - can't make clean trapezoid
+      glassType = 'OUT OF SQUARE';
+      isOutOfSquare = true;
+      notes.push(`⚠️ OUT OF SQUARE: Frame cannot be made as clean trapezoid`);
+      notes.push(`   • Height variance: ${heightDiff.toFixed(3)}" (L: ${leftHeight.toFixed(3)}" vs R: ${rightHeight.toFixed(3)}")`);
+      notes.push(`   • Width variance: ${widthDiff.toFixed(3)}" (Head: ${headWidth.toFixed(3)}" vs Sill: ${sillWidth.toFixed(3)}")`);
+      notes.push(`   • ⚠️ VERIFY DIMENSIONS BEFORE FABRICATION`);
     }
 
     // Calculate totals
@@ -282,6 +309,8 @@ export default function GlassCalculator() {
       totalHeight,
       lites,
       glassBite: inputs.glassBite!,
+      glassType,
+      isOutOfSquare,
       notes,
       timestamp: Date.now(),
     };
@@ -538,7 +567,18 @@ export default function GlassCalculator() {
                 {savedResults.map((result) => (
                   <div key={result.id} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-bold text-gray-900">{result.frameNumber}</h3>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-gray-900">{result.frameNumber}</h3>
+                        <span className={`text-xs font-semibold px-2 py-0.5 rounded ${
+                          result.glassType === 'RECTANGULAR' 
+                            ? 'bg-green-100 text-green-800' 
+                            : result.glassType.startsWith('TRAPEZOID')
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : 'bg-red-100 text-red-800'
+                        }`}>
+                          {result.glassType}
+                        </span>
+                      </div>
                       <button
                         onClick={() => deleteResult(result.id)}
                         className="text-red-600 hover:text-red-800 text-sm"
