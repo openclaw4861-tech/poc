@@ -381,3 +381,29 @@ export async function PUT(request: NextRequest) {
     );
   }
 }
+
+// DELETE - Delete a measurement
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: 'Measurement ID required' },
+        { status: 400 }
+      );
+    }
+
+    await db.delete(glassLites).where(eq(glassLites.measurementId, parseInt(id)));
+    await db.delete(measurements).where(eq(measurements.id, parseInt(id)));
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Error deleting measurement:', error);
+    return NextResponse.json(
+      { success: false, error: 'Failed to delete measurement' },
+      { status: 500 }
+    );
+  }
+}
