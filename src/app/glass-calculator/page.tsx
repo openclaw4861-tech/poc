@@ -613,6 +613,37 @@ export default function GlassCalculator() {
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+  // Delete measurement
+  const deleteMeasurement = async (id: number) => {
+    if (!confirm('Delete this measurement? This cannot be undone.')) {
+      return;
+    }
+    
+    try {
+      const res = await fetch(`/api/measurements?id=${id}`, {
+        method: 'DELETE',
+      });
+      
+      const data = await res.json();
+      
+      if (data.success) {
+        // Refresh the list
+        if (selectedJob) {
+          fetchMeasurementsByJob(selectedJob);
+        }
+        // Clear result if this was the displayed one
+        if (result && result.id === id) {
+          setResult(null);
+        }
+      } else {
+        alert('Failed to delete measurement');
+      }
+    } catch (err) {
+      console.error('Delete error:', err);
+      alert('Failed to delete measurement');
+    }
+  };
+
 
   // Clear form but keep defaults
   const clearForm = () => {
@@ -745,11 +776,24 @@ export default function GlassCalculator() {
                   </div>
                   <div className="flex items-center space-x-3">
                     <button
-                      onClick={() => editMeasurement(measurement)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        editMeasurement(measurement);
+                      }}
                       className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                       title="Edit this frame"
                     >
                       ✏️
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteMeasurement(measurement.id);
+                      }}
+                      className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                      title="Delete this frame"
+                    >
+                      🗑️
                     </button>
                     <div className="text-right">
                       <p className="text-lg font-bold text-gray-900">
@@ -862,73 +906,37 @@ export default function GlassCalculator() {
             </select>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Glass Bite - Top (inches)
-            </label>
-            <input
-              type="number"
-              step="0.0001"
-              value={glassBiteTop}
-              onChange={(e) => {
-                const val = e.target.value;
-                setGlassBiteTop(val === '' ? 0 : parseFloat(val));
-              }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="0.375"
-            />
-          </div>
+          <FractionalInput
+            value={glassBiteTop.toString()}
+            onChange={(val) => setGlassBiteTop(val === '' ? 0 : parseFloat(val))}
+            label="Glass Bite - Top"
+            placeholder="e.g., 3/8"
+            colorClass="blue"
+          />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Glass Bite - Bottom (inches)
-            </label>
-            <input
-              type="number"
-              step="0.0001"
-              value={glassBiteBottom}
-              onChange={(e) => {
-                const val = e.target.value;
-                setGlassBiteBottom(val === '' ? 0 : parseFloat(val));
-              }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="0.375"
-            />
-          </div>
+          <FractionalInput
+            value={glassBiteBottom.toString()}
+            onChange={(val) => setGlassBiteBottom(val === '' ? 0 : parseFloat(val))}
+            label="Glass Bite - Bottom"
+            placeholder="e.g., 3/8"
+            colorClass="blue"
+          />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Glass Bite - Left (inches)
-            </label>
-            <input
-              type="number"
-              step="0.0001"
-              value={glassBiteLeft}
-              onChange={(e) => {
-                const val = e.target.value;
-                setGlassBiteLeft(val === '' ? 0 : parseFloat(val));
-              }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="0.375"
-            />
-          </div>
+          <FractionalInput
+            value={glassBiteLeft.toString()}
+            onChange={(val) => setGlassBiteLeft(val === '' ? 0 : parseFloat(val))}
+            label="Glass Bite - Left"
+            placeholder="e.g., 3/8"
+            colorClass="blue"
+          />
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Glass Bite - Right (inches)
-            </label>
-            <input
-              type="number"
-              step="0.0001"
-              value={glassBiteRight}
-              onChange={(e) => {
-                const val = e.target.value;
-                setGlassBiteRight(val === '' ? 0 : parseFloat(val));
-              }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-              placeholder="0.375"
-            />
-          </div>
+          <FractionalInput
+            value={glassBiteRight.toString()}
+            onChange={(val) => setGlassBiteRight(val === '' ? 0 : parseFloat(val))}
+            label="Glass Bite - Right"
+            placeholder="e.g., 3/8"
+            colorClass="blue"
+          />
 
           <div className="border-t pt-4 mt-4">
             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1006,53 +1014,37 @@ export default function GlassCalculator() {
             
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Level to Head (Left)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={levelToHeadLeft}
-                    onChange={(e) => setLevelToHeadLeft(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                    placeholder="inches"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Level to Head (Right)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={levelToHeadRight}
-                    onChange={(e) => setLevelToHeadRight(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                    placeholder="inches"
-                  />
-                </div>
+                <FractionalInput
+                  value={levelToHeadLeft}
+                  onChange={(val) => setLevelToHeadLeft(val)}
+                  label="Level to Head (Left)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="blue"
+                />
+                <FractionalInput
+                  value={levelToHeadRight}
+                  onChange={(val) => setLevelToHeadRight(val)}
+                  label="Level to Head (Right)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="blue"
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Level to Sill (Left)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={levelToSillLeft}
-                    onChange={(e) => setLevelToSillLeft(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                    placeholder="inches"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Level to Sill (Right)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={levelToSillRight}
-                    onChange={(e) => setLevelToSillRight(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
-                    placeholder="inches"
-                  />
-                </div>
+                <FractionalInput
+                  value={levelToSillLeft}
+                  onChange={(val) => setLevelToSillLeft(val)}
+                  label="Level to Sill (Left)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="blue"
+                />
+                <FractionalInput
+                  value={levelToSillRight}
+                  onChange={(val) => setLevelToSillRight(val)}
+                  label="Level to Sill (Right)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="blue"
+                />
               </div>
             </div>
           </div>
@@ -1066,53 +1058,37 @@ export default function GlassCalculator() {
             
             <div className="space-y-3">
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Plumb to Left (Head)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={plumbToLeftHead}
-                    onChange={(e) => setPlumbToLeftHead(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="inches"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Plumb to Right (Head)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={plumbToRightHead}
-                    onChange={(e) => setPlumbToRightHead(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="inches"
-                  />
-                </div>
+                <FractionalInput
+                  value={plumbToLeftHead}
+                  onChange={(val) => setPlumbToLeftHead(val)}
+                  label="Plumb to Left (Head)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="green"
+                />
+                <FractionalInput
+                  value={plumbToRightHead}
+                  onChange={(val) => setPlumbToRightHead(val)}
+                  label="Plumb to Right (Head)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="green"
+                />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Plumb to Left (Sill)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={plumbToLeftSill}
-                    onChange={(e) => setPlumbToLeftSill(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="inches"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-600 mb-1">Plumb to Right (Sill)</label>
-                  <input
-                    type="number"
-                    step="0.0625"
-                    value={plumbToRightSill}
-                    onChange={(e) => setPlumbToRightSill(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500"
-                    placeholder="inches"
-                  />
-                </div>
+                <FractionalInput
+                  value={plumbToLeftSill}
+                  onChange={(val) => setPlumbToLeftSill(val)}
+                  label="Plumb to Left (Sill)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="green"
+                />
+                <FractionalInput
+                  value={plumbToRightSill}
+                  onChange={(val) => setPlumbToRightSill(val)}
+                  label="Plumb to Right (Sill)"
+                  placeholder="e.g., 36 1/2"
+                  colorClass="green"
+                />
               </div>
             </div>
           </div>
