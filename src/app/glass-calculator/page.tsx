@@ -189,9 +189,11 @@ function FractionalInput({
 
   const handleBlur = () => {
     const parsed = parseFraction(displayValue);
+    console.log('FractionalInput blur:', { displayValue, parsed });
     if (parsed !== null) {
       onChange(parsed.toString());
       const formatted = formatToFraction(parsed);
+      console.log('  → formatted:', formatted);
       setDisplayValue(formatted);
     } else if (displayValue.trim() === '') {
       onChange('');
