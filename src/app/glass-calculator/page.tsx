@@ -1413,7 +1413,7 @@ export default function GlassCalculator() {
                   )}
                   
                   <div className="text-xs text-gray-500 mt-2">
-                    Decimal: {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"
+                    {lite.widthDecimal && lite.heightDecimal && (<>Decimal: {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"</>)}
                   </div>
                 </div>
               ))}
