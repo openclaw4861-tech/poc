@@ -76,23 +76,33 @@ function FractionalInput({
   const parseFraction = (input: string): number | null => {
     if (!input || input.trim() === '') return null;
     
-    // Handle pure decimals
-    if (/^\d+\.?\d*$/.test(input.trim())) {
-      return parseFloat(input);
+    const trimmed = input.trim();
+    
+    // Handle pure decimals (e.g., "5.25", "0.375")
+    if (/^\d+\.?\d*$/.test(trimmed)) {
+      return parseFloat(trimmed);
     }
 
-    // Handle fractions: "5 1/4", "1/4", "5-1/4"
-    const match = input.trim().match(/^(\d+)?[\s\-]?(\d+)\/(\d+)$/);
-    if (match) {
-      const whole = parseInt(match[1] || '0');
-      const numerator = parseInt(match[2]);
-      const denominator = parseInt(match[3]);
+    // Handle fractions with space: "5 1/4" or hyphen: "5-1/4"
+    const withSpaceOrHyphen = trimmed.match(/^(\d+)[\s\-]+(\d+)\/(\d+)$/);
+    if (withSpaceOrHyphen) {
+      const whole = parseInt(withSpaceOrHyphen[1]);
+      const numerator = parseInt(withSpaceOrHyphen[2]);
+      const denominator = parseInt(withSpaceOrHyphen[3]);
       return whole + (numerator / denominator);
+    }
+    
+    // Handle pure fractions: "1/4", "3/8" (NO whole number)
+    const pureFraction = trimmed.match(/^(\d+)\/(\d+)$/);
+    if (pureFraction) {
+      const numerator = parseInt(pureFraction[1]);
+      const denominator = parseInt(pureFraction[2]);
+      return numerator / denominator;
     }
 
     // Handle whole numbers
-    if (/^\d+$/.test(input.trim())) {
-      return parseInt(input);
+    if (/^\d+$/.test(trimmed)) {
+      return parseInt(trimmed);
     }
 
     return null;
@@ -143,20 +153,17 @@ function FractionalInput({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
     setDisplayValue(input);
-    
-    const parsed = parseFraction(input);
-    if (parsed !== null) {
-      onChange(parsed.toString());
-    } else if (input.trim() === '') {
-      onChange('');
-    }
+    // Don't parse yet - wait for blur
   };
 
   const handleBlur = () => {
     const parsed = parseFraction(displayValue);
     if (parsed !== null) {
+      onChange(parsed.toString());
       const formatted = formatToFraction(parsed);
       setDisplayValue(formatted);
+    } else if (displayValue.trim() === '') {
+      onChange('');
     }
   };
 
