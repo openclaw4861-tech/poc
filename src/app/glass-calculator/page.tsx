@@ -544,7 +544,7 @@ export default function GlassCalculator() {
         plumbToRightSill,
         measuredBy: result.measuredBy,
         measuredAt: result.measuredAt,
-        notes: frameNotes,
+        notes: notes.join('\n'),
       };
 
       const url = editingId ? `/api/measurements?id=${editingId}` : '/api/measurements';
@@ -1229,10 +1229,14 @@ export default function GlassCalculator() {
           {/* Notes */}
           {result.isOutOfSquare && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
-              <h4 className="font-medium text-gray-800 mb-2">⚠️ Out of Square:</h4>
-              <p className="text-sm text-gray-700">
-                Frame varies by {parseFloat(result.squarenessVariance).toFixed(3)}" — verify before fabrication
-              </p>
+              <h4 className="font-medium text-gray-800 mb-2">📐 Out of Square</h4>
+              <div className="text-sm text-gray-700 space-y-1">
+                {result.notes ? result.notes.split('\n').filter((n: string) => n.trim()).map((note: string, i: number) => (
+                  <p key={i}>{note}</p>
+                )) : (
+                  <p>Frame varies by {parseFloat(result.squarenessVariance).toFixed(3)}" — verify before fabrication</p>
+                )}
+              </div>
             </div>
           )}
 

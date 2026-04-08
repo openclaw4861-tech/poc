@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
       (parseFloat(plumbToLeftSill) + parseFloat(plumbToRightSill))
     );
     const squarenessVariance = Math.max(heightDiff, widthDiff);
-    const isOutOfSquare = squarenessVariance > 0.25;
+    const isOutOfSquare = squarenessVariance > 0.0625;
 
     // Convert glass bites to proper decimal strings (ensure leading zero)
     const toDecimalString = (value: any, defaultValue: number = 0.375): string => {
@@ -269,7 +269,7 @@ export async function PUT(request: NextRequest) {
       (parseFloat(plumbToLeftSill) + parseFloat(plumbToRightSill))
     );
     const squarenessVariance = Math.max(heightDiff, widthDiff);
-    const isOutOfSquare = squarenessVariance > 0.25;
+    const isOutOfSquare = squarenessVariance > 0.0625;
 
     // Convert glass bites to proper decimal strings (ensure leading zero)
     const toDecimalString = (value: any, defaultValue: number = 0.375): string => {
