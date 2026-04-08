@@ -91,8 +91,8 @@ export async function POST(request: NextRequest) {
       (parseFloat(levelToHeadRight) + parseFloat(levelToSillRight))
     );
     const widthDiff = Math.abs(
-      (parseFloat(plumbToLeftHead) + parseFloat(plumbToLeftSill)) -
-      (parseFloat(plumbToRightHead) + parseFloat(plumbToRightSill))
+      (parseFloat(plumbToLeftHead) + parseFloat(plumbToRightHead)) -
+      (parseFloat(plumbToLeftSill) + parseFloat(plumbToRightSill))
     );
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
@@ -265,8 +265,8 @@ export async function PUT(request: NextRequest) {
       (parseFloat(levelToHeadRight) + parseFloat(levelToSillRight))
     );
     const widthDiff = Math.abs(
-      (parseFloat(plumbToLeftHead) + parseFloat(plumbToLeftSill)) -
-      (parseFloat(plumbToRightHead) + parseFloat(plumbToRightSill))
+      (parseFloat(plumbToLeftHead) + parseFloat(plumbToRightHead)) -
+      (parseFloat(plumbToLeftSill) + parseFloat(plumbToRightSill))
     );
     const squarenessVariance = Math.max(heightDiff, widthDiff);
     const isOutOfSquare = squarenessVariance > 0.25;
