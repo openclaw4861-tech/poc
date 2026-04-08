@@ -546,10 +546,10 @@ export default function GlassCalculator() {
         measuredAt: result.measuredAt,
         notes: (() => {
           const TOLERANCE = 0.0625;
-          const leftH = result.levelToHeadLeft + result.levelToSillLeft;
-          const rightH = result.levelToHeadRight + result.levelToSillRight;
-          const headW = result.plumbToLeftHead + result.plumbToRightHead;
-          const sillW = result.plumbToLeftSill + result.plumbToRightSill;
+          const leftH = parseFloat(result.levelToHeadLeft || '0') + parseFloat(result.levelToSillLeft || '0');
+          const rightH = parseFloat(result.levelToHeadRight || '0') + parseFloat(result.levelToSillRight || '0');
+          const headW = parseFloat(result.plumbToLeftHead || '0') + parseFloat(result.plumbToRightHead || '0');
+          const sillW = parseFloat(result.plumbToLeftSill || '0') + parseFloat(result.plumbToRightSill || '0');
           const hDiff = Math.abs(leftH - rightH);
           const wDiff = Math.abs(headW - sillW);
           const m = Math.max(hDiff, wDiff);
@@ -1257,7 +1257,7 @@ export default function GlassCalculator() {
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
               <h4 className="font-medium text-gray-800 mb-2">📐 Out of Square</h4>
               <div className="text-sm text-gray-700 space-y-1">
-                {result.notes ? result.notes.split('\n').filter((n: string) => n.trim()).map((note: string, i: number) => (
+                {(result as any).notes ? (result as any).notes.split('\n').filter((n: string) => n.trim()).map((note: string, i: number) => (
                   <p key={i}>{note}</p>
                 )) : (
                   <p>Frame varies by {parseFloat(result.squarenessVariance).toFixed(3)}" — verify before fabrication</p>
