@@ -836,12 +836,12 @@ export default function GlassCalculator() {
     
     // If decimal is very close to 0, just return whole number
     if (decimal < 0.03) {
-      return `${whole}"`;
+      return `${whole}`;
     }
     
     // If decimal is very close to 1, round up
     if (decimal > 0.97) {
-      return `${whole + 1}"`;
+      return `${whole + 1}`;
     }
     
     // Find closest fraction
@@ -859,7 +859,7 @@ export default function GlassCalculator() {
     if (whole === 0) {
       return closest.fraction;
     } else {
-      return `${whole} ${closest.fraction}"`;
+      return `${whole} ${closest.fraction}`;
     }
   };
 
@@ -1286,7 +1286,7 @@ export default function GlassCalculator() {
                 {formatDimension(parseFloat(result.totalFrameWidth))}
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                ({parseFloat(result.totalFrameWidth).toFixed(3)}")
+                ({parseFloat(result.totalFrameWidth).toFixed(3)})"
               </p>
             </div>
             <div className="bg-white rounded-lg p-4">
@@ -1295,7 +1295,7 @@ export default function GlassCalculator() {
                 {formatDimension(parseFloat(result.totalFrameHeight))}
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                ({parseFloat(result.totalFrameHeight).toFixed(3)}")
+                ({parseFloat(result.totalFrameHeight).toFixed(3)})"
               </p>
             </div>
           </div>
@@ -1415,7 +1415,7 @@ export default function GlassCalculator() {
                   )}
                   
                   <div className="text-xs text-gray-500 mt-2">
-                    {lite.widthDecimal && lite.heightDecimal && (<>Decimal: {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"</>)}
+                    Decimal: {parseFloat(lite.widthDecimal).toFixed(3)}" × {parseFloat(lite.heightDecimal).toFixed(3)}"
                   </div>
                 </div>
               ))}
