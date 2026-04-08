@@ -132,11 +132,14 @@ function FractionalInput({
       }
     }
 
-    if (whole === 0 && minDiff < 0.01) {
+    if (whole === 0) {
+      // Pure fraction (no whole number)
       return closest.fraction;
-    } else if (minDiff < 0.01) {
+    } else if (minDiff < 0.005) {
+      // Very close to whole number (within 1/200th inch)
       return `${whole}`;
     } else {
+      // Whole number + fraction
       return `${whole} ${closest.fraction}`;
     }
   };
