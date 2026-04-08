@@ -135,8 +135,8 @@ function FractionalInput({
     if (whole === 0) {
       // Pure fraction (no whole number)
       return closest.fraction;
-    } else if (minDiff < 0.005) {
-      // Very close to whole number (within 1/200th inch)
+    } else if (frac < 0.005) {
+      // Fractional part is nearly zero - return just whole number
       return `${whole}`;
     } else {
       // Whole number + fraction
