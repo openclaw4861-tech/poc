@@ -17,7 +17,8 @@ interface GlassLite {
   liteLeft?: string;        // left edge height
   liteRight?: string;       // right edge height
   liteTop?: string;         // top edge width
-  liteNotesDetail?: string | null;  // "Bottom, left, top corners square", etc.
+  liteNotesDetail?: string | null;  // "Bottom corners square", etc.
+  liteSlopedEdge?: string | null;  // which edge slopes: 'top' | 'bottom' | 'left' | 'right'
 }
 
 interface Measurement {
@@ -475,27 +476,46 @@ export default function GlassCalculator() {
       const glassTopWidth = frameHead + biteLeft + biteRight;
       const glassBottomWidth = frameSill + biteLeft + biteRight;
 
-      // Determine which corners are square
-      // The sloped side is the one that differs
+      // Determine which 2 corners are square based on where dimensions MATCH
+      // Only 2 adjacent corners on the same horizontal edge can be square in a trapezoid
+      // Square corners = the horizontal edge where level measurements MATCH
+      // Sloped edge = the horizontal edge where level measurements DIFFER
       let squareCornersNote: string | null = null;
+      let slopedEdge: string | null = null;
+      
       if (shape === 'trapezoid-vertical') {
-        // Heights differ - one side is taller
-        // The shorter side slopes toward the taller side
-        // Square corners are on the 3 non-sloped sides
-        if (frameLeft > frameRight) {
-          // Right side is shorter → top-right corner slopes down
-          squareCornersNote = 'Bottom, left, top corners square';
+        // Heights differ, widths match — top or bottom edge slopes
+        const levelHeadDiff = Math.abs(measurements.levelToHeadLeft - measurements.levelToHeadRight);
+        const levelSillDiff = Math.abs(measurements.levelToSillLeft - measurements.levelToSillRight);
+        
+        if (levelHeadDiff <= TOLERANCE) {
+          // Head measurements match → top corners are square
+          squareCornersNote = 'Top corners square';
+          slopedEdge = 'bottom';
+        } else if (levelSillDiff <= TOLERANCE) {
+          // Sill measurements match → bottom corners are square
+          squareCornersNote = 'Bottom corners square';
+          slopedEdge = 'top';
         } else {
-          // Left side is shorter → top-left corner slopes down
-          squareCornersNote = 'Bottom, right, top corners square';
+          squareCornersNote = 'Irregular — verify dimensions';
+          slopedEdge = 'both';
         }
       } else if (shape === 'trapezoid-horizontal') {
-        if (frameHead > frameSill) {
-          // Sill is narrower → bottom slopes inward
-          squareCornersNote = 'Left, top, right corners square';
+        // Widths differ, heights match — left or right edge slopes
+        const plumbHeadDiff = Math.abs(measurements.plumbToLeftHead - measurements.plumbToRightHead);
+        const plumbSillDiff = Math.abs(measurements.plumbToLeftSill - measurements.plumbToRightSill);
+        
+        if (plumbHeadDiff <= TOLERANCE) {
+          // Right plumb measurements match → right corners are square
+          squareCornersNote = 'Right corners square';
+          slopedEdge = 'left';
+        } else if (plumbSillDiff <= TOLERANCE) {
+          // Left plumb measurements match → left corners are square
+          squareCornersNote = 'Left corners square';
+          slopedEdge = 'right';
         } else {
-          // Head is narrower → top slopes inward
-          squareCornersNote = 'Left, bottom, right corners square';
+          squareCornersNote = 'Irregular — verify dimensions';
+          slopedEdge = 'both';
         }
       }
 
@@ -515,6 +535,7 @@ export default function GlassCalculator() {
         liteRight: glassRightHeight.toString(),
         liteTop: glassTopWidth.toString(),
         liteNotesDetail: squareCornersNote,
+        liteSlopedEdge: slopedEdge,
       });
     } else {
       // Multiple lites with mullions/joints between them
@@ -1295,42 +1316,86 @@ export default function GlassCalculator() {
                     /* Trapezoid display: 3 dimensions + square corners note */
                     <div>
                       <div className="grid grid-cols-3 gap-2 mb-2">
+                        {/* Show the 3 non-sloped dimensions */}
                         {lite.liteShape === 'trapezoid-vertical' ? (
-                          /* TOP slopes — show: Bottom, Left, Right */
-                          <>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Bottom</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
-                            </div>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Left</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
-                            </div>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Right</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteRight || lite.height))}"</div>
-                            </div>
-                          </>
+                          /* Vertical trap: heights differ → top or bottom is sloped */
+                          lite.liteSlopedEdge === 'top' ? (
+                            /* Top slopes → show: Bottom, Left, Right */
+                            <>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Bottom</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Left</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Right</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteRight || lite.height))}"</div>
+                              </div>
+                            </>
+                          ) : (
+                            /* Bottom slopes → show: Top, Left, Right */
+                            <>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Top</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteTop || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Left</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Right</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteRight || lite.height))}"</div>
+                              </div>
+                            </>
+                          )
                         ) : (
-                          /* Horizontal trap — show: Left, Top, Bottom */
-                          <>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Left</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteLeft || lite.height))}"</div>
-                            </div>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Top</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteTop || lite.width))}"</div>
-                            </div>
-                            <div className="text-center bg-white rounded p-2 border">
-                              <div className="text-xs text-gray-500">Bottom</div>
-                              <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
-                            </div>
-                          </>
+                          /* Horizontal trap: widths differ → left or right is sloped */
+                          lite.liteSlopedEdge === 'left' ? (
+                            /* Left slopes → show: Bottom, Top, Right */
+                            <>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Bottom</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Top</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteTop || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Right</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.height))}"</div>
+                              </div>
+                            </>
+                          ) : (
+                            /* Right slopes → show: Bottom, Top, Left */
+                            <>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Bottom</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteBottom || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Top</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.liteTop || lite.width))}"</div>
+                              </div>
+                              <div className="text-center bg-white rounded p-2 border">
+                                <div className="text-xs text-gray-500">Left</div>
+                                <div className="font-mono font-bold text-lg">{formatDimension(parseFloat(lite.height))}"</div>
+                              </div>
+                            </>
+                          )
                         )}
                       </div>
                       <div className="text-sm font-medium text-yellow-800 bg-yellow-100 rounded px-3 py-1.5">
                         📐 {lite.liteNotesDetail || 'Trapezoid glass'}
+                        {lite.liteNotesDetail && lite.liteNotesDetail !== 'Irregular — verify dimensions' && (
+                          <span className="block text-yellow-700 text-xs mt-0.5">
+                            (sloped edge: {lite.liteSlopedEdge})
+                          </span>
+                        )}
                       </div>
                     </div>
                   ) : (
