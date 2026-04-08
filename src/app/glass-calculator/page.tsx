@@ -51,6 +51,138 @@ interface Measurement {
   glassLites: GlassLite[];
 }
 
+// Fractional input component
+function FractionalInput({ 
+  value, 
+  onChange, 
+  label, 
+  placeholder = "e.g., 5 1/4 or 0.375",
+  colorClass = "blue",
+  step = "0.0625"
+}: { 
+  value: string | number; 
+  onChange: (value: string) => void;
+  label: string;
+  placeholder?: string;
+  colorClass?: string;
+  step?: string;
+}) {
+  const [displayValue, setDisplayValue] = useState(String(value || ''));
+
+  useEffect(() => {
+    setDisplayValue(String(value || ''));
+  }, [value]);
+
+  const parseFraction = (input: string): number | null => {
+    if (!input || input.trim() === '') return null;
+    
+    // Handle pure decimals
+    if (/^\d+\.?\d*$/.test(input.trim())) {
+      return parseFloat(input);
+    }
+
+    // Handle fractions: "5 1/4", "1/4", "5-1/4"
+    const match = input.trim().match(/^(\d+)?[\s\-]?(\d+)\/(\d+)$/);
+    if (match) {
+      const whole = parseInt(match[1] || '0');
+      const numerator = parseInt(match[2]);
+      const denominator = parseInt(match[3]);
+      return whole + (numerator / denominator);
+    }
+
+    // Handle whole numbers
+    if (/^\d+$/.test(input.trim())) {
+      return parseInt(input);
+    }
+
+    return null;
+  };
+
+  const formatToFraction = (decimal: number): string => {
+    const fractions = [
+      { decimal: 0.0625, fraction: '1/16' },
+      { decimal: 0.125, fraction: '1/8' },
+      { decimal: 0.1875, fraction: '3/16' },
+      { decimal: 0.25, fraction: '1/4' },
+      { decimal: 0.3125, fraction: '5/16' },
+      { decimal: 0.375, fraction: '3/8' },
+      { decimal: 0.4375, fraction: '7/16' },
+      { decimal: 0.5, fraction: '1/2' },
+      { decimal: 0.5625, fraction: '9/16' },
+      { decimal: 0.625, fraction: '5/8' },
+      { decimal: 0.6875, fraction: '11/16' },
+      { decimal: 0.75, fraction: '3/4' },
+      { decimal: 0.8125, fraction: '13/16' },
+      { decimal: 0.875, fraction: '7/8' },
+      { decimal: 0.9375, fraction: '15/16' },
+    ];
+
+    const whole = Math.floor(decimal);
+    const frac = decimal - whole;
+    
+    let closest = fractions[0];
+    let minDiff = Math.abs(frac - closest.decimal);
+    
+    for (const f of fractions) {
+      const diff = Math.abs(frac - f.decimal);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closest = f;
+      }
+    }
+
+    if (whole === 0 && minDiff < 0.01) {
+      return closest.fraction;
+    } else if (minDiff < 0.01) {
+      return `${whole}`;
+    } else {
+      return `${whole} ${closest.fraction}`;
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+    setDisplayValue(input);
+    
+    const parsed = parseFraction(input);
+    if (parsed !== null) {
+      onChange(parsed.toString());
+    } else if (input.trim() === '') {
+      onChange('');
+    }
+  };
+
+  const handleBlur = () => {
+    const parsed = parseFraction(displayValue);
+    if (parsed !== null) {
+      const formatted = formatToFraction(parsed);
+      setDisplayValue(formatted);
+    }
+  };
+
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-1">
+        {label}
+      </label>
+      <input
+        type="text"
+        value={displayValue}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={`w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-${colorClass}-500 font-mono text-sm`}
+        placeholder={placeholder}
+      />
+      {parseFraction(displayValue) !== null && (
+        <p className="text-xs text-gray-500 mt-1">
+          = {parseFraction(displayValue)?.toFixed(3)}"
+        </p>
+      )}
+    </div>
+  );
+}
+
+
 export default function GlassCalculator() {
   // Form state
   const [jobName, setJobName] = useState('');
@@ -193,10 +325,11 @@ export default function GlassCalculator() {
       plumbToRightSill: parseFloat(plumbToRightSill),
     };
 
-    // Check for squareness
-    // Height: compare LEFT side (head+sill) vs RIGHT side (head+sill)
-    // Width: compare HEAD (left+right) vs SILL (left+right)
+    // Check for squareness and determine glass type
     const notes: string[] = [];
+    const TOLERANCE = 0.0625; // 1/16"
+    
+    // Calculate frame dimensions
     const leftHeight = measurements.levelToHeadLeft + measurements.levelToSillLeft;
     const rightHeight = measurements.levelToHeadRight + measurements.levelToSillRight;
     const headWidth = measurements.plumbToLeftHead + measurements.plumbToRightHead;
@@ -205,24 +338,41 @@ export default function GlassCalculator() {
     const heightDiff = Math.abs(leftHeight - rightHeight);
     const widthDiff = Math.abs(headWidth - sillWidth);
     const squarenessVariance = Math.max(heightDiff, widthDiff);
-    const isOutOfSquare = squarenessVariance > 0.25;
-
-    // Debug logging for out-of-square detection
-    if (isOutOfSquare) {
-      console.log('Out of square debug:', {
-        levelToHeadLeft: measurements.levelToHeadLeft,
-        levelToSillLeft: measurements.levelToSillLeft,
-        levelToHeadRight: measurements.levelToHeadRight,
-        levelToSillRight: measurements.levelToSillRight,
-        leftHeight: measurements.levelToHeadLeft + measurements.levelToSillLeft,
-        rightHeight: measurements.levelToHeadRight + measurements.levelToSillRight,
-        heightDiff,
-        widthDiff,
-        squarenessVariance,
-        varianceAsString: squarenessVariance.toString(),
-        varianceForDisplay: parseFloat(squarenessVariance.toString()).toFixed(3),
-      });
-      notes.push(`⚠️ Frame is out-of-square by ${squarenessVariance.toFixed(3)}" - verify before fabrication`);
+    
+    let glassTypeNote = '';
+    let isOutOfSquare = false;
+    
+    // Determine glass type
+    if (heightDiff <= TOLERANCE && widthDiff <= TOLERANCE) {
+      // Within tolerance - rectangular glass
+      glassTypeNote = '✅ RECTANGULAR GLASS (within 1/16" tolerance)';
+      isOutOfSquare = false;
+    } else if (heightDiff <= TOLERANCE && widthDiff > TOLERANCE) {
+      // Heights match, widths differ → Horizontal trapezoid
+      glassTypeNote = '📐 TRAPEZOID GLASS (horizontal)';
+      isOutOfSquare = true;
+      notes.push(`${glassTypeNote}: Left/right heights match, head/sill widths differ by ${widthDiff.toFixed(3)}"`);
+      notes.push(`   • Square corners: All 4 vertical corners`);
+      notes.push(`   • Head width: ${headWidth.toFixed(3)}" | Sill width: ${sillWidth.toFixed(3)}"`);
+    } else if (widthDiff <= TOLERANCE && heightDiff > TOLERANCE) {
+      // Widths match, heights differ → Vertical trapezoid
+      glassTypeNote = '📐 TRAPEZOID GLASS (vertical)';
+      isOutOfSquare = true;
+      notes.push(`${glassTypeNote}: Head/sill widths match, left/right heights differ by ${heightDiff.toFixed(3)}"`);
+      notes.push(`   • Square corners: All 4 horizontal corners`);
+      notes.push(`   • Left height: ${leftHeight.toFixed(3)}" | Right height: ${rightHeight.toFixed(3)}"`);
+    } else {
+      // Both differ - can't make clean trapezoid
+      glassTypeNote = '⚠️ OUT OF SQUARE';
+      isOutOfSquare = true;
+      notes.push(`${glassTypeNote}: Frame cannot be made as clean trapezoid`);
+      notes.push(`   • Height variance: ${heightDiff.toFixed(3)}" (L: ${leftHeight.toFixed(3)}" vs R: ${rightHeight.toFixed(3)}")`);
+      notes.push(`   • Width variance: ${widthDiff.toFixed(3)}" (Head: ${headWidth.toFixed(3)}" vs Sill: ${sillWidth.toFixed(3)}")`);
+      notes.push(`   • ⚠️ VERIFY DIMENSIONS BEFORE FABRICATION`);
+    }
+    
+    if (!isOutOfSquare) {
+      notes.push(glassTypeNote);
     }
 
     // Calculate total frame dimensions
