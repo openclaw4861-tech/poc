@@ -68,10 +68,10 @@ export const glassLites = pgTable('glass_lites', {
   id: serial('id').primaryKey(),
   measurementId: integer('measurement_id').notNull().references(() => measurements.id, { onDelete: 'cascade' }),
   liteNumber: integer('lite_number').notNull(),
-  width: decimal('width', { precision: 8, scale: 4 }).notNull(),
-  height: decimal('height', { precision: 8, scale: 4 }).notNull(),
-  widthDecimal: decimal('width_decimal', { precision: 10, scale: 6 }).notNull(),
-  heightDecimal: decimal('height_decimal', { precision: 10, scale: 6 }).notNull(),
+  width: varchar('width', { length: 20 }).notNull(),
+  height: varchar('height', { length: 20 }).notNull(),
+  widthDecimal: decimal('width_decimal', { precision: 14, scale: 10 }).notNull(),
+  heightDecimal: decimal('height_decimal', { precision: 14, scale: 10 }).notNull(),
   
   // Per-boundary height measurements for this lite
   // Left boundary (head/sill = up/down from level line)

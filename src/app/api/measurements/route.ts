@@ -152,8 +152,10 @@ export async function POST(request: NextRequest) {
     let jointSill: number[] = [];
     try {
       const jd = typeof jointData === 'string' ? JSON.parse(jointData) : jointData;
-      jointHead = (jd?.head || []).map(Number);
-      jointSill = (jd?.sill || []).map(Number);
+      jointHead = (jd?.head || []).filter((v: unknown) => v !== null && v !== undefined && v !== '')
+        .map((v: unknown) => Number(v));
+      jointSill = (jd?.sill || []).filter((v: unknown) => v !== null && v !== undefined && v !== '')
+        .map((v: unknown) => Number(v));
     } catch (_) { /* ignore malformed JSON */ }
 
     const leftHeadBoundary = [parseFloat(levelToHeadLeft), ...jointHead];
@@ -350,8 +352,10 @@ export async function PUT(request: NextRequest) {
     let jointSill: number[] = [];
     try {
       const jd = typeof jointData === 'string' ? JSON.parse(jointData) : jointData;
-      jointHead = (jd?.head || []).map(Number);
-      jointSill = (jd?.sill || []).map(Number);
+      jointHead = (jd?.head || []).filter((v: unknown) => v !== null && v !== undefined && v !== '')
+        .map((v: unknown) => Number(v));
+      jointSill = (jd?.sill || []).filter((v: unknown) => v !== null && v !== undefined && v !== '')
+        .map((v: unknown) => Number(v));
     } catch (_) { /* ignore malformed JSON */ }
 
     const leftHeadBoundary = [parseFloat(levelToHeadLeft), ...jointHead];
