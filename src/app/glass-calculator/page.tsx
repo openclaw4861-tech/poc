@@ -565,9 +565,11 @@ export default function GlassCalculator() {
         const rh = bHead[i + 1];
         const rs = bSill[i + 1];
 
-        const leftAvg = (lh + ls) / 2;
-        const rightAvg = (rh + rs) / 2;
-        const liteHeight = ((leftAvg + rightAvg) / 2) + biteTop + biteBottom;
+        // Height at each boundary = head + sill at that position
+        const leftHeight = lh + ls;
+        const rightHeight = rh + rs;
+        // Lite glass height = average of left & right boundary heights + glass bites
+        const liteHeight = ((leftHeight + rightHeight) / 2) + biteTop + biteBottom;
 
         const topDiff = Math.abs(lh - rh);
         const bottomDiff = Math.abs(ls - rs);

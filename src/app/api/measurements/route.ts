@@ -170,10 +170,14 @@ export async function POST(request: NextRequest) {
       const rh = rightHeadBoundary[i + 1];
       const rs = rightSillBoundary[i + 1];
 
-      const leftAvg = (lh + ls) / 2;
-      const rightAvg = (rh + rs) / 2;
-      const liteHeight = ((leftAvg + rightAvg) / 2) + glassBiteHeightTotal;
-      const liteWidth = totalFrameWidth + glassBiteTotal;
+      // Height at each boundary = head + sill at that position
+      const leftHeight = lh + ls;
+      const rightHeight = rh + rs;
+      // Lite glass height = average of left & right boundary heights + glass bites
+      const liteHeight = ((leftHeight + rightHeight) / 2) + glassBiteHeightTotal;
+      // Lite width = frame width divided equally among lites (minus mullion gaps)
+      const totalMullionWidth = (numberOfLites - 1) * parseFloat(mullionWidth as string || '0.25');
+      const liteWidth = (totalFrameWidth + glassBiteTotal - totalMullionWidth) / numberOfLites;
 
       const topDiff = Math.abs(lh - rh);
       const bottomDiff = Math.abs(ls - rs);
@@ -372,12 +376,14 @@ export async function PUT(request: NextRequest) {
       const rs = rightSillBoundary[i + 1];
 
       // Average height at each boundary side
-      const leftAvg = (lh + ls) / 2;
-      const rightAvg = (rh + rs) / 2;
-
-      // Per-lite glass dimensions (add glass bite)
-      const liteHeight = ((leftAvg + rightAvg) / 2) + glassBiteHeightTotal;
-      const liteWidth = totalFrameWidth + glassBiteTotal;
+      // Height at each boundary = head + sill at that position
+      const leftHeight = lh + ls;
+      const rightHeight = rh + rs;
+      // Lite glass height = average of left & right boundary heights + glass bites
+      const liteHeight = ((leftHeight + rightHeight) / 2) + glassBiteHeightTotal;
+      // Lite width = frame width divided equally among lites (minus mullion gaps)
+      const totalMullionWidth = (numberOfLites - 1) * parseFloat(mullionWidth as string || '0.25');
+      const liteWidth = (totalFrameWidth + glassBiteTotal - totalMullionWidth) / numberOfLites;
 
       // Per-lite square check
       const topDiff = Math.abs(lh - rh);
