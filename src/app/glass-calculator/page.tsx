@@ -49,6 +49,7 @@ interface Measurement {
   plumbToRightHead?: string;
   plumbToLeftSill?: string;
   plumbToRightSill?: string;
+  jointData?: any;
   glassLites: GlassLite[];
 }
 
@@ -803,6 +804,24 @@ export default function GlassCalculator() {
     setPlumbToRightHead(measurement.plumbToRightHead || '');
     setPlumbToLeftSill(measurement.plumbToLeftSill || '');
     setPlumbToRightSill(measurement.plumbToRightSill || '');
+    
+    // Load joint measurements from jointData JSON
+    if ((measurement as any).jointData) {
+      try {
+        const jd = typeof (measurement as any).jointData === 'string'
+          ? JSON.parse((measurement as any).jointData)
+          : (measurement as any).jointData;
+        const parsed: Record<number, { head: string; sill: string }> = {};
+        for (let i = 0; i < (jd.head || []).length; i++) {
+          parsed[i + 1] = { head: String(jd.head[i] ?? ''), sill: String(jd.sill[i] ?? '') };
+        }
+        setJointMeasurements(parsed);
+      } catch {
+        setJointMeasurements({});
+      }
+    } else {
+      setJointMeasurements({});
+    }
     
     // Clear previous result
     setResult(null);
