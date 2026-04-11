@@ -18,18 +18,22 @@ class ApiDataProvider extends RestDataProvider {
   }
 
   override async getData(id?: number | string): Promise<{ tasks: ITask[]; links: ILink[] }> {
+    console.log('[ApiDataProvider] getData called, id=', id);
     const [tasksResp, linksResp] = await Promise.all([
       this.send<any>(id ? `tasks/${id}` : 'tasks', 'GET'),
       this.send<any>(id ? `links/${id}` : 'links', 'GET'),
     ]);
+    console.log('[ApiDataProvider] tasksResp:', JSON.stringify(tasksResp)?.slice(0, 200));
 
     // Unwrap { success: true, data: [...] } → [...]
     const rawTasks: any[] = Array.isArray(tasksResp) ? tasksResp
       : Array.isArray((tasksResp as any)?.data) ? (tasksResp as any).data : [];
     const rawLinks: any[] = Array.isArray(linksResp) ? linksResp
       : Array.isArray((linksResp as any)?.data) ? (linksResp as any).data : [];
+    console.log('[ApiDataProvider] rawTasks count:', rawTasks.length, 'rawLinks:', rawLinks.length);
 
     const tasks = this.parseDates(rawTasks);
+    console.log('[ApiDataProvider] parsed tasks:', tasks.length);
     return { tasks, links: rawLinks };
   }
 }
@@ -46,7 +50,9 @@ export default function Scheduler({ projectId }: { projectId: string }) {
 
   const init = useCallback((ganttApi: IApi) => {
     setApi(ganttApi);
+    console.log('[Scheduler] init called, setting next handler');
     ganttApi.setNext(server);
+    console.log('[Scheduler] next handler set');
   }, [server]);
 
   if (!mounted) {
