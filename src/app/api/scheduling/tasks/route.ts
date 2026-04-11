@@ -7,16 +7,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const {
-      projectId,
-      parentTaskId,
-      name,
-      startDate,
-      endDate,
-      durationDays,
+      projectId, parentTaskId, name, startDate, endDate, durationDays,
       percentComplete,
-      constraintType,
-      constraintOffsetDays,
-      sortOrder,
     } = body;
 
     if (!projectId || !name || !startDate || !endDate || durationDays === undefined) {
@@ -34,9 +26,6 @@ export async function POST(request: NextRequest) {
       endDate: new Date(endDate),
       durationDays: Number(durationDays),
       percentComplete: percentComplete !== undefined ? Number(percentComplete) : 0,
-      constraintType: constraintType || 'FS',
-      constraintOffsetDays: constraintOffsetDays !== undefined ? Number(constraintOffsetDays) : 0,
-      sortOrder: sortOrder !== undefined ? Number(sortOrder) : 0,
     };
 
     const result = await db.insert(tasks).values(values).returning() as any[];
@@ -53,18 +42,17 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const projectId = searchParams.get('projectId');
 
+    let result;
     if (projectId) {
-      const result = await db.query.tasks.findMany({
-        where: (t, { eq }) => eq(t.projectId, parseInt(projectId)),
-        orderBy: [asc(tasks.sortOrder), asc(tasks.id)],
-      });
-      return NextResponse.json({ success: true, data: result });
+      result = await db.select().from(tasks)
+        .where(eq(tasks.projectId, parseInt(projectId)))
+        .orderBy(asc(tasks.sortOrder), asc(tasks.id));
+    } else {
+      result = await db.select().from(tasks)
+        .orderBy(asc(tasks.sortOrder), asc(tasks.id))
+        .limit(500);
     }
 
-    const result = await db.query.tasks.findMany({
-      orderBy: [asc(tasks.sortOrder), asc(tasks.id)],
-      limit: 500,
-    });
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
     console.error('GET /api/scheduling/tasks error:', error);
