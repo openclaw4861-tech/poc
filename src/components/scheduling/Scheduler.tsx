@@ -45,7 +45,6 @@ const COLUMNS = [
   { id: 'duration', header: 'Days', flexgrow: 1, align: 'center' as const },
 ];
 
-// Convert DB task → SVAR Gantt task
 function toGanttTask(t: TaskResponse) {
   return {
     id: t.id,
@@ -59,7 +58,6 @@ function toGanttTask(t: TaskResponse) {
   };
 }
 
-// Convert DB dependency → SVAR Gantt link
 function toGanttLink(d: DepResponse) {
   return {
     id: d.id,
@@ -70,16 +68,13 @@ function toGanttLink(d: DepResponse) {
 }
 
 export default function Scheduler({ projectId }: { projectId: string }) {
-  const [tasks, setTasks] = useState<TaskResponse[]>([]);
-  const [links, setLinks] = useState<DepResponse[]>([]);
-  const [ganttTasks, setGanttTasks] = useState<ReturnType<typeof toGanttTask>[]>([]);
-  const [ganttLinks, setGanttLinks] = useState<ReturnType<typeof toGanttLink>[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>('week');
-  const [loading, setLoading] = useState(true);
   const [api, setApi] = useState<any>(null);
+  const [ready, setReady] = useState(false);
 
-  const fetchAll = useCallback(async () => {
-    if (!projectId) return;
+  // Load data and push into SVAR via API
+  const loadData = useCallback(async () => {
+    if (!api || !projectId) return;
     try {
       const [tasksRes, depsRes] = await Promise.all([
         fetch(`/api/scheduling/tasks?projectId=${projectId}`),
@@ -90,152 +85,111 @@ export default function Scheduler({ projectId }: { projectId: string }) {
 
       const taskData: TaskResponse[] = Array.isArray(tasksRaw) ? tasksRaw
         : Array.isArray(tasksRaw?.data) ? tasksRaw.data : [];
-
       const depData: DepResponse[] = Array.isArray(depsRaw) ? depsRaw
         : Array.isArray(depsRaw?.data) ? depsRaw.data : [];
 
-      setTasks(taskData);
-      setLinks(depData);
-      setGanttTasks(taskData.map(toGanttTask));
-      setGanttLinks(depData.map(toGanttLink));
+      const ganttTasks = taskData.map(toGanttTask);
+      const ganttLinks = depData.map(toGanttLink);
+
+      api.exec('setTasks', ganttTasks);
+      api.exec('setLinks', ganttLinks);
     } catch (e) {
-      console.error('[Scheduler] fetchAll error:', e);
-    } finally {
-      setLoading(false);
+      console.error('[Scheduler] loadData error:', e);
     }
-  }, [projectId]);
+  }, [api, projectId]);
 
-  useEffect(() => { fetchAll(); }, [fetchAll]);
-
-  // Refresh SVAR when data changes
+  // Load on mount once api is ready
   useEffect(() => {
-    if (!api) return;
-    api.exec('setTasks', ganttTasks);
-    api.exec('setLinks', ganttLinks);
-  }, [api, ganttTasks, ganttLinks]);
-
-  // Task add via SVAR inline editor
-  async function handleTaskAdd(task: { text: string; start: Date; duration: number }) {
-    try {
-      const endDate = new Date(task.start.getTime() + task.duration * 86400000);
-      const res = await fetch('/api/scheduling/tasks', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          projectId: parseInt(projectId),
-          name: task.text,
-          startDate: task.start.toISOString(),
-          endDate: endDate.toISOString(),
-          durationDays: task.duration,
-        }),
-      });
-      if (!res.ok) throw new Error(await res.text());
-      await fetchAll();
-    } catch (e) {
-      console.error('[Scheduler] add task error:', e);
+    if (api && !ready) {
+      setReady(true);
+      loadData();
     }
-  }
+  }, [api, ready, loadData]);
 
-  // Task update via SVAR inline editor
-  async function handleTaskUpdate(task: { id: number; text?: string; start?: Date; duration?: number; progress?: number }) {
-    try {
-      const body: Record<string, unknown> = {};
-      if (task.text !== undefined) body.name = task.text;
-      if (task.start !== undefined) {
-        body.startDate = task.start.toISOString();
-        body.durationDays = task.duration ?? 1;
-        body.endDate = new Date(task.start.getTime() + (task.duration ?? 1) * 86400000).toISOString();
-      }
-      if (task.progress !== undefined) body.percentComplete = Math.round(task.progress * 100);
-
-      const res = await fetch(`/api/scheduling/tasks/${task.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      if (!res.ok) throw new Error(await res.text());
-      await fetchAll();
-    } catch (e) {
-      console.error('[Scheduler] update task error:', e);
-    }
-  }
-
-  // Link add via SVAR drag
-  async function handleLinkAdd(link: { source: number; target: number; type: string }) {
-    try {
-      const typeMap: Record<string, string> = { e2e: 'FS', s2s: 'SS', s2e: 'SF' };
-      const res = await fetch('/api/scheduling/dependencies', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          taskId: link.target,
-          dependsOnTaskId: link.source,
-          type: typeMap[link.type] ?? 'FS',
-          lagDays: 0,
-        }),
-      });
-      if (!res.ok) throw new Error(await res.text());
-      await fetchAll();
-    } catch (e) {
-      console.error('[Scheduler] add link error:', e);
-    }
-  }
-
-  // Task delete via SVAR context menu or keyboard
-  async function handleTaskDelete(id: number) {
-    try {
-      await fetch(`/api/scheduling/tasks/${id}`, { method: 'DELETE' });
-      await fetchAll();
-    } catch (e) {
-      console.error('[Scheduler] delete task error:', e);
-    }
-  }
-
-  // Wire SVAR events once api is available
+  // SVAR init
   function handleInit(apiRef: any) {
     setApi(apiRef);
 
-    // Inline task add (when user clicks + in grid)
-    apiRef.on('after-task-add', (config: any) => {
-      const task = config.data;
-      if (task?.text && task?.start && task?.duration) {
-        handleTaskAdd(task);
-      }
-    });
-
-    // Inline task update (when user edits a task inline)
-    apiRef.on('after-task-update', (config: any) => {
-      const task = config.data;
-      if (task?.id) {
-        handleTaskUpdate({
-          id: task.id,
-          text: task.text,
-          start: task.start,
-          duration: task.duration,
-          progress: task.progress,
+    apiRef.on('after-task-add', async (config: any) => {
+      const t = config.data;
+      if (!t?.text || !t?.start || !t?.duration) return;
+      try {
+        const endDate = new Date(new Date(t.start).getTime() + t.duration * 86400000);
+        await fetch('/api/scheduling/tasks', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            projectId: parseInt(projectId),
+            name: t.text,
+            startDate: new Date(t.start).toISOString(),
+            endDate: endDate.toISOString(),
+            durationDays: t.duration,
+          }),
         });
+        await loadData();
+      } catch (e) {
+        console.error('[Scheduler] add task error:', e);
       }
     });
 
-    // Link created by dragging between tasks
-    apiRef.on('after-link-add', (config: any) => {
+    apiRef.on('after-task-update', async (config: any) => {
+      const t = config.data;
+      if (!t?.id) return;
+      try {
+        const body: Record<string, unknown> = {};
+        if (t.text !== undefined) body.name = t.text;
+        if (t.start !== undefined) {
+          body.startDate = new Date(t.start).toISOString();
+          body.durationDays = t.duration ?? 1;
+          body.endDate = new Date(new Date(t.start).getTime() + (t.duration ?? 1) * 86400000).toISOString();
+        }
+        if (t.progress !== undefined) body.percentComplete = Math.round(t.progress * 100);
+        await fetch(`/api/scheduling/tasks/${t.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        await loadData();
+      } catch (e) {
+        console.error('[Scheduler] update task error:', e);
+      }
+    });
+
+    apiRef.on('after-link-add', async (config: any) => {
       const link = config.data;
-      if (link?.source != null && link?.target != null) {
-        handleLinkAdd({ source: link.source, target: link.target, type: link.type ?? 'e2e' });
+      if (link?.source == null || link?.target == null) return;
+      const typeMap: Record<string, string> = { e2e: 'FS', s2s: 'SS', s2e: 'SF' };
+      try {
+        await fetch('/api/scheduling/dependencies', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            taskId: link.target,
+            dependsOnTaskId: link.source,
+            type: typeMap[link.type ?? 'e2e'] ?? 'FS',
+            lagDays: 0,
+          }),
+        });
+        await loadData();
+      } catch (e) {
+        console.error('[Scheduler] add link error:', e);
       }
     });
 
-    // Delete
-    apiRef.on('before-task-delete', (config: any) => {
-      if (config.id != null) handleTaskDelete(config.id);
+    apiRef.on('before-task-delete', async (config: any) => {
+      if (config.id == null) return;
+      try {
+        await fetch(`/api/scheduling/tasks/${config.id}`, { method: 'DELETE' });
+        await loadData();
+      } catch (e) {
+        console.error('[Scheduler] delete task error:', e);
+      }
     });
   }
 
-  if (loading) return <div style={{ padding: 24, color: '#64748b' }}>Loading schedule...</div>;
-
   return (
     <Willow>
-      {/* Toolbar row */}
+      {/* Toolbar */}
       <div style={{ display: 'flex', gap: 8, padding: '8px 12px', borderBottom: '1px solid #e2e8f0', alignItems: 'center', background: '#fff' }}>
         <span style={{ fontSize: 12, color: '#64748b', fontWeight: 600 }}>TIMESCALE:</span>
         {(['day', 'week', 'month'] as ViewMode[]).map(m => (
@@ -258,15 +212,9 @@ export default function Scheduler({ projectId }: { projectId: string }) {
             {m === 'day' ? 'Day' : m === 'week' ? 'Week' : 'Month'}
           </button>
         ))}
-        <span style={{ marginLeft: 8, fontSize: 11, color: '#94a3b8' }}>
-          {tasks.length} task{tasks.length !== 1 ? 's' : ''}
-        </span>
       </div>
 
-      {/* SVAR Gantt — readonly=false enables inline editing */}
       <Gantt
-        tasks={ganttTasks}
-        links={ganttLinks}
         scales={SCALES[viewMode]}
         columns={COLUMNS}
         init={handleInit}
