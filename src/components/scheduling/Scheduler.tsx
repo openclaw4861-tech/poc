@@ -47,7 +47,8 @@ export default function ProjectScheduler({ projectId }: { projectId: string }) {
         if (!response.ok) {
           throw new Error(`Failed to fetch tasks: ${response.status}`);
         }
-        const data: TaskResponse[] = await response.json();
+        const raw = await response.json();
+        const data: TaskResponse[] = Array.isArray(raw) ? raw : Array.isArray(raw.data) ? raw.data : [];
         if (cancelled) return;
 
         const taskMap = new Map<string, GanttTask>();
@@ -120,7 +121,7 @@ export default function ProjectScheduler({ projectId }: { projectId: string }) {
         }
         // Refresh tasks after update
         const response2 = await fetch(`/api/scheduling/tasks?projectId=${projectId}`);
-        const taskData = await response2.json();
+        const taskData = await (async () => { const r = await response2.json(); return Array.isArray(r) ? r : Array.isArray(r.data) ? r.data : []; })();
         // Rebuild tree (same logic as above)
         const taskMap = new Map<string, GanttTask>();
         const rootTasks: GanttTask[] = [];
@@ -170,7 +171,7 @@ export default function ProjectScheduler({ projectId }: { projectId: string }) {
         }
         // Refresh tasks after add
         const response2 = await fetch(`/api/scheduling/tasks?projectId=${projectId}`);
-        const taskData = await response2.json();
+        const taskData = await (async () => { const r = await response2.json(); return Array.isArray(r) ? r : Array.isArray(r.data) ? r.data : []; })();
         const taskMap = new Map<string, GanttTask>();
         const rootTasks: GanttTask[] = [];
         for (const t of taskData) {
