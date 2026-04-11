@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import ProjectScheduler from '@/components/scheduling/Scheduler';
 
 export default function SchedulerPage() {
-  const [projects, setProjects] = useState<Array<{ id: number; name: string }>>([]);
+  const [projectList, setProjectList] = useState<Array<{ id: number; name: string }>>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +21,7 @@ export default function SchedulerPage() {
         }
         const data = await response.json();
         if (cancelled) return;
-        setProjects(data.data || []);
+        setProjectList(data.data || []);
         // Select first project by default if none selected
         if (!selectedProjectId && data.data?.[0]?.id) {
           setSelectedProjectId(String(data.data[0].id));
@@ -29,7 +29,7 @@ export default function SchedulerPage() {
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : String(err));
-          setProjects([]);
+          setProjectList([]);
         }
       } finally {
         if (!cancelled) {
@@ -57,7 +57,8 @@ export default function SchedulerPage() {
         throw new Error(`Failed to create project: ${response.status}`);
       }
       const data = await response.json();
-      setProjects([...projects, { id: data.data.id, name }]);
+      const newProject = Array.isArray(data.data) ? { id: data.data[data.data.length-1].id, name } : { id: data.data.id, name };
+      setProjectList([...projectList, newProject]);
       setSelectedProjectId(String(data.data.id));
     } catch (err) {
       alert('Error creating project: ' + err);
@@ -83,7 +84,7 @@ export default function SchedulerPage() {
         <div style={{ width: '250px', border: '1px solid #ddd', padding: '10px' }}>
           <h2>Projects</h2>
           <ul>
-            {projects.map(p => (
+            {projectList.map(p => (
               <li
                 key={p.id}
                 onClick={() => setSelectedProjectId(String(p.id))}
