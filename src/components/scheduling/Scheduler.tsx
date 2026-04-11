@@ -1,228 +1,183 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
-import { Gantt, Willow } from '@svar-ui/react-gantt';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Gantt, Toolbar, Willow, Editor } from '@svar-ui/react-gantt';
 import '@svar-ui/react-gantt/all.css';
+import type { ITask, ILink, IApi } from '@svar-ui/react-gantt';
 
-interface TaskResponse {
-  id: number;
-  name: string;
-  startDate: string;
-  endDate: string;
-  durationDays: number;
-  percentComplete: number;
-  parentTaskId: number | null;
-}
+const apiUrl = '/api/scheduling';
 
-interface DepResponse {
-  id: number;
-  taskId: number;
-  dependsOnTaskId: number;
-  type: string;
-  lagDays: number;
-}
-
-type ViewMode = 'day' | 'week' | 'month';
-
-const SCALES: Record<ViewMode, Array<{ unit: string; step: number; format: string }>> = {
-  day: [
-    { unit: 'month', step: 1, format: '%F %Y' },
-    { unit: 'day', step: 1, format: '%j' },
-  ],
-  week: [
-    { unit: 'month', step: 1, format: '%F %Y' },
-    { unit: 'week', step: 1, format: '%W' },
-  ],
-  month: [
-    { unit: 'year', step: 1, format: '%Y' },
-    { unit: 'month', step: 1, format: '%M' },
-  ],
-};
-
-const COLUMNS = [
-  { id: 'text', header: 'Task name', flexgrow: 2 },
-  { id: 'start', header: 'Start', flexgrow: 1, align: 'center' as const },
-  { id: 'duration', header: 'Days', flexgrow: 1, align: 'center' as const },
+const scales = [
+  { unit: 'month', step: 1, format: '%F %Y' },
+  { unit: 'week', step: 1, format: 'Wk %W' },
 ];
 
-function toGanttTask(t: TaskResponse) {
-  return {
-    id: t.id,
-    text: t.name,
-    start: new Date(t.startDate),
-    duration: t.durationDays,
-    progress: (t.percentComplete ?? 0) / 100,
-    parent: t.parentTaskId ?? 0,
-    type: 'task',
-    open: true,
-  };
-}
+/** Minimal data provider that handles our { success: true, data: [...] } response format */
+class ApiDataProvider {
+  private base: string;
 
-function toGanttLink(d: DepResponse) {
-  return {
-    id: d.id,
-    source: d.dependsOnTaskId,
-    target: d.taskId,
-    type: d.type === 'SS' ? 's2s' : d.type === 'SF' ? 's2e' : 'e2e',
-  };
-}
+  constructor() {
+    this.base = window.location.origin + apiUrl;
+  }
 
-export default function Scheduler({ projectId }: { projectId: string }) {
-  const [viewMode, setViewMode] = useState<ViewMode>('week');
-  const [api, setApi] = useState<any>(null);
-  const [ready, setReady] = useState(false);
+  private async get<T>(path: string): Promise<T> {
+    const res = await fetch(this.base + path);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return json as T;
+  }
 
-  // Load data and push into SVAR via API
-  const loadData = useCallback(async () => {
-    if (!api || !projectId) return;
-    try {
-      const [tasksRes, depsRes] = await Promise.all([
-        fetch(`/api/scheduling/tasks?projectId=${projectId}`),
-        fetch(`/api/scheduling/dependencies?projectId=${projectId}`),
-      ]);
-      const tasksRaw = await tasksRes.json();
-      const depsRaw = await depsRes.json();
-
-      const taskData: TaskResponse[] = Array.isArray(tasksRaw) ? tasksRaw
-        : Array.isArray(tasksRaw?.data) ? tasksRaw.data : [];
-      const depData: DepResponse[] = Array.isArray(depsRaw) ? depsRaw
-        : Array.isArray(depsRaw?.data) ? depsRaw.data : [];
-
-      const ganttTasks = taskData.map(toGanttTask);
-      const ganttLinks = depData.map(toGanttLink);
-
-      api.exec('setTasks', ganttTasks ?? []);
-      api.exec('setLinks', ganttLinks ?? []);
-    } catch (e) {
-      console.error('[Scheduler] loadData error:', e);
-    }
-  }, [api, projectId]);
-
-  // Load on mount once api is ready
-  useEffect(() => {
-    if (api && !ready) {
-      setReady(true);
-      loadData();
-    }
-  }, [api, ready, loadData]);
-
-  // SVAR init
-  function handleInit(apiRef: any) {
-    setApi(apiRef);
-
-    apiRef.on('after-task-add', async (config: any) => {
-      const t = config.data;
-      if (!t?.text || !t?.start || !t?.duration) return;
-      try {
-        const endDate = new Date(new Date(t.start).getTime() + t.duration * 86400000);
-        await fetch('/api/scheduling/tasks', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            projectId: parseInt(projectId),
-            name: t.text,
-            startDate: new Date(t.start).toISOString(),
-            endDate: endDate.toISOString(),
-            durationDays: t.duration,
-          }),
-        });
-        await loadData();
-      } catch (e) {
-        console.error('[Scheduler] add task error:', e);
-      }
+  private async post<T>(path: string, data: unknown): Promise<T> {
+    const res = await fetch(this.base + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
     });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return (json as any)?.data ?? json;
+  }
 
-    apiRef.on('after-task-update', async (config: any) => {
-      const t = config.data;
-      if (!t?.id) return;
-      try {
-        const body: Record<string, unknown> = {};
-        if (t.text !== undefined) body.name = t.text;
-        if (t.start !== undefined) {
-          body.startDate = new Date(t.start).toISOString();
-          body.durationDays = t.duration ?? 1;
-          body.endDate = new Date(new Date(t.start).getTime() + (t.duration ?? 1) * 86400000).toISOString();
-        }
-        if (t.progress !== undefined) body.percentComplete = Math.round(t.progress * 100);
-        await fetch(`/api/scheduling/tasks/${t.id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-        });
-        await loadData();
-      } catch (e) {
-        console.error('[Scheduler] update task error:', e);
-      }
+  private async put<T>(path: string, data: unknown): Promise<T> {
+    const res = await fetch(this.base + path, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
     });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return (json as any)?.data ?? json;
+  }
 
-    apiRef.on('after-link-add', async (config: any) => {
-      const link = config.data;
-      if (link?.source == null || link?.target == null) return;
-      const typeMap: Record<string, string> = { e2e: 'FS', s2s: 'SS', s2e: 'SF' };
-      try {
-        await fetch('/api/scheduling/dependencies', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            taskId: link.target,
-            dependsOnTaskId: link.source,
-            type: typeMap[link.type ?? 'e2e'] ?? 'FS',
-            lagDays: 0,
-          }),
-        });
-        await loadData();
-      } catch (e) {
-        console.error('[Scheduler] add link error:', e);
-      }
-    });
+  private async del<T>(path: string): Promise<T> {
+    const res = await fetch(this.base + path, { method: 'DELETE' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    return (json as any)?.data ?? json;
+  }
 
-    apiRef.on('before-task-delete', async (config: any) => {
-      if (config.id == null) return;
-      try {
-        await fetch(`/api/scheduling/tasks/${config.id}`, { method: 'DELETE' });
-        await loadData();
-      } catch (e) {
-        console.error('[Scheduler] delete task error:', e);
-      }
+  // Parse date strings from DB into JS Date objects — SVAR requires Date objects
+  private parseDates(tasks: any[]): ITask[] {
+    return tasks.map(t => ({
+      ...t,
+      start: new Date(t.start ?? t.startDate),
+      end: t.end ? new Date(t.end) : undefined,
+    }));
+  }
+
+  async getData(): Promise<{ tasks: ITask[]; links: ILink[] }> {
+    const [tasksResp, linksResp] = await Promise.all([
+      this.get<any>('/tasks'),
+      this.get<any>('/links'),
+    ]);
+
+    const rawTasks: any[] = Array.isArray(tasksResp) ? tasksResp
+      : Array.isArray(tasksResp?.data) ? tasksResp.data : [];
+    const rawLinks: any[] = Array.isArray(linksResp) ? linksResp
+      : Array.isArray(linksResp?.data) ? linksResp.data : [];
+
+    return {
+      tasks: this.parseDates(rawTasks),
+      links: rawLinks,
+    };
+  }
+
+  // Called by SVAR via api.setNext(provider)
+  async addTask(task: Partial<ITask> & { mode?: string; target?: number }) {
+    return this.post('/tasks', {
+      name: task.text,
+      startDate: task.start instanceof Date ? task.start.toISOString() : task.start,
+      endDate: task.end instanceof Date ? task.end.toISOString() : task.end,
+      durationDays: task.duration,
+      percentComplete: Math.round((task.progress ?? 0) * 100),
+      parentTaskId: task.parent && task.parent !== 0 ? task.parent : null,
     });
   }
 
-  return (
-    <Willow>
-      {/* Toolbar */}
-      <div style={{ display: 'flex', gap: 8, padding: '8px 12px', borderBottom: '1px solid #e2e8f0', alignItems: 'center', background: '#fff' }}>
-        <span style={{ fontSize: 12, color: '#64748b', fontWeight: 600 }}>TIMESCALE:</span>
-        {(['day', 'week', 'month'] as ViewMode[]).map(m => (
-          <button
-            key={m}
-            onClick={() => setViewMode(m)}
-            style={{
-              padding: '4px 12px',
-              fontSize: 12,
-              border: '1px solid',
-              borderColor: viewMode === m ? '#16a34a' : '#cbd5e1',
-              background: viewMode === m ? '#16a34a' : '#fff',
-              color: viewMode === m ? '#fff' : '#475569',
-              borderRadius: 4,
-              cursor: 'pointer',
-              fontWeight: 500,
-              textTransform: 'capitalize',
-            }}
-          >
-            {m === 'day' ? 'Day' : m === 'week' ? 'Week' : 'Month'}
-          </button>
-        ))}
-      </div>
+  async updateTask(task: Partial<ITask> & { id: number | string }) {
+    const body: Record<string, unknown> = {};
+    if (task.text !== undefined) body.name = task.text;
+    if (task.start !== undefined) body.startDate = (task.start instanceof Date ? task.start : new Date(task.start as any)).toISOString();
+    if (task.end !== undefined) body.endDate = (task.end instanceof Date ? task.end : new Date(task.end as any)).toISOString();
+    if (task.duration !== undefined) body.durationDays = task.duration;
+    if (task.progress !== undefined) body.percentComplete = Math.round(task.progress * 100);
+    return this.put(`/tasks/${task.id}`, body);
+  }
 
-      <Gantt
-        scales={SCALES[viewMode]}
-        columns={COLUMNS}
-        init={handleInit}
-        readonly={false}
-        cellHeight={36}
-        scaleHeight={60}
-        cellBorders="column"
-      />
-    </Willow>
+  async deleteTask(id: number | string) {
+    return this.del(`/tasks/${id}`);
+  }
+
+  async addLink(link: { source: number; target: number; type: string }) {
+    const typeMap: Record<string, string> = { e2e: 'FS', s2s: 'SS', s2e: 'SF', e2s: 'FS' };
+    return this.post('/dependencies', {
+      taskId: link.target,
+      dependsOnTaskId: link.source,
+      type: typeMap[link.type] ?? 'FS',
+      lagDays: 0,
+    });
+  }
+
+  async deleteLink(id: number | string) {
+    return this.del(`/dependencies/${id}`);
+  }
+}
+
+export default function Scheduler({ projectId }: { projectId: string }) {
+  const [mounted, setMounted] = useState(false);
+  const [tasks, setTasks] = useState<ITask[]>([]);
+  const [links, setLinks] = useState<ILink[]>([]);
+  const [api, setApi] = useState<IApi | undefined>(undefined);
+
+  const provider = useMemo(() => new ApiDataProvider(), []);
+
+  useEffect(() => {
+    setMounted(true);
+    provider.getData().then((data) => {
+      setTasks(data.tasks ?? []);
+      setLinks(data.links ?? []);
+    });
+  }, [provider]);
+
+  const init = useCallback((ganttApi: IApi) => {
+    setApi(ganttApi);
+    // Wire all SVAR actions to our custom provider methods
+    ganttApi.on('after-task-add', async (config: any) => {
+      try { await provider.addTask(config.data); } catch (e) { console.error(e); }
+    });
+    ganttApi.on('after-task-update', async (config: any) => {
+      try { await provider.updateTask(config.data); } catch (e) { console.error(e); }
+    });
+    ganttApi.on('before-task-delete', async (config: any) => {
+      try { await provider.deleteTask(config.id); } catch (e) { console.error(e); }
+    });
+    ganttApi.on('after-link-add', async (config: any) => {
+      try { await provider.addLink(config.data); } catch (e) { console.error(e); }
+    });
+    ganttApi.on('after-link-delete', async (config: any) => {
+      try { await provider.deleteLink(config.id); } catch (e) { console.error(e); }
+    });
+  }, [provider]);
+
+  if (!mounted) {
+    return <div style={{ height: '100%', width: '100%' }} />;
+  }
+
+  return (
+    <div style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Willow>
+        <Toolbar api={api} />
+        <Gantt
+          tasks={tasks}
+          links={links}
+          scales={scales}
+          init={init}
+          readonly={false}
+          cellHeight={36}
+          scaleHeight={60}
+        />
+        {api && <Editor api={api} />}
+      </Willow>
+    </div>
   );
 }
