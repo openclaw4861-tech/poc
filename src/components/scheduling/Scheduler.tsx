@@ -136,7 +136,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
   }
 
   function renderTimelineHeader(): React.ReactNode {
-    const months: { label: string; x: number; width: number; month: string }[] = [];
+    const months: { label: string; x: number; width: number; month3: string }[] = [];
     const cur = new Date(minDate);
     cur.setDate(1);
     while (cur <= maxDate) {
@@ -145,7 +145,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
       const x = dateToX(monthStart);
       const end = monthEnd > maxDate ? maxDate : monthEnd;
       const width = dateToX(end) - x;
-      months.push({ label: monthStart.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), x, width: Math.max(width, 30), month: monthStart.toLocaleDateString('en-US', { month: 'short' }).toUpperCase() });
+      months.push({ label: monthStart.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), x, width: Math.max(width, 30), month3: monthStart.toLocaleDateString('en-US', { month: 'short' }).toUpperCase() });
       cur.setMonth(cur.getMonth() + 1);
     }
 
@@ -157,13 +157,10 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
         d.setDate(d.getDate() + 1);
       }
     } else if (viewMode === 'week') {
-      // Show Mon of each week (first day of the week)
+      // Show first date of each week column (every 7 days from minDate)
       const d = new Date(minDate);
-      // Move to nearest Monday on or before minDate
-      const dow = d.getDay(); // 0=Sun
-      d.setDate(d.getDate() - (dow === 0 ? 6 : dow - 1));
       while (d <= maxDate) {
-        days.push({ label: d.toLocaleDateString('en-US', { weekday: 'short' }), x: dateToX(d) });
+        days.push({ label: String(d.getDate()), x: dateToX(d) });
         d.setDate(d.getDate() + 7);
       }
     } else {
@@ -205,7 +202,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
                 overflow: 'hidden',
               }}
             >
-              {viewMode === 'month' ? String(m.month) : m.label}
+              {viewMode === 'month' ? m.month3 : m.label}
             </div>
           ))}
         </div>
