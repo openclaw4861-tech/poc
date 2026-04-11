@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import { tasks } from '@/lib/db/scheduling-schema';
 import { eq } from 'drizzle-orm';
 
@@ -33,11 +33,12 @@ export async function PUT(
     if (sortOrder !== undefined) updateData.sortOrder = Number(sortOrder);
     if (parentTaskId !== undefined) updateData.parentTaskId = parentTaskId ? Number(parentTaskId) : null;
 
-    const [row] = await db
+    const result = await (db as any)
       .update(tasks)
       .set(updateData)
-      .where(eq(tasks.id, parseInt(id)))
-      .returning();
+      .where(eq((tasks as any).id, parseInt(id)))
+      .returning() as any[];
+    const row = result[0];
 
     if (!row) {
       return NextResponse.json({ success: false, error: 'Task not found' }, { status: 404 });
@@ -55,7 +56,11 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const [row] = await db.delete(tasks).where(eq(tasks.id, parseInt(id))).returning();
+    const result = await (db as any)
+      .delete(tasks)
+      .where(eq((tasks as any).id, parseInt(id)))
+      .returning() as any[];
+    const row = result[0];
     if (!row) {
       return NextResponse.json({ success: false, error: 'Task not found' }, { status: 404 });
     }

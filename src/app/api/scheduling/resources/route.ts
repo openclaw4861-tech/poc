@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import { resources, type NewResource } from '@/lib/db/scheduling-schema';
 import { eq, asc } from 'drizzle-orm';
 
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       type: type as 'CREW' | 'EQUIPMENT' | 'MATERIAL',
     };
 
-    const [row] = await db.insert(resources).values(values).returning();
+    const rows__ = await db.insert(resources).values(values).returning() as any[]; const row = rows__[0];
     return NextResponse.json({ success: true, data: row }, { status: 201 });
   } catch (error) {
     console.error('POST /api/scheduling/resources error:', error);

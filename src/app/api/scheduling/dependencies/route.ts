@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import { taskDependencies, type NewTaskDependency } from '@/lib/db/scheduling-schema';
 import { eq } from 'drizzle-orm';
 
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       lagDays: lagDays !== undefined ? Number(lagDays) : 0,
     };
 
-    const [row] = await db.insert(taskDependencies).values(values).returning();
+    const rows__ = await db.insert(taskDependencies).values(values).returning() as any[]; const row = rows__[0];
     return NextResponse.json({ success: true, data: row }, { status: 201 });
   } catch (error) {
     console.error('POST /api/scheduling/dependencies error:', error);

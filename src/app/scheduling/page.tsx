@@ -1,12 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/router';
 import ProjectScheduler from '@/components/scheduling/Scheduler';
 
 export default function SchedulerPage() {
-  const router = useRouter();
-  const pathname = usePathname();
   const [projects, setProjects] = useState<Array<{ id: number; name: string }>>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);

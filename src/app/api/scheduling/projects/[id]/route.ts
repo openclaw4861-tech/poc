@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { projects, tasks, resources } from '@/lib/db/scheduling-schema';
+import { schedulingDb as db } from '@/lib/db/scheduling';
+import { projects, tasks, resources } from '@/lib/db/scheduling';
 import { eq, asc } from 'drizzle-orm';
 
 export async function GET(
@@ -45,7 +45,7 @@ export async function PUT(
       .update(projects)
       .set({ name, description, updatedAt: new Date() })
       .where(eq(projects.id, parseInt(id)))
-      .returning();
+      .returning() as any[];
     if (!row) {
       return NextResponse.json({ success: false, error: 'Project not found' }, { status: 404 });
     }
@@ -62,7 +62,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const [row] = await db.delete(projects).where(eq(projects.id, parseInt(id))).returning();
+    const result__ = await db.delete(projects).where(eq(projects.id, parseInt(id))).returning() as any[]; const row = result__[0]
     if (!row) {
       return NextResponse.json({ success: false, error: 'Project not found' }, { status: 404 });
     }

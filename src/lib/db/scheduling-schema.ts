@@ -36,9 +36,7 @@ export const tasks = pgTable(
     projectId: integer('project_id')
       .notNull()
       .references(() => projects.id, { onDelete: 'cascade' }),
-    parentTaskId: integer('parent_task_id').references((): ReturnType<typeof pgTable> => tasks.id, {
-      onDelete: 'cascade',
-    }),
+    parentTaskId: integer('parent_task_id'),
     name: varchar('name', { length: 255 }).notNull(),
     startDate: timestamp('start_date').notNull(),
     endDate: timestamp('end_date').notNull(),

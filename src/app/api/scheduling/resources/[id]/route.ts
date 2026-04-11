@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import { resources } from '@/lib/db/scheduling-schema';
 import { eq } from 'drizzle-orm';
 
@@ -28,7 +28,7 @@ export async function PUT(
       .update(resources)
       .set(updateData)
       .where(eq(resources.id, parseInt(id)))
-      .returning();
+      .returning() as any[];
 
     if (!row) {
       return NextResponse.json({ success: false, error: 'Resource not found' }, { status: 404 });
@@ -46,7 +46,7 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
-    const [row] = await db.delete(resources).where(eq(resources.id, parseInt(id))).returning();
+    const result__ = await db.delete(resources).where(eq(resources.id, parseInt(id))).returning() as any[]; const row = result__[0]
     if (!row) {
       return NextResponse.json({ success: false, error: 'Resource not found' }, { status: 404 });
     }

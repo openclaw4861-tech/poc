@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Gantt } from '@svar-ui/react-gantt';
-import { useRouter } from 'next/router';
 
 interface TaskData {
   id: string;
@@ -32,7 +31,6 @@ interface TaskResponse {
 }
 
 export default function ProjectScheduler({ projectId }: { projectId: string }) {
-  const router = useRouter();
   const [tasks, setTasks] = useState<GanttTask[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -104,9 +102,9 @@ export default function ProjectScheduler({ projectId }: { projectId: string }) {
     };
   }, [projectId]);
 
-  const handleTaskAction = async (action: string, data: { [key: string]: any }) => {
-    if (action === 'update-task') {
-      const { id, start, end, progress } = data;
+  const handleTaskAction = async (ev: { action: string; data: { [key: string]: any } }) => {
+    if (ev.action === 'update-task') {
+      const { id, start, end, progress } = ev.data;
       try {
         const response = await fetch(`/api/scheduling/tasks/${id}`, {
           method: 'PUT',
@@ -154,8 +152,8 @@ export default function ProjectScheduler({ projectId }: { projectId: string }) {
         console.error('Error updating task:', err);
       }
     }
-    if (action === 'add-task') {
-      const { text, start, end } = data;
+    if (ev.action === 'add-task') {
+      const { text, start, end } = ev.data;
       try {
         const response = await fetch('/api/scheduling/tasks', {
           method: 'POST',

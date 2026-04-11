@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import {
   projects,
   tasks,
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       name: String(name),
       description: description ? String(description) : null,
     };
-    const [row] = await db.insert(projects).values(values).returning();
+    const rows__ = await db.insert(projects).values(values).returning() as any[]; const row = rows__[0];
     return NextResponse.json({ success: true, data: row }, { status: 201 });
   } catch (error) {
     console.error('POST /api/scheduling/projects error:', error);

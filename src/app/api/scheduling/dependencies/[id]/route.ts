@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
+import { schedulingDb as db } from '@/lib/db/scheduling';
 import { taskDependencies } from '@/lib/db/scheduling-schema';
 import { eq } from 'drizzle-orm';
 
@@ -12,7 +12,7 @@ export async function DELETE(
     const [row] = await db
       .delete(taskDependencies)
       .where(eq(taskDependencies.id, parseInt(id)))
-      .returning();
+      .returning() as any[];
     if (!row) {
       return NextResponse.json({ success: false, error: 'Dependency not found' }, { status: 404 });
     }
