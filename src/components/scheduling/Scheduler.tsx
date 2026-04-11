@@ -36,6 +36,7 @@ class ApiDataProvider extends RestDataProvider {
 }
 
 export default function Scheduler({ projectId }: { projectId: string }) {
+  console.log('[Scheduler] rendering, projectId:', projectId);
   const [mounted, setMounted] = useState(false);
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [links, setLinks] = useState<ILink[]>([]);
