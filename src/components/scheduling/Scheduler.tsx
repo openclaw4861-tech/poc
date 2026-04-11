@@ -27,7 +27,9 @@ interface SchedulerProps {
 
 type ViewMode = 'day' | 'week' | 'month';
 
-const DAY_WIDTH: Record<ViewMode, number> = { day: 40, week: 24, month: 32 };
+// Per-view column width and the day-count each column represents
+const COL_WIDTH: Record<ViewMode, number> = { day: 40, week: 140, month: 480 };
+const DAYS_PER_COL: Record<ViewMode, number> = { day: 1, week: 7, month: 30 };
 // Zoom levels: Day=40px/day, Week=24px/7d22483.4px/day, Month=32px/30d22481.1px/day
 const ROW_HEIGHT = 40;
 const LABEL_WIDTH = 240;
@@ -92,7 +94,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
   const [newTaskEnd, setNewTaskEnd] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const dayWidth = DAY_WIDTH[viewMode];
+  const colWidth = COL_WIDTH[viewMode];
 
   useEffect(() => {
     if (!projectId) return;
@@ -124,12 +126,14 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
   maxDate.setDate(maxDate.getDate() + 14);
 
   const totalDays = Math.max(1, Math.ceil((maxDate.getTime() - minDate.getTime()) / 86400000));
-  const chartWidth = totalDays * dayWidth;
+  const daysPerCol = DAYS_PER_COL[viewMode];
+  const colCount = Math.max(1, Math.ceil(totalDays / daysPerCol));
+  const chartWidth = colCount * colWidth;
   const totalHeight = Math.max(400, flatList.length * ROW_HEIGHT + HEADER_HEIGHT + 40);
 
   function dateToX(date: Date): number {
     const days = (date.getTime() - minDate.getTime()) / 86400000;
-    return days * dayWidth;
+    return (days / daysPerCol) * colWidth;
   }
 
   function dayLabel(d: Date): string {
@@ -152,24 +156,25 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
 
     const days: { label: string; x: number }[] = [];
     if (viewMode === 'day') {
+      // Day view: one column per day
       const d = new Date(minDate);
       while (d <= maxDate) {
-        days.push({ label: d.getDate().toString(), x: dateToX(d) });
+        days.push({ label: String(d.getDate()), x: dateToX(d) });
         d.setDate(d.getDate() + 1);
       }
     } else if (viewMode === 'week') {
-      // Show first date of each week column (every 7 days from minDate)
+      // Week view: one column per 7-day week, label = first day of that week
       const d = new Date(minDate);
       while (d <= maxDate) {
         days.push({ label: String(d.getDate()), x: dateToX(d) });
         d.setDate(d.getDate() + 7);
       }
     } else {
-      // Month view: show date number
+      // Month view: one column per calendar month
       const d = new Date(minDate);
       while (d <= maxDate) {
-        days.push({ label: String(d.getDate()), x: dateToX(d) });
-        d.setDate(d.getDate() + 1);
+        days.push({ label: d.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(), x: dateToX(d) });
+        d.setDate(d.getDate() + 30);
       }
     }
 
@@ -203,7 +208,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
                 overflow: 'hidden',
               }}
             >
-              {viewMode === 'month' ? m.month3 : m.label}
+              {viewMode === 'month' ? m.label : m.month3}
             </div>
           ))}
         </div>
@@ -214,7 +219,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
               style={{
               position: 'absolute',
                 left: LABEL_WIDTH + d.x,
-                width: dayWidth,
+                width: colWidth,
                 textAlign: 'center',
                 fontSize: 10,
                 color: '#94a3b8',
@@ -276,14 +281,14 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
         {/* Bar area */}
         <div style={{ position: 'relative', flex: 1, height: ROW_HEIGHT }}>
           {/* Background day lines */}
-          {Array.from({ length: Math.ceil(chartWidth / dayWidth) }).map((_, i) => (
+          {Array.from({ length: colCount }).map((_, i) => (
             <div
               key={i}
               style={{
                 position: 'absolute',
-                left: i * dayWidth,
+                left: i * colWidth,
                 top: 0,
-                width: dayWidth,
+                width: colWidth,
                 height: ROW_HEIGHT,
                 borderLeft: '1px solid #f1f5f9',
               }}
