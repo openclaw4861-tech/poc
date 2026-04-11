@@ -27,7 +27,7 @@ interface SchedulerProps {
 
 type ViewMode = 'day' | 'week' | 'month';
 
-const DAY_WIDTH: Record<ViewMode, number> = { day: 40, week: 16, month: 6 };
+const DAY_WIDTH: Record<ViewMode, number> = { day: 40, week: 24, month: 32 };
 const ROW_HEIGHT = 40;
 const LABEL_WIDTH = 240;
 const HEADER_HEIGHT = 60;
@@ -136,7 +136,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
   }
 
   function renderTimelineHeader(): React.ReactNode {
-    const months: { label: string; x: number; width: number }[] = [];
+    const months: { label: string; x: number; width: number; month: string }[] = [];
     const cur = new Date(minDate);
     cur.setDate(1);
     while (cur <= maxDate) {
@@ -145,7 +145,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
       const x = dateToX(monthStart);
       const end = monthEnd > maxDate ? maxDate : monthEnd;
       const width = dateToX(end) - x;
-      months.push({ label: monthStart.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), x, width: Math.max(width, 10) });
+      months.push({ label: monthStart.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }), x, width: Math.max(width, 30), month: monthStart.toLocaleDateString('en-US', { month: 'short' }).toUpperCase() });
       cur.setMonth(cur.getMonth() + 1);
     }
 
@@ -156,10 +156,21 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
         days.push({ label: d.getDate().toString(), x: dateToX(d) });
         d.setDate(d.getDate() + 1);
       }
+    } else if (viewMode === 'week') {
+      // Show Mon of each week (first day of the week)
+      const d = new Date(minDate);
+      // Move to nearest Monday on or before minDate
+      const dow = d.getDay(); // 0=Sun
+      d.setDate(d.getDate() - (dow === 0 ? 6 : dow - 1));
+      while (d <= maxDate) {
+        days.push({ label: d.toLocaleDateString('en-US', { weekday: 'short' }), x: dateToX(d) });
+        d.setDate(d.getDate() + 7);
+      }
     } else {
+      // Month view: show date number
       const d = new Date(minDate);
       while (d <= maxDate) {
-        days.push({ label: viewMode === 'week' ? d.toLocaleDateString('en-US', { weekday: 'short' }) : String(d.getDate()), x: dateToX(d) });
+        days.push({ label: String(d.getDate()), x: dateToX(d) });
         d.setDate(d.getDate() + 1);
       }
     }
@@ -194,7 +205,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
                 overflow: 'hidden',
               }}
             >
-              {m.label}
+              {viewMode === 'month' ? String(m.month) : m.label}
             </div>
           ))}
         </div>
