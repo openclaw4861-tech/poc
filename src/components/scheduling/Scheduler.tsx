@@ -91,8 +91,8 @@ export default function Scheduler({ projectId }: { projectId: string }) {
       const ganttTasks = taskData.map(toGanttTask);
       const ganttLinks = depData.map(toGanttLink);
 
-      api.exec('setTasks', ganttTasks);
-      api.exec('setLinks', ganttLinks);
+      api.exec('setTasks', ganttTasks ?? []);
+      api.exec('setLinks', ganttLinks ?? []);
     } catch (e) {
       console.error('[Scheduler] loadData error:', e);
     }
