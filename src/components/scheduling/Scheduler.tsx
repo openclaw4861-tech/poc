@@ -46,9 +46,13 @@ export default function Scheduler({ projectId }: { projectId: string }) {
   // Load data from the server and pass as props to Gantt
   useEffect(() => {
     setMounted(true);
+    console.log('[Scheduler] useEffect running, calling server.getData()');
     server.getData().then((data: { tasks: ITask[]; links: ILink[] }) => {
+      console.log('[Scheduler] getData resolved, tasks:', data.tasks?.length, 'links:', data.links?.length);
       setTasks(data.tasks ?? []);
       setLinks(data.links ?? []);
+    }).catch((err) => {
+      console.error('[Scheduler] getData rejected:', err);
     });
   }, [server]);
 
