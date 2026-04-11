@@ -28,6 +28,7 @@ interface SchedulerProps {
 type ViewMode = 'day' | 'week' | 'month';
 
 const DAY_WIDTH: Record<ViewMode, number> = { day: 40, week: 24, month: 32 };
+// Zoom levels: Day=40px/day, Week=24px/7d22483.4px/day, Month=32px/30d22481.1px/day
 const ROW_HEIGHT = 40;
 const LABEL_WIDTH = 240;
 const HEADER_HEIGHT = 60;
@@ -230,7 +231,7 @@ export default function Scheduler({ projectId, onProjectNameChange }: SchedulerP
 
   function renderTaskRow(task: GanttTask, depth: number): React.ReactNode {
     const barX = dateToX(task.start);
-    const barWidth = Math.max(dayWidth, dateToX(task.end) - barX);
+    const barWidth = Math.max(4, dateToX(task.end) - barX);
     const barTop = 10;
     const barHeight = ROW_HEIGHT - 20;
 
