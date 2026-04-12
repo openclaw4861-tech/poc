@@ -5,22 +5,8 @@ import { eq, sql } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
-    const projectId = searchParams.get('projectId');
-
-    let result;
-    if (projectId) {
-      result = await db.execute(sql`
-        SELECT td.id, td.task_id, td.depends_on_task_id, td.type, td.lag_days
-        FROM scheduling_task_dependencies td
-        JOIN scheduling_tasks t ON t.id = td.task_id
-        WHERE t.project_id = ${parseInt(projectId)}
-      `);
-    } else {
-      result = await db.select().from(taskDependencies);
-    }
-
-    const rows = Array.isArray(result) ? result : (result as any).rows ?? [];
+    const result = await db.select().from(taskDependencies);
+    const rows = result ?? [];
     return NextResponse.json({ success: true, data: rows });
   } catch (error) {
     console.error('GET /api/scheduling/links error:', error);
@@ -50,3 +36,5 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
   }
 }
+
+// Make /links also return raw array (no {success,data} wrapper) to match SVAR expectations

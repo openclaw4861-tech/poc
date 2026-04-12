@@ -1,59 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { schedulingDb as db } from '@/lib/db/scheduling';
-import { tasks, type NewTask } from '@/lib/db/scheduling-schema';
-import { eq, asc } from 'drizzle-orm';
-
-export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const {
-      projectId, parentTaskId, name, startDate, endDate, durationDays,
-      percentComplete,
-    } = body;
-
-    if (!projectId || !name || !startDate || !endDate || durationDays === undefined) {
-      return NextResponse.json(
-        { success: false, error: 'projectId, name, startDate, endDate, durationDays are required' },
-        { status: 400 }
-      );
-    }
-
-    const values: NewTask = {
-      projectId: Number(projectId),
-      parentTaskId: parentTaskId ? Number(parentTaskId) : null,
-      name: String(name),
-      startDate: new Date(startDate),
-      endDate: new Date(endDate),
-      durationDays: Number(durationDays),
-      percentComplete: percentComplete !== undefined ? Number(percentComplete) : 0,
-    };
-
-    const result = await db.insert(tasks).values(values).returning() as any[];
-    const row = result[0];
-    return NextResponse.json({ success: true, data: row }, { status: 201 });
-  } catch (error) {
-    console.error('POST /api/scheduling/tasks error:', error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
-  }
-}
+import { tasks } from '@/lib/db/scheduling-schema';
+import { eq, sql } from 'drizzle-orm';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const projectId = searchParams.get('projectId');
 
-    let result;
+    let rows;
     if (projectId) {
-      result = await db.select().from(tasks)
-        .where(eq(tasks.projectId, parseInt(projectId)))
-        .orderBy(asc(tasks.sortOrder), asc(tasks.id));
+      const result = await db.execute(sql`
+        SELECT id, project_id, parent_task_id, name, start_date, end_date,
+               duration_days, percent_complete, constraint_type, constraint_offset_days,
+               sort_order, created_at, updated_at
+        FROM scheduling_tasks
+        WHERE project_id = ${parseInt(projectId)}
+        ORDER BY sort_order ASC, id ASC
+      `);
+      rows = (result as any).rows ?? [];
     } else {
-      result = await db.select().from(tasks)
-        .orderBy(asc(tasks.sortOrder), asc(tasks.id))
-        .limit(500);
+      const result = await db.select().from(tasks);
+      rows = result ?? [];
     }
 
-    return NextResponse.json({ success: true, data: result });
+    return NextResponse.json({ success: true, data: rows });
   } catch (error) {
     console.error('GET /api/scheduling/tasks error:', error);
     return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
