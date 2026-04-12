@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import type { ITask, ILink, IApi } from '@svar-ui/react-gantt';
 import { Gantt, Toolbar, Willow, Editor } from '@svar-ui/react-gantt';
 import { RestDataProvider } from '@svar-ui/gantt-data-provider';
-import '@svar-ui/react-gantt/all.css';
 
 const apiUrl = '/api/gantt/data';
 
