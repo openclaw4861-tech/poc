@@ -1,62 +1,34 @@
 'use client';
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import type { ITask, ILink, IApi } from '@svar-ui/react-gantt';
-import { Gantt, Toolbar, Willow, Editor } from '@svar-ui/react-gantt';
-import { RestDataProvider } from '@svar-ui/gantt-data-provider';
+import { Gantt } from '@svar-ui/react-gantt';
 
-const apiUrl = '/api/gantt/data';
+const dummyTasks = [
+  { id: 1, text: 'Project Kickoff', start: new Date('2024-01-01'), end: new Date('2024-01-03'), duration: 3, progress: 100, type: 'milestone', parent: 0, orderId: 0 },
+  { id: 2, text: 'Requirements Gathering', start: new Date('2024-01-04'), end: new Date('2024-01-10'), duration: 7, progress: 100, parent: 0, orderId: 1 },
+  { id: 3, text: 'Design Phase', start: new Date('2024-01-11'), end: new Date('2024-01-25'), duration: 15, progress: 80, parent: 0, orderId: 2 },
+  { id: 4, text: 'Development', start: new Date('2024-01-26'), end: new Date('2024-02-15'), duration: 21, progress: 45, parent: 0, orderId: 3 },
+  { id: 5, text: 'Testing', start: new Date('2024-02-16'), end: new Date('2024-02-28'), duration: 12, progress: 0, parent: 0, orderId: 4 },
+  { id: 6, text: 'Deployment', start: new Date('2024-03-01'), end: new Date('2024-03-03'), duration: 3, progress: 0, type: 'milestone', parent: 0, orderId: 5 },
+];
 
-const scales = [
-  { unit: 'month', step: 1, format: '%M %Y' },
-  { unit: 'week', step: 1, format: 'Week %w' },
+const dummyLinks = [
+  { id: 1, source: 1, target: 2, type: 'e2s' },
+  { id: 2, source: 2, target: 3, type: 'e2s' },
+  { id: 3, source: 3, target: 4, type: 'e2s' },
+  { id: 4, source: 4, target: 5, type: 'e2s' },
+  { id: 5, source: 5, target: 6, type: 'e2s' },
 ];
 
 export default function GanttChart() {
-  const [mounted, setMounted] = useState(false);
-  const [tasks, setTasks] = useState<ITask[]>([]);
-  const [links, setLinks] = useState<ILink[]>([]);
-  const [api, setApi] = useState<IApi | undefined>();
-  const [loading, setLoading] = useState(true);
-
-  const server = useMemo(() => new RestDataProvider(apiUrl), []);
-
-  useEffect(() => {
-    setMounted(true);
-    server.getData().then((data) => {
-      setTasks(data.tasks || []);
-      setLinks(data.links || []);
-      setLoading(false);
-    }).catch((err) => {
-      console.error('Error loading data:', err);
-      setLoading(false);
-    });
-  }, [server]);
-
-  const init = useCallback((ganttApi: IApi) => {
-    setApi(ganttApi);
-    ganttApi.setNext(server);
-  }, [server]);
-
-  if (!mounted) {
-    return <div style={{ height: '100%', width: '100%' }} />;
-  }
-
-  if (loading) {
-    return (
-      <div style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div>Loading Gantt Chart...</div>
-      </div>
-    );
-  }
+  const [tasks, setTasks] = useState(dummyTasks);
+  const [links, setLinks] = useState(dummyLinks);
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      <Willow>
-        <Toolbar api={api} />
-        <Gantt tasks={tasks} links={links} scales={scales} init={init} />
-        {api && <Editor api={api} />}
-      </Willow>
+    <div style={{ height: '100%', width: '100%', padding: '20px' }}>
+      <h2>🏗️ SVAR Gantt Chart</h2>
+      <p>Testing with dummy data...</p>
+      <Gantt tasks={tasks} links={links} />
     </div>
   );
 }
