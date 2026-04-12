@@ -22,12 +22,19 @@ class ApiDataProvider extends RestDataProvider {
       this.send<any>(id ? `links/${id}` : 'links', 'GET'),
     ]);
 
-    const rawTasks: any[] = Array.isArray(tasksResp) ? tasksResp
-      : Array.isArray((tasksResp as any)?.data) ? (tasksResp as any).data : [];
-    const rawLinks: any[] = Array.isArray(linksResp) ? linksResp
-      : Array.isArray((linksResp as any)?.data) ? (linksResp as any).data : [];
+    const rawTasks: any[] = Array.isArray(tasksResp)
+      ? tasksResp
+      : Array.isArray((tasksResp as any)?.data)
+      ? (tasksResp as any).data
+      : [];
 
-    // Map DB columns to SVAR ITask — do date conversion ourselves so duration is preserved
+    const rawLinks: any[] = Array.isArray(linksResp)
+      ? linksResp
+      : Array.isArray((linksResp as any)?.data)
+      ? (linksResp as any).data
+      : [];
+
+    // Map DB task columns → SVAR ITask fields
     const tasks: ITask[] = rawTasks.map(t => ({
       id: t.id,
       text: t.name ?? t.text ?? '',
@@ -40,7 +47,16 @@ class ApiDataProvider extends RestDataProvider {
       open: true,
     }));
 
-    return { tasks, links: rawLinks as ILink[] };
+    // Map DB link columns → SVAR ILink fields
+    const links: ILink[] = rawLinks.map(l => ({
+      id: l.id,
+      source: l.taskId,
+      target: l.dependsOnTaskId,
+      type: l.type ?? 'FS',
+      lag: l.lagDays ?? 0,
+    }));
+
+    return { tasks, links };
   }
 }
 
