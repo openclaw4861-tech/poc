@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Gantt, Toolbar, Willow, Editor } from '@svar-ui/react-gantt';
 import { RestDataProvider } from '@svar-ui/gantt-data-provider';
 import '@svar-ui/react-gantt/all.css';
@@ -34,7 +34,6 @@ class ApiDataProvider extends RestDataProvider {
       ? (linksResp as any).data
       : [];
 
-    // Map DB task columns → SVAR ITask fields
     const tasks: ITask[] = rawTasks.map(t => ({
       id: t.id,
       text: t.name ?? t.text ?? '',
@@ -47,7 +46,6 @@ class ApiDataProvider extends RestDataProvider {
       open: true,
     }));
 
-    // Map DB link columns → SVAR ILink fields
     const links: ILink[] = rawLinks.map(l => ({
       id: l.id,
       source: l.taskId,
@@ -61,39 +59,19 @@ class ApiDataProvider extends RestDataProvider {
 }
 
 export default function Scheduler({ projectId }: { projectId: string }) {
-  const [mounted, setMounted] = useState(false);
-  const [tasks, setTasks] = useState<ITask[]>([]);
-  const [links, setLinks] = useState<ILink[]>([]);
-  const [api, setApi] = useState<IApi | undefined>(undefined);
-
+  const [api, setApi] = useState<IApi | null>(null);
   const server = useMemo(() => new ApiDataProvider(), []);
 
-  useEffect(() => {
-    setMounted(true);
-    server.getData().then((data) => {
-      setTasks(data.tasks ?? []);
-      setLinks(data.links ?? []);
-    }).catch((err: unknown) => {
-      console.error('[Scheduler] getData rejected:', err);
-    });
-  }, [server]);
-
-  const init = useCallback((ganttApi: IApi) => {
-    setApi(ganttApi);
+  const init = (ganttApi: IApi) => {
     ganttApi.setNext(server);
-  }, [server]);
-
-  if (!mounted) {
-    return <div style={{ height: '100%', width: '100%' }} />;
-  }
+    setApi(ganttApi);
+  };
 
   return (
     <div style={{ height: '100%', width: '100%', display: 'flex', flexDirection: 'column' }}>
       <Willow>
-        <Toolbar api={api} />
+        <Toolbar api={api ?? undefined} />
         <Gantt
-          tasks={tasks}
-          links={links}
           scales={scales}
           init={init}
           readonly={false}
