@@ -8,7 +8,7 @@ import { tasks, links } from './schema';
  * Get all tasks
  */
 export async function getAllTasks() {
-  return await db.select().from(tasks).orderBy(tasks.orderId);
+  return await db.select().from(tasks).orderBy(tasks.order_id);
 }
 
 /**
@@ -64,7 +64,7 @@ export async function moveTask(id: number, operation: 'move', mode: 'after' | 'b
 
   if (mode === 'child') {
     // Make this task a child of target
-    await updateTask(id, { parent: target, orderId: 0 });
+    await updateTask(id, { parent: target, order_id: 0 });
     // Update order IDs for siblings
     await db.execute(sql`
       UPDATE tasks 
@@ -75,8 +75,8 @@ export async function moveTask(id: number, operation: 'move', mode: 'after' | 'b
   }
 
   // Handle 'after' or 'before' placement
-  const currentOrderId = movingTask.orderId;
-  const targetOrderId = targetTask.orderId;
+  const currentOrderId = movingTask.order_id;
+  const targetOrderId = targetTask.order_id;
 
   if (mode === 'after') {
     // Shift all tasks between current and target positions
@@ -191,12 +191,12 @@ export async function initializeDatabase() {
   if (count === 0) {
     // Seed with sample data
     await db.insert(tasks).values([
-      { text: 'Project Kickoff', start: '2024-01-01', end: '2024-01-03', duration: 3, progress: 100, type: 'milestone', parent: 0, orderId: 0 },
-      { text: 'Requirements Gathering', start: '2024-01-04', end: '2024-01-10', duration: 7, progress: 100, parent: 0, orderId: 1 },
-      { text: 'Design Phase', start: '2024-01-11', end: '2024-01-25', duration: 15, progress: 80, parent: 0, orderId: 2 },
-      { text: 'Development', start: '2024-01-26', end: '2024-02-15', duration: 21, progress: 45, parent: 0, orderId: 3 },
-      { text: 'Testing', start: '2024-02-16', end: '2024-02-28', duration: 12, progress: 0, parent: 0, orderId: 4 },
-      { text: 'Deployment', start: '2024-03-01', end: '2024-03-03', duration: 3, progress: 0, type: 'milestone', parent: 0, orderId: 5 },
+      { text: 'Project Kickoff', start: '2024-01-01', end: '2024-01-03', duration: 3, progress: 100, type: 'milestone', parent: 0, order_id: 0 },
+      { text: 'Requirements Gathering', start: '2024-01-04', end: '2024-01-10', duration: 7, progress: 100, parent: 0, order_id: 1 },
+      { text: 'Design Phase', start: '2024-01-11', end: '2024-01-25', duration: 15, progress: 80, parent: 0, order_id: 2 },
+      { text: 'Development', start: '2024-01-26', end: '2024-02-15', duration: 21, progress: 45, parent: 0, order_id: 3 },
+      { text: 'Testing', start: '2024-02-16', end: '2024-02-28', duration: 12, progress: 0, parent: 0, order_id: 4 },
+      { text: 'Deployment', start: '2024-03-01', end: '2024-03-03', duration: 3, progress: 0, type: 'milestone', parent: 0, order_id: 5 },
     ]);
 
     await db.insert(links).values([
