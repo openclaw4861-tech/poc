@@ -54,6 +54,20 @@ export default function Home() {
                 {dropdownOpen && (
                   <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
                     <Link
+                      href="/gantt"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-xl">🏗️</span>
+                        <div>
+                          <div className="font-medium">Gantt Chart</div>
+                          <div className="text-xs text-gray-500">Project planning</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
+                    <Link
                       href="/glass-calculator"
                       className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                       onClick={() => setDropdownOpen(false)}
@@ -104,11 +118,11 @@ export default function Home() {
           </p>
           <div className="flex gap-4">
             <Link
-              href="/glass-calculator"
+              href="/gantt"
               className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center space-x-2"
             >
-              <span>📐</span>
-              <span>Launch Glass Calculator</span>
+              <span>🏗️</span>
+              <span>Launch Gantt Chart</span>
             </Link>
           </div>
         </div>
@@ -121,6 +135,28 @@ export default function Home() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Gantt Chart Card */}
+          <Link href="/gantt" className="block">
+            <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+              <div className="text-4xl mb-4">🏗️</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                SVAR Gantt Chart
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Interactive project planning tool with drag-and-drop task management and dependency tracking.
+              </p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>✓ Drag-and-drop task management</li>
+                <li>✓ Task dependencies (links)</li>
+                <li>✓ Timeline view</li>
+                <li>✓ Real-time database sync</li>
+              </ul>
+              <div className="mt-4 text-blue-600 font-medium">
+                Launch →
+              </div>
+            </div>
+          </Link>
+
           {/* Glass Calculator Card */}
           <Link href="/glass-calculator" className="block">
             <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
