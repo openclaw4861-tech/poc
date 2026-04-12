@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { Gantt } from '@svar-ui/react-gantt';
+import '@svar-ui/react-gantt/all.css';
 
 const dummyTasks = [
   { id: 1, text: 'Project Kickoff', start: new Date('2024-01-01'), end: new Date('2024-01-03'), duration: 3, progress: 100, type: 'milestone', parent: 0, orderId: 0 },
@@ -25,7 +26,7 @@ export default function GanttChart() {
   const [links, setLinks] = useState(dummyLinks);
 
   return (
-    <div style={{ height: '100%', width: '100%', padding: '20px' }}>
+    <div style={{ height: '80vh', width: '100%' }}>
       <h2>🏗️ SVAR Gantt Chart</h2>
       <p>Testing with dummy data...</p>
       <Gantt tasks={tasks} links={links} />
