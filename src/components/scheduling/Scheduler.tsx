@@ -11,7 +11,6 @@ const scales = [
   { unit: 'week', step: 1, format: 'Wk %W' },
 ];
 
-/** Unwraps our { success: true, data: [...] } API response format */
 class ApiDataProvider extends RestDataProvider {
   constructor() {
     super('/api/scheduling');
@@ -36,7 +35,6 @@ class ApiDataProvider extends RestDataProvider {
 }
 
 export default function Scheduler({ projectId }: { projectId: string }) {
-  console.log('[Scheduler] rendering, projectId:', projectId);
   const [mounted, setMounted] = useState(false);
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [links, setLinks] = useState<ILink[]>([]);
@@ -44,15 +42,12 @@ export default function Scheduler({ projectId }: { projectId: string }) {
 
   const server = useMemo(() => new ApiDataProvider(), []);
 
-  // Load data from the server and pass as props to Gantt
   useEffect(() => {
     setMounted(true);
-    console.log('[Scheduler] useEffect running, calling server.getData()');
     server.getData().then((data: { tasks: ITask[]; links: ILink[] }) => {
-      console.log('[Scheduler] getData resolved, tasks:', data.tasks?.length, 'links:', data.links?.length);
       setTasks(data.tasks ?? []);
       setLinks(data.links ?? []);
-    }).catch((err) => {
+    }).catch((err: unknown) => {
       console.error('[Scheduler] getData rejected:', err);
     });
   }, [server]);
