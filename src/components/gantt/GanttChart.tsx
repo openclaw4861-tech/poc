@@ -1,35 +1,41 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Gantt } from '@svar-ui/react-gantt';
-import '@svar-ui/react-gantt/all.css';
-
-const dummyTasks = [
-  { id: 1, text: 'Project Kickoff', start: new Date('2024-01-01'), end: new Date('2024-01-03'), duration: 3, progress: 100, type: 'milestone', parent: 0, orderId: 0 },
-  { id: 2, text: 'Requirements Gathering', start: new Date('2024-01-04'), end: new Date('2024-01-10'), duration: 7, progress: 100, parent: 0, orderId: 1 },
-  { id: 3, text: 'Design Phase', start: new Date('2024-01-11'), end: new Date('2024-01-25'), duration: 15, progress: 80, parent: 0, orderId: 2 },
-  { id: 4, text: 'Development', start: new Date('2024-01-26'), end: new Date('2024-02-15'), duration: 21, progress: 45, parent: 0, orderId: 3 },
-  { id: 5, text: 'Testing', start: new Date('2024-02-16'), end: new Date('2024-02-28'), duration: 12, progress: 0, parent: 0, orderId: 4 },
-  { id: 6, text: 'Deployment', start: new Date('2024-03-01'), end: new Date('2024-03-03'), duration: 3, progress: 0, type: 'milestone', parent: 0, orderId: 5 },
-];
-
-const dummyLinks = [
-  { id: 1, source: 1, target: 2, type: 'e2s' },
-  { id: 2, source: 2, target: 3, type: 'e2s' },
-  { id: 3, source: 3, target: 4, type: 'e2s' },
-  { id: 4, source: 4, target: 5, type: 'e2s' },
-  { id: 5, source: 5, target: 6, type: 'e2s' },
-];
+import { useState } from 'react';
 
 export default function GanttChart() {
-  const [tasks, setTasks] = useState(dummyTasks);
-  const [links, setLinks] = useState(dummyLinks);
+  const [tasks] = useState([
+    { id: 1, text: 'Project Kickoff', start: '2024-01-01', end: '2024-01-03', progress: 100 },
+    { id: 2, text: 'Requirements Gathering', start: '2024-01-04', end: '2024-01-10', progress: 100 },
+    { id: 3, text: 'Design Phase', start: '2024-01-11', end: '2024-01-25', progress: 80 },
+    { id: 4, text: 'Development', start: '2024-01-26', end: '2024-02-15', progress: 45 },
+    { id: 5, text: 'Testing', start: '2024-02-16', end: '2024-02-28', progress: 0 },
+    { id: 6, text: 'Deployment', start: '2024-03-01', end: '2024-03-03', progress: 0 },
+  ]);
 
   return (
-    <div style={{ height: '80vh', width: '100%' }}>
+    <div style={{ padding: '20px' }}>
       <h2>🏗️ SVAR Gantt Chart</h2>
-      <p>Testing with dummy data...</p>
-      <Gantt tasks={tasks} links={links} />
+      <p>Basic test version</p>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #ddd' }}>
+            <th style={{ padding: '10px', textAlign: 'left' }}>Task</th>
+            <th style={{ padding: '10px' }}>Start</th>
+            <th style={{ padding: '10px' }}>End</th>
+            <th style={{ padding: '10px' }}>Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map(task => (
+            <tr key={task.id} style={{ borderBottom: '1px solid #ddd' }}>
+              <td style={{ padding: '10px' }}>{task.text}</td>
+              <td style={{ padding: '10px' }}>{task.start}</td>
+              <td style={{ padding: '10px' }}>{task.end}</td>
+              <td style={{ padding: '10px' }}>{task.progress}%</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
