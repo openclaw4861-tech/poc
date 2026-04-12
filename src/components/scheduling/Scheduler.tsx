@@ -27,10 +27,20 @@ class ApiDataProvider extends RestDataProvider {
     const rawLinks: any[] = Array.isArray(linksResp) ? linksResp
       : Array.isArray((linksResp as any)?.data) ? (linksResp as any).data : [];
 
-    return {
-      tasks: this.parseDates(rawTasks),
-      links: rawLinks,
-    };
+    // Map DB columns to SVAR ITask — do date conversion ourselves so duration is preserved
+    const tasks: ITask[] = rawTasks.map(t => ({
+      id: t.id,
+      text: t.name ?? t.text ?? '',
+      start: new Date(t.start ?? t.startDate),
+      end: t.end ? new Date(t.end) : t.endDate ? new Date(t.endDate) : undefined,
+      duration: t.duration ?? t.durationDays ?? 1,
+      progress: t.progress ?? (t.percentComplete ?? 0) / 100,
+      parent: t.parent ?? t.parentTaskId ?? 0,
+      type: (t.type as ITask['type']) ?? 'task',
+      open: true,
+    }));
+
+    return { tasks, links: rawLinks as ILink[] };
   }
 }
 
@@ -44,7 +54,7 @@ export default function Scheduler({ projectId }: { projectId: string }) {
 
   useEffect(() => {
     setMounted(true);
-    server.getData().then((data: { tasks: ITask[]; links: ILink[] }) => {
+    server.getData().then((data) => {
       setTasks(data.tasks ?? []);
       setLinks(data.links ?? []);
     }).catch((err: unknown) => {
