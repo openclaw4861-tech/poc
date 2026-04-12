@@ -6,6 +6,3 @@ services:
     deploy_on_push: true
     repo: openclaw4861-tech/poc
   name: poc-site
-  routes:
-  - path: /*
-  http_port: 3000
