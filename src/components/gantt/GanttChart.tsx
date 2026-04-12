@@ -18,14 +18,19 @@ export default function GanttChart() {
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [links, setLinks] = useState<ILink[]>([]);
   const [api, setApi] = useState<IApi | undefined>();
+  const [loading, setLoading] = useState(true);
 
   const server = useMemo(() => new RestDataProvider(apiUrl), []);
 
   useEffect(() => {
     setMounted(true);
     server.getData().then((data) => {
-      setTasks(data.tasks);
-      setLinks(data.links);
+      setTasks(data.tasks || []);
+      setLinks(data.links || []);
+      setLoading(false);
+    }).catch((err) => {
+      console.error('Error loading data:', err);
+      setLoading(false);
     });
   }, [server]);
 
@@ -36,6 +41,14 @@ export default function GanttChart() {
 
   if (!mounted) {
     return <div style={{ height: '100%', width: '100%' }} />;
+  }
+
+  if (loading) {
+    return (
+      <div style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div>Loading Gantt Chart...</div>
+      </div>
+    );
   }
 
   return (
