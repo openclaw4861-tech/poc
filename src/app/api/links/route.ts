@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { getAllLinks, createLink, updateLink, deleteLink } from '@/lib/db/actions';
+import { db } from '@/db';
+import { getAllLinks, createLink, updateLink, deleteLink } from '@/db/actions';
 
 export async function GET() {
   try {

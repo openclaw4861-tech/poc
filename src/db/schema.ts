@@ -97,7 +97,6 @@ export const glassLites = pgTable('glass_lites', {
   };
 });
 
-// Relations
 export const measurementsRelations = relations(measurements, ({ many }) => ({
   glassLites: many(glassLites),
 }));
@@ -109,16 +108,62 @@ export const glassLitesRelations = relations(glassLites, ({ one }) => ({
   }),
 }));
 
-// Type exports
 export type Measurement = typeof measurements.$inferSelect;
 export type NewMeasurement = typeof measurements.$inferInsert;
 export type GlassLite = typeof glassLites.$inferSelect;
 export type NewGlassLite = typeof glassLites.$inferInsert;
 
 
-// Visitors table (used by the /api/visitors route)
+// Tasks table for SVAR React Gantt
+export const tasks = pgTable('tasks', {
+  id: serial('id').primaryKey(),
+  text: varchar('text', { length: 255 }).notNull().default(''),
+  start: varchar('start', { length: 20 }).notNull(),
+  end: varchar('end', { length: 20 }).notNull(),
+  duration: integer('duration').notNull().default(0),
+  progress: integer('progress').notNull().default(0),
+  type: varchar('type', { length: 20 }),
+  parent: integer('parent').notNull().default(0),
+  order_id: integer('order_id').notNull().default(0),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const links = pgTable('links', {
+  id: serial('id').primaryKey(),
+  source: integer('source').notNull(),
+  target: integer('target').notNull(),
+  type: varchar('type', { length: 10 }).notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const tasksRelations = relations(tasks, ({ many }) => ({
+  children: many(tasks, { relationName: 'parent_task' }),
+}));
+
+export const linksRelations = relations(links, ({ one }) => ({
+  sourceTask: one(tasks, {
+    fields: [links.source],
+    references: [tasks.id],
+  }),
+  targetTask: one(tasks, {
+    fields: [links.target],
+    references: [tasks.id],
+  }),
+}));
+
+export type Task = typeof tasks.$inferSelect;
+export type NewTask = typeof tasks.$inferInsert;
+export type Link = typeof links.$inferSelect;
+export type NewLink = typeof links.$inferInsert;
+
+
+// Visitors table
 export const visitors = pgTable('visitors', {
   id: serial('id').primaryKey(),
   count: integer('count').notNull().default(0),
   updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
+
+export type Visitor = typeof visitors.$inferSelect;
+export type NewVisitor = typeof visitors.$inferInsert;

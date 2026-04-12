@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { getAllTasks, createTask, updateTask, deleteTask, moveTask } from '@/lib/db/actions';
-import { tasks } from '@/lib/db/schema';
+import { db } from '@/db';
+import { getAllTasks, createTask, updateTask, deleteTask, moveTask } from '@/db/actions';
+import { tasks } from '@/db/schema';
 
 export async function GET() {
   try {
