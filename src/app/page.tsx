@@ -211,8 +211,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-400 mb-2">
             © 2026 Pacific Glazing Corporation. All rights reserved.
+          </p>
+          <p className="text-xs text-gray-500">
+            Build version: build-2026-04-12-1651
           </p>
         </div>
       </footer>

@@ -1,9 +1,9 @@
 -- Create tasks table
 CREATE TABLE IF NOT EXISTS "tasks" (
   "id" serial PRIMARY KEY NOT NULL,
-  "text" varchar(255) DEFAULT 'not null',
-  "start" varchar(20),
-  "end" varchar(20),
+  "text" varchar(255) DEFAULT '' NOT NULL,
+  "start" varchar(20) NOT NULL,
+  "end" varchar(20) NOT NULL,
   "duration" integer DEFAULT 0 NOT NULL,
   "progress" integer DEFAULT 0 NOT NULL,
   "type" varchar(20),
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS "links" (
   "id" serial PRIMARY KEY NOT NULL,
   "source" integer NOT NULL,
   "target" integer NOT NULL,
-  "type" varchar(10) DEFAULT 'not null',
+  "type" varchar(10) NOT NULL,
   "created_at" timestamp DEFAULT now() NOT NULL
 );
 
