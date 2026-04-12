@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { getAllTasks, getAllLinks } from '@/lib/db/actions';
-import { tasks, links } from '@/lib/db/schema';
+import { db } from '@/db';
+import { getAllTasks, getAllLinks } from '@/db/actions';
+import { tasks, links } from '@/db/schema';
 
 export async function GET() {
   try {
@@ -20,7 +20,7 @@ export async function GET() {
       progress: t.progress,
       type: t.type,
       parent: t.parent,
-      orderId: t.orderId
+      orderId: t.order_id
     }));
 
     const formattedLinks = linkList.map(l => ({
