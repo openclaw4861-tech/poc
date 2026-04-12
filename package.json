@@ -11,7 +11,8 @@
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "build:check": "next build"
+    "build:check": "next build",
+    "version": "echo build-2026-04-12-1635"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",
