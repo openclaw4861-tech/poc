@@ -6,7 +6,7 @@ import { Gantt, Toolbar, Willow, Editor } from '@svar-ui/react-gantt';
 import { RestDataProvider } from '@svar-ui/gantt-data-provider';
 import '@svar-ui/react-gantt/all.css';
 
-const apiUrl = '/api';
+const apiUrl = '/api/gantt/data';
 
 const scales = [
   { unit: 'month', step: 1, format: '%M %Y' },
