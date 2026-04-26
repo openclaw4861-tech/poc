@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Deep Dive — AI Takeoff Automation | PGC Intelligence Briefs</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+        
+        header .subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--primary-dark);
+        }
+        
+        .mvp-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .mvp-card h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .mvp-card ul {
+            margin-left: 1.5rem;
+            margin-top: 0.75rem;
+        }
+        
+        .mvp-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .success-metric {
+            background: var(--success);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .layer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .layer-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+        
+        .layer-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .layer-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🛠️ Tech Deep Dive</h1>
+            <p class="subtitle">AI-Driven Takeoff Automation for PGC</p>
+            <div class="meta">
+                <span>Published: April 21, 2026</span>
+                <span>Type: Technical Implementation Guide</span>
+                <span>Prepared by: Joe 🔧</span>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Executive Summary -->
+        <div class="card">
+            <h2><span class="badge">Executive Summary</span> The Problem</h2>
+            <p>Every bid starts the same way — someone has to manually count window tags, read through 100-page specs, and translate that into a quote. That's hours of work before you can even think about price.</p>
+            
+            <div class="highlight-box">
+                <strong>The opportunity:</strong> The AI tools to fix this exist. Most of them only solve one piece. This brief maps out <strong>all three layers</strong> you need to build a real autonomous takeoff system — and gives you <strong>three MVPs you can run this month with zero new software</strong>.
+            </div>
+        </div>
+        
+        <!-- Three Layers -->
+        <div class="card">
+            <h2>The "Takeoff Stack" — Three AI Layers You Need</h2>
+            
+            <div class="layer-grid">
+                <div class="layer-card">
+                    <div class="icon">👁️</div>
+                    <h4>Layer A: Computer Vision (The "Eyes")</h4>
+                    <p><strong>What it does:</strong> Scans blueprints to identify shapes and extract dimensions automatically.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Best Tool for PGC:</strong> Togal.AI — Built specifically for glazing and window contractors. Claims 97%+ accuracy on window counts.</p>
+                </div>
+                
+                <div class="layer-card">
+                    <div class="icon">🧠</div>
+                    <h4>Layer B: Multimodal LLMs (The "Brain")</h4>
+                    <p><strong>What it does:</strong> Reads the "fine print" — specifications, RFI logs, contract notes — and extracts structured requirements.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Best Tool for PGC:</strong> Gemini 1.5 Pro (via Google AI Studio, free tier) or Handoff.AI for project scoping.</p>
+                </div>
+                
+                <div class="layer-card">
+                    <div class="icon">🧮</div>
+                    <h4>Layer C: Deterministic Logic (The "Calculator")</h4>
+                    <p><strong>What it does:</strong> Takes the Count (from Layer A) and the Spec (from Layer B) and applies PGC's actual pricing, labor rates, and markup formulas.</p>
+                    <p style="margin-top: 0.75rem;"><strong>Best Tool for PGC:</strong> Your own formulas in a Google Sheet or Handoff.AI pricing engine.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MVP 1 -->
+        <div class="card">
+            <h2>MVP 1: The "AI Spec-Sifter" ⭐ Start Here</h2>
+            <p><strong>Cost:</strong> Free | <strong>Timeline:</strong> 1-2 hours | <strong>Software:</strong> None (uses free Gemini API)</p>
+            
+            <div class="mvp-card">
+                <h4>🎯 The Goal</h4>
+                <p>Prove that AI can extract requirements from specs faster and more accurately than a human.</p>
+                
+                <h4>📋 What to Do</h4>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Open https://ai.google.com/gemini-api (free tier, no setup)</li>
+                    <li>Upload one of your current project spec PDFs</li>
+                    <li>Ask it this prompt:
+                        <div class="highlight-box" style="margin-top: 0.5rem; font-family: monospace; font-size: 0.875rem;">
+                            "I am a glazing contractor. Read this document carefully. I need you to extract every specific requirement related to: (1) glass type/thickness per floor or elevation, (2) frame material and finish, (3) thermal performance ratings (U-factor, SHGC), (4) any hardware or anchor specifications. Format your answer as a structured checklist. Flag anything that seems contradictory between drawings and specs."
+                        </div>
+                    </li>
+                    <li>Compare the output to what your team extracted manually.</li>
+                </ol>
+                
+                <h4>💡 What You'll Learn</h4>
+                <ul>
+                    <li>Where AI excels (speed, consistency)</li>
+                    <li>Where it struggles (non-standard layouts, handwritten annotations)</li>
+                    <li>Whether this alone saves you enough time to be worth it</li>
+                </ul>
+                
+                <div class="success-metric">
+                    ✅ Success Metric: AI finds at least 1 requirement that would have been missed OR takes less than 25% of the time a human would spend.
+                </div>
+            </div>
+        </div>
+        
+        <!-- MVP 2 -->
+        <div class="card">
+            <h2>MVP 2: The "Digital Counter"</h2>
+            <p><strong>Cost:</strong> Free trial (7 days) | <strong>Timeline:</strong> 30 minutes | <strong>Software:</strong> Togal.AI</p>
+            
+            <div class="mvp-card">
+                <h4>🎯 The Goal</h4>
+                <p>Eliminate the tedious click-counting of window tags on floor plans.</p>
+                
+                <h4>📋 What to Do</h4>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Sign up for Togal.AI's 7-day free trial at https://www.togal.ai</li>
+                    <li>Upload a set of plans from one current project</li>
+                    <li>Use the "Image Search" feature to count all window tags (W1, W2, etc.)</li>
+                    <li>Export the count to Excel</li>
+                    <li>Compare to your manual count</li>
+                </ol>
+                
+                <h4>💡 What You'll Learn</h4>
+                <ul>
+                    <li>How accurate the AI count is on your specific drawing formats</li>
+                    <li>Whether the exported data is structured enough to feed into your estimating process</li>
+                    <li>If the time savings justifies the $299/user/month cost</li>
+                </ul>
+                
+                <div class="success-metric">
+                    ✅ Success Metric: AI count within ±2% of manual count, exported in under 5 minutes.
+                </div>
+            </div>
+        </div>
+        
+        <!-- MVP 3 -->
+        <div class="card">
+            <h2>MVP 3: The "Voice-to-Scope"</h2>
+            <p><strong>Cost:</strong> Free trial (7 days) | <strong>Timeline:</strong> 1 site visit | <strong>Software:</strong> Handoff.AI</p>
+            
+            <div class="mvp-card">
+                <h4>🎯 The Goal</h4>
+                <p>Turn a site walkthrough into a quote without re-typing notes back at the office.</p>
+                
+                <h4>📋 What to Do</h4>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Sign up for Handoff.AI's 7-day free trial at https://www.handoff.ai</li>
+                    <li>During your next site visit, record a voice memo describing the scope</li>
+                    <li>Upload the audio (or transcript) into Handoff.AI</li>
+                    <li>Let it generate a structured scope and preliminary estimate</li>
+                </ol>
+                
+                <h4>💡 What You'll Learn</h4>
+                <ul>
+                    <li>How well voice transcription works for glazing terminology</li>
+                    <li>Whether the output is close enough to your actual pricing to be useful</li>
+                    <li>If this workflow saves meaningful time between site visit and quote delivery</li>
+                </ul>
+                
+                <div class="success-metric">
+                    ✅ Success Metric: First draft quote generated in under 30 minutes from site visit.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recommendation -->
+        <div class="card">
+            <h2>🎯 Recommended Starting Point</h2>
+            <div class="highlight-box">
+                <strong>Start with MVP 1 (AI Spec-Sifter) this week.</strong> It's free, requires zero new software, and will give you immediate insight into whether AI can meaningfully reduce your pre-bid workload. If it finds even one spec requirement your team missed, the ROI is proven.
+            </div>
+            <p style="margin-top: 1rem;">Once you've validated MVP 1, move to MVP 2 (Togal.AI trial) to test the counting automation. Run both in parallel on the same project for maximum insight.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>PGC Tech Deep Dive • Pacific Glazing Corporation</p>
+            <p>Generated by Joe 🔧 • April 21, 2026</p>
+        </div>
+    </footer>
+</body>
+</html>

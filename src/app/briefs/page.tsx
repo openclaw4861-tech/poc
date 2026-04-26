@@ -22,18 +22,18 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Tech Deep Dive — AI Takeoff Automation",
+    date: "April 21, 2026",
+    type: "tech",
+    description: "Three MVPs to test this month: AI Spec-Sifter (free), Digital Counter (Togal.AI trial), and Voice-to-Scope (Handoff.AI trial). Complete implementation roadmap with 3-layer takeoff stack.",
+    file: "/briefs/tech-deep-dive-2026-04-21.html",
+  },
+  {
     title: "Futurist Brief — Week of April 19, 2026",
     date: "April 19, 2026",
     type: "futurist",
     description: "Construction robotics ROI analysis, 7 AI trends for PGC, watch list items including MCP vulnerabilities and OpenAI Codex Labs.",
     file: "/briefs/futurist-brief-2026-04-19.md",
-  },
-  {
-    title: "Tech Deep Dive — AI Takeoff Automation",
-    date: "April 21, 2026",
-    type: "tech",
-    description: "Three MVPs to test this month: AI Spec-Sifter (free), Digital Counter (Togal.AI trial), and Voice-to-Scope (Handoff.AI trial). Complete implementation roadmap.",
-    file: "/briefs/tech-deep-dive-2026-04-21.md",
   },
   {
     title: "Security Healthcheck — April 23, 2026",
