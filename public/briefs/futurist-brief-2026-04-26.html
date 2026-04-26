@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGC Futurist Intelligence Brief — Week of April 26, 2026</title>
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 2rem 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+        
+        header .subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+        
+        .signal-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .trend-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        
+        .trend-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .trend-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        
+        .trend-detail {
+            margin-top: 1rem;
+            padding-left: 3rem;
+        }
+        
+        .trend-detail p {
+            margin-bottom: 0.75rem;
+        }
+        
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box strong {
+            color: var(--primary-dark);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .metric {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .watch-list {
+            list-style: none;
+        }
+        
+        .watch-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .watch-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .watch-list strong {
+            color: var(--primary);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .trend-detail {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🔮 PGC Futurist Intelligence Brief</h1>
+            <p class="subtitle">Week of April 26, 2026</p>
+            <div class="meta">
+                <span>Prepared by: Joe 🔧</span>
+                <span>Next brief: May 3, 2026</span>
+                <span>Distribution: Steve Watts (PGC CEO)</span>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Most Important Signal -->
+        <div class="card">
+            <h2>
+                <span class="signal-badge">Top Signal</span>
+                This Week's Most Important Signal
+            </h2>
+            <p><strong>ConstructConnect launched "Takeoff Boost" this week at Google Cloud Next '26</strong> — an AI-powered, computer vision takeoff service built on Google Cloud's Gemini Enterprise platform that automates material quantification from digital plans in seconds.</p>
+            
+            <div class="highlight-box">
+                <strong>Why this matters for PGC:</strong> This validates that automated takeoff has crossed from "experimental" to "production-ready" at enterprise scale, and it's being delivered by your direct competitive set (construction estimating software providers). The competitive bar for quoting speed and accuracy just moved — firms using these tools will bid faster, more consistently, and with less estimator burnout. The window to build proprietary advantage in automated glazing takeoff is narrowing.
+            </div>
+        </div>
+        
+        <!-- 7 Trends -->
+        <div class="card">
+            <h2>7 Trends Worth Watching</h2>
+            
+            <!-- Trend 1 -->
+            <div class="trend-header">
+                <span class="trend-number">1</span>
+                <div class="trend-content">
+                    <h4>AI Takeoff Goes Mainstream (Enterprise Validation)</h4>
+                    <p>ConstructConnect's Takeoff Boost launch proves automated takeoff is no longer a startup promise — it's shipping at scale with enterprise SLAs.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>Deep overview:</strong> The system classifies, detects, counts, and measures areas/linears/objects directly from digital plans using computer vision models running on Google Cloud's Gemini Enterprise Agent Platform. It's integrated into OnScreen Takeoff and coming to PlanSwift — tools many contractors already use.</p>
+                <p><strong>MVP experiment:</strong> Run a parallel test — take 5 recent PGC bid packages, process through Togal.AI's free trial, compare against your estimator's manual takeoff for time delta and accuracy variance.</p>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">Timeline</div>
+                        <div class="metric-value">2-4 weeks</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Risk Level</div>
+                        <div class="metric-value" style="color: var(--success)">Low</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Business Impact</div>
+                        <div class="metric-value">$78K/year</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 2 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">2</span>
+                <div class="trend-content">
+                    <h4>Agentic AI Workflows Are Moving Beyond Demos</h4>
+                    <p>arXiv papers this week (EVE, iReasoner, AutomationBench) show multimodal models that can execute code, reason through visual transformations, and handle long-horizon tasks.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>Deep overview:</strong> The Root Theorem paper establishes "context engineering" as a formal discipline distinct from prompt engineering. EVE demonstrates self-evolving MLLMs via executable visual transformations. AutomationBench provides benchmarks for real-world agent task completion.</p>
+                <p><strong>MVP experiment:</strong> Deploy Claude Code or a similar agentic CLI tool in a sandboxed environment; task it with parsing a PDF plan set, extracting glazing dimensions, and outputting a structured CSV.</p>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">Timeline</div>
+                        <div class="metric-value">4-6 weeks</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Risk Level</div>
+                        <div class="metric-value" style="color: var(--warning)">Medium</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Impact</div>
+                        <div class="metric-value">60-70% automation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 3 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">3</span>
+                <div class="trend-content">
+                    <h4>Construction Estimating Is Now an AI Expectation (Not a Perk)</h4>
+                    <p>Consigli Construction's CIO explicitly stated workers now <em>expect</em> AI tools as standard tech resources — viewing them as baseline, not bonus.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>MVP experiment:</strong> Survey your 34-person team anonymously: "What AI tools do you currently use for work?" and "What would make your job easier?"</p>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">Timeline</div>
+                        <div class="metric-value">1-2 weeks</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Risk Level</div>
+                        <div class="metric-value" style="color: var(--success)">Low</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 4 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">4</span>
+                <div class="trend-content">
+                    <h4>Robotics Deployment on Live Construction Sites Is Accelerating</h4>
+                    <p>Tilbury Douglas deployed a £15,000 humanoid robot on a live site for automated data collection — first of its kind for a major contractor.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>Real-world examples:</strong> Rebar-tying robots with computer vision are reducing injury rates by 40% on large projects. Uniglass Sealing Robot Zone Upgrade (glazing-specific).</p>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <div class="metric-label">Timeline</div>
+                        <div class="metric-value">12-18 months</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Risk Level</div>
+                        <div class="metric-value" style="color: var(--success)">Low</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trend 5 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">5</span>
+                <div class="trend-content">
+                    <h4>AI Supply Chain Security Is Becoming Critical</h4>
+                    <p>Multiple AI-focused NPM packages were compromised this week (Bitwarden CLI v2026.4.0, agentic AI workflow packages) with malicious code stealing credentials.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>MVP experiment:</strong> Audit your current tech stack — list all NPM packages in use, check against Semgrep's compromised package list, implement dependency pinning.</p>
+                <div class="highlight-box">
+                    <strong>One breach could cost more than the entire AI investment.</strong>
+                </div>
+            </div>
+            
+            <!-- Trend 6 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">6</span>
+                <div class="trend-content">
+                    <h4>Glazing Industry Tech Is Quietly Automating</h4>
+                    <p>Uniglass launched a "Sealing Robot Zone Upgrade" this week; NOVA handheld non-destructive gas measurement devices represent 20+ years of evolution.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>Business impact:</strong> For fabrication: 20-30% throughput increase, reduced waste. For field work: faster IGU performance verification, fewer callbacks.</p>
+            </div>
+            
+            <!-- Trend 7 -->
+            <div class="trend-header" style="margin-top: 2rem;">
+                <span class="trend-number">7</span>
+                <div class="trend-content">
+                    <h4>Project Stress Index Rising — Pipeline Risk for Glazing Firms</h4>
+                    <p>USGlass Magazine reports the Project Stress Index increased 4.2% in March — tracking delayed bid dates, on-hold projects, and abandonments in preconstruction.</p>
+                </div>
+            </div>
+            <div class="trend-detail">
+                <p><strong>MVP experiment:</strong> Review PGC's current bid pipeline — tag each project with expected break-ground date, calculate exposure to delays, identify which clients have the most stable pipelines.</p>
+            </div>
+        </div>
+        
+        <!-- Watch List -->
+        <div class="card">
+            <h2>👀 Watch List (Next 3-4 Weeks)</h2>
+            <ul class="watch-list">
+                <li>
+                    <strong>Anthropic MCP Design Vulnerability (CVE pending)</strong><br>
+                    A design flaw in the Model Context Protocol enables RCE across 7,000+ servers and 150M downloads. If PGC evaluates or uses any MCP-connected AI tools, this is a critical security watch item. Expect patches within 2 weeks.
+                </li>
+                <li>
+                    <strong>OpenAI Codex Labs Enterprise Push</strong><br>
+                    OpenAI launched Codex Labs this week to help enterprises adopt Codex faster, with GSIs like Accenture and Capgemini. This signals enterprise-grade coding agents are about to flood the market. Watch for construction-specific Codex fine-tunes or partnerships with Procore, Autodesk, etc.
+                </li>
+                <li>
+                    <strong>MindPal's 5-Construction-Firm AI Pilot</strong><br>
+                    MindPal announced a search for 5 construction industry leaders to pilot "autonomous AI workflows." If selected, this could provide PGC with bespoke automation at no cost — but more importantly, it signals that AI vendors are actively seeking glazing/construction use cases to productize.
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>PGC Futurist Intelligence Brief • Pacific Glazing Corporation</p>
+            <p>Generated by Joe 🔧 • Week of April 26, 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
