@@ -22,6 +22,14 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Tech Trends Brief — 15 Technologies to Watch",
+    date: "April 27, 2026",
+    type: "tech",
+    description: "Neuromorphic chips, Edge AI, Agentic workflows, humanoid robots, solid-state batteries, CRISPR, quantum-AI hybrids, and 8 more trends with MVP experiments.",
+    file: "/briefs/tech-trends-2026-04-27.html",
+    badge: "New Format"
+  },
+  {
     title: "Tech Deep Dive — AI Takeoff Automation",
     date: "April 21, 2026",
     type: "tech",
