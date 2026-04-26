@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — 10 New Tools for Glazing",
+    date: "April 29, 2026",
+    type: "tech",
+    description: "Helonic (AI plan review), Opusense (voice field reports), BricsCAD (Revit alternative), Graebert neXt (AutoCAD alternative), and 6 more modern tools replacing 20-year-old software.",
+    file: "/briefs/software-watch-2026-04-29.html",
+    badge: "New Series"
+  },
+  {
     title: "Futurist Brief — Week of April 26, 2026",
     date: "April 26, 2026",
     type: "futurist",

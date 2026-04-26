@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Watch — 10 New Tools for Glazing | April 29, 2026</title>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --accent: #10b981;
+            --bg: #f0fdf4;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #bbf7d0;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            padding: 2rem 0;
+        }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        header h1 { font-size: 2.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+        header .subtitle { font-size: 1.125rem; opacity: 0.9; }
+        
+        .meta {
+            display: flex; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2); font-size: 0.875rem; opacity: 0.8;
+        }
+        
+        .intro {
+            background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid var(--border);
+        }
+        
+        .intro h2 { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+        
+        .software-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem;
+        }
+        
+        .software-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+        
+        .software-card:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        .card-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);
+        }
+        
+        .software-name { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
+        .software-category {
+            display: inline-block; background: #dbeafe; color: #1e40af;
+            padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem;
+            font-weight: 600; text-transform: uppercase;
+        }
+        
+        .verdict-badge {
+            padding: 0.5rem 1rem; border-radius: 8px; font-weight: 700; font-size: 0.875rem;
+        }
+        .verdict-try { background: var(--accent); color: white; }
+        .verdict-watch { background: var(--warning); color: white; }
+        .verdict-skip { background: var(--danger); color: white; }
+        
+        .section { margin-top: 1rem; }
+        .section h4 {
+            font-size: 0.875rem; font-weight: 600; color: var(--text-light);
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;
+        }
+        
+        .mvp-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid var(--accent); border-radius: 8px; padding: 1rem; margin-top: 1rem;
+        }
+        
+        .mvp-box h4 {
+            font-size: 0.875rem; font-weight: 700; color: var(--primary-dark);
+            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        
+        .summary-table {
+            width: 100%; border-collapse: collapse; margin: 2rem 0;
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .summary-table th {
+            background: var(--primary); color: white; padding: 1rem;
+            text-align: left; font-weight: 600; font-size: 0.875rem;
+        }
+        
+        .summary-table td {
+            padding: 1rem; border-bottom: 1px solid var(--border); font-size: 0.9375rem;
+        }
+        
+        .summary-table tr:last-child td { border-bottom: none; }
+        .summary-table tr:hover { background: #f9fafb; }
+        
+        .action-items {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid var(--warning); border-radius: 12px; padding: 2rem; margin: 2rem 0;
+        }
+        
+        .action-items h2 { font-size: 1.5rem; font-weight: 700; color: #92400e; margin-bottom: 1rem; }
+        .action-items ul { margin-left: 1.5rem; }
+        .action-items li { margin-bottom: 0.75rem; color: #78350f; }
+        
+        footer {
+            text-align: center; padding: 2rem 0; margin-top: 3rem;
+            color: var(--text-light); font-size: 0.875rem; border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            .software-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 1.75rem; }
+            .summary-table { font-size: 0.875rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💻 Software Watch</h1>
+            <p class="subtitle">10 New Tools for Glazing & Construction — April 29, 2026</p>
+            <div class="meta">
+                <span>Published: April 29, 2026</span>
+                <span>Type: Software Landscape Scan</span>
+                <span>Prepared by: Joe 🔧</span>
+                <span>Next: May 6, 2026</span>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="intro">
+            <h2>This Week's Software Landscape</h2>
+            <p>The construction software stack is finally waking up from its 20-year slumber. This week's scan found <strong>10 new or recently launched tools</strong> targeting the gaps left by AutoCAD, Revit, Procore, and similar legacy platforms. The pattern is clear: cloud-native, AI-powered, cheaper, and built for how people actually work. Three categories dominate: (1) <strong>AI-powered plan review</strong>, (2) <strong>Cloud CAD/BIM</strong>, and (3) <strong>Specialized field tools</strong>.</p>
+        </div>
+        
+        <div class="software-grid">
+            <!-- 1. Helonic -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Helonic</div>
+                        <span class="software-category">Plan Review / AI</span>
+                    </div>
+                    <span class="verdict-badge verdict-try">🟢 Try Now</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>AI analyzes PDF plans, detects clashes across architectural/structural/MEP drawings, generates draft RFIs before construction starts.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Manual plan review meetings + Bluebeam redlines</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p>Replaces multi-hour page-turn meetings with instant AI analysis. YC-backed (F2025). Integrates with Procore/Autodesk.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>Contact founders@usearticulate.com (startup, likely per-project)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>High</strong> — Catches glazing detail conflicts before fabrication</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (2-3 hours)</h4>
+                    <p>Email founders@usearticulate.com with current project PDF set. Ask for demo analysis on one floor plan. Compare AI RFIs to what your team would catch manually.</p>
+                </div>
+            </div>
+            
+            <!-- 2. Opusense AI -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Opusense AI</div>
+                        <span class="software-category">Field Reporting</span>
+                    </div>
+                    <span class="verdict-badge verdict-try">🟢 Try Now</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Inspectors walk site, speak observations, snap photos — AI generates structured field reports in real-time. 5x faster than typing.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Manual daily reports + photo logging in Procore</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p>Voice + photo → structured report. Built by construction veterans (PhD civil engineer + startup vets).</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>Not published (YC P2025, likely per-user subscription)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>High</strong> — Field supervisors dictate reports instead of typing</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (1 week)</h4>
+                    <p>Contact founders via YC directory. Request beta for one field supervisor. Test one week: voice reports vs. typing. Measure time saved.</p>
+                </div>
+            </div>
+            
+            <!-- 3. BricsCAD BIM -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">BricsCAD BIM</div>
+                        <span class="software-category">BIM / CAD</span>
+                    </div>
+                    <span class="verdict-badge verdict-try">🟢 Try Now</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Full BIM capabilities with AI drafting assistance, DWG native, perpetual license option (not subscription-only).</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Revit, AutoCAD Architecture (subscription-only)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p><strong>Perpetual license available</strong> (~$1-2K one-time) vs. Revit's endless subscription. DWG native, no import errors.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>~$1,000-2,000 perpetual or ~$500/year subscription</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>High</strong> — Cost-effective Revit alternative for shop drawings</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (1 week)</h4>
+                    <p>Download free 30-day trial at bricsys.com. Import Revit family (window/door). Test: Modify, detail, export for fabrication. Compare to current workflow.</p>
+                </div>
+            </div>
+            
+            <!-- 4. Graebert neXt -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Graebert neXt 2026</div>
+                        <span class="software-category">2D/3D CAD</span>
+                    </div>
+                    <span class="verdict-badge verdict-try">🟢 Try Now</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Modern CAD for Windows/Mac/Linux with AI assistance, cloud collaboration, BIM-to-DWG automation. Easy AutoCAD transition.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>AutoCAD (subscription-only, Windows-focused)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p><strong>Cross-platform</strong> (same license for Windows/Mac/Linux), AI for repetitive tasks, no Autodesk 360 required.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>~$500-1,000/year (contact Graebert)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>High</strong> — Direct AutoCAD alternative for 2D detailing</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (1 week)</h4>
+                    <p>Request trial at graebert.com/next/. Open existing AutoCAD DWG files. Test: Do layers, blocks, xrefs work? Try AI drafting assistance.</p>
+                </div>
+            </div>
+            
+            <!-- 5. Structured AI -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Structured AI</div>
+                        <span class="software-category">Design QAQC</span>
+                    </div>
+                    <span class="verdict-badge verdict-watch">🟡 Watch</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>AI agents perform QAQC on technical drawings, learn your standards, apply building codes automatically, flag clashes.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Manual code review + senior engineer stamping</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p>Multi-discipline (MEP/structural/architectural). Agents learn your standards over time. YC-backed (F2025).</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>Medium</strong> — More relevant if PGC does in-house engineering</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (1-2 hours)</h4>
+                    <p>Contact via YC directory. Request demo on glazing shop drawings. Test: Does it catch common errors (wrong glass spec, missing anchors)?</p>
+                </div>
+            </div>
+            
+            <!-- 6. Bidflow -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Bidflow</div>
+                        <span class="software-category">Estimating / AI</span>
+                    </div>
+                    <span class="verdict-badge verdict-watch">🟡 Watch</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>AI-powered electrical estimating — reads floor plans, counts devices automatically, generates bid proposals.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Manual count in Bluebeam or On-Screen Takeoff</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p>Vertical-specific (electrical), not generic. Computer vision trained on electrical symbols. YC W2026.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>Medium</strong> — Same concept could apply to glazing (count windows, linear feet)</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (Research, 30 min)</h4>
+                    <p>Contact via YC directory. Ask if they'd customize for glazing symbols (W1, W2, storefront). Offer beta customer status for customization.</p>
+                </div>
+            </div>
+            
+            <!-- 7. Onshape -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Onshape</div>
+                        <span class="software-category">3D CAD / Product</span>
+                    </div>
+                    <span class="verdict-badge verdict-watch">🟡 Watch</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Full-cloud 3D CAD with version control, real-time collaboration, browser-based (no install), built-in PDM/PLM.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>SolidWorks, Inventor, Fusion 360 (file-server based)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p><strong>Entirely cloud-native</strong> — no file servers, no version conflicts. Works on any device. Built by SolidWorks founders.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>Free (public), $1,500/yr Professional, $3,000/yr Enterprise</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>Medium</strong> — Relevant for custom hardware/fabrication design</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (2-3 hours)</h4>
+                    <p>Sign up free at onshape.com. Model simple glazing detail (custom bracket). Share link, test simultaneous editing with team.</p>
+                </div>
+            </div>
+            
+            <!-- 8. Access Construction -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Access Construction</div>
+                        <span class="software-category">ERP / Project Mgmt</span>
+                    </div>
+                    <span class="verdict-badge verdict-watch">🟡 Watch</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Full construction ERP — financials, job costing, field tools, PM, service management. 40+ years development.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Procore, Viewpoint, Jonas Premier</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p><strong>Built for construction from day one</strong> (not retrofitted generic ERP). Recently named "#1 Construction Software 2026".</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>Enterprise quote (likely $500-2,000/month)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>High</strong> — Middle ground if you outgrew QuickBooks but find Procore too light</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (Demo, 1 hour)</h4>
+                    <p>Request demo at accessconstruction.com. Prepare pain points (job costing, change orders). Ask for glazing-specific workflow demo.</p>
+                </div>
+            </div>
+            
+            <!-- 9. Snaptrude -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">Snaptrude</div>
+                        <span class="software-category">Cloud BIM</span>
+                    </div>
+                    <span class="verdict-badge verdict-watch">🟡 Watch</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>Cloud-native BIM with AI-assisted design, real-time collaboration, automatic code checking, cost estimating integration.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Revit, ArchiCAD (desktop-based, file-server workflow)</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p><strong>Browser-based</strong> (no install), real-time multi-user editing (like Google Docs for BIM), AI design suggestions.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>Medium</strong> — More for architects you work with than PGC directly</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (2-4 hours)</h4>
+                    <p>Sign up free trial at snaptrude.com. Import recent project Revit model. Test: Navigate, mark up, extract glazing quantities. Share with team.</p>
+                </div>
+            </div>
+            
+            <!-- 10. TopSolid -->
+            <div class="software-card">
+                <div class="card-header">
+                    <div>
+                        <div class="software-name">TopSolid</div>
+                        <span class="software-category">CAD/CAM/PLM</span>
+                    </div>
+                    <span class="verdict-badge verdict-skip">🔴 Skip</span>
+                </div>
+                
+                <div class="section">
+                    <h4>What It Does</h4>
+                    <p>All-in-one CAD/CAM/PLM — design parts, generate toolpaths, manage revisions, single database, no file translation.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Legacy Alternative</h4>
+                    <p>Separate tools: SolidWorks + Mastercam + Windchill</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Key Differentiator</h4>
+                    <p>Everything in one platform — design → CAM → PLM without exporting/importing. Popular in Europe.</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Pricing</h4>
+                    <p>$5,000-15,000+ depending on modules</p>
+                </div>
+                
+                <div class="section">
+                    <h4>Glazing Applicability</h4>
+                    <p><strong>Low-Medium</strong> — Only for complex custom fabrication with CNC</p>
+                </div>
+                
+                <div class="mvp-box">
+                    <h4>🧪 MVP Trial (Demo, 1-2 hours)</h4>
+                    <p>Request demo at topsolid.com. Ask about sheet metal/glass fabrication workflows. Test: Can it generate cutting patterns?</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary Table -->
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Software</th>
+                    <th>Category</th>
+                    <th>Glazing Fit</th>
+                    <th>Pricing</th>
+                    <th>Verdict</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Helonic</strong></td>
+                    <td>Plan Review AI</td>
+                    <td>High</td>
+                    <td>Contact</td>
+                    <td><span class="verdict-badge verdict-try">🟢 Try</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Opusense AI</strong></td>
+                    <td>Field Reporting</td>
+                    <td>High</td>
+                    <td>Contact</td>
+                    <td><span class="verdict-badge verdict-try">🟢 Try</span></td>
+                </tr>
+                <tr>
+                    <td><strong>BricsCAD BIM</strong></td>
+                    <td>BIM/CAD</td>
+                    <td>High</td>
+                    <td>~$1-2K perpetual</td>
+                    <td><span class="verdict-badge verdict-try">🟢 Try</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Graebert neXt</strong></td>
+                    <td>2D/3D CAD</td>
+                    <td>High</td>
+                    <td>~$500-1K/yr</td>
+                    <td><span class="verdict-badge verdict-try">🟢 Try</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Access Construction</strong></td>
+                    <td>ERP/PM</td>
+                    <td>High</td>
+                    <td>Enterprise</td>
+                    <td><span class="verdict-badge verdict-watch">🟡 Watch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Bidflow</strong></td>
+                    <td>Estimating AI</td>
+                    <td>Medium</td>
+                    <td>Startup</td>
+                    <td><span class="verdict-badge verdict-watch">🟡 Watch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Structured AI</strong></td>
+                    <td>Design QAQC</td>
+                    <td>Medium</td>
+                    <td>Enterprise</td>
+                    <td><span class="verdict-badge verdict-watch">🟡 Watch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Onshape</strong></td>
+                    <td>3D CAD</td>
+                    <td>Medium</td>
+                    <td>$1.5-3K/yr</td>
+                    <td><span class="verdict-badge verdict-watch">🟡 Watch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Snaptrude</strong></td>
+                    <td>Cloud BIM</td>
+                    <td>Medium</td>
+                    <td>Subscription</td>
+                    <td><span class="verdict-badge verdict-watch">🟡 Watch</span></td>
+                </tr>
+                <tr>
+                    <td><strong>TopSolid</strong></td>
+                    <td>CAD/CAM/PLM</td>
+                    <td>Low-Medium</td>
+                    <td>$5-15K+</td>
+                    <td><span class="verdict-badge verdict-skip">🔴 Skip</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Action Items -->
+        <div class="action-items">
+            <h2>🎯 Steve's Action Items</h2>
+            <ul>
+                <li><strong>This Week (2-3 hours):</strong>
+                    <ul>
+                        <li>Email Helonic (founders@usearticulate.com) — Request demo on current project PDF set</li>
+                        <li>Email Opusense AI — Request beta access for one field supervisor</li>
+                        <li>Download BricsCAD trial — Test on one shop drawing, compare to Revit</li>
+                    </ul>
+                </li>
+                <li><strong>This Month (4-6 hours):</strong>
+                    <ul>
+                        <li>Download Graebert neXt trial — Open existing AutoCAD files, test compatibility</li>
+                        <li>If frustrated with current ERP: Demo Access Construction</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>PGC Software Watch • Pacific Glazing Corporation</p>
+            <p>Generated by Joe 🔧 • April 29, 2026</p>
+            <p>Next Software Watch: Wednesday, May 6, 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
