@@ -25,7 +25,7 @@ const briefs: Brief[] = [
     title: "Tech Deep Dive — AI Takeoff Automation",
     date: "April 21, 2026",
     type: "tech",
-    description: "Three MVPs to test this month: AI Spec-Sifter (free), Digital Counter (Togal.AI trial), and Voice-to-Scope (Handoff.AI trial). Complete implementation roadmap with 3-layer takeoff stack.",
+    description: "[LEGACY FORMAT] Three MVPs to test: AI Spec-Sifter, Digital Counter, Voice-to-Scope. Complete implementation roadmap with 3-layer takeoff stack.",
     file: "/briefs/tech-deep-dive-2026-04-21.html",
   },
   {
