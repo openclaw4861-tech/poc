@@ -81,6 +81,20 @@ export default function Home() {
                       </div>
                     </Link>
                     <div className="border-t border-gray-100 my-1"></div>
+                    <Link
+                      href="/briefs/"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-xl">📰</span>
+                        <div>
+                          <div className="font-medium">Intelligence Briefs</div>
+                          <div className="text-xs text-gray-500">Weekly futurist scans</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
                     <div className="px-4 py-2 text-gray-400 text-sm">
                       <div className="flex items-center space-x-3">
                         <span className="text-xl">🏗️</span>
@@ -175,6 +189,28 @@ export default function Home() {
               </ul>
               <div className="mt-4 text-blue-600 font-medium">
                 Launch →
+              </div>
+            </div>
+          </Link>
+
+          {/* Intelligence Briefs Card */}
+          <Link href="/briefs/" className="block">
+            <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+              <div className="text-4xl mb-4">📰</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Intelligence Briefs
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Weekly futurist scans and tech deep-dives for PGC leadership. AI trends, construction tech, and actionable MVPs.
+              </p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>✓ Weekly futurist briefs</li>
+                <li>✓ Tech deep-dive analysis</li>
+                <li>✓ Actionable MVP experiments</li>
+                <li>✓ Industry trend tracking</li>
+              </ul>
+              <div className="mt-4 text-blue-600 font-medium">
+                Read Latest →
               </div>
             </div>
           </Link>
