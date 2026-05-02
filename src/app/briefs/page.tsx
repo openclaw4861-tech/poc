@@ -14,6 +14,15 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — 15 Technologies to Watch",
+    date: "May 1, 2026",
+    type: "tech",
+    description: "AI coding agents, MCP universal integration, edge inference accelerators, construction computer vision, voice AI agents, multimodal models, and 9 more trends with MVP experiments for PGC.",
+    file: "/briefs/tech-brief-2026-05-01.html",
+    badge: "Latest"
+  },
+  
+  {
     title: "Software Watch — 10 New Tools for Glazing",
     date: "April 29, 2026",
     type: "tech",
@@ -27,7 +36,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "ConstructConnect's AI Takeoff Boost launch, agentic AI workflows beyond demos, robotics on live construction sites, and 7 trends shaping the future of glazing.",
     file: "/briefs/futurist-brief-2026-04-26.html",
-    badge: "Latest"
+    badge: undefined
   },
   {
     title: "Tech Trends Brief — 15 Technologies to Watch",
