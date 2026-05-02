@@ -6,7 +6,7 @@ import { useState } from 'react';
 interface Brief {
   title: string;
   date: string;
-  type: 'futurist' | 'tech' | 'healthcheck';
+  type: 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck';
   description: string;
   file: string;
   badge?: string;
@@ -25,7 +25,7 @@ const briefs: Brief[] = [
   {
     title: "Software Watch — 10 New Tools for Glazing",
     date: "April 29, 2026",
-    type: "tech",
+    type: "software",
     description: "Helonic (AI plan review), Opusense (voice field reports), BricsCAD (Revit alternative), Graebert neXt (AutoCAD alternative), and 6 more modern tools replacing 20-year-old software.",
     file: "/briefs/software-watch-2026-04-29.html",
     badge: "New Series"
@@ -70,7 +70,7 @@ const briefs: Brief[] = [
 ];
 
 export default function BriefsPage() {
-  const [filter, setFilter] = useState<'all' | 'futurist' | 'tech' | 'healthcheck'>('all');
+  const [filter, setFilter] = useState<'all' | 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck'>('all');
 
   const filteredBriefs = filter === 'all' 
     ? briefs 
@@ -80,6 +80,8 @@ export default function BriefsPage() {
     switch(type) {
       case 'futurist': return 'bg-purple-100 text-purple-800';
       case 'tech': return 'bg-blue-100 text-blue-800';
+      case 'software': return 'bg-cyan-100 text-cyan-800';
+      case 'construction': return 'bg-orange-100 text-orange-800';
       case 'healthcheck': return 'bg-amber-100 text-amber-800';
       default: return 'bg-gray-100 text-gray-800';
     }
@@ -89,6 +91,8 @@ export default function BriefsPage() {
     switch(type) {
       case 'futurist': return '🔮';
       case 'tech': return '🛠️';
+      case 'software': return '💻';
+      case 'construction': return '🏗️';
       case 'healthcheck': return '🔒';
       default: return '📄';
     }
@@ -122,7 +126,7 @@ export default function BriefsPage() {
             📰 PGC Intelligence Briefs
           </h1>
           <p className="text-xl text-purple-100 mb-6">
-            Weekly futurist scans, tech deep-dives, and security audits for Pacific Glazing Corporation
+            Four weekly briefs: broad tech trends + futurist signals + software reviews + construction/glazing industry analysis
           </p>
           
           {/* Filter Tabs */}
@@ -156,6 +160,26 @@ export default function BriefsPage() {
               }`}
             >
               🛠️ Tech
+            </button>
+            <button
+              onClick={() => setFilter('software')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filter === 'software' 
+                  ? 'bg-white text-purple-700' 
+                  : 'bg-purple-500 text-white hover:bg-purple-400'
+              }`}
+            >
+              💻 Software
+            </button>
+            <button
+              onClick={() => setFilter('construction')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filter === 'construction' 
+                  ? 'bg-white text-purple-700' 
+                  : 'bg-purple-500 text-white hover:bg-purple-400'
+              }`}
+            >
+              🏗️ Construction
             </button>
             <button
               onClick={() => setFilter('healthcheck')}
