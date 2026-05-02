@@ -14,14 +14,21 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Brief — May 3, 2026",
+    date: "May 3, 2026",
+    type: "futurist",
+    description: "General-purpose robotics ChatGPT moment, sleep-state learning becomes reproducible, AI agent infrastructure goes enterprise, biomimetic computing, self-healing materials, quantum error correction breakthrough, space manufacturing, and 5 more emerging trends.",
+    file: "/briefs/futurist-brief-2026-05-03.html",
+    badge: "Latest"
+  },
+    {
     title: "Tech Trends Brief — 15 Technologies to Watch",
     date: "May 1, 2026",
     type: "tech",
     description: "AI coding agents, MCP universal integration, edge inference accelerators, construction computer vision, voice AI agents, multimodal models, and 9 more trends with MVP experiments for PGC.",
     file: "/briefs/tech-brief-2026-05-01.html",
-    badge: "Latest"
+    badge: "Recent"
   },
-  
   {
     title: "Software Watch — 10 New Tools for Glazing",
     date: "April 29, 2026",
