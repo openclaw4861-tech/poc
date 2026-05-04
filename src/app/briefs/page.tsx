@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — May 4, 2026",
+    date: "May 4, 2026",
+    type: "tech",
+    description: "15 trending technologies: AI Agent Orchestration, Coding Agents, Multimodal Generation, MCP Protocol, LoRa Mesh Radio, Edge AI, Text-to-CAD, Browser Automation, Agent Memory, Privacy-Preserving AI, Humanoid Actuators, and more — all with free MVP experiments for PGC.",
+    file: "/briefs/tech-brief-2026-05-04.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Brief — May 3, 2026",
     date: "May 3, 2026",
     type: "futurist",
     description: "General-purpose robotics ChatGPT moment, sleep-state learning becomes reproducible, AI agent infrastructure goes enterprise, biomimetic computing, self-healing materials, quantum error correction breakthrough, space manufacturing, and 5 more emerging trends.",
     file: "/briefs/futurist-brief-2026-05-03.html",
-    badge: "Latest"
+    badge: undefined
   },
     {
     title: "Tech Trends Brief — 15 Technologies to Watch",
