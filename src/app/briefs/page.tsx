@@ -14,6 +14,15 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — 12 New Tools for Glazing",
+    date: "May 6, 2026",
+    type: "software",
+    description: "12 new tools: Shapr3D (iPad CAD), Onshape (cloud CAD), InspectMind ($100 AI plan check), Trunk Tools (AI spec review), Fabriq (shop floor MES), GoCanvas (field forms), BricsCAD (perpetual AutoCAD alt), and 6 more.",
+    file: "/briefs/software-watch-2026-05-06.html",
+    badge: "Latest"
+  },
+  
+  {
     title: "Tech Trends Brief — May 4, 2026",
     date: "May 4, 2026",
     type: "tech",
@@ -43,7 +52,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Helonic (AI plan review), Opusense (voice field reports), BricsCAD (Revit alternative), Graebert neXt (AutoCAD alternative), and 6 more modern tools replacing 20-year-old software.",
     file: "/briefs/software-watch-2026-04-29.html",
-    badge: "New Series"
+    badge: undefined
   },
   {
     title: "Futurist Brief — Week of April 26, 2026",
