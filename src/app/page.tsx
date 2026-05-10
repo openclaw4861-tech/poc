@@ -95,6 +95,20 @@ export default function Home() {
                       </div>
                     </Link>
                     <div className="border-t border-gray-100 my-1"></div>
+                    <Link
+                      href="/blog"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-xl">✍️</span>
+                        <div>
+                          <div className="font-medium">Blog</div>
+                          <div className="text-xs text-gray-500">Division8 personal blog</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
                     <div className="px-4 py-2 text-gray-400 text-sm">
                       <div className="flex items-center space-x-3">
                         <span className="text-xl">🏗️</span>
