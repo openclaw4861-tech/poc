@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — May 11, 2026",
+    date: "May 11, 2026",
+    type: "tech",
+    description: "15 trending technologies: ds4 local inference, Zig-native apps, mirage virtual filesystem for agents, 3DCellForge 3D generation, tokenspeed GPU inference, HTML templates for coding agents, let-go Lisp-in-Go, tilde.run versioned agent sandboxes, adamsreview multi-agent PR review, re_gent git-for-agents, mochi.js browser automation, airbyte-agents cross-source context, Text-to-CAD, balcony solar boom, and more — all with MVP experiments.",
+    file: "/briefs/tech-trends-2026-05-11.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — 12 New Tools for Glazing",
     date: "May 6, 2026",
     type: "software",
