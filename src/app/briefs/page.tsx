@@ -39,12 +39,19 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Futurist Brief — May 11, 2026",
+    date: "May 11, 2026",
+    type: "futurist",
+    description: "7 emerging signals: DS4 local Mac inference (7K stars), Mirage virtual filesystem for agents (1.9K stars), humanoid robots on real worksites, Text-to-CAD hits 2.4K stars, The Memory Curse (LLM agents forget cooperation under long context), AI agent payment rails unlock real transactions, and 123D autonomous driving dataset unifying LiDAR+camera+radar at scale.",
+    file: "/briefs/futurist-brief-2026-05-11.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Brief — May 3, 2026",
     date: "May 3, 2026",
     type: "futurist",
     description: "General-purpose robotics ChatGPT moment, sleep-state learning becomes reproducible, AI agent infrastructure goes enterprise, biomimetic computing, self-healing materials, quantum error correction breakthrough, space manufacturing, and 5 more emerging trends.",
-    file: "/briefs/futurist-brief-2026-05-03.html",
-    badge: undefined
+    file: "/briefs/futurist-brief-2026-05-03.html"
   },
     {
     title: "Tech Trends Brief — 15 Technologies to Watch",
