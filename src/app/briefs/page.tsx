@@ -6,7 +6,7 @@ import { useState } from 'react';
 interface Brief {
   title: string;
   date: string;
-  type: 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck';
+  type: 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck' | 'book';
   description: string;
   file: string;
   badge?: string;
@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Book Summary: Decoding Greatness",
+    date: "May 13, 2026",
+    type: "book",
+    description: "Ron Friedman on reverse-engineering excellence: study top performers, break down their methods, and deliberately practice replicating their patterns. Includes practical applications for PGC in bid proposals, field workflows, client communication, and software evaluation.",
+    file: "/briefs/book-summary-decoding-greatness.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — 12 New Tools for Glazing",
     date: "May 13, 2026",
     type: "software",
     description: "12 new tools: FreeCAD (parametric open-source CAD), Blender (3D creation suite), Planera (AI construction scheduling), Buildots (computer vision site tracking), Applied Intuition (physical AI/construction simulation), Fieldwire (field-first PM), Bluebeam Cloud (PDF collaboration), Onshape (cloud CAD with branching), Shapr3D (touch CAD for iPad), Duro Labs (cloud PLM), Fabriq (MES for fab shops), and GoCanvas (no-code field forms).",
     file: "/briefs/software-watch-2026-05-13.html",
-    badge: "Latest"
   },
   {
     title: "Tech Trends Brief — May 11, 2026",
@@ -27,7 +34,6 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: ds4 local inference, Zig-native apps, mirage virtual filesystem for agents, 3DCellForge 3D generation, tokenspeed GPU inference, HTML templates for coding agents, let-go Lisp-in-Go, tilde.run versioned agent sandboxes, adamsreview multi-agent PR review, re_gent git-for-agents, mochi.js browser automation, airbyte-agents cross-source context, Text-to-CAD, balcony solar boom, and more — all with MVP experiments.",
     file: "/briefs/tech-trends-2026-05-11.html",
-    badge: "Latest"
   },
   {
     title: "Software Watch — 12 New Tools for Glazing",
@@ -43,7 +49,6 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: AI Agent Orchestration, Coding Agents, Multimodal Generation, MCP Protocol, LoRa Mesh Radio, Edge AI, Text-to-CAD, Browser Automation, Agent Memory, Privacy-Preserving AI, Humanoid Actuators, and more — all with free MVP experiments for PGC.",
     file: "/briefs/tech-brief-2026-05-04.html",
-    badge: "Latest"
   },
   {
     title: "Futurist Brief — May 11, 2026",
@@ -51,7 +56,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "7 emerging signals: DS4 local Mac inference (7K stars), Mirage virtual filesystem for agents (1.9K stars), humanoid robots on real worksites, Text-to-CAD hits 2.4K stars, The Memory Curse (LLM agents forget cooperation under long context), AI agent payment rails unlock real transactions, and 123D autonomous driving dataset unifying LiDAR+camera+radar at scale.",
     file: "/briefs/futurist-brief-2026-05-11.html",
-    badge: "Latest"
   },
   {
     title: "Futurist Brief — May 3, 2026",
@@ -116,7 +120,7 @@ const briefs: Brief[] = [
 ];
 
 export default function BriefsPage() {
-  const [filter, setFilter] = useState<'all' | 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck'>('all');
+  const [filter, setFilter] = useState<'all' | 'futurist' | 'tech' | 'software' | 'construction' | 'healthcheck' | 'book'>('all');
 
   const filteredBriefs = filter === 'all' 
     ? briefs 
@@ -129,6 +133,7 @@ export default function BriefsPage() {
       case 'software': return 'bg-cyan-100 text-cyan-800';
       case 'construction': return 'bg-orange-100 text-orange-800';
       case 'healthcheck': return 'bg-amber-100 text-amber-800';
+      case 'book': return 'bg-emerald-100 text-emerald-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -140,6 +145,7 @@ export default function BriefsPage() {
       case 'software': return '💻';
       case 'construction': return '🏗️';
       case 'healthcheck': return '🔒';
+      case 'book': return '📚';
       default: return '📄';
     }
   };
@@ -172,7 +178,7 @@ export default function BriefsPage() {
             📰 PGC Intelligence Briefs
           </h1>
           <p className="text-xl text-purple-100 mb-6">
-            Four weekly briefs: broad tech trends + futurist signals + software reviews + construction/glazing industry analysis
+            Six briefing categories: tech trends + futurist signals + software reviews + construction analysis + book summaries + security
           </p>
           
           {/* Filter Tabs */}
