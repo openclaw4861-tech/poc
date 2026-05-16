@@ -82,6 +82,20 @@ export default function Home() {
                     </Link>
                     <div className="border-t border-gray-100 my-1"></div>
                     <Link
+                      href="/projects/1/submittals"
+                      className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-xl">📋</span>
+                        <div>
+                          <div className="font-medium">Submittal Tracker</div>
+                          <div className="text-xs text-gray-500">PDF spec extraction</div>
+                        </div>
+                      </div>
+                    </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
+                    <Link
                       href="/briefs/"
                       className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                       onClick={() => setDropdownOpen(false)}
@@ -200,6 +214,28 @@ export default function Home() {
                 <li>✓ Out-of-square detection</li>
                 <li>✓ Save to database</li>
                 <li>✓ View by job name</li>
+              </ul>
+              <div className="mt-4 text-blue-600 font-medium">
+                Launch →
+              </div>
+            </div>
+          </Link>
+
+          {/* Submittal Tracker Card */}
+          <Link href="/projects/1/submittals" className="block">
+            <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+              <div className="text-4xl mb-4">📋</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Submittal Tracker
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Upload architectural PDF specs and AI-extract submittal requirements. Editable checklist with status tracking.
+              </p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>✓ Drag & drop PDF upload</li>
+                <li>✓ AI-powered extraction</li>
+                <li>✓ Editable checklist grid</li>
+                <li>✓ Status tracking (pending → approved)</li>
               </ul>
               <div className="mt-4 text-blue-600 font-medium">
                 Launch →

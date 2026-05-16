@@ -167,3 +167,54 @@ export const visitors = pgTable('visitors', {
 
 export type Visitor = typeof visitors.$inferSelect;
 export type NewVisitor = typeof visitors.$inferInsert;
+
+
+// Submittal Tracker tables
+export const submittalChecklists = pgTable('submittal_checklists', {
+  id: serial('id').primaryKey(),
+  projectId: varchar('project_id', { length: 255 }).notNull(),
+  pdfFilePath: varchar('pdf_file_path', { length: 500 }).notNull(),
+  pdfUploadedAt: timestamp('pdf_uploaded_at').notNull(),
+  extractedAt: timestamp('extracted_at'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+}, (table) => {
+  return {
+    idxProjectId: index('idx_submittal_project_id').on(table.projectId),
+  };
+});
+
+export const submittalItems = pgTable('submittal_items', {
+  id: serial('id').primaryKey(),
+  checklistId: integer('checklist_id').notNull().references(() => submittalChecklists.id, { onDelete: 'cascade' }),
+  specSection: varchar('spec_section', { length: 50 }).notNull(),
+  specSubsection: varchar('spec_subsection', { length: 50 }),
+  requirementType: varchar('requirement_type', { length: 100 }),
+  description: text('description').notNull(),
+  details: text('details'),
+  status: varchar('status', { length: 50 }).notNull().default('pending'),
+  userNotes: text('user_notes'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at').notNull().defaultNow(),
+}, (table) => {
+  return {
+    idxChecklistId: index('idx_submittal_checklist_id').on(table.checklistId),
+    idxSpecSection: index('idx_submittal_spec_section').on(table.specSection),
+  };
+});
+
+export const submittalChecklistsRelations = relations(submittalChecklists, ({ many }) => ({
+  items: many(submittalItems),
+}));
+
+export const submittalItemsRelations = relations(submittalItems, ({ one }) => ({
+  checklist: one(submittalChecklists, {
+    fields: [submittalItems.checklistId],
+    references: [submittalChecklists.id],
+  }),
+}));
+
+export type SubmittalChecklist = typeof submittalChecklists.$inferSelect;
+export type NewSubmittalChecklist = typeof submittalChecklists.$inferInsert;
+export type SubmittalItem = typeof submittalItems.$inferSelect;
+export type NewSubmittalItem = typeof submittalItems.$inferInsert;

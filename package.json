@@ -21,6 +21,7 @@
     "@svar-ui/react-gantt": "^2.6.1",
     "drizzle-orm": "^0.45.1",
     "next": "16.1.6",
+    "pdf-parse": "^2.4.5",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },

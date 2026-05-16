@@ -1,12 +1,10 @@
 {
-  "id": "f2414193-9827-4ca2-892d-3ddb3a03d640",
-  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.visitors": {
-      "name": "visitors",
-      "schema": "",
+    "public.submittal_checklists": {
+      "name": "submittal_checklists",
+      "schema": "public",
       "columns": {
         "id": {
           "name": "id",
@@ -14,12 +12,36 @@
           "primaryKey": true,
           "notNull": true
         },
-        "count": {
-          "name": "count",
-          "type": "integer",
+        "project_id": {
+          "name": "project_id",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pdf_file_path": {
+          "name": "pdf_file_path",
+          "type": "varchar(500)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pdf_uploaded_at": {
+          "name": "pdf_uploaded_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "extracted_at": {
+          "name": "extracted_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": true,
-          "default": 0
+          "default": "now()"
         },
         "updated_at": {
           "name": "updated_at",
@@ -29,24 +51,123 @@
           "default": "now()"
         }
       },
-      "indexes": {},
+      "indexes": {
+        "idx_submittal_project_id": {
+          "name": "idx_submittal_project_id",
+          "columns": ["project_id"],
+          "isUnique": false
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
+      "uniqueConstraints": {}
+    },
+    "public.submittal_items": {
+      "name": "submittal_items",
+      "schema": "public",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "checklist_id": {
+          "name": "checklist_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "spec_section": {
+          "name": "spec_section",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "spec_subsection": {
+          "name": "spec_subsection",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "requirement_type": {
+          "name": "requirement_type",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "details": {
+          "name": "details",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pending'"
+        },
+        "user_notes": {
+          "name": "user_notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "idx_submittal_checklist_id": {
+          "name": "idx_submittal_checklist_id",
+          "columns": ["checklist_id"],
+          "isUnique": false
+        },
+        "idx_submittal_spec_section": {
+          "name": "idx_submittal_spec_section",
+          "columns": ["spec_section"],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "submittal_items_checklist_id_submittal_checklists_id_fk": {
+          "name": "submittal_items_checklist_id_submittal_checklists_id_fk",
+          "tableFrom": "submittal_items",
+          "tableTo": "submittal_checklists",
+          "columnsFrom": ["checklist_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
   "enums": {},
   "schemas": {},
-  "sequences": {},
-  "roles": {},
-  "policies": {},
-  "views": {},
   "_meta": {
-    "columns": {},
     "schemas": {},
-    "tables": {}
+    "tables": {},
+    "columns": {}
   }
 }
