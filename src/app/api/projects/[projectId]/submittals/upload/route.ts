@@ -4,6 +4,9 @@ import { submittalChecklists, type NewSubmittalChecklist } from '@/db/schema';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
+// Force this route to be server-side dynamic
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/projects/:projectId/submittals/upload
  * Upload a PDF spec file and create a checklist record

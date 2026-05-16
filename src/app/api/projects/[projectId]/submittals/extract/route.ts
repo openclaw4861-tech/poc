@@ -6,6 +6,9 @@ import { parsePdf } from '@/lib/pdf-parser';
 import { extractSubmittals } from '@/lib/submittal-extractor';
 import * as path from 'path';
 
+// Force this route to be server-side dynamic
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/projects/:projectId/submittals/extract
  * Extract text from uploaded PDF and use AI to parse submittal requirements

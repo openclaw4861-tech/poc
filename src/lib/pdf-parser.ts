@@ -1,6 +1,6 @@
-import { PDFParse } from 'pdf-parse';
 import * as fs from 'fs/promises';
 import * as path from 'path';
+import { PDFParse } from 'pdf-parse';
 
 export interface PdfParseResult {
   success: boolean;
@@ -22,7 +22,7 @@ export async function parsePdf(filePath: string): Promise<PdfParseResult> {
     // Read the PDF file
     const dataBuffer = await fs.readFile(filePath);
     
-    // Parse PDF using PDFParse class
+    // Parse PDF using PDFParse class (v2 API)
     const parser = new PDFParse({ data: dataBuffer });
     const result = await parser.getText();
     await parser.destroy();
