@@ -139,7 +139,7 @@ export default function SubmittalsPage() {
     setError(null);
 
     try {
-      const res = await fetch(`/api/projects/${selectedProjectId}/submittals/${selectedChecklist.id}`, {
+      const res = await fetch(`/api/projects/${selectedProjectId}/submittals/checklists/${selectedChecklist.id}`, {
         method: 'DELETE',
       });
 

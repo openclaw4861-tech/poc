@@ -9,7 +9,7 @@ import * as path from 'path';
 export const dynamic = 'force-dynamic';
 
 /**
- * DELETE /api/projects/:projectId/submittals/:checklistId
+ * DELETE /api/projects/:projectId/submittals/checklists/:checklistId
  * Delete a checklist and its associated PDF file
  */
 export async function DELETE(
