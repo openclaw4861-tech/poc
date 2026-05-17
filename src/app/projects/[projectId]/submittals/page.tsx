@@ -45,6 +45,7 @@ export default function SubmittalsPage() {
   
   const [isUploading, setIsUploading] = useState(false);
   const [isExtracting, setIsExtracting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dragOver, setDragOver] = useState(false);
@@ -126,6 +127,38 @@ export default function SubmittalsPage() {
       handleFileUpload(file);
     }
   }, [handleFileUpload]);
+
+  const handleDeleteChecklist = async () => {
+    if (!selectedChecklist) return;
+
+    if (!confirm(`Delete "${selectedChecklist.pdfFilePath.split('/').pop()}" and all extracted items? This cannot be undone.`)) {
+      return;
+    }
+
+    setIsDeleting(true);
+    setError(null);
+
+    try {
+      const res = await fetch(`/api/projects/${selectedProjectId}/submittals/${selectedChecklist.id}`, {
+        method: 'DELETE',
+      });
+
+      const data = await res.json();
+
+      if (!data.success) {
+        throw new Error(data.error || 'Delete failed');
+      }
+
+      // Refresh checklists and clear selection
+      await fetchChecklists();
+      setSelectedChecklist(null);
+      setItems([]);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Delete failed');
+    } finally {
+      setIsDeleting(false);
+    }
+  };
 
   const handleExtract = async () => {
     if (!selectedChecklist) return;
@@ -358,13 +391,22 @@ export default function SubmittalsPage() {
                       {selectedChecklist.extractedAt && ` | Extracted: ${new Date(selectedChecklist.extractedAt).toLocaleString()}`}
                     </p>
                   </div>
-                  <button
-                    onClick={handleExtract}
-                    disabled={isExtracting}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isExtracting ? 'Extracting...' : 'Extract Submittals'}
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleDeleteChecklist}
+                      disabled={isDeleting}
+                      className="px-4 py-2 bg-red-600 text-white rounded-md text-sm font-medium hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isDeleting ? 'Deleting...' : 'Delete'}
+                    </button>
+                    <button
+                      onClick={handleExtract}
+                      disabled={isExtracting}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isExtracting ? 'Extracting...' : 'Extract Submittals'}
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
