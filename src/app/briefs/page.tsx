@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Book Summary: Tiny Experiments",
+    date: "May 17, 2026",
+    type: "book",
+    description: "Anne-Laure Le Cunff on why traditional goal-setting is broken: the arrival fallacy, toxic productivity, and rigid linear goals. Her alternative is the tiny experiment — small, low-stakes, hypothesis-driven commitments that let you learn what actually fulfills you. Full of neuroscience, practical pacts, and a reframing of uncertainty as opportunity.",
+    file: "/briefs/book-summary-tiny-experiments.html",
+    badge: "Latest"
+  },
+  {
     title: "Book Summary: Decoding Greatness",
     date: "May 13, 2026",
     type: "book",
     description: "Ron Friedman on reverse-engineering excellence: study top performers, break down their methods, and deliberately practice replicating their patterns. Includes practical applications for PGC in bid proposals, field workflows, client communication, and software evaluation.",
     file: "/briefs/book-summary-decoding-greatness.html",
-    badge: "Latest"
   },
   {
     title: "Software Watch — 12 New Tools for Glazing",
