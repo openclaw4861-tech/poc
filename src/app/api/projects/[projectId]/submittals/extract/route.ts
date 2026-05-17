@@ -49,7 +49,11 @@ export async function POST(
     }
 
     // Parse PDF
-    const pdfPath = path.join(process.cwd(), 'public', checklist.pdfFilePath);
+    // Remove leading slash from pdfFilePath to avoid path.join treating it as absolute
+    const relativePath = checklist.pdfFilePath.startsWith('/') 
+      ? checklist.pdfFilePath.substring(1) 
+      : checklist.pdfFilePath;
+    const pdfPath = path.join(process.cwd(), 'public', relativePath);
     const parseResult = await parsePdf(pdfPath);
 
     if (!parseResult.success || !parseResult.text) {
