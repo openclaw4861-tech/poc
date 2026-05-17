@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/db';
 import { submittalChecklists, submittalItems, type NewSubmittalItem } from '@/db/schema';
 import { eq } from 'drizzle-orm';
-import { parsePdf } from '@/lib/pdf-parser';
-import { extractSubmittals } from '@/lib/submittal-extractor';
+import { extractSubmittalsFromPdf } from '@/lib/submittal-extractor';
 import * as path from 'path';
 
 // Force this route to be server-side dynamic
@@ -11,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 /**
  * POST /api/projects/:projectId/submittals/extract
- * Extract text from uploaded PDF and use AI to parse submittal requirements
+ * Extract submittal requirements from uploaded PDF by sending it directly to AI
  */
 export async function POST(
   request: NextRequest,
@@ -48,23 +47,14 @@ export async function POST(
       );
     }
 
-    // Parse PDF
-    // Remove leading slash from pdfFilePath to avoid path.join treating it as absolute
+    // Build PDF path (strip leading slash for path.join)
     const relativePath = checklist.pdfFilePath.startsWith('/') 
       ? checklist.pdfFilePath.substring(1) 
       : checklist.pdfFilePath;
     const pdfPath = path.join(process.cwd(), 'public', relativePath);
-    const parseResult = await parsePdf(pdfPath);
 
-    if (!parseResult.success || !parseResult.text) {
-      return NextResponse.json(
-        { success: false, error: parseResult.error || 'Failed to parse PDF' },
-        { status: 500 }
-      );
-    }
-
-    // Extract submittals using AI
-    const extractionResult = await extractSubmittals(parseResult.text);
+    // Send PDF directly to AI for extraction
+    const extractionResult = await extractSubmittalsFromPdf(pdfPath);
 
     if (!extractionResult.success || !extractionResult.items) {
       return NextResponse.json(
@@ -98,7 +88,6 @@ export async function POST(
       data: {
         checklistId: checklist.id,
         itemsExtracted: itemsToInsert.length,
-        pageCount: parseResult.pageCount,
       },
     });
   } catch (error) {

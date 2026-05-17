@@ -1,3 +1,6 @@
+import * as fs from 'fs/promises';
+import * as path from 'path';
+
 export interface SubmittalItem {
   specSection: string;
   specSubsection?: string;
@@ -13,26 +16,19 @@ export interface ExtractionResult {
 }
 
 /**
- * Extract submittal requirements from PDF text using AI
- * Looks for "1.5 SUBMITTALS" section in CSI spec format
- * @param pdfText - Extracted text from PDF
+ * Extract submittal requirements from a PDF by sending it directly to the AI model
+ * @param pdfPath - Absolute path to the PDF file
  * @returns Array of submittal items
  */
-export async function extractSubmittals(pdfText: string): Promise<ExtractionResult> {
+export async function extractSubmittalsFromPdf(pdfPath: string): Promise<ExtractionResult> {
   try {
-    // Find the 1.5 SUBMITTALS section
-    const submittalsSection = findSubmittalsSection(pdfText);
-    
-    if (!submittalsSection) {
-      return {
-        success: false,
-        error: 'Could not find "1.5 SUBMITTALS" section in the specification',
-      };
-    }
+    // Read PDF as base64
+    const pdfBuffer = await fs.readFile(pdfPath);
+    const base64Pdf = pdfBuffer.toString('base64');
 
-    // Call AI to parse the submittals section
-    const aiResponse = await callAIForExtraction(submittalsSection);
-    
+    // Call AI with the PDF directly
+    const aiResponse = await callAIWithPdf(base64Pdf, pdfPath.endsWith('.pdf'));
+
     if (!aiResponse.success || !aiResponse.items) {
       return {
         success: false,
@@ -42,11 +38,11 @@ export async function extractSubmittals(pdfText: string): Promise<ExtractionResu
 
     // Validate and clean the extracted items
     const validatedItems = validateExtractionItems(aiResponse.items);
-    
+
     if (validatedItems.length === 0) {
       return {
         success: false,
-        error: 'No valid submittal items could be extracted',
+        error: 'No valid submittal items could be extracted from the PDF',
       };
     }
 
@@ -55,7 +51,7 @@ export async function extractSubmittals(pdfText: string): Promise<ExtractionResu
       items: validatedItems,
     };
   } catch (error) {
-    console.error('Error extracting submittals:', error);
+    console.error('Error extracting submittals from PDF:', error);
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error during extraction',
@@ -64,41 +60,10 @@ export async function extractSubmittals(pdfText: string): Promise<ExtractionResu
 }
 
 /**
- * Find the 1.5 SUBMITTALS section in CSI spec text
+ * Call AI with the raw PDF file to extract submittal requirements
  */
-function findSubmittalsSection(text: string): string | null {
-  // Look for patterns like "1.5 SUBMITTALS" or "1.05 SUBMITTALS" or "SECTION 01 33 00 - SUBMITTALS"
-  const patterns = [
-    /(?:^|\n)\s*(?:PART\s+1[-.\s]*)?(?:1[.\s]*)?(?:0?[1-9][.\s]*)?(?:1[.\s]*[0-9])?\s*SUBMITTALS\s*\n/i,
-    /(?:^|\n)\s*SUBMITTALS\s*\n/i,
-    /SECTION\s+01\s+33\s+00\s*[-:]\s*SUBMITTALS/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = text.match(pattern);
-    if (match) {
-      const startIndex = match.index || 0;
-      // Extract from the match to the next major section (PART 2, 2.0, etc.)
-      const remainingText = text.substring(startIndex);
-      const nextSectionMatch = remainingText.match(/\n\s*(?:PART\s+2|2[.\s]*[A-Z]|2\.0)/i);
-      
-      if (nextSectionMatch && nextSectionMatch.index !== undefined) {
-        return remainingText.substring(0, nextSectionMatch.index);
-      }
-      
-      // If no next section found, return a reasonable chunk (up to 8000 chars for AI context)
-      return remainingText.substring(0, 8000);
-    }
-  }
-
-  return null;
-}
-
-/**
- * Call AI API to parse submittal items from text
- */
-async function callAIForExtraction(submittalsText: string): Promise<ExtractionResult> {
-  const prompt = `You are a construction specification expert. Extract all submittal requirements from the following CSI specification text.
+async function callAIWithPdf(base64Pdf: string, isPdf: boolean): Promise<ExtractionResult> {
+  const systemPrompt = `You are a construction specification expert. Extract all submittal requirements from the PDF document.
 
 Look for items that require submittals such as:
 - Product data
@@ -108,6 +73,8 @@ Look for items that require submittals such as:
 - Certificates
 - Warranties
 - Maintenance data
+
+Focus especially on the "SUBMITTALS" section (typically section 1.5 or 01 33 00) but also look for submittal requirements scattered throughout the document.
 
 Return the results as a JSON array with this exact structure:
 [
@@ -122,13 +89,12 @@ Return the results as a JSON array with this exact structure:
 
 If no submittal requirements are found, return an empty array [].
 
-Here is the specification text:
+Return ONLY the JSON array, no other text or explanation.`;
 
-${submittalsText.substring(0, 7000)}
-`;
+  const userMessage = `Please examine this ${isPdf ? 'PDF' : 'document'} specification and extract all submittal requirements. Return ONLY a JSON array of submittal items.`;
 
   try {
-    // Call Ollama Cloud API (Qwen 3.5)
+    // Call Ollama Cloud API with multimodal support
     const response = await fetch('https://api.ollama.cloud/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -140,25 +106,34 @@ ${submittalsText.substring(0, 7000)}
         messages: [
           {
             role: 'system',
-            content: 'You are a construction specification expert. Extract submittal requirements and return ONLY valid JSON.',
+            content: systemPrompt,
           },
           {
             role: 'user',
-            content: prompt,
+            content: [
+              { type: 'text', text: userMessage },
+              {
+                type: 'image_url',
+                image_url: {
+                  url: `data:application/pdf;base64,${base64Pdf}`,
+                },
+              },
+            ],
           },
         ],
         temperature: 0.1,
-        max_tokens: 2000,
+        max_tokens: 4000,
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`AI API request failed: ${response.status} ${response.statusText}`);
+      const errorText = await response.text();
+      throw new Error(`AI API request failed: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content;
-    
+
     if (!content) {
       throw new Error('No response content from AI');
     }
@@ -172,7 +147,7 @@ ${submittalsText.substring(0, 7000)}
     }
 
     const items = JSON.parse(jsonStr);
-    
+
     if (!Array.isArray(items)) {
       throw new Error('AI response is not an array');
     }
