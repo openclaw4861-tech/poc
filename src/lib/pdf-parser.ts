@@ -1,6 +1,22 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
+import * as url from 'url';
 import { PDFParse } from 'pdf-parse';
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf.mjs';
+
+/**
+ * Register the pdfjs worker from its source location so the Node.js fake worker works.
+ * Must be called before any PDF parsing to avoid the "setting up fake worker failed" error.
+ */
+function registerPdfWorker() {
+  // In Node.js, point workerSrc to the actual node_modules location
+  const workerPath = require.resolve('pdfjs-dist/legacy/build/pdf.worker.mjs');
+  const global = globalThis as any;
+  if (typeof global.pdfjs === 'undefined') {
+    global.pdfjs = pdfjsLib;
+  }
+  pdfjsLib.GlobalWorkerOptions.workerSrc = workerPath;
+}
 
 export interface PdfParseResult {
   success: boolean;
@@ -16,6 +32,9 @@ export interface PdfParseResult {
  */
 export async function parsePdf(filePath: string): Promise<PdfParseResult> {
   try {
+    // Register pdfjs worker to avoid "setting up fake worker failed" in Next.js bundled context
+    registerPdfWorker();
+
     // Verify file exists
     await fs.access(filePath);
     
