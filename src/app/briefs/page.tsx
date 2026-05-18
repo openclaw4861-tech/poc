@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Brief — May 18, 2026",
+    date: "May 18, 2026",
+    type: "tech",
+    description: "15 trending technologies: MolmoAct 2 open robotics, sodium-ion batteries (30% cheaper), agentic AI workflows, edge small language models, neuromorphic chips, AI coding agents, CRISPR 3.0, MCP protocol, solid-state batteries, browser automation, text-to-CAD, humanoid actuators, AI cybersecurity threats, green steel, and AI agent memory — all with MVP experiments.",
+    file: "/briefs/tech-brief-2026-05-18.html",
+    badge: "Latest"
+  },
+  {
     title: "Book Summary: Tiny Experiments",
     date: "May 17, 2026",
     type: "book",
     description: "Anne-Laure Le Cunff on why traditional goal-setting is broken: the arrival fallacy, toxic productivity, and rigid linear goals. Her alternative is the tiny experiment — small, low-stakes, hypothesis-driven commitments that let you learn what actually fulfills you. Full of neuroscience, practical pacts, and a reframing of uncertainty as opportunity.",
     file: "/briefs/book-summary-tiny-experiments.html",
-    badge: "Latest"
   },
   {
     title: "Book Summary: Decoding Greatness",
