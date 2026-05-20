@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weekly Tech Brief — May 18, 2026</title>
+<title>Tech Trends Brief — May 18, 2026</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6;padding:20px}
@@ -48,7 +48,7 @@
 <body>
 <div class="container">
 <div class="hero">
-  <h1>🛠️ Weekly Tech Brief</h1>
+  <h1>🛠️ Tech Trends Brief</h1>
   <p class="subtitle">15 Technologies — Week of May 18, 2026</p>
   <div class="meta-bar">
     <span class="meta-chip">📅 May 18, 2026</span>
@@ -58,177 +58,539 @@
   </div>
 </div>
 
+<!-- TREND 1 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">1</div><div class="trend-title">MolmoAct 2 Open Robotics Foundation Model</div></div>
-  <div class="tags"><span class="tag">Robotics</span><span class="tag">AI/ML</span><span class="tag">Automation</span><span class="tag">Open Source</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Allen Institute for AI's open-source robotics foundation model with "Action Reasoning" architecture. Reasons about 3D environments before acting, with 790ms inference (vs 6,700ms in prior gen). Includes 720+ hours of bimanual manipulation dataset.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Real-world physical tasks: towel folding, object sorting, tray lifting, table clearing, lab sample handling. Being piloted at Stanford for CRISPR gene-editing automation in "self-driving wetlabs."</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Clone <strong>allenai/molmoact-2</strong> from GitHub. Run simulation with included Franka robot arm demo. Test on a simple pick-and-place task. <strong>Cost: free · Time: 2 hrs</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Construction automation is arriving. MolmoAct 2 handles real-world variability without task-specific programming. Could automate material handling, glass sorting, or site prep tasks within 2-3 years.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">1</div>
+    <div class="trend-title">Open-Source Robotics Foundation Models</div>
+    <div class="tags">
+      <span class="tag">Robotics</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Pre-trained AI models that give robots the ability to perceive and manipulate physical objects in the real world, freely available for anyone to use and modify. Think of them as a "base brain" that can be fine-tuned for specific tasks — like ChatGPT for robots.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Warehouse automation, manufacturing assembly lines, surgical robots, agricultural harvesting, construction site robots. Ai2's MolmoAct 2 (May 2026) runs 37x faster than its predecessor and handles real-world manipulation tasks that previously required custom engineering for each scenario.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Multi-Agent Orchestration (robots as agents in factory workflows), Edge AI (on-device inference without cloud), Physical AI Simulation (training before deployment).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1-2:</strong> Watch the MolmoAct 2 demo videos at <strong>allenai.org</strong> to understand current robot capabilities. <strong>Day 3-5:</strong> Browse the open-weight model on HuggingFace — see what data inputs the model takes and what outputs it produces. <strong>Day 6-7:</strong> Map one PGC field task (e.g., glass panel handling, material staging) to where a robotic arm could assist — no purchase needed, just research.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Open robotics models mean hardware companies can build capable robots without reinventing the AI brain — expect a wave of affordable physical automation in the next 18 months.</p>
+  </div>
 </div>
 
+<!-- TREND 2 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">2</div><div class="trend-title">Sodium-Ion Batteries (CATL, HiNa, Northvolt)</div></div>
-  <div class="tags"><span class="tag">Energy</span><span class="tag">Materials</span><span class="tag">EV</span><span class="tag">Cost Reduction</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Battery chemistry using abundant sodium instead of lithium. 30% cheaper than Li-ion, operates in extreme temperatures (-20°C to 60°C), no cobalt or nickel required. CATL and HiNa shipping commercial cells in 2026.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Grid-scale energy storage, electric vehicles (shorter range), backup power, renewable energy buffering. Ideal where weight matters less than cost and cycle life.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Request samples from <strong>HiNa Battery</strong> or <strong>CATL</strong>. Compare spec sheets vs equivalent Li-ion. Calculate TCO for PGC's warehouse backup power. <strong>Cost: free · Time: 1 day</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Cheaper stationary storage for PGC facilities. If PGC adds solar or needs backup power for fabrication equipment, sodium-ion cuts capex 30% vs lithium systems.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">2</div>
+    <div class="trend-title">AI-Developed Zero-Day Exploits</div>
+    <div class="tags">
+      <span class="tag">Security</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Threat actors using large language models to autonomously discover previously unknown software vulnerabilities and build working exploits — no human expert required. Google GTIG confirmed the first known AI-developed zero-day in May 2026: an AI found and weaponized a 2FA bypass in an open-source admin tool.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Industrial-scale cyber attacks, ransomware campaigns targeting construction firms (often SMBs have weak security), supply chain attacks on tools like project management software. Criminal groups are on the verge of using AI to conduct mass exploitation campaigns automatically.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Agentic AI (same models, different application), Privacy-Preserving AI (on-device inference reduces attack surface), Agent Memory (AI persisting and learning attack patterns).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Read Google's GTIG May 2026 report on AI vulnerability exploitation (free, cloud.google.com/blog). <strong>Day 2:</strong> Audit PGC's most critical software: what vendors have known vulnerabilities? Use <strong>exploit-db.com</strong> or <strong>cve.mitre.org</strong> to check. <strong>Day 3:</strong> Enable two-factor authentication on the single most critical account (likely the primary estimating or project management tool) — this blocks the confirmed zero-day bypass method.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>The economics of cyber crime have shifted: AI lets attackers find vulnerabilities faster than human developers can patch them. Every month you delay basic hygiene (2FA, patches) widens your attack surface.</p>
+  </div>
 </div>
 
+<!-- TREND 3 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">3</div><div class="trend-title">Agentic AI Workflows (Symphony, Cflow, LangGraph)</div></div>
-  <div class="tags"><span class="tag">Software</span><span class="tag">AI/ML</span><span class="tag">Automation</span><span class="tag">Enterprise</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Multi-agent systems where specialized AI agents collaborate on complex workflows: one researches, one validates, one executes. LangGraph, Symphony Solutions, and Cflow Apps provide orchestration frameworks.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Automated document processing, bid proposal generation, compliance checking, customer onboarding, multi-step business processes that previously required human coordination.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Install <strong>LangGraph</strong> (pip install langgraph). Build a 2-agent workflow: Agent 1 extracts specs from PDF, Agent 2 validates against building codes. Test on a real PGC project spec. <strong>Cost: free · Time: 3 hrs</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>PGC's bid process involves multiple steps: spec review, material takeoff, pricing, compliance check. Agentic workflows could automate 60-70% of pre-bid prep, freeing estimators for high-value work.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">3</div>
+    <div class="trend-title">Sodium-Ion Battery Mass Production</div>
+    <div class="tags">
+      <span class="tag">Energy</span>
+      <span class="tag">EVs</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Next-generation EV batteries that replace expensive lithium with abundant sodium — cheaper, safer, works in freezing temperatures. CATL and Changan launched the Nevo A06 in February 2026, the world's first mass-produced sodium-ion EV. CATL's Naxtra batteries now operate from -40°C to 70°C with energy density up to 175 Wh/kg.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Electric work vehicles, site equipment (forklifts, lifts), grid energy storage for buildings, cold-climate operations. Sodium-ion batteries cost less to manufacture and source, which should drive down electric work vehicle prices significantly by 2027-2028.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Edge AI (battery management systems getting smarter), IoT Sensors (more sensors running longer on smaller batteries), Autonomous EVs (the vehicles that will use these batteries).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Research sodium-ion availability via <strong>CATL Naxtra</strong> and <strong>Changan Nevo A06</strong>. <strong>Day 2:</strong> Identify one PGC work vehicle that could go electric — a site buggy, small delivery van, or forklift. Check available models and charging infrastructure needed. <strong>Day 3:</strong> Get a quote from a commercial EV dealer for an electric light truck — just to understand pricing and lead times. No commitment needed.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Sodium-ion breaks the lithium supply chain dependency that has kept EV prices high — construction fleets may go electric faster than expected, and battery-powered site equipment will get cheaper.</p>
+  </div>
 </div>
 
+<!-- TREND 4 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">4</div><div class="trend-title">Small Language Models for Edge (Phi-4, Gemma-2B, Qwen2.5-1.5B)</div></div>
-  <div class="tags"><span class="tag">AI/ML</span><span class="tag">Edge</span><span class="tag">Mobile</span><span class="tag">Privacy</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Sub-3B parameter models that run on phones, tablets, and edge devices. Microsoft Phi-4, Google Gemma-2B, and Alibaba Qwen2.5-1.5B match larger models on specific tasks while fitting in 2-4GB RAM.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>On-device AI: field report summarization, photo annotation, voice commands, offline document search. No cloud dependency, no data leaves the device.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Download <strong>Phi-4</strong> via Ollama (ollama run phi4). Run on a MacBook or Android phone. Test field report summarization offline. Compare quality to GPT-4. <strong>Cost: free · Time: 30 min</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Field crews work offline constantly. Small models enable AI assistance on job sites without connectivity: photo-to-report, voice notes, spec lookup. No data exposure, no latency.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">4</div>
+    <div class="trend-title">Multi-Agent Orchestration</div>
+    <div class="tags">
+      <span class="tag">AI</span>
+      <span class="tag">Dev Tools</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Frameworks that coordinate multiple AI agents working together on complex tasks — one agent writes code, another reviews it, a third fixes errors, all orchestrated by a "manager" agent. Tools like Composio's Agent Orchestrator let parallel coding agents each work in their own git worktree, handling CI fixes, merge conflicts, and code reviews autonomously.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Enterprise workflow automation, complex coding projects, multi-step business processes (quote → review → send → track). Anthropic just released "Dreaming," "Outcomes," and "Multi-Agent Orchestration" for Claude Managed Agents. Microsoft Copilot Studio now orchestrates agents across apps and data.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: MCP Protocol (standardized tool connections for agents), Agent Memory (shared context across agents), Open-Source Robotics (multi-agent coordination for factory floors).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Watch the Composio Agent Orchestrator demo on GitHub (free, github.com/ComposioHQ/agent-orchestrator). <strong>Day 2-3:</strong> Identify a PGC workflow that involves multiple steps across different systems — like "field report → data entry → alert PM." Map the handoff points. <strong>Day 4-7:</strong> Prototype a simple version using a no-code automation tool like <strong>Zapier</strong> or <strong>n8n</strong> — even if it only covers one step, you'll see the pattern.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Single AI agents handle one task; multi-agent systems handle whole workflows — this is what turns AI from a novelty into a competitive advantage for back-office operations.</p>
+  </div>
 </div>
 
+<!-- TREND 5 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">5</div><div class="trend-title">Neuromorphic Computing Chips (Intel Loihi 3, BrainChip)</div></div>
-  <div class="tags"><span class="tag">Hardware</span><span class="tag">AI/ML</span><span class="tag">Low Power</span><span class="tag">Sensors</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Chips that mimic brain neuron/synapse architecture. Intel's Loihi 3 and BrainChip Akida process sparse, event-driven data at 100-1000x lower power than GPUs. Ideal for always-on sensor processing.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Real-time sensor fusion, anomaly detection, gesture recognition, predictive maintenance. Processes camera/LiDAR/vibration data continuously without draining batteries.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Apply for <strong>Intel Neuromorphic Research Community</strong> access. Run the gesture recognition demo on Loihi 3 cloud access. Measure power vs GPU baseline. <strong>Cost: free · Time: 1 week (approval)</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Long-term: neuromorphic chips enable always-on site monitoring cameras, vibration sensors on glass panels, predictive maintenance on fabrication equipment — running for months on batteries.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">5</div>
+    <div class="trend-title">Model Context Protocol (MCP) Standardization</div>
+    <div class="tags">
+      <span class="tag">AI</span>
+      <span class="tag">Dev Tools</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>A universal standard (now under the Linux Foundation's Agentic AI Foundation) that lets AI models connect to external tools, databases, and data sources through one standardized interface — instead of building custom integrations for every AI × every tool combination. As of May 2026: 97 million monthly SDK downloads, 9,400+ public servers, native support from Anthropic, OpenAI, Google, and Microsoft.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Connecting AI assistants to your company's data (Drive, calendar, CRM), enabling AI agents to use real tools (send emails, query databases, call APIs), building custom AI integrations without starting from scratch.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Multi-Agent Orchestration (MCP as the "wiring" between agents), Agentic AI (agents need MCP to act on real-world data), Agent Memory (MCP enables persistent context).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Read "What is MCP" primer on dev.to (search: "Model Context Protocol 2026 primer"). <strong>Day 2:</strong> Go to <strong>smithery.ai</strong> — a marketplace for MCP servers — and find one that connects to Google Drive or Gmail. <strong>Day 3:</strong> If you use Claude or Cursor, enable an MCP server in 10 minutes (free tier available). See how it pulls real data from your connected accounts.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>MCP is the USB-C of AI integration — it standardizes how AI connects to everything else, meaning custom integrations that used to take weeks now take hours.</p>
+  </div>
 </div>
 
+<!-- TREND 6 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">6</div><div class="trend-title">AI Coding Agents (Claude Code, Codex, Pi, OpenCode)</div></div>
-  <div class="tags"><span class="tag">Dev Tools</span><span class="tag">AI/ML</span><span class="tag">Productivity</span><span class="tag">Automation</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Autonomous coding agents that plan, write, test, and iterate on codebases. Claude Code (Anthropic), Codex (OpenAI), Pi (Inflection), and OpenCode (open-source) can complete multi-file tasks with minimal human guidance.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Internal tool development, API integrations, data pipeline creation, UI prototyping, code reviews, documentation generation, legacy code modernization.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Install <strong>Claude Code</strong> (npm install -g @anthropic-ai/claude-code). Task: "Build a Python script that parses PGC's glass cut list CSV and outputs a material cost summary." <strong>Cost: $20/mo · Time: 1 hr</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Joe uses coding agents daily to build PGC's tools. A single agent can replace 10-20 hours of developer time for internal tools, integrations, and automation scripts.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">6</div>
+    <div class="trend-title">Neuromorphic Computing for Physics Simulation</div>
+    <div class="tags">
+      <span class="tag">Computing</span>
+      <span class="tag">Hardware</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Brain-inspired computer processors that process and store information simultaneously — like neurons — using 70% less energy than traditional chips. As of February 2026, neuromorphic computers can now solve complex physics simulation equations that previously required energy-hungry supercomputers. A new nanoelectronic device using modified hafnium oxide mimics how neurons process information.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Real-time structural analysis (simulating wind loads on buildings), climate modeling, drug discovery, on-device AI inference for autonomous vehicles, edge computing in remote locations. The energy efficiency means complex AI can run anywhere.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Edge AI (neuromorphic chips power real-time AI without cloud), Physical AI Simulation (simulation runs faster and cheaper), Text-to-CAD (faster physics sim for structural validation).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Watch the ScienceDaily video on neuromorphic physics simulation (free, sciencedaily.com). <strong>Day 2:</strong> Look up <strong>Intel Loihi</strong> or <strong>IBM NorthPole</strong> — current neuromorphic chips — and their benchmark results. <strong>Day 3:</strong> Think about where PGC runs physics-heavy calculations: structural glazing load calculations, facade thermal modeling. Could faster simulation change how you bid complex projects?</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Neuromorphic chips bring supercomputer-level physics simulation to edge devices — in 3-5 years, a tablet on a job site could run thermal and structural models in real time.</p>
+  </div>
 </div>
 
+<!-- TREND 7 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">7</div><div class="trend-title">CRISPR 3.0 Base Editing (Prime Editing)</div></div>
-  <div class="tags"><span class="tag">Biotech</span><span class="tag">Healthcare</span><span class="tag">Gene Therapy</span><span class="tag">Precision</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Third-generation CRISPR that edits single DNA letters without double-strand breaks. Prime editing (Broad Institute) achieves 99%+ precision with minimal off-target effects. First therapies entering Phase 3 trials in 2026.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Treating genetic diseases (sickle cell, Tay-Sachs), cancer immunotherapy enhancement, agricultural improvements, and via automation — high-throughput drug screening.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Review <strong>Addgene Prime Editing</strong> protocols. Compare vendor pricing (Twist Bioscience, IDT) for guide RNA synthesis. Estimate cost for a pilot gene-editing screening project. <strong>Cost: $500-2000 · Time: 1 week</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Indirect impact: CRISPR automation is driving lab robotics demand (see MolmoAct 2). If PGC ever diversifies into lab construction or biotech facilities, this is the workflow driving equipment needs.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">7</div>
+    <div class="trend-title">Self-Healing Materials with IoT Sensing</div>
+    <div class="tags">
+      <span class="tag">Materials</span>
+      <span class="tag">Construction</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Engineered materials that detect and repair internal damage autonomously — mimicking biological healing. The global market hit $4.99 billion in 2026, growing 26.3% from 2025. Combined with IoT sensors embedded in structures, these materials enable buildings that monitor their own health and self-repair cracks before they spread.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Concrete infrastructure (bridges, parking structures), glass sealants and coatings, facade panels, high-rise curtain walls. Self-healing concrete uses bacteria or chemical agents activated by water ingress. Smart coatings on glass can detect stress fractures and seal them automatically.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: IoT Sensors (embedded sensors trigger healing), Computer Vision (structural health monitoring), Edge AI (on-device processing of sensor data).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Read the Self-Healing Materials Research Report 2026 (globenewswire.com, free). <strong>Day 2:</strong> Look up <strong>BASF or HeidelbergCement</strong> self-healing concrete products — note pricing and application methods. <strong>Day 3:</strong> Identify one PGC project where self-healing sealant could reduce callback costs — large glass facade in coastal environment? Request a sample from a supplier.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>The biggest cost in glazing isn't the glass — it's callbacks for sealant failures and water leaks. Self-healing materials starting to reach commercial availability could virtually eliminate that problem within a decade.</p>
+  </div>
 </div>
 
+<!-- TREND 8 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">8</div><div class="trend-title">MCP Protocol (Model Context Protocol)</div></div>
-  <div class="tags"><span class="tag">AI/ML</span><span class="tag">Integration</span><span class="tag">Standards</span><span class="tag">Enterprise</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Universal protocol for AI models to access external tools, databases, and APIs. Anthropic's MCP lets any AI agent connect to any data source with a standard interface — no custom integrations per model.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Connecting AI agents to Procore, Google Drive, email, databases, project management tools. One MCP server = all AI models can access that data source.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Install <strong>@modelcontextprotocol/server-filesystem</strong>. Configure it to expose PGC's project folder. Connect Claude Desktop or a coding agent. Ask: "List all PDFs in Project X modified this week." <strong>Cost: free · Time: 1 hr</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>MCP is the USB-C for AI integrations. Instead of building custom connectors for each AI tool, PGC builds one MCP server per data source. All AI tools instantly gain access.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">8</div>
+    <div class="trend-title">Computer Vision for Construction Progress Tracking</div>
+    <div class="tags">
+      <span class="tag">Construction Tech</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>AI systems that automatically compare photos of a construction site against BIM models or schedules to track progress, flag delays, and document conditions. Tools like OpenSpace capture 360° imagery on walk-throughs and automatically map what exists to what was planned — tracking 700+ components across trades without BIM files needed.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Weekly progress tracking for PMs, quality control documentation, subcontractor coordination, owner progress reports, punch list generation. TrueLook and similar systems generate time-lapse documentation and integrate with Procore and Autodesk.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: 3D Scanning / LiDAR (complementary capture methods), IoT Sensors (sensor fusion for fuller picture), Agentic AI (agents that act on CV output — notify PM, generate report).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Watch OpenSpace's product demo (openspace.ai, free trial). <strong>Day 2:</strong> Download the OpenSpace app — it's free for one project. Walk a current PGC job site and capture 360° photos. <strong>Day 3:</strong> See the automatic progress comparison — how does it match against your schedule? Evaluate whether the time savings on documentation justifies the subscription cost.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Every PM loses 3-5 hours/week documenting progress. CV-based progress tracking automates that work and gives owners real-time visibility — a competitive differentiator on large projects.</p>
+  </div>
 </div>
 
+<!-- TREND 9 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">9</div><div class="trend-title">Solid-State Batteries (QuantumScape, Solid Power)</div></div>
-  <div class="tags"><span class="tag">Energy</span><span class="tag">Materials</span><span class="tag">EV</span><span class="tag">Safety</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Replace liquid electrolyte with solid ceramic/polymer. 2x energy density of Li-ion, charges in 10-15 minutes, no fire risk. QuantumScape and Solid Power shipping pilot cells to automakers in 2026.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Electric vehicles (500+ mile range), aviation, high-power tools, applications where safety and energy density matter more than cost.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Request technical briefings from <strong>QuantumScape</strong> or <strong>Solid Power</strong>. Compare spec sheets vs Li-ion and sodium-ion. Map use cases where solid-state's safety justifies premium. <strong>Cost: free · Time: 1 day</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Long-term: if PGC adds electric vehicles or high-value equipment, solid-state batteries eliminate fire risk in warehouses. Premium cost now, but safety benefits for indoor storage.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">9</div>
+    <div class="trend-title">3D Scanning with LiDAR on Mobile Devices</div>
+    <div class="tags">
+      <span class="tag">Field Tools</span>
+      <span class="tag">Measurement</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>iPhones and iPads since iPhone 12 Pro have LiDAR sensors that can capture millions of 3D data points in minutes — creating accurate room scans, site maps, and point clouds. Apps like SiteScape, Canvas, MagicPlan, and Scanbrix turn these scans into professional CAD files (SketchUp, Revit, DWG) on demand.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Existing conditions surveys (replacing measuring tapes), prefabrication measurement verification, as-built documentation for punch lists, change order documentation with 3D evidence, glass ordering reference scans for complex openings.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Computer Vision (scan + CV = automated progress tracking), Text-to-CAD (scan data → CAD model), Self-Healing Materials (scan before/after to document repairs).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Download <strong>Scanbrix</strong> (free scan, pay for CAD export) or <strong>MagicPlan</strong> (free tier). <strong>Day 2:</strong> Use your iPhone (Pro model) or iPad to scan one complex PGC opening — a tough corner or unusual angle. Export the floor plan. <strong>Day 3:</strong> Compare it to your manual measurement — how close? Evaluate for use in preliminary measuring before full fieldwork.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>You're already carrying a $1,000+ laser scanner in your pocket. The accuracy is good enough for preliminary takeoffs and change order documentation today — and improving fast.</p>
+  </div>
 </div>
 
+<!-- TREND 10 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">10</div><div class="trend-title">Browser Automation Agents (Mocha, Browser-Use, Puppeteer-Agent)</div></div>
-  <div class="tags"><span class="tag">Automation</span><span class="tag">AI/ML</span><span class="tag">Web</span><span class="tag">RPA</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>AI agents that control web browsers: fill forms, click buttons, scrape data, complete multi-step workflows. Mocha.js, Browser-Use, and Puppeteer-Agent combine LLM reasoning with browser control.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Automated permit applications, vendor portal interactions, competitive pricing research, compliance reporting, data entry across legacy web systems without APIs.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Install <strong>mocha-js</strong> (npm install mocha-js). Script: "Navigate to [vendor portal], log in, download last 3 invoices, extract totals to CSV." Test on a real PGC vendor portal. <strong>Cost: free · Time: 2 hrs</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>PGC interacts with dozens of web portals: permit systems, vendor ordering, compliance reporting. Browser agents automate what APIs can't — no integration needed, just a browser.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">10</div>
+    <div class="trend-title">AI Coding Agents for Enterprise Dev</div>
+    <div class="tags">
+      <span class="tag">Dev Tools</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>AI systems that autonomously write, review, test, and deploy code — handling entire feature development from spec to production. These go beyond autocomplete: they own a task end-to-end, run tests, fix errors, and open pull requests. The enterprise shift in 2026 is moving from "AI assist" to "AI engineer" — autonomous agents managing codebases.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Internal tool development, automating legacy code modernization, QA test generation, DevOps pipeline creation. A single developer + AI coding agent can now do what used to require 3-4 engineers on routine tasks.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Multi-Agent Orchestration (multiple AI coding agents working together), MCP Protocol (connecting agents to internal tools), Agent Memory (agents remembering codebase context).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Try <strong>Cursor</strong> (free tier) or <strong>GitHub Copilot</strong> on a small PGC internal tool task — even a simple script. <strong>Day 2:</strong> Give it a multi-step task: "Write a script that parses these measurement files and generates a summary." See how far it gets autonomously. <strong>Day 3:</strong> Evaluate: what did it get right? What needed human correction? Where does it save time?</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>AI coding agents mean small teams can build more internal tools — automating the work that used to require a dedicated developer. PGC could have custom software built for specific workflows without hiring engineers.</p>
+  </div>
 </div>
 
+<!-- TREND 11 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">11</div><div class="trend-title">Text-to-CAD (OpenVDB, Meshy, Kaedim)</div></div>
-  <div class="tags"><span class="tag">AI/ML</span><span class="tag">3D</span><span class="tag">Design</span><span class="tag">Construction</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Generate 3D CAD models from text prompts or photos. OpenVDB, Meshy, and Kaedim produce parametric models suitable for engineering — not just visual meshes. 2.4K+ stars on GitHub for top repos.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Rapid prototyping, converting site photos to 3D models, generating facade details from sketches, BIM model creation, client visualization.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Try <strong>Meshy.ai</strong> free tier. Upload a photo of a PGC installation. Generate 3D model. Export to OBJ/STEP. Import into FreeCAD or Rhino. Assess accuracy. <strong>Cost: free · Time: 1 hr</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Field crews take photos daily. Text-to-CAD could convert those photos into as-built 3D models for client handoffs, clash detection, or change order documentation — no CAD operator needed.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">11</div>
+    <div class="trend-title">AR / Mixed Reality for Field Operations</div>
+    <div class="tags">
+      <span class="tag">AR/VR</span>
+      <span class="tag">Field Tools</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p> headsets like Microsoft HoloLens 2 and Apple Vision Pro overlay digital information onto the physical world — showing workers step-by-step instructions, remote expert annotations, or BIM models on the actual installation space. Industrial smart glasses have moved from pilot phase to mainstream deployment in 2026, with RealWear Navigator Z1 and HoloLens 2 leading field service and training use cases.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Installation training for complex curtain wall systems, remote expert support (expert draws annotations in worker's field of view), maintenance overlay showing internal schematics, quality inspection overlays comparing installed work to BIM specs.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Computer Vision (AR uses CV to understand the space), IoT Sensors (sensor data displayed in AR), AI Coding Agents (generate the AR content automatically from BIM/manufacturing data).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Research HoloLens 2 pricing (~$3,500) and rental options for enterprise. <strong>Day 2:</strong> Watch industrial use case videos on YouTube — search "HoloLens 2 construction field service." <strong>Day 3:</strong> Identify one PGC installation task where AR could reduce training time or callbacks — complex curtain wall panel? Unusual fixing detail? Rent a device for one week on a trial project.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>AR glasses let a senior glazier mentor a crew anywhere in the world without traveling — and give new workers hands-free guidance on complex installs. The ROI is real for tasks with high training cost or callback risk.</p>
+  </div>
 </div>
 
+<!-- TREND 12 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">12</div><div class="trend-title">Humanoid Robot Actuators (Figure, Tesla Optimus, Apptronik)</div></div>
-  <div class="tags"><span class="tag">Robotics</span><span class="tag">Hardware</span><span class="tag">Automation</span><span class="tag">Labor</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>High-torque, low-weight actuators enabling humanoid robots to perform human-like tasks. Figure 02, Tesla Optimus Gen 2, and Apptronik Apollo now handle box carrying, tool use, and assembly tasks in pilot deployments.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Warehouse material handling, assembly line work, dangerous environment inspection, repetitive tasks in construction-adjacent industries (prefab, manufacturing).</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Request demo access from <strong>Figure AI</strong> or <strong>Apptronik</strong>. Review deployment case studies. Calculate ROI for a PGC-adjacent use case (warehouse glass handling). <strong>Cost: free · Time: 1 week</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Humanoids are 2-3 years from construction-adjacent deployment. PGC should monitor for prefab shop automation, warehouse material handling, and dangerous task substitution (overhead glass installation).</p></div>
+  <div class="trend-header">
+    <div class="trend-num">12</div>
+    <div class="trend-title">Edge AI on Local Devices</div>
+    <div class="tags">
+      <span class="tag">AI</span>
+      <span class="tag">Hardware</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>Running AI models directly on devices (phones, tablets, laptops, IoT hardware) instead of sending data to cloud servers. The performance leap in 2026 means complex AI — voice transcription, image recognition, code generation — runs locally without internet. This addresses both latency and data privacy concerns that have held back field AI adoption.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Field data capture with AI analysis (photo → report instantly, no upload needed), offline AI tools on remote job sites, privacy-sensitive data processing (health records, financial data never leaves the device), real-time defect detection on glass lines.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Neuromorphic Computing (hardware enabling edge AI), IoT Sensors (edge AI processes sensor data locally), Computer Vision (CV models running on site cameras locally).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Download <strong>LLM apps</strong> that run locally — like Octane AI or LM Studio — on your work laptop. Try an open-source model like Llama 3.2. <strong>Day 2:</strong> Test offline: turn off WiFi and ask it to summarize a field report, generate a follow-up email. <strong>Day 3:</strong> Evaluate: does it handle your most common field task prompts adequately? Could an iPad + local AI replace a cloud subscription for field use?</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Edge AI means AI works in basements, tunnels, and remote sites with no connectivity — and your data never leaves the device. For construction companies with spotty site connectivity, this is a game changer.</p>
+  </div>
 </div>
 
+<!-- TREND 13 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">13</div><div class="trend-title">AI-Assisted Cybersecurity Attacks (Darktrace, CrowdStrike AI)</div></div>
-  <div class="tags"><span class="tag">Security</span><span class="tag">AI/ML</span><span class="tag">Threat</span><span class="tag">Enterprise</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>2026 is the "year of AI-assisted attacks" per Hacker News. Attackers use AI for phishing personalization, vulnerability discovery, and automated exploitation. CVE-2026-44113/44115 show AI-targeted exploits.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Defensive: AI-powered threat detection, automated incident response, vulnerability scanning. Offensive: automated phishing, exploit generation, credential stuffing at scale.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Run <strong>OpenClaw healthcheck skill</strong> on PGC servers. Review SSH hardening, firewall rules, and exposure. Schedule quarterly security audits. <strong>Cost: free · Time: 2 hrs</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>AI makes attacks cheaper and more targeted. PGC's project data, bid pricing, and client info are valuable. Quarterly security audits and SSH hardening are now mandatory, not optional.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">13</div>
+    <div class="trend-title">AI Agents as Payment Rails</div>
+    <div class="tags">
+      <span class="tag">FinTech</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>AI agents that can hold money, make payments, negotiate, and transact — autonomously spending and earning on behalf of humans and businesses. The critical unlock in 2026: reliable, compliant payment infrastructure that lets agents make real transactions (not just promises). This is moving from demos to actual commerce — agents buying and selling services, paying contractors, billing clients.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Automated vendor payments, real-time subcontractor settlements, AI-managed project budgets that pay for resources as needed, instant change order processing, automated permit fee payments, AI assistants that buy things on your behalf.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: Multi-Agent Orchestration (agents coordinating payments across workflows), Agentic AI (agents with real money at stake), MCP Protocol (agents connecting to banking/financial APIs).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Research "agentic AI payments" on TechCrunch or VentureBeat — search for recent articles on AI-to-AI payments. <strong>Day 2:</strong> Look at <strong>Stripe Agent Toolkit</strong> or <strong>Plaid</strong> — these are the infrastructure being built right now. <strong>Day 3:</strong> Identify one PGC payment workflow that could be automated: material vendor payment when delivery confirmed? Retainage release when sign-off received? Map the trigger and the payee.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>When AI agents can transact money autonomously, the latency between work done and payment received drops to zero. Subcontractors could get paid same day — eliminating the cash flow anxiety that plagues construction.</p>
+  </div>
 </div>
 
+<!-- TREND 14 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">14</div><div class="trend-title">Green Steel Production (Stegra, H2 Green Steel)</div></div>
-  <div class="tags"><span class="tag">Materials</span><span class="tag">Sustainability</span><span class="tag">Construction</span><span class="tag">Climate</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Steel production using hydrogen from renewable power instead of coal. Stegra's $7B industrial-scale plant is the first at commercial scale. 90%+ CO2 reduction vs traditional blast furnaces.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>Structural steel for buildings, framing systems, curtain wall supports, any construction application where embodied carbon matters for LEED or client requirements.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Contact <strong>Stegra</strong> or <strong>H2 Green Steel</strong> for pricing and availability. Compare vs traditional steel for a sample PGC project. Calculate LEED point impact. <strong>Cost: free · Time: 1 day</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>Clients increasingly demand low-carbon materials. Green steel for curtain wall framing could be a differentiator in bids. Premium cost now, but aligns with PGC's sustainability positioning.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">14</div>
+    <div class="trend-title">Text-to-CAD / AI Design Generation</div>
+    <div class="tags">
+      <span class="tag">Design</span>
+      <span class="tag">AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>AI systems that convert natural language descriptions or sketches into detailed CAD models, BIM files, or parametric 3D geometry — no CAD software expertise required. Recent versions generate not just geometry but also specification data, material schedules, and structural load information.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Quick conceptual studies from client descriptions, generating multiple facade options for client review, automating repetitive CAD tasks like window schedule generation, converting scanned sketches to parametric models for fabrication.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: 3D Scanning (scan → AI understands existing conditions → generates design), Physical AI Simulation (AI validates generated design against structural requirements), Edge AI (on-site design iteration).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> Try <strong>Tripo3D</strong> or <strong>Meshy.ai</strong> — free tiers exist for text-to-3D. Describe a simple glass panel detail and see what it generates. <strong>Day 2:</strong> Try the <strong>SketchUp AI</strong> beta or similar tools emerging in 2026 — search for "AI to SketchUp" on YouTube. <strong>Day 3:</strong> Take one PGC detail drawing and see if current AI tools can generate a parametric version — even partially. Identify where human correction is still needed.</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Text-to-CAD won't replace CAD designers for 5-10 years, but it will automate the 40% of repetitive work that designers hate — letting them do higher-value concept development instead.</p>
+  </div>
 </div>
 
+<!-- TREND 15 -->
 <div class="trend">
-  <div class="trend-header"><div class="trend-num">15</div><div class="trend-title">AI Agent Memory Systems (Mem0, LangChain Memory, Vector DBs)</div></div>
-  <div class="tags"><span class="tag">AI/ML</span><span class="tag">Infrastructure</span><span class="tag">Memory</span><span class="tag">Enterprise</span></div>
-  <div class="section"><div class="section-label">What it is</div><p>Persistent memory layers for AI agents: remember user preferences, project history, past decisions across sessions. Mem0, LangChain Memory, and vector databases (Pinecone, Weaviate) enable long-term agent context.</p></div>
-  <div class="section"><div class="section-label">What it's used for</div><p>AI assistants that remember client preferences, project-specific constraints, historical decisions, and team workflows across weeks/months of interaction.</p></div>
-  <div class="mvp"><div class="mvp-label">MVP Experiment</div><p>Install <strong>Mem0</strong> (pip install mem0ai). Configure with a SQLite backend. Have an AI agent remember 3 PGC-specific preferences across 5 separate conversations. Verify recall accuracy. <strong>Cost: free · Time: 1 hr</strong></p></div>
-  <div class="why"><div class="why-label">Why it matters for PGC</div><p>AI agents without memory reset every session. With memory, Joe's agent remembers Steve's preferences, PGC's standard specs, and client-specific requirements across all future briefs and tasks.</p></div>
+  <div class="trend-header">
+    <div class="trend-num">15</div>
+    <div class="trend-title">Agent Memory and Long-Context Reasoning</div>
+    <div class="tags">
+      <span class="tag">AI</span>
+      <span class="tag">Agentic AI</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">What It Is</div>
+    <p>AI systems that maintain persistent memory across sessions — remembering your preferences, past conversations, project history, and accumulated context — combined with the ability to reason over very long documents (100K+ tokens). The emerging pattern: agents that learn from every interaction and get better at your specific needs over time.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">What It's Used For</div>
+    <p>Personal AI assistants that know your business deeply (remembering past bids, client preferences, project quirks), long-document analysis (entire project specs, contract documents), cross-session continuity (picking up where you left off without re-explaining context), institutional knowledge retention.</p>
+  </div>
+  <div class="section">
+    <div class="section-label">Trend Overlap</div>
+    <p>Connects to: MCP Protocol (memory connects to external data sources), Multi-Agent Orchestration (agents share memory across a team), Agentic AI (agents that learn and improve over time).</p>
+  </div>
+  <div class="mvp">
+    <div class="mvp-label">MVP Experiment</div>
+    <p><strong>Day 1:</strong> In your AI assistant (Claude, ChatGPT, etc.), start a project-specific thread and reference it a week later — see if it remembers context. <strong>Day 2:</strong> Try uploading a long document (100+ page spec) to an AI and asking cross-referencing questions — test the long-context reasoning. <strong>Day 3:</strong> Evaluate: for PGC, what repetitive context do you re-explain every session? Can you build a persistent context file the AI reads each time?</p>
+  </div>
+  <div class="why">
+    <div class="why-label">Why It Matters</div>
+    <p>Today's AI "forgets" everything when a session ends. Agent memory means your AI gets genuinely smarter about your business over time — less re-explaining, more acting on accumulated understanding.</p>
+  </div>
 </div>
 
+<!-- Connection Map -->
 <div class="meta-trend">
-  <h3>🔗 Trend Overlaps</h3>
-  <p><strong>Robotics + AI:</strong> MolmoAct 2 (robotics model) + Humanoid Actuators (hardware) = complete automation stack<br>
-  <strong>Energy Storage:</strong> Sodium-ion (cost) + Solid-state (safety/density) = complementary solutions for different use cases<br>
-  <strong>AI Infrastructure:</strong> MCP (integration) + Agent Memory (persistence) + Small Models (edge) = enterprise AI foundation<br>
-  <strong>Construction Tech:</strong> Text-to-CAD + Browser Automation + Green Steel = modernization across design, operations, and materials</p>
+  <h3>🔗 How These Technologies Connect</h3>
+  <p><strong>AI Agents</strong> are the thread: Multi-Agent Orchestration coordinates them, MCP Protocol connects them to tools, Agent Memory makes them smart over time, AI Agents as Payment Rails lets them transact. These power <strong>Computer Vision</strong> on construction sites, <strong>Edge AI</strong> in field devices, and <strong>AR</strong> for field workers. <strong>Open Robotics</strong> brings physical automation, <strong>Text-to-CAD</strong> accelerates design, and <strong>Self-Healing Materials</strong> promises durability gains. Meanwhile <strong>Sodium-Ion Batteries</strong> enable electric work vehicles, <strong>Neuromorphic Computing</strong> powers the next generation of on-device AI, and <strong>AI-Developed Zero-Days</strong> remind us that security can't be an afterthought.</p>
 </div>
 
+<!-- Action Box -->
 <div class="action-box">
-  <h3>🎯 PGC Priority Actions (This Week)</h3>
+  <h3>🎯 Your 7-Day MVP Sprint</h3>
   <ol>
-    <li><strong>Test MolmoAct 2 simulation</strong> — Evaluate robotics automation potential for warehouse/fab shop (2 hrs)</li>
-    <li><strong>Request sodium-ion battery quotes</strong> — Compare TCO vs lithium for facility backup power (1 day)</li>
-    <li><strong>Build LangGraph agentic workflow</strong> — Automate spec extraction + code validation for bids (3 hrs)</li>
-    <li><strong>Deploy MCP server for project files</strong> — Enable AI access to PGC's document repository (1 hr)</li>
-    <li><strong>Run OpenClaw healthcheck</strong> — Address AI-assisted attack vulnerabilities (2 hrs)</li>
+    <li><strong>Day 1:</strong> Download Scanbrix or MagicPlan — scan one complex PGC opening with your iPhone's LiDAR. Test accuracy against manual measurements.</li>
+    <li><strong>Day 2:</strong> Turn on 2FA on your most critical account (estimating or PM software). Read Google's zero-day report — 20 minutes, free.</li>
+    <li><strong>Day 3:</strong> Try one MCP server connection — smithery.ai has free options for Gmail and Google Drive.</li>
+    <li><strong>Day 4:</strong> OpenSpace free trial — walk a current job site, capture 360° photos, see the automatic progress tracking.</li>
+    <li><strong>Day 5:</strong> Pick one repetitive CAD task — see if text-to-3D tools (Tripo3D, Meshy.ai) can handle 20% of the work.</li>
+    <li><strong>Day 6:</strong> Ask your AI assistant to read and summarize a 50-page spec document — test long-context reasoning.</li>
+    <li><strong>Day 7:</strong> Identify the one technology from this brief that would most impact PGC if it worked — and build a 1-page test plan.</li>
   </ol>
 </div>
 
+<!-- Summary Table -->
 <table>
   <thead>
-    <tr><th>Category</th><th>Count</th><th>Top Priority</th></tr>
+    <tr>
+      <th>#</th>
+      <th>Technology</th>
+      <th>Category</th>
+      <th>Glazing Applicability</th>
+      <th>MVP Difficulty</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td>AI/ML</td><td>7</td><td>MolmoAct 2 Robotics</td></tr>
-    <tr><td>Energy/Materials</td><td>3</td><td>Sodium-Ion Batteries</td></tr>
-    <tr><td>Robotics/Automation</td><td>2</td><td>Browser Automation</td></tr>
-    <tr><td>Dev Tools</td><td>1</td><td>AI Coding Agents</td></tr>
-    <tr><td>Hardware</td><td>1</td><td>Neuromorphic Chips</td></tr>
-    <tr><td>Biotech</td><td>1</td><td>CRISPR 3.0</td></tr>
+    <tr><td>1</td><td>Open-Source Robotics Foundation Models</td><td>Robotics</td><td>Medium — 3-5 yr horizon</td><td>Research only</td></tr>
+    <tr><td>2</td><td>AI-Developed Zero-Day Exploits</td><td>Security</td><td>High — applies now</td><td>Low — do it today</td></tr>
+    <tr><td>3</td><td>Sodium-Ion Battery Mass Production</td><td>Energy</td><td>Medium — fleet transition</td><td>Medium — investigate</td></tr>
+    <tr><td>4</td><td>Multi-Agent Orchestration</td><td>AI</td><td>High — back-office automation</td><td>Medium — prototype</td></tr>
+    <tr><td>5</td><td>Model Context Protocol (MCP)</td><td>Dev Tools</td><td>High — immediate value</td><td>Low — try today</td></tr>
+    <tr><td>6</td><td>Neuromorphic Computing for Physics Sim</td><td>Computing</td><td>Medium — structural analysis</td><td>Research only</td></tr>
+    <tr><td>7</td><td>Self-Healing Materials + IoT</td><td>Materials</td><td>High — sealant/cladding</td><td>Medium — evaluate</td></tr>
+    <tr><td>8</td><td>Computer Vision Progress Tracking</td><td>Construction Tech</td><td>High — PM documentation</td><td>Low — try free trial</td></tr>
+    <tr><td>9</td><td>LiDAR 3D Scanning (Mobile)</td><td>Field Tools</td><td>High — measurement</td><td>Low — use iPhone</td></tr>
+    <tr><td>10</td><td>AI Coding Agents</td><td>Dev Tools</td><td>High — internal tools</td><td>Medium — evaluate</td></tr>
+    <tr><td>11</td><td>AR / Mixed Reality Field Ops</td><td>AR/VR</td><td>Medium — training/remote expert</td><td>High — device cost</td></tr>
+    <tr><td>12</td><td>Edge AI on Local Devices</td><td>AI</td><td>High — site connectivity</td><td>Low — try offline AI</td></tr>
+    <tr><td>13</td><td>AI Agents as Payment Rails</td><td>FinTech</td><td>Medium — cash flow</td><td>High — infrastructure</td></tr>
+    <tr><td>14</td><td>Text-to-CAD / AI Design Gen</td><td>Design</td><td>High — concept development</td><td>Low — try free tools</td></tr>
+    <tr><td>15</td><td>Agent Memory + Long-Context</td><td>AI</td><td>High — all AI interactions</td><td>Low — configure today</td></tr>
   </tbody>
 </table>
 
 <div class="footer">
-  <p>Generated by Joe 🔧 for Pacific Glazing Corporation</p>
-  <p>Full brief: <a href="https://plankton-app-reijh.ondigitalocean.app/briefs/tech-brief-2026-05-18.html">plankton-app-reijh.ondigitalocean.app/briefs/tech-brief-2026-05-18.html</a></p>
+  <p>Generated by OpenClaw for Pacific Glazing Corporation — Week of May 18, 2026</p>
+  <p>Sources: arXiv, GitHub Trending, TechCrunch, ScienceDaily, Google Threat Intelligence, MIT Tech Review, VentureBeat</p>
 </div>
 
 </div>

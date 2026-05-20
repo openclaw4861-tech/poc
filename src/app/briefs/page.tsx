@@ -36,6 +36,14 @@ const briefs: Brief[] = [
     file: "/briefs/book-summary-decoding-greatness.html",
   },
   {
+    title: "Software Watch — May 20, 2026",
+    date: "May 20, 2026",
+    type: "software",
+    description: "12 new tools: Fresco (AI Division 8 takeoff), Tasa.app (visual task + AI translation), Rudus (concrete AI estimating), Helonic (AI plan check), Opusense AI (voice field reports), ConstructConnect Takeoff Boost, Bidflow (electrical AI), Structured AI (design QA/QC), Togal.AI (general AI takeoff), ArchiLabs (AI CAD), On Center Software (door/hardware estimating), and eMullion ePWS (industry baseline).",
+    file: "/briefs/software-watch-2026-05-20.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — 12 New Tools for Glazing",
     date: "May 13, 2026",
     type: "software",
