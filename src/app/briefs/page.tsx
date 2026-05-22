@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Nashville Trip Brief — June 10-15, 2026",
+    date: "May 22, 2026",
+    type: "tech",
+    description: "Complete 6-day Nashville itinerary: Musicians Corner finale, Broadway honky-tonks, Country Music Hall of Fame, Ryman Auditorium, food guide (hot chicken + BBQ), neighborhood breakdown, and $1,200-2,000 budget estimate.",
+    file: "/briefs/nashville-trip-june-2026.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Brief — May 18, 2026",
     date: "May 18, 2026",
     type: "tech",
     description: "15 trending technologies: MolmoAct 2 open robotics, sodium-ion batteries (30% cheaper), agentic AI workflows, edge small language models, neuromorphic chips, AI coding agents, CRISPR 3.0, MCP protocol, solid-state batteries, browser automation, text-to-CAD, humanoid actuators, AI cybersecurity threats, green steel, and AI agent memory — all with MVP experiments.",
     file: "/briefs/tech-brief-2026-05-18.html",
-    badge: "Latest"
   },
   {
     title: "Book Summary: Tiny Experiments",
