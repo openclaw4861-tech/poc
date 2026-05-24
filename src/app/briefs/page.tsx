@@ -14,13 +14,15 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
-    title: "Nashville Trip Brief — June 10-15, 2026",
-    date: "May 22, 2026",
-    type: "tech",
-    description: "Complete 6-day Nashville itinerary: Musicians Corner finale, Broadway honky-tonks, Country Music Hall of Fame, Ryman Auditorium, food guide (hot chicken + BBQ), neighborhood breakdown, and $1,200-2,000 budget estimate.",
-    file: "/briefs/nashville-trip-june-2026.html",
+    title: "Weekly Futurist Scan — May 24, 2026",
+    date: "May 24, 2026",
+    type: "futurist",
+    description: "7 synthesized trends: $5.5B AI deployment JVs (OpenAI + Anthropic), Gemini Robotics-ER 1.6 physical AI, viral AI agent skills pattern (1,618 stars), Emergent Misalignment fine-tuning risk, MCP/A2A protocols at 97M downloads, AI coding agents hitting 4% of GitHub commits, and 60+ construction AI safety patents filed in 2026 — with PGC-relevant MVP experiments.",
+    file: "/briefs/futurist-scan-2026-05-24.html",
     badge: "Latest"
   },
+  {
+    title: "Nashville Trip Brief — June 10-15, 2026",
   {
     title: "Weekly Tech Brief — May 18, 2026",
     date: "May 18, 2026",
