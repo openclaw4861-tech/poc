@@ -23,6 +23,11 @@ const briefs: Brief[] = [
   },
   {
     title: "Nashville Trip Brief — June 10-15, 2026",
+    date: "May 22, 2026",
+    type: "tech",
+    description: "Complete 6-day Nashville itinerary: Musicians Corner finale, Broadway honky-tonks, Country Music Hall of Fame, Ryman Auditorium, food guide (hot chicken + BBQ), neighborhood breakdown, and $1,200-2,000 budget estimate.",
+    file: "/briefs/nashville-trip-june-2026.html",
+  },
   {
     title: "Weekly Tech Brief — May 18, 2026",
     date: "May 18, 2026",
