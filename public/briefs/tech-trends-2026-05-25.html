@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Trends Brief — May 25, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .hero { background: linear-gradient(135deg, #1e3a5f, #2d5a87); color: #fff; padding: 28px 32px; border-radius: 10px; margin-bottom: 32px; }
+    .hero h1 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .hero .subtitle { color: #93c5fd; margin-bottom: 0; }
+    .meta-bar { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .meta-chip { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: #bfdbfe; }
+    .intro { background: #f0f7ff; border-left: 4px solid #0066cc; padding: 16px 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0; }
+    .action-box { background: #fef9c3; border: 2px solid #facc15; border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .action-box h2 { font-size: 15px; color: #713f12; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .action-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .action-table th { background: #92400e; color: #fef3c7; padding: 8px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    .action-table td { padding: 8px 12px; border-bottom: 1px solid #d97706; color: #78350f; }
+    .action-table tr:last-child td { border-bottom: none; }
+    .action-table td:first-child { font-weight: 600; }
+    .trend { border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 20px; background: #fafafa; }
+    .trend-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .trend-name { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+    .category { font-size: 12px; padding: 4px 10px; border-radius: 12px; background: #e8f4fd; color: #0066cc; font-weight: 500; }
+    .field { margin-bottom: 10px; }
+    .field-label { font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .field-value { font-size: 14px; color: #333; }
+    .tag { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 2px; }
+    .verdict { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-read { background: #e8daef; color: #4a235a; }
+    .verdict-demo { background: #d1e7dd; color: #0f5132; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .meta-trend { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 24px 28px; border-radius: 10px; margin: 28px 0; }
+    .meta-trend h3 { font-size: 11px; margin-bottom: 8px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; }
+    .meta-trend p { color: #e2e8f0; font-size: 14px; margin: 0; }
+    .meta-trend .verdict { margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 12px; border-radius: 8px; overflow: hidden; }
+    th { background: #1e293b; color: #e2e8f0; padding: 10px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:last-child td { border-bottom: none; }
+    .footer { color: #94a3af; font-size: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    h2 { font-size: 20px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>🛠️ Tech Trends Brief — May 25, 2026</h1>
+    <p class="subtitle">15 Technologies for Pacific Glazing Corp</p>
+    <div class="meta-bar">
+      <span class="meta-chip">📅 May 25, 2026</span>
+      <span class="meta-chip">🔬 15 Technologies</span>
+      <span class="meta-chip">⚡ MVP Experiments</span>
+      <span class="meta-chip">🏢 PGC Focused</span>
+    </div>
+  </div>
+
+  <div class="action-box">
+    <h2>⚡ Steve's Action Items</h2>
+    <table class="action-table">
+      <tr><th>#</th><th>Action</th><th>Tool / Trend</th><th>Time</th></tr>
+      <tr><td>1</td><td><strong>Try OpenHuman</strong> — free, private, runs offline on your Mac</td><td>OpenHuman</td><td>30 min</td></tr>
+      <tr><td>2</td><td><strong>Calculate local vs. cloud AI cost</strong> — Dell says reasoning agents burn 320x more tokens</td><td>Dell Token Economics</td><td>1 day</td></tr>
+      <tr><td>3</td><td><strong>Read A2A/MCP protocol explainer</strong> — agents are about to talk to each other</td><td>Agent Protocols</td><td>20 min</td></tr>
+      <tr><td>4</td><td><strong>Check Fresco demo</strong> — AI takeoff for Division 8 doors/frames</td><td>Fresco (Software Watch)</td><td>1 day</td></tr>
+      <tr><td>5</td><td><strong>Watch RuView</strong> — WiFi-as-a-sensor, $9 board, see through walls</td><td>RuView</td><td>10 min</td></tr>
+    </table>
+  </div>
+
+  <!-- META-TRENDS -->
+  <h2>🔍 Meta-Trends</h2>
+
+  <div class="meta-trend">
+    <h3>Meta-Trend 1: The Deployment Wave — $5.5B Bets That AI Is Ready for the Real World</h3>
+    <p>OpenAI raised $4B (TPG/Brookfield/Advent/Bain) to deploy AI across 2,000 enterprise clients via forward-deployed engineers. Anthropic raised $1.5B (Blackstone/HF/Goldman Sachs) targeting mid-market — community banks, regional health systems, <strong>manufacturers</strong>. The bottleneck has shifted from "can AI do it?" to "can we get it to work inside your company?"</p>
+    <div class="verdict verdict-watch">🟡 WATCH — mid-market deployment hits in 12–18 months</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #1e3a2f, #234d3d);">
+    <h3>Meta-Trend 2: Agent Memory Goes Mainstream — Persistent, Cross-Session AI Is Here</h3>
+    <p>OpenHuman (26,795 ⭐) + agentmemory (17,132 ⭐) = private AI that remembers across sessions. Encrypted local brain, semantic search, full offline mode via Ollama. Your AI assistant remembering your bid history, client preferences, open issues — <strong>locally, privately, at no per-query cost</strong>.</p>
+    <div class="verdict verdict-try">🟢 TRY OpenHuman on your Mac</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #3d1e3a, #4d234d);">
+    <h3>Meta-Trend 3: The Protocol Wars — MCP, A2A, and the Coming Agent Interoperability Stack</h3>
+    <p>Salesforce Agentforce: 29,000 deals, $800M ARR. Microsoft Copilot Studio: 160K orgs, 400K+ custom agents. Gartner predicts 40% of enterprise apps will have integrated AI agents by end of 2026. MCP (tool access) + A2A (agent-to-agent) = the TCP/IP of the agent era. When these protocols hit critical mass, every AI tool talks to every other AI tool.</p>
+    <div class="verdict verdict-watch">🟡 READ the A2A/MCP specs now</div>
+  </div>
+
+  <h2>📋 15 Technologies</h2>
+
+  <!-- 1 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">1. OpenHuman — Private, Locally-Run Personal AI Superintelligence</span>
+      <span class="category">Private AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Open-source AI agent (26,795 ⭐, #1 GitHub trending) by tinyhumansai. Runs fully on-device via Ollama, stores memory encrypted locally with AES-256, one-click connects Gmail/Slack/Telegram/Notion/GitHub.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Private, persistent personal AI that never sends data to the cloud. Second-brain memory across sessions. Full offline inference on hardware you already own.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">private AI</span><span class="tag">on-device</span><span class="tag">local inference</span><span class="tag">memory</span><span class="tag">open source</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>curl -fsSL https://openhuman.ai/install.sh | sh</code> — connect one service (Gmail or Notion). Use it for 3 days. Compare to ChatGPT/Claude in terms of remembering your context.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Field reps and PMs could run a completely private AI assistant on their MacBooks — no per-token costs, no data leaving the building. Memory that knows your current bid, client preferences, open issues.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">2. RuView — See Through Walls With WiFi ($9 ESP32 Board)</span>
+      <span class="category">Spatial AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Open-source WiFi sensing platform (65,107 ⭐). Turns commodity WiFi signals into real-time spatial intelligence, vital sign monitoring, and presence detection — zero cameras. v0.6.5 ships with $9 ESP32 firmware.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Human pose estimation, breathing rate monitoring, heart rate detection, and presence sensing through walls using WiFi CSI (Channel State Information) data.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">spatial AI</span><span class="tag">WiFi sensing</span><span class="tag">edge AI</span><span class="tag">privacy</span><span class="tag">open source</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Buy a $9 ESP32-CSI node, flash v0.6.5 firmware, run <code>cargo run -p wifi-densepose-sensing-server</code>. Open localhost:3000/ui. Walk around and watch it track your skeleton through a wall.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Job site safety monitoring — detect if someone's in a restricted zone without cameras. Occupancy sensing for building commissioning. Low-cost, privacy-preserving presence detection.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">3. Google AI Search Overhaul — "The End of Ten Blue Links"</span>
+      <span class="category">AI Search</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Google I/O 2026 unveiled the biggest change to Search since the search box debuted 25 years ago. The "intelligent search box" expands into AI-powered interactive experiences, dispatches information agents, and lets users build personalized mini apps.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Conversational, agentic search. AI agents dispatched on your behalf for multi-step research. Personalized mini-apps built from natural language queries.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Google I/O 2026</span><span class="tag">AI search</span><span class="tag">information agents</span><span class="tag">consumer AI</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Visit labs.google.com/search and try the new experience. Ask: "What are current lead times for architectural glass from Chinese manufacturers?" Compare depth vs. traditional results.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If clients find your competitors through AI search agents rather than traditional SEO, PGC needs to be listed in those agentic knowledge bases. SEO strategy is shifting from "ranking on Google" to "being cited by AI agents."</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">4. codegraph — Pre-Indexed Code Knowledge Graph for Coding Agents</span>
+      <span class="category">AI Coding</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 21,035 ⭐. Pre-indexed code knowledge graph for Claude Code (compatible with Codex/Cursor/Copilot/Gemini CLI). Reduces token usage and tool call counts by 80%+ through semantic indexing.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Token-efficient AI coding. Faster context retrieval across large repositories. Enabling AI agents to reason about entire codebases without running out of context window.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">AI coding</span><span class="tag">token efficiency</span><span class="tag">knowledge graph</span><span class="tag">agent infrastructure</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>npm install -g codegraph</code> then <code>codegraph index && codegraph query "how does auth work here"</code>. Compare tokens used vs. raw Claude Code context.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Token-efficient agents mean cheaper per-query costs for internal tooling. The codegraph pattern also applies to document knowledge graphs — specs, submittals, past bids.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">5. supertonic — Multilingual On-Device Text-to-Speech (31 Languages)</span>
+      <span class="category">Edge TTS</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 9,998 ⭐. Open-source on-device TTS via ONNX, multilingual across 31 languages. Runs entirely on-device — no API calls, no latency, no cloud dependency.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Voice output for AI agents on low-power or air-gapped devices. Accessibility. Multilingual field communication without internet.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">on-device TTS</span><span class="tag">multilingual</span><span class="tag">edge AI</span><span class="tag">accessibility</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>pip install supertonic && supertonic --voice "en-US" --text "Your glass order is delayed 48 hours"</code>. Test offline on your field tablet.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Field crews needing hands-free updates (delivery status, change orders) could get audio on a tablet without internet. Multilingual support for Spanish-speaking workers.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">6. agentmemory — Persistent Encrypted Memory for AI Agents</span>
+      <span class="category">Agent Memory</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 17,132 ⭐. Persistent memory infrastructure for AI agents — Rust-native encrypted storage, semantic search, optional Ollama offline mode.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Building agents that remember across sessions without context-window bloat. Encrypted local brain for personal AI. Institutional knowledge bases.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent memory</span><span class="tag">encrypted storage</span><span class="tag">semantic search</span><span class="tag">local inference</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>pip install agentmemory && agentmemory-cli init --profile glazing-bids</code>. Ask it to remember your three biggest competitor markups. Query them a week later.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Bid memory — agent that knows your historical win/loss rates, typical margins on hospital vs. school jobs, standard markup language — persisting across sessions without manual re-prompting.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">7. 12-Factor Agents — Principles for LLM Agents in Production</span>
+      <span class="category">Agent Architecture</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 22,078 ⭐. Principles (inspired by Heroku's 12-Factor app) for building, operating, and scaling LLM-powered agents in production. Covers tool use, memory, error handling, observability, and deployment.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Production-grade agent architecture. Best practices for agentic pipelines. Evaluating whether your vendor's agent stack is built for real-world use.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent architecture</span><span class="tag">production AI</span><span class="tag">best practices</span><span class="tag">observability</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Read the <a href="https://github.com/HeinrichMay/12-factor-agents">12-factor agents README</a>. Score your current AI vendor tooling against the 12 factors.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Before buying another AI tool, ask: does it follow these 12 factors? If your "AI assistant" for bid writing lacks retry logic, memory, and observability — it's not production-grade.</div></div>
+    <div class="verdict verdict-read">📖 READ</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">8. CloakBrowser — Stealth Chromium That Passes All Bot Detection</span>
+      <span class="category">Browser Automation</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 20,003 ⭐. A stealth browser based on Chromium that passes all known bot detection tests. For legitimate competitive research, market intelligence, and web scraping without blocking.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Anonymous competitive research. Automated data collection from sources that block traditional crawlers. Market intelligence on competitor pricing.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">browser automation</span><span class="tag">stealth</span><span class="tag">web scraping</span><span class="tag">competitive intelligence</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>docker run -p 9222:9222 cloakbrowser/chrome</code>. Navigate to a competitor's site. Compare what's visible vs. regular Chrome.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Competitive intelligence: see what competitors are quoting publicly, what products they're promoting, how they position themselves — without triggering anti-bot defenses.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">9. Bun — All-in-One JavaScript Runtime (92,438 ⭐)</span>
+      <span class="category">JavaScript Runtime</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 92,438 ⭐. All-in-one JavaScript runtime and toolkit. Bundles 3–10x faster than webpack, installs packages 6x faster than npm, runs TypeScript natively.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Fast builds for internal tools. Replacing npm/webpack pipelines. Running server-side JavaScript. SQLite integration. Testing.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">JavaScript runtime</span><span class="tag">build tools</span><span class="tag">TypeScript</span><span class="tag">performance</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>curl -fsSL https://bun.sh/install.sh | bash && bun build --target=browser ./src/index.ts</code>. Time it vs. your current webpack build.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC ever builds or maintains internal web tools, Bun's build speed and simplicity could cut dev-ops overhead significantly.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">10. A2A + MCP Protocols — The TCP/IP of the Agent Era</span>
+      <span class="category">Agent Protocols</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">MCP (Model Context Protocol) + A2A (Agent-to-Agent) are emerging as the standardized communication protocols for AI agents. MCP handles agent-to-tool. A2A handles agent-to-agent. MCP hit 97M downloads this period.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Standardized, interoperable AI workflows. One agent triggering another without human intervention. Cross-platform agent ecosystems.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent protocols</span><span class="tag">interoperability</span><span class="tag">enterprise AI</span><span class="tag">MCP</span><span class="tag">A2A</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Read the MCP spec at modelcontextprotocol.io and A2A spec on GitHub. Identify one PGC workflow that could be automated if two AI tools could talk directly.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">When SAP agents, Microsoft Copilot agents, and PGC's custom agents all speak A2A — workflow automation explodes. This is the layer that makes truly autonomous bid processing possible.</div></div>
+    <div class="verdict verdict-try">🟢 READ NOW</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">11. Salesforce Agentforce — Agents That Execute, Not Just Assist</span>
+      <span class="category">Enterprise Agents</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Salesforce's agentic AI platform. 29,000 deals closed since launch. $800M ARR. Agents execute business processes autonomously — CRM updates, quote generation, workflow routing — not just suggest actions.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Autonomous CRM hygiene, automated quote-to-cash, self-executing service workflows.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">enterprise agents</span><span class="tag">CRM</span><span class="tag">autonomous</span><span class="tag">ARR milestone</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Request an Agentforce demo. Map one manual process (updating bid status in Salesforce) and see if an agent can own it end-to-end.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC uses Salesforce or any CRM, Agentforce shows what's coming — agents that do rather than recommend. Is your CRM data clean enough to trust an agent with it?</div></div>
+    <div class="verdict verdict-demo">🟡 DEMO</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">12. Bayesian Control Layers for Agentic AI — VoI-Based Orchestration</span>
+      <span class="category">Agent Theory</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">New research (arXiv:2605.00742): orchestration layers for AI agents must be designed per Bayesian decision theory. LLMs are uncalibrated about their own uncertainty. A Bayesian controller only triggers a tool call when Value of Information (VoI) outweighs cost.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">High-stakes agentic deployments where wrong actions cost more than asking for clarification. Financial, medical, safety-critical decisions.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent theory</span><span class="tag">Bayesian AI</span><span class="tag">uncertainty quantification</span><span class="tag">safety</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Search "arXiv 2605.00742 Bayesian control layer" and read the summary. Apply VoI framework to one PGC decision — like a bid/no-bid recommendation.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">When trusting an AI to price a bid, you want it to say when it's uncertain. Bayesian control layers are the theory for making AI know what it doesn't know — critical for high-stakes decisions.</div></div>
+    <div class="verdict verdict-read">📖 READ</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">13. Dell Token Economics Wake-Up — 320x More Tokens, Rethink Everything</span>
+      <span class="category">AI Economics</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Dell CTO Jeff Clarke: token consumption for AI reasoning is up 320x as agentic systems break cloud economics. Enterprise data center architecture requires complete rethink — you can't run agentic AI at cloud API pricing at scale.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Justification for on-premise and edge AI deployment. Driving local inference adoption, quantized models, and hybrid architectures.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">token economics</span><span class="tag">cloud vs edge</span><span class="tag">enterprise infrastructure</span><span class="tag">cost</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Run one week's worth of team AI queries through cloud API. Calculate actual token spend. Compare to local inference (M-series Mac + Ollama) cost amortized over hardware.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">10 people × 50 queries/day × $0.01/query = $5/day = $1,825/year in cloud AI. Local inference (post hardware purchase) is effectively free per query. The math changes fast at scale.</div></div>
+    <div class="verdict verdict-try">🟢 CALCULATE NOW</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">14. NVIDIA + ServiceNow Autonomous Agents — Governed Enterprise AI</span>
+      <span class="category">Enterprise AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">At ServiceNow Knowledge 2026, NVIDIA + ServiceNow announced governed autonomous agents — from employee desktops to AI factories. Governed = audited, role-based, with rollback and approval workflows built in.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Enterprise-grade autonomous agents with the compliance controls regulated industries (construction, healthcare, finance) require.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">enterprise agents</span><span class="tag">governance</span><span class="tag">ServiceNow</span><span class="tag">audit trail</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Request a ServiceNow AI Factory demo. Ask specifically about governance/audit trail features. Compare to PGC bid agent requirements.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC operates in a regulated environment with change orders, RFI chains, and subcontractor approvals. Governed agents = productivity of autonomous AI + legal audit trail.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">15. ViMax — Agentic Multi-Role Video Generation</span>
+      <span class="category">Generative Media</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub 7,188 ⭐. Open-source agentic video generation platform with multi-role and scene support. Prompt-driven video with consistent character identity and scene continuity across shots.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI-generated site documentation, progress video narration, safety training videos, client progress updates — without a camera crew.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">video AI</span><span class="tag">agentic</span><span class="tag">generative media</span><span class="tag">site documentation</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>pip install vimax && vimax generate --prompt "glass installation crew on curtain wall, morning site, safety vests"</code> — evaluate quality for job site documentation.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Weekly site progress videos, client updates, safety documentation — all AI-narrated, generated from text prompts. No camera crew needed for routine updates.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <h2>📊 Summary Table</h2>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Technology</th>
+      <th>What it is</th>
+      <th>PGC Applicability</th>
+      <th>Verdict</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>OpenHuman</strong></td>
+      <td>Private, local AI agent with encrypted memory</td>
+      <td>🟢 High — team-wide private AI</td>
+      <td><strong>TRY NOW</strong></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>RuView</strong></td>
+      <td>WiFi see-through-walls sensing, $9 board</td>
+      <td>🟡 Med — safety/occupancy monitoring</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Google AI Search</strong></td>
+      <td>AI-powered search, agents dispatched</td>
+      <td>🟡 Med — SEO/AI citation strategy</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>codegraph</strong></td>
+      <td>Token-efficient code knowledge graph</td>
+      <td>🟢 High — internal tools cost reduction</td>
+      <td><strong>TRY NOW</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>supertonic</strong></td>
+      <td>On-device multilingual TTS, 31 languages</td>
+      <td>🟡 Med — field audio, multilingual crew</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>agentmemory</strong></td>
+      <td>Persistent encrypted AI memory</td>
+      <td>🟢 High — bid history, client memory</td>
+      <td><strong>TRY NOW</strong></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>12-factor agents</strong></td>
+      <td>Production agent principles</td>
+      <td>🟡 Med — vendor evaluation framework</td>
+      <td><strong>READ</strong></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>CloakBrowser</strong></td>
+      <td>Stealth anti-detection browser</td>
+      <td>🟡 Med — competitor intelligence</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>Bun</strong></td>
+      <td>All-in-one JS runtime, 10x faster bundler</td>
+      <td>🟢 High — internal web tools speed</td>
+      <td><strong>TRY NOW</strong></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>A2A + MCP</strong></td>
+      <td>Agent communication protocols</td>
+      <td>🟢 High — workflow automation backbone</td>
+      <td><strong>READ NOW</strong></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>Salesforce Agentforce</strong></td>
+      <td>Autonomous CRM agents, $800M ARR</td>
+      <td>🟡 Med — if PGC uses Salesforce</td>
+      <td><strong>DEMO</strong></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><strong>Bayesian control layers</strong></td>
+      <td>VoI-based agent orchestration</td>
+      <td>🟡 Med — high-stakes bid decisions</td>
+      <td><strong>READ</strong></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><strong>Dell token economics</strong></td>
+      <td>320x token cost — local vs. cloud math</td>
+      <td>🟢 High — cost analysis needed now</td>
+      <td><strong>CALCULATE</strong></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><strong>NVIDIA + ServiceNow</strong></td>
+      <td>Governed enterprise autonomous agents</td>
+      <td>🟡 Med — audit trail requirements</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><strong>ViMax</strong></td>
+      <td>Agentic multi-role video generation</td>
+      <td>🟡 Med — site documentation</td>
+      <td><strong>WATCH</strong></td>
+    </tr>
+  </table>
+
+  <div class="footer">
+    Generated: May 25, 2026 · Sources: arXiv, GitHub Trending, Hacker News, TechCrunch, Gartner, MIT Tech Review, Product Hunt · For: Pacific Glazing Corp
+  </div>
+</div>
+</body>
+</html>

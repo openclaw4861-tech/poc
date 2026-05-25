@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — May 25, 2026",
+    date: "May 25, 2026",
+    type: "tech",
+    description: "15 trending technologies: OpenHuman private AI (26,795 ⭐), RuView WiFi see-through-walls sensing (65,107 ⭐), Google AI search overhaul, codegraph token-efficient knowledge graph, supertonic on-device TTS, agentmemory persistent memory, 12-factor production agents, CloakBrowser stealth browser, Bun JS runtime, A2A+MCP agent protocols, Salesforce Agentforce ($800M ARR), Bayesian control layers, Dell token economics (320x), NVIDIA+ServiceNow governed agents, and ViMax agentic video generation — all with PGC-relevant MVP experiments.",
+    file: "/briefs/tech-trends-2026-05-25.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Futurist Scan — May 24, 2026",
     date: "May 24, 2026",
     type: "futurist",
