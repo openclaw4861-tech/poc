@@ -14,20 +14,26 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Software Watch — May 27, 2026",
+    date: "May 27, 2026",
+    type: "software",
+    description: "12 new tools: Fresco (Division 8 AI takeoff, Try Now), Resolve (BIM+VR collaboration, Watch), Pillar (AI construction ERP, Watch), Ciridae (a16z-backed AI ops, Watch), Speckle (open-source BIM interoperability, Try Now), Document Crunch (AI contract review, Try Now), OpenConstructionERP (open-source Python ERP, Try Now), AdamCAD (text-to-CAD, Watch), Zoo (text-to-CAD with reasoning, Watch), SafeT Coach (free AI safety app, Try Now), Ediphi (cloud preconstruction + Togal.AI, Watch), and Rudus (concrete AI takeoff, Skip).",
+    file: "/briefs/software-watch-2026-05-27.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — May 25, 2026",
     date: "May 25, 2026",
     type: "tech",
     description: "15 trending technologies: OpenHuman private AI (26,795 ⭐), RuView WiFi see-through-walls sensing (65,107 ⭐), Google AI search overhaul, codegraph token-efficient knowledge graph, supertonic on-device TTS, agentmemory persistent memory, 12-factor production agents, CloakBrowser stealth browser, Bun JS runtime, A2A+MCP agent protocols, Salesforce Agentforce ($800M ARR), Bayesian control layers, Dell token economics (320x), NVIDIA+ServiceNow governed agents, and ViMax agentic video generation — all with PGC-relevant MVP experiments.",
     file: "/briefs/tech-trends-2026-05-25.html",
-    badge: "Latest"
   },
   {
-    title: "Weekly Software Watch — May 27, 2026",
+    title: "Software Watch — May 27, 2026",
     date: "May 27, 2026",
     type: "software",
     description: "8 new tools for construction: Fresco (AI takeoff for Division 8 subs), OpenConstructionERP v3.0 (71-module open-source ERP), PLAN0 (CV-based cost analysis), Articulate (AI code compliance + RFI generation), Beam AI, Togal.AI ChatGPT estimating, Adam AI, and SimplyWise LiDAR estimator — with "Try Now", "Watch", and "Skip" verdicts plus 3 concrete MVP experiments.",
     file: "/briefs/software-watch-2026-05-27.html",
-    badge: "Latest"
   },
   {
     title: "Weekly Futurist Scan — May 24, 2026",
@@ -35,7 +41,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "7 synthesized trends: $5.5B AI deployment JVs (OpenAI + Anthropic), Gemini Robotics-ER 1.6 physical AI, viral AI agent skills pattern (1,618 stars), Emergent Misalignment fine-tuning risk, MCP/A2A protocols at 97M downloads, AI coding agents hitting 4% of GitHub commits, and 60+ construction AI safety patents filed in 2026 — with PGC-relevant MVP experiments.",
     file: "/briefs/futurist-scan-2026-05-24.html",
-    badge: ""
   },
   {
     title: "Nashville Trip Brief — June 10-15, 2026",
@@ -71,7 +76,6 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Fresco (AI Division 8 takeoff), Tasa.app (visual task + AI translation), Rudus (concrete AI estimating), Helonic (AI plan check), Opusense AI (voice field reports), ConstructConnect Takeoff Boost, Bidflow (electrical AI), Structured AI (design QA/QC), Togal.AI (general AI takeoff), ArchiLabs (AI CAD), On Center Software (door/hardware estimating), and eMullion ePWS (industry baseline).",
     file: "/briefs/software-watch-2026-05-20.html",
-    badge: "Latest"
   },
   {
     title: "Software Watch — 12 New Tools for Glazing",
