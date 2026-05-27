@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Software Watch — May 27, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .tool { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 16px; background: #fafafa; }
+    .tool-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .tool-name { font-size: 18px; font-weight: 600; color: #1565c0; }
+    .tool-category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 4px; }
+    .cat-estimating { background: #e3f2fd; color: #1565c0; }
+    .cat-erp { background: #f3e5f5; color: #7b1fa2; }
+    .cat-preconstruction { background: #e8f5e9; color: #2e7d32; }
+    .cat-cad { background: #fff3e0; color: #e65100; }
+    .cat-projectmgmt { background: #fce4ec; color: #c62828; }
+    .cat-field { background: #e0f7fa; color: #00838f; }
+    .cat-ai { background: #f1f8e9; color: #558b2f; }
+    .cat-document { background: #fff8e1; color: #f9a825; }
+    .cat-open { background: #e8eaf6; color: #283593; }
+    .score { display: inline-block; background: #f0f0f0; color: #555; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 4px; margin-right: 4px; }
+    .score-high { background: #c8e6c9; color: #2e7d32; }
+    .score-med { background: #fff9c4; color: #f57f17; }
+    .score-low { background: #ffcdd2; color: #c62828; }
+    p { margin-bottom: 8px; font-size: 14px; }
+    .pgc-note { background: #e3f2fd; border-left: 4px solid #1565c0; padding: 10px 14px; margin: 10px 0; font-size: 13px; }
+    ._meta { margin-top: 6px; font-size: 12px; color: #888; }
+    ul { padding-left: 20px; margin-bottom: 8px; }
+    li { font-size: 14px; margin-bottom: 4px; }
+    .divider { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+    .verdict { font-weight: 600; font-size: 13px; display: inline-block; padding: 2px 8px; border-radius: 4px; }
+    .verdict-try { background: #c8e6c9; color: #1b5e20; }
+    .verdict-watch { background: #fff9c4; color: #f57f17; }
+    .verdict-skip { background: #e0e0e0; color: #616161; }
+    .tag { display: inline-block; background: #f0f0f0; color: #555; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-right: 4px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🛠️ Weekly Software Watch</h1>
+  <p class="subtitle">May 27, 2026 &nbsp;|&nbsp; New software for construction, manufacturing & fabrication</p>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">1. Fresco</div>
+      <span class="tool-category cat-estimating">Estimating</span>
+    </div>
+    <p><strong>What it does:</strong> AI copilot for construction estimators — automates the entire takeoff process from plans. Processes site walk photos, videos, and voice notes into organized reports, punch lists, and logs. Claims 99% accuracy and 70% time reduction.</p>
+    <p><strong>Legacy alternative:</strong> Manual takeoff (pen, scale ruler, spreadsheet) or first-gen digital takeoff tools (Bluebeam, PlanSwift)</p>
+    <p><strong>Key differentiator:</strong> Targets Division 8 subs specifically — directly relevant to glazing contractors. Also handles site documentation (photos → reports) alongside takeoff. Integrates with Procore marketplace. YC-backed.</p>
+    <p><strong>Pricing:</strong> Pre-seed / early access — not publicly listed</p>
+    <span class="score score-high">Glazing: High</span>&nbsp;<span class="verdict verdict-try">Try Now</span>
+    <div class="pgc-note">📌 <strong>PGC MVP:</strong> Submit a sample set of glazing drawings to frescopm.com and compare 10 takeoff results against manual baseline. Estimated time: 2 hours.</div>
+    <p class="_meta">YC W25 | Fresco Technologies, Inc. | <code>frescopm.com</code></p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">2. OpenConstructionERP (v3.0)</div>
+      <span class="tool-category cat-open">Open Source ERP</span>
+    </div>
+    <p><strong>What it does:</strong> Full open-source construction ERP — 71 modules covering BOQ, PDF/CAD/BIM takeoff, AI cost matching, procurement, project management. 42 regional cost catalogues, 21 languages. v3.0 released May 2026.</p>
+    <p><strong>Legacy alternative:</strong> Sage, Procore, Viewpoint — proprietary ERP with $50k+ annual licensing</p>
+    <p><strong>Key differentiator:</strong> AGPL-3.0 — completely free to self-host. AI-powered cost matching against regional catalogues. BIM-to-BOQ pipeline. pip install in one command.</p>
+    <p><strong>Pricing:</strong> Free (AGPL-3.0), paid support/consulting available</p>
+    <span class="score score-med">Glazing: Medium</span>&nbsp;<span class="verdict verdict-watch">Watch</span>
+    <div class="pgc-note">📌 <strong>PGC angle:</strong> Self-hosting reduces data security concerns. Worth testing the AI takeoff module on a glazing spec PDF. Setup: <code>pip install openconstructionerp</code></div>
+    <p class="_meta">GitHub: datadrivenconstruction/OpenConstructionERP | <code>openconstructionerp.com</code></p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">3. PLAN0</div>
+      <span class="tool-category cat-estimating">Cost Intelligence</span>
+    </div>
+    <p><strong>What it does:</strong> AI-powered construction cost intelligence platform. Analyzes architectural plans using computer vision to generate detailed cost estimates and analytics. Designed for real estate developers, investors, and GCs.</p>
+    <p><strong>Legacy alternative:</strong> RSMeans manual lookup, Excel-based cost models</p>
+    <p><strong>Key differentiator:</strong> CV-based plan analysis vs. template-based takeoff. YC-backed. Targets "weeks to 30 seconds" estimation.</p>
+    <p><strong>Pricing:</strong> Not publicly listed</p>
+    <span class="score score-med">Glazing: Medium</span>&nbsp;<span class="verdict verdict-watch">Watch</span>
+    <div class="pgc-note">📌 <strong>PGC angle:</strong> If PLAN0 can read a full set of architectural drawings and auto-extract Division 08 scope, it could feed directly into PGC's budgeting process. Test by uploading a drawing set to plan0.ai.</div>
+    <p class="_meta">YC W26 | <code>plan0.ai</code></p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">4. Articulate</div>
+      <span class="tool-category cat-preconstruction">Preconstruction</span>
+    </div>
+    <p><strong>What it does:</strong> AI-powered drawing analysis for construction and solar contractors. Audits designs for code compliance before construction, detects clashes, auto-generates RFIs. Also accelerates takeoff and estimating.</p>
+    <p><strong>Legacy alternative:</strong> Manual RFI generation, clash detection in Revit (requires full BIM)</p>
+    <p><strong>Key differentiator:</strong> Works with PDF plans — no BIM required. Automatically generates structured RFIs from plan inconsistencies. YC F25 batch.</p>
+    <p><strong>Pricing:</strong> Not publicly listed</p>
+    <span class="score score-high">Glazing: High</span>&nbsp;<span class="verdict verdict-try">Try Now</span>
+    <div class="pgc-note">📌 <strong>PGC MVP:</strong> Upload a multi-page glazing spec PDF with elevation drawings. Let Articulate scan for code compliance issues and plan inconsistencies. Time: 1 hour.</div>
+    <p class="_meta">BuiltWorlds 40 AI AEC Solutions to Watch 2026 | YC F25 | Chicago</p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">5. Beam AI</div>
+      <span class="tool-category cat-estimating">Takeoff & Bid</span>
+    </div>
+    <p><strong>What it does:</strong> Cloud-based AI takeoff and bid support platform. AI reads and extracts material/scope data from plans automatically, with human-reviewed QA.</p>
+    <p><strong>Legacy alternative:</strong> On-screen takeoff tools (Bluebeam, PlanSwift, On-Screen Takeoff)</p>
+    <p><strong>Key differentiator:</strong> AI-first extraction with human QA loop — not fully automated, but faster than manual takeoff.</p>
+    <p><strong>Pricing:</strong> Not publicly listed</p>
+    <span class="score score-med">Glazing: Medium</span>&nbsp;<span class="verdict verdict-watch">Watch</span>
+    <p class="_meta">BuiltWorlds 40 AI AEC Solutions to Watch 2026</p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">6. Togal.AI — "ChatGPT for Estimating"</div>
+      <span class="tool-category cat-estimating">Estimating</span>
+    </div>
+    <p><strong>What it does:</strong> Togal launched ChatGPT-powered estimation in early 2026. Users can ask natural-language questions about plan documents and get instant quantity/price answers.</p>
+    <p><strong>Legacy alternative:</strong> Manual plan reading + Excel</p>
+    <p><strong>Key differentiator:</strong> Conversational interface to estimating. No training needed — just upload plans and ask questions.</p>
+    <p><strong>Pricing:</strong> Free trial (7-day) available via <code>togal.ai</code></p>
+    <span class="score score-high">Glazing: High</span>&nbsp;<span class="verdict verdict-try">Try Now</span>
+    <div class="pgc-note">📌 <strong>PGC MVP:</strong> Start the 7-day free trial. Upload one glazing spec and ask: "How many window openings in Section 08? What glass types are specified?" Time: 30 minutes. This is MVP 2 from the original plan.</div>
+    <p class="_meta">BuiltWorlds 40 | <code>togal.ai</code> | Free 7-day trial</p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">7. Adam AI</div>
+      <span class="tool-category cat-cad">AI CAD</span>
+    </div>
+    <p><strong>What it does:</strong> Text-to-3D CAD tool for mechanical models, game assets, and prototypes. Generates parametric, editable parts from natural-language descriptions.</p>
+    <p><strong>Legacy alternative:</strong> SolidWorks, Fusion 360 — manual 3D modeling from scratch</p>
+    <p><strong>Key differentiator:</strong> From text prompt to parametric 3D model in seconds. Part editing and parametrization built in.</p>
+    <p><strong>Pricing:</strong> From $9.99/month</p>
+    <span class="score score-low">Glazing: Low</span>&nbsp;<span class="verdict verdict-watch">Watch</span>
+    <div class="pgc-note">📌 <strong>PGC angle:</strong> Not directly applicable, but if PGC ever models custom frame profiles or mullion designs, this is the cheapest AI CAD option on the market.</div>
+    <p class="_meta"><code>adam.new</code> | From $9.99/month</p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">8. SimplyWise Cost Estimator</div>
+      <span class="tool-category cat-field">Field Measurement</span>
+    </div>
+    <p><strong>What it does:</strong> Mobile app combining LiDAR room scanning + AI-generated price estimate + ready-to-send quote PDF — all in one workflow. No training or special hardware required beyond an iPhone/iPad with LiDAR.</p>
+    <p><strong>Legacy alternative:</strong> Tape measure + clipboard + separate estimating software</p>
+    <p><strong>Key differentiator:</strong> End-to-end from scan to quote in one app. No CAD or BIM skills needed.</p>
+    <p><strong>Pricing:</strong> Free tier available</p>
+    <span class="score score-med">Glazing: Medium</span>&nbsp;<span class="verdict verdict-watch">Watch</span>
+    <div class="pgc-note">📌 <strong>PGC MVP:</strong> Test the LiDAR scan on a framed opening. Does it capture accurate dimensions (width, height, depth)? Compare against tape measure. Time: 1 hour. Free.</div>
+    <p class="_meta"><code>simplywise.com</code></p>
+  </div>
+
+  <hr class="divider">
+
+  <h2 style="margin-bottom:16px;">📊 Market Context — May 2026</h2>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">ConTech Funding: $126M in Early 2026 Across 6 Startups</div>
+      <span class="tool-category cat-ai">Market Signal</span>
+    </div>
+    <p>Six construction tech startups raised a combined $126M in Q1 2026, per Construction Owners. Notable standouts:</p>
+    <ul>
+      <li><strong>Brickanta</strong> — $8M from leading AI/construction/real estate investors (backers of OpenAI, Airbnb, Klarna, Plangrid-Autodesk)</li>
+      <li><strong>Motive</strong> — $150M for AI fleet/ops platform serving logistics + construction</li>
+      <li><strong>PLAN0</strong> — YC W26, AI cost intelligence from plans</li>
+      <li><strong>Fresco</strong> — YC W25, AI takeoff specifically targeting Division 8 subs</li>
+    </ul>
+    <p><strong>The pattern:</strong> Capital is flowing into targeted, high-impact AI tools for specific construction workflows — not generic platforms. Fresco going after Division 8 is exactly the right signal for PGC.</p>
+    <p class="_meta">Sources: Construction Owners, BuiltWorlds, YC Company Directory, Crunchbase</p>
+  </div>
+
+  <div class="tool">
+    <div class="tool-header">
+      <div class="tool-name">SBA Loan Expansion — $5.5M Cap for Construction</div>
+      <span class="tool-category cat-ai">Funding Signal</span>
+    </div>
+    <p>Effective July 4, 2026: SBA 504 loan caps increase to $5.5M for capital-intensive businesses like construction and manufacturing. This means PGC could access federal funding for equipment, software, or facility improvements at favorable terms.</p>
+    <p class="_meta">Source: Forbes, May 26, 2026</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2 style="margin-bottom:16px;">🧪 Top 3 Experiments for This Week</h2>
+  <ol style="padding-left:20px;">
+    <li style="margin-bottom:8px;"><strong>Togal.AI 7-day trial</strong> — Upload one glazing spec, ask 5 questions. <code>togal.ai</code>. 30 min.</li>
+    <li style="margin-bottom:8px;"><strong>Fresco takeoff test</strong> — Submit 10 glazing drawings, compare vs manual baseline. <code>frescopm.com</code>. 2 hours.</li>
+    <li style="margin-bottom:8px;"><strong>Articulate drawing audit</strong> — Upload multi-page glazing spec, scan for code compliance issues. 1 hour.</li>
+  </ol>
+
+  <hr class="divider">
+
+  <h2 style="margin-bottom:16px;">🏆 Verdicts at a Glance</h2>
+  <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+    <tr style="background:#f0f0f0;"><th style="text-align:left;padding:8px;">Tool</th><th style="text-align:center;padding:8px;">Glazing</th><th style="text-align:center;padding:8px;">Verdict</th></tr>
+    <tr><td style="padding:6px 8px;">Fresco</td><td style="text-align:center;padding:6px;">🔵 High</td><td style="text-align:center;padding:6px;">✅ Try Now</td></tr>
+    <tr><td style="padding:6px 8px;">OpenConstructionERP</td><td style="text-align:center;padding:6px;">🟡 Medium</td><td style="text-align:center;padding:6px;">👁️ Watch</td></tr>
+    <tr><td style="padding:6px 8px;">PLAN0</td><td style="text-align:center;padding:6px;">🟡 Medium</td><td style="text-align:center;padding:6px;">👁️ Watch</td></tr>
+    <tr><td style="padding:6px 8px;">Articulate</td><td style="text-align:center;padding:6px;">🔵 High</td><td style="text-align:center;padding:6px;">✅ Try Now</td></tr>
+    <tr><td style="padding:6px 8px;">Beam AI</td><td style="text-align:center;padding:6px;">🟡 Medium</td><td style="text-align:center;padding:6px;">👁️ Watch</td></tr>
+    <tr><td style="padding:6px 8px;">Togal.AI</td><td style="text-align:center;padding:6px;">🔵 High</td><td style="text-align:center;padding:6px;">✅ Try Now</td></tr>
+    <tr><td style="padding:6px 8px;">Adam AI</td><td style="text-align:center;padding:6px;">⚪ Low</td><td style="text-align:center;padding:6px;">👁️ Watch</td></tr>
+    <tr><td style="padding:6px 8px;">SimplyWise Cost Estimator</td><td style="text-align:center;padding:6px;">🟡 Medium</td><td style="text-align:center;padding:6px;">👁️ Watch</td></tr>
+  </table>
+
+  <p style="font-size:12px; color:#aaa; margin-top:24px;">Generated by Joe | Sources: BuiltWorlds, Y Combinator, Construction Owners, Product Hunt, GitHub, Forbes, Crunchbase | May 27, 2026</p>
+</div>
+</body>
+</html>

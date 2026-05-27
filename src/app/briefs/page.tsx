@@ -22,12 +22,20 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Weekly Software Watch — May 27, 2026",
+    date: "May 27, 2026",
+    type: "software",
+    description: "8 new tools for construction: Fresco (AI takeoff for Division 8 subs), OpenConstructionERP v3.0 (71-module open-source ERP), PLAN0 (CV-based cost analysis), Articulate (AI code compliance + RFI generation), Beam AI, Togal.AI ChatGPT estimating, Adam AI, and SimplyWise LiDAR estimator — with "Try Now", "Watch", and "Skip" verdicts plus 3 concrete MVP experiments.",
+    file: "/briefs/software-watch-2026-05-27.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Futurist Scan — May 24, 2026",
     date: "May 24, 2026",
     type: "futurist",
     description: "7 synthesized trends: $5.5B AI deployment JVs (OpenAI + Anthropic), Gemini Robotics-ER 1.6 physical AI, viral AI agent skills pattern (1,618 stars), Emergent Misalignment fine-tuning risk, MCP/A2A protocols at 97M downloads, AI coding agents hitting 4% of GitHub commits, and 60+ construction AI safety patents filed in 2026 — with PGC-relevant MVP experiments.",
     file: "/briefs/futurist-scan-2026-05-24.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Nashville Trip Brief — June 10-15, 2026",
