@@ -29,13 +29,6 @@ const briefs: Brief[] = [
     file: "/briefs/tech-trends-2026-05-25.html",
   },
   {
-    title: "Software Watch — May 27, 2026",
-    date: "May 27, 2026",
-    type: "software",
-    description: "8 new tools for construction: Fresco (AI takeoff for Division 8 subs), OpenConstructionERP v3.0 (71-module open-source ERP), PLAN0 (CV-based cost analysis), Articulate (AI code compliance + RFI generation), Beam AI, Togal.AI ChatGPT estimating, Adam AI, and SimplyWise LiDAR estimator — with "Try Now", "Watch", and "Skip" verdicts plus 3 concrete MVP experiments.",
-    file: "/briefs/software-watch-2026-05-27.html",
-  },
-  {
     title: "Weekly Futurist Scan — May 24, 2026",
     date: "May 24, 2026",
     type: "futurist",
