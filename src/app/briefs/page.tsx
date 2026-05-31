@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Futurist Scan — May 31, 2026",
+    date: "May 31, 2026",
+    type: "futurist",
+    description: "7 synthesized trends anchored on Google I/O 2026: biggest search overhaul in 25 years (AI Search replaces classic Search), Antigravity agent + skills registries (agent teaching agent pattern), agent memory systems as new infrastructure layer, physical AI (Gemini Robotics-ER 1.6, reBot open-source arm), AI supply chain attacks (malicious npm, Pentest Agent Suite, ChatGPT Markdown exploit), MCP/A2A protocols hitting critical mass, and construction AI patent race — with PGC-relevant MVP experiments.",
+    file: "/briefs/futurist-scan-2026-05-31.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Software Watch — May 27, 2026",
     date: "May 27, 2026",
     type: "software",
     description: "12 new tools: Fresco (Division 8 AI takeoff, Try Now), Resolve (BIM+VR collaboration, Watch), Pillar (AI construction ERP, Watch), Ciridae (a16z-backed AI ops, Watch), Speckle (open-source BIM interoperability, Try Now), Document Crunch (AI contract review, Try Now), OpenConstructionERP (open-source Python ERP, Try Now), AdamCAD (text-to-CAD, Watch), Zoo (text-to-CAD with reasoning, Watch), SafeT Coach (free AI safety app, Try Now), Ediphi (cloud preconstruction + Togal.AI, Watch), and Rudus (concrete AI takeoff, Skip).",
-    file: "/briefs/software-watch-2026-05-27.html",
-    badge: "Latest"
+    file: "/briefs/software-watch-2026-05-27.html"
   },
   {
     title: "Tech Trends Brief — May 25, 2026",
