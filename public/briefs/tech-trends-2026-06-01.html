@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Trends Brief — June 1, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .hero { background: linear-gradient(135deg, #1e3a5f, #2d5a87); color: #fff; padding: 28px 32px; border-radius: 10px; margin-bottom: 32px; }
+    .hero h1 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .hero .subtitle { color: #93c5fd; margin-bottom: 0; }
+    .meta-bar { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .meta-chip { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: #bfdbfe; }
+    .intro { background: #f0f7ff; border-left: 4px solid #0066cc; padding: 16px 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0; }
+    .action-box { background: #fef9c3; border: 2px solid #facc15; border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .action-box h2 { font-size: 15px; color: #713f12; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .action-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .action-table th { background: #92400e; color: #fef3c7; padding: 8px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    .action-table td { padding: 8px 12px; border-bottom: 1px solid #d97706; color: #78350f; }
+    .action-table tr:last-child td { border-bottom: none; }
+    .action-table td:first-child { font-weight: 600; }
+    .trend { border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 20px; background: #fafafa; }
+    .trend-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .trend-name { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+    .category { font-size: 12px; padding: 4px 10px; border-radius: 12px; background: #e8f4fd; color: #0066cc; font-weight: 500; }
+    .field { margin-bottom: 10px; }
+    .field-label { font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .field-value { font-size: 14px; color: #333; }
+    .tag { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 2px; }
+    .verdict { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-read { background: #e8daef; color: #4a235a; }
+    .verdict-demo { background: #d1e7dd; color: #0f5132; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .meta-trend { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 24px 28px; border-radius: 10px; margin: 28px 0; }
+    .meta-trend h3 { font-size: 11px; margin-bottom: 8px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; }
+    .meta-trend p { color: #e2e8f0; font-size: 14px; margin: 0; }
+    .meta-trend .verdict { margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 12px; border-radius: 8px; overflow: hidden; }
+    th { background: #1e293b; color: #e2e8f0; padding: 10px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:last-child td { border-bottom: none; }
+    .footer { color: #94a3af; font-size: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    h2 { font-size: 20px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>🛠️ Tech Trends Brief — June 1, 2026</h1>
+    <p class="subtitle">15 Technologies for Pacific Glazing Corp</p>
+    <div class="meta-bar">
+      <span class="meta-chip">📅 June 1, 2026</span>
+      <span class="meta-chip">🔬 15 Technologies</span>
+      <span class="meta-chip">⚡ MVP Experiments</span>
+      <span class="meta-chip">🏢 PGC Focused</span>
+    </div>
+  </div>
+
+  <div class="action-box">
+    <h2>⚡ Steve's Action Items</h2>
+    <table class="action-table">
+      <tr><th>#</th><th>Action</th><th>Tool / Trend</th><th>Time</th></tr>
+      <tr><td>1</td><td><strong>Try Ollama + nanochat</strong> — train + run a local LLM end-to-end, free, on your Mac</td><td>Ollama + nanochat</td><td>2 hrs</td></tr>
+      <tr><td>2</td><td><strong>Read the NSA MCP security advisory</strong> — agent tool protocol warnings from the feds</td><td>MCP Security</td><td>15 min</td></tr>
+      <tr><td>3</td><td><strong>Watch Google Flow demo</strong> — AI filmmaking that could produce PGC safety videos</td><td>Google/Veo Flow</td><td>10 min</td></tr>
+      <tr><td>4</td><td><strong>Set up Claude Cowork for one task</strong> — let it autonomously file a spec or fill a form</td><td>Claude Cowork</td><td>1 hr</td></tr>
+      <tr><td>5</td><td><strong>Test agent-browser</strong> — automated data entry from web portals to your CRM</td><td>agent-browser (Vercel)</td><td>1 hr</td></tr>
+      <tr><td>6</td><td><strong>Check Bumblebee audit on PGC dev machine</strong> — supply chain scan, free</td><td>Bumblebee</td><td>10 min</td></tr>
+      <tr><td>7</td><td><strong>Calculate Copilot token budget</strong> — with new usage billing starting today</td><td>Copilot Token Billing</td><td>20 min</td></tr>
+    </table>
+  </div>
+
+  <!-- META-TRENDS -->
+  <h2>🔍 Meta-Trends</h2>
+
+  <div class="meta-trend">
+    <h3>Meta-Trend 1: The Agent Infrastructure Layer — Protocols, Memory, and Security Hit Production</h3>
+    <p>Three things happened simultaneously this week: MCP/A2A protocols hit 97M+ downloads, the NSA issued a formal security advisory about agent protocol risks, and banks began testing agentic AI in production financial systems. Agent memory (OpenHuman, agentmemory) crossed 50K cumulative GitHub stars, making persistent private AI a real option. Supply chain auditing (Bumblebee, Perplexity AI) arrived just in time — MCP servers installed from Discord have no vetting. <strong>The infrastructure layer for agents is no longer theoretical — it's shipping with security gaps that need active management.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — infrastructure stable enough for prototyping, manual audit required for production</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #1e3a2f, #234d3d);">
+    <h3>Meta-Trend 2: The Physics of Cost — Token Markets, Local Inference, and the End of Flat-Rate AI</h3>
+    <p>GitHub Copilot moved to usage-based billing today (June 1) — flat-rate is gone, tokens are metered. Dell reported 320x token consumption growth for reasoning agents. Small language models (Phi-4, Llama-3.2-3B, Qwen2.5-7B) running on-device via Ollama are now "good enough" for 80% of business tasks. nanochat (Andrej Karpathy, 55K+ ⭐) ships the full LLM training stack in one readable Python file — you could train a custom model for $100. <strong>Cloud API pricing is being replaced by token budgets. The economics favor local inference for "boring" business AI.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — run the math on local vs. cloud for PGC's actual query volume</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #3d1e3a, #4d234d);">
+    <h3>Meta-Trend 3: Computer Use Goes Commercial — the "Agent on Your Machine" Era</h3>
+    <p>Three major players shipped "computer use" capabilities in overlapping timeframes: Claude Cowork (Anthropic) — sees your screen, uses mouse/keyboard, delivers finished files. OpenAI Operator — browser-based booking, form-filling, web automation. Google Gemini 3 — Computer Use tool in preview. Vercel agent-browser (7,000+ ⭐) — open-source browser automation CLI for AI agents. <strong>The "AI that uses your computer" is no longer a lab demo. Testing one this week costs nothing.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — set up Claude Cowork or agent-browser on a sandbox computer today</div>
+  </div>
+
+  <h2>📋 15 Technologies</h2>
+
+  <!-- 1 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">1. Ollama + nanochat — Local LLM Infrastructure and Training in One Sweep</span>
+      <span class="category">Local AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Ollama (170K+ ⭐) made local LLMs Docker-simple. Paired with nanochat (55K+ ⭐, Andrej Karpathy) — the full LLM training stack in one readable Python file. You can not only run but <em>train</em> a model on your own data, locally, for pocket change in compute.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Running LLMs on Mac/Windows/Linux without cloud dependency. nanochat teaches the full pipeline from data prep to sampling in ~1,000 lines of Python.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">local AI</span><span class="tag">Ollama</span><span class="tag">LLM training</span><span class="tag">open source</span><span class="tag">edge inference</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>curl -fsSL https://ollama.com/install.sh | sh && ollama run phi4-mini:3.8b</code> — then clone nanochat and train on glazing spec text: <code>python train.py --data ./glazing-specs.txt</code>. Time: 2 hours.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Local inference means zero per-query costs. A field tablet with Ollama + small model answers material questions, checks specs, summarizes RFIs without internet. nanochat proves you could fine-tune on PGC's own data.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">2. Bumblebee — Supply Chain Scanner for AI Tooling (Perplexity AI)</span>
+      <span class="category">AI Security</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Read-only supply chain scanner (2.6K+ ⭐, v0.1.1). Checks npm, PyPI, Go, RubyGems, Composer, AND — critically — MCP servers, VS Code extensions, and browser extensions in one pass. Written in Go 1.25, zero non-standard dependencies.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Auditing AI agent supply chains. MCP servers, editor extensions, and browser extensions are the new attack surface that no existing scanner covers.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">supply chain</span><span class="tag">AI security</span><span class="tag">MCP</span><span class="tag">dependencies</span><span class="tag">open source</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>go install github.com/perplexityai/bumblebee@latest && bumblebee scan</code>. Time: 10 minutes. See every software risk on your dev machine.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">As PGC adopts more AI tools (MCP servers, Claude Code skills, browser extensions), Bumblebee is the first line of defense. The NSA advisory this week specifically warned about MCP server security gaps.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">3. Copilot Token Billing — Usage-Based Pricing Starts Today (June 1, 2026)</span>
+      <span class="category">AI Economics</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub switched from flat-rate Copilot subscriptions to usage-based token billing today. Developers now pay per token consumed across inputs, outputs, and cached context. The old fallback to a cheaper model when quota is exhausted is gone.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Microsoft's move to monetize AI code generation at usage scale. Sets a precedent for every other AI coding tool.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">token economics</span><span class="tag">GitHub Copilot</span><span class="tag">usage billing</span><span class="tag">developer costs</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Review your GitHub org's Copilot usage for May. Calculate June cost under token model. Compare: what would same volume cost with local alternatives (Codeium, Continue + Ollama)?</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC developers use Copilot, this directly impacts monthly costs. It signals the industry-wide shift from flat-rate to pay-per-token — affecting every AI tool PGC might adopt.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH + CALCULATE</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">4. Claude Cowork — Desktop Intelligence From Anthropic</span>
+      <span class="category">Computer Use / Agentic AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Claude sees your screen and uses mouse/keyboard to automate software. Give it a goal ("file this change order") and Claude works on your computer, local files, and applications to return a finished deliverable.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Automating routine desktop workflows — filling forms, extracting data from legacy systems, routing documents. Different from chatbots: Claude <em>does</em> things on your machine.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">computer use</span><span class="tag">desktop automation</span><span class="tag">Anthropic</span><span class="tag">agentic AI</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Pick one PGC task: "Open the current change order PDF, extract the glass quantities, and paste them into a new spreadsheet row." Let Claude Cowork do it start-to-finish. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Legacy construction software often lacks APIs. Claude Cowork interacts with the UI just like a human — bridging the gap between PGC's old tools and new AI workflows.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">5. OpenAI Operator — Browser Agent for Web Automation</span>
+      <span class="category">Browser Automation</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">OpenAI's dedicated browser agent for booking, form-filling, and web task automation. Navigates websites autonomously, fills fields, clicks buttons, handles multi-step web workflows.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Supplier portal data extraction, subcontractor registration, permit applications, online bid submissions — any web-based form workflow.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">browser automation</span><span class="tag">OpenAI</span><span class="tag">web agents</span><span class="tag">Operator</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Go to a supplier portal PGC uses. Let Operator navigate to a specific order, check status, extract tracking number. Compare to manual time.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Subcontractor and supplier portals are notorious time sinks. Operator could automate 60%+ of web form filling that office staff handles daily.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — try when available</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">6. agent-browser (Vercel Labs) — Open-Source Browser Automation CLI</span>
+      <span class="category">Browser Automation</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Vercel Labs browser automation CLI (7,000+ ⭐) purpose-built for AI agents. Fully open-source. Annotated screenshots, element targeting, clickable boundaries detected automatically.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI agents that need to browse, extract data, fill forms — self-hostable, no per-query cost.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">browser automation</span><span class="tag">open source</span><span class="tag">Vercel</span><span class="tag">AI agents</span><span class="tag">CLI</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>npx agent-browser screenshot --url https://supplier.portal.com --annotate</code>. Then try navigating. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Open-source = no per-query cost, self-hosted, no data leaving PGC's network. Best option if PGC wants browser automation at scale.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">7. Veo 3 + Google Flow — AI Filmmaking for Anyone</span>
+      <span class="category">Generative Video</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Google DeepMind's Veo 3 text-to-video model, now available through Google Flow — an AI filmmaking tool that creates cinematic clips from natural language. Google says this is the moment "AI video generation left the silent film era."</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Creating short video clips from text: walkthrough animations, safety demonstrations, client progress updates, training videos.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">AI video</span><span class="tag">Veo 3</span><span class="tag">Google Flow</span><span class="tag">generative media</span><span class="tag">multimodal</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Go to labs.google.com/fx/tools/flow. Generate: "Time-lapse animation of curtain wall installation, glass units being lifted into place." Evaluate quality for client-facing use.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Progress videos for clients require cameras, editing, time. AI-generated video from text could produce weekly client updates in 5 minutes.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — quality improving fast, evaluate monthly</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">8. Computer Vision Breakthroughs — CVPR 2026: 4,090 Accepted Papers</span>
+      <span class="category">Computer Vision</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">CVPR 2026 accepted 4,090 papers out of 16,092 submissions. Key trends: monocular depth estimation (Depth Anything V2), 3D reconstruction from single images, and physical AI perception for robotics.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Automatic measurement from photos, construction progress tracking via drone imagery, defect detection on glass surfaces, safety zone monitoring.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">computer vision</span><span class="tag">CVPR 2026</span><span class="tag">depth estimation</span><span class="tag">3D reconstruction</span><span class="tag">site monitoring</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install Depth Anything V2: <code>pip install depth-anything-v2</code>. Run on a single photo of a curtain wall installation. See if it estimates distances, detects gaps, measures alignment. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Progress photos PGC already takes can be automatically analyzed: glass aligned to spec? Gaps in sealant? How much curtain wall installed this week? This is the visual layer of job site intelligence.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — ready for prototyping, evaluate against PGC site photos</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">9. Awesome AI Agent Papers 2026 — Agent Memory & Context Management</span>
+      <span class="category">Agent Research</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">A curated collection of 2026 agent research papers. Two standout contributions: "Beyond Dialogue Time" — temporal semantic memory organized by actual occurrence time. "Active Context Compression" — agent autonomously decides when to consolidate learnings and prune history, inspired by slime mold (Physarum polycephalum).</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Building agents that remember what matters and forget what doesn't — without blowing their context window.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent memory</span><span class="tag">context compression</span><span class="tag">research</span><span class="tag">temporal memory</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Read "Beyond Dialogue Time" abstract on arXiv. If PGC's bid agent consolidated daily learning ("this client prefers 20-page proposals"), it stops needing re-prompting.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Memory is the unsolved problem in production AI agents. These papers show the path to "set it and forget it" agents that learn continuously.</div></div>
+    <div class="verdict verdict-read">📖 READ</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">10. Construction AI + Robotics — From Inspection to Automation</span>
+      <span class="category">Construction Tech</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Three parallel tracks: MARIO project (Multi-Agent Robotic system for Inspection On-site — humanoid, quadruped, and aerial robots working together), Promise Robotics (AI-driven framing/assembly robots), and AI crew tooling claiming 8x productivity improvements through real-time site conditions and task sequencing.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Construction site inspection, automated framing/assembly, real-time crew coordination via AI.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">construction robotics</span><span class="tag">site inspection</span><span class="tag">AI tooling</span><span class="tag">physical AI</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Watch MARIO project demo video. Map their multi-agent inspection approach to PGC site walk-throughs. Where could drone imagery + AI analysis replace a PM walking the site?</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Construction gets robotic inspection. While PGC doesn't need humanoids for glazing, the AI analysis layer (progress tracking, defect detection from photos) applies immediately.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">11. Small Language Models (SLMs) — Good Enough for Business, Cheap Enough to Run Everywhere</span>
+      <span class="category">Local AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Models under 7B parameters (Phi-4, Llama-3.2-3B, Qwen2.5-7B, Gemma-3) achieving GPT-3.5-to-GPT-4 level performance on business tasks — zero API cost when run locally. Gartner predicts 40% of enterprise workloads will incorporate industrial AI agents by end of 2026.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Document classification, spec extraction, material lookup, RFI routing — tasks where fast+cheap beats "best possible."</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">SLMs</span><span class="tag">edge AI</span><span class="tag">local inference</span><span class="tag">on-device</span><span class="tag">cost efficient</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>ollama run phi4-mini:3.8b</code> — prompt: "Extract all glass types, thicknesses, and U-values from this spec paragraph." Compare to GPT-4o. Is it "good enough"? Time: 30 min.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">80% of PGC's AI needs (spec reading, bid extraction, material lookup) handled by small models on a MacBook. No API costs, no data leaving the building, sub-second responses.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">12. NSA Advisory: MCP Security Gaps — Agent Protocol Security Matters</span>
+      <span class="category">AI Security</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">National Security Agency formal cybersecurity information sheet (May 2026, Ver. 1.0). Warning: "MCP's rapid proliferation has outpaced the development of its security model." Banks testing agentic AI in production — NSA worried about the attack surface.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Authoritative guidance on securing MCP-based agent deployments. Reference for evaluating AI tool supply chain risk.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">NSA</span><span class="tag">MCP security</span><span class="tag">cybersecurity</span><span class="tag">agent protocols</span><span class="tag">supply chain</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Read the 12-page NSA CSI at nsa.gov. Identify which recommendations apply to any MCP server PGC is using or considering. Report: 3 biggest gaps found.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC adopts MCP-based agents (Claude Code, Copilot, custom), the NSA guidance is the baseline security standard. Ignoring it is a liability with construction insurance requirements.</div></div>
+    <div class="verdict verdict-read">📖 READ — mandatory if using any MCP-based tools</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">13. Awesome Claude Skills — 1,000+ Production-Ready Skills for Claude Code</span>
+      <span class="category">AI Agent Skills</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Massive collection (55K+ ⭐) of production-ready Claude Code skills. From design (transitions.dev — 12 CSS animations as a Claude skill file) to data processing, code review, documentation. Also: andrej-karpathy-skills — 4 Karpathy coding principles as one CLAUDE.md drop-in.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Extending Claude Code without writing skills from scratch. Drop-in CLAUDE.md files for specialized behavior.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Claude Code</span><span class="tag">skills</span><span class="tag">agent customization</span><span class="tag">open source</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>curl -o .claude/skills/karpathy.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md</code>. Ask Claude Code a coding question — see behavior change. Time: 15 min.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC uses Claude Code, these skills make it exponentially more capable. The skills ecosystem is the "app store" of the agent era.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">14. Apple Vision Pro — Spatial Computing Still Evolving for Construction</span>
+      <span class="category">Spatial Computing</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Apple Vision Pro continues hardware evolution — all-black components surfacing online (second-gen signals). Spatial computing tech (depth estimation, hand tracking, eye tracking, 3D reconstruction) maturing for industrial applications.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AR-assisted installation, BIM visualization on site, remote expert guidance via spatial overlay.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Apple Vision Pro</span><span class="tag">spatial computing</span><span class="tag">AR</span><span class="tag">3D reconstruction</span><span class="tag">construction tech</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Download AR model viewer on a tablet. Load a 3D BIM model of a curtain wall. Walk around. Is this useful for installation planning? Time: 30 min.</div></div>
+    <div class="field"><div class="field-value">Why it matters for PGC: Spatial computing lets a glazier see the BIM model overlaid on the actual building — mullion locations, glass panel drop-ins, finished facade. As headsets get cheaper (next-gen likely under $2K), practical for site use.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — next hardware cycle brings cost down</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">15. Agentic AI in Enterprise — Gartner: 40% of Workloads Will Use Industrial AI Agents by Year-End</span>
+      <span class="category">Enterprise AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Gartner: 40% of enterprise operational workloads incorporating Industrial AI Agents by end of 2026. Platforms: Kore.ai, Glean, Moveworks, Aisera, Sierra, Decagon, Cognigy. AWS Q Developer: 200+ AWS APIs autonomously. SAP Joule Studio: no-code agents pulling live ERP data, automating approvals.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Enterprise-wide AI agent adoption — IT helpdesk to supply chain to field operations. Standardized deployment patterns forming in real time.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">enterprise AI</span><span class="tag">industrial agents</span><span class="tag">Gartner</span><span class="tag">ERP agents</span><span class="tag">SAP Joule</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Pick one enterprise platform PGC uses (SAP, Salesforce, Microsoft 365, Procore). Search "[platform] AI agent [year]". Map one PGC process to their agent framework. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Enterprise vendors embed agents into every platform PGC uses. Question isn't "should we use agents?" — it's "which agents will be embedded in existing tools, and do we trust them?"</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — vendor agents arriving in tools PGC already pays for</div>
+  </div>
+
+  <h2>📊 Summary Table</h2>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Technology</th>
+      <th>What it is</th>
+      <th>PGC Applicability</th>
+      <th>Verdict</th>
+    </tr>
+    <tr><td>1</td><td><strong>Ollama + nanochat</strong></td><td>Local LLM infrastructure + training</td><td>🟢 High — run + train models locally</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>2</td><td><strong>Bumblebee</strong></td><td>AI supply chain scanner (MCP + deps)</td><td>🟢 High — audit AI tool installs</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>3</td><td><strong>Copilot Token Billing</strong></td><td>Usage-based pricing starts June 1</td><td>🟡 Med — monitor if PGC uses Copilot</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>4</td><td><strong>Claude Cowork</strong></td><td>Desktop-level AI agent automation</td><td>🟢 High — bridge legacy software gap</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>5</td><td><strong>OpenAI Operator</strong></td><td>Browser automation agent</td><td>🟡 Med — web form automation</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>6</td><td><strong>agent-browser (Vercel)</strong></td><td>Open-source browser CLI for agents</td><td>🟢 High — self-hosted, no per-query cost</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>7</td><td><strong>Veo 3 + Google Flow</strong></td><td>AI filmmaking from text prompts</td><td>🟡 Med — client progress videos</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>8</td><td><strong>CVPR 2026 Vision</strong></td><td>Depth estimation, 3D from photos</td><td>🟡 Med — site photo analysis</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>9</td><td><strong>Agent Memory Research</strong></td><td>Beyond Dialogue Time, context compression</td><td>🟡 Med — future agent architecture</td><td><strong>READ</strong></td></tr>
+    <tr><td>10</td><td><strong>Construction AI/Robotics</strong></td><td>Drone + robot inspection, AI crew tools</td><td>🟡 Med — inspection automation</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>11</td><td><strong>Small Language Models</strong></td><td>Phi-4/Llama-3.2/Qwen2.5, local inference</td><td>🟢 High — 80% of tasks, zero cost</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>12</td><td><strong>NSA MCP Security Advisory</strong></td><td>Government warning on agent protocol risks</td><td>🟢 High — mandatory read if using MCP</td><td><strong>READ</strong></td></tr>
+    <tr><td>13</td><td><strong>Awesome Claude Skills</strong></td><td>1,000+ drop-in skills for Claude Code</td><td>🟢 High — extend Claude cheap</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>14</td><td><strong>Apple Vision Pro gen 2</strong></td><td>Spatial computing for AR site use</td><td>🟡 Med — next-gen cost reduction</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>15</td><td><strong>Enterprise Agent Platforms</strong></td><td>SAP Joule, AWS Q, Gartner 40% prediction</td><td>🟡 Med — embedded in existing tools</td><td><strong>WATCH</strong></td></tr>
+  </table>
+
+  <h2>🏗️ PGC Action Plan</h2>
+
+  <div class="trend" style="border-left: 4px solid #0066cc;">
+    <p><strong>This Week (30 min - 2 hours each):</strong></p>
+    <ul style="margin-left:20px;margin-bottom:16px;">
+      <li>1️⃣ <strong>Bumblebee scan</strong> — run on one office machine (10 min)</li>
+      <li>2️⃣ <strong>SLM test</strong> — <code>ollama run phi4-mini:3.8b</code> with one real spec (30 min)</li>
+      <li>3️⃣ <strong>Copilot budget calc</strong> — check May usage, estimate June cost (20 min)</li>
+      <li>4️⃣ <strong>Claude Cowork</strong> — pick one form-filling task (1 hour)</li>
+      <li>5️⃣ <strong>NSA MCP advisory</strong> — read the PDF (15 min)</li>
+    </ul>
+
+    <p><strong>This Month:</strong></p>
+    <ul style="margin-left:20px;margin-bottom:16px;">
+      <li>1️⃣ <strong>agent-browser PoC</strong> — pick one supplier portal, automate data extraction</li>
+      <li>2️⃣ <strong>nanochat</strong> — train a tiny model on PGC spec text</li>
+      <li>3️⃣ <strong>Awesome Claude Skills eval</strong> — which 5 skills help most?</li>
+      <li>4️⃣ <strong>Computer vision test</strong> — Depth Anything V2 on real PGC site photos</li>
+    </ul>
+
+    <p><strong>Next Quarter:</strong></p>
+    <ul style="margin-left:20px;">
+      <li>1️⃣ <strong>Local SLM deployment</strong> — Phi-4 on PGC office machines for spec extraction</li>
+      <li>2️⃣ <strong>Browser automation pipeline</strong> — regular supplier portal data extraction</li>
+      <li>3️⃣ <strong>AI site documentation</strong> — Veo 3 video summaries from daily progress notes</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Generated June 1, 2026 by Joe 🔧 | Sources: TechCrunch, GitHub Trending, arXiv, NSA, Google I/O, Anthropic, OpenAI, Gartner, CVPR 2026
+  </div>
+</div>
+</body>
+</html>

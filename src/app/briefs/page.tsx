@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — June 1, 2026",
+    date: "June 1, 2026",
+    type: "tech",
+    description: "15 trending technologies: Ollama + nanochat (local LLM training), Bumblebee (Perplexity AI supply chain scanner), GitHub Copilot Token Billing (usage-based starts today), Claude Cowork (desktop intelligence), OpenAI Operator (browser automation), agent-browser (Vercel, open-source), Veo 3 + Google Flow (AI filmmaking), CVPR 2026 vision breakthroughs, agent memory research (Beyond Dialogue Time), construction AI + robotics (MARIO project), small language models (Phi-4, Llama-3.2), NSA MCP Security Advisory, Awesome Claude Skills (55K+ ⭐), Apple Vision Pro gen 2, and enterprise agent platforms (SAP Joule, Gartner 40% prediction) — with PGC-relevant MVP experiments and 3 meta-trends: the agent infrastructure layer, the end of flat-rate AI, and the computer-use era.",
+    file: "/briefs/tech-trends-2026-06-01.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Futurist Scan — May 31, 2026",
     date: "May 31, 2026",
     type: "futurist",
