@@ -22,12 +22,19 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Tech Trends Brief — June 1, 2026",
+    date: "June 1, 2026",
+    type: "tech",
+    description: "15 trending technologies: Agent Skills as Infrastructure (Matt Pocock 55K stars), Taste Skills for AI quality enforcement, OpenClaw at 300K stars triggering Google Spark response, Forbes AI 50 list, Agent-to-Agent protocols at 100M+ downloads, AI runtime security (supply chain defense), Reasoning models (speed vs. accuracy), Autonomous research agents, Agent memory systems, Multimodal AI (Gemini 3.1 Ultra), Physical AI/robotics, Video AI (MoneyPrinterTurbo), Google I/O AI Search legacy, AI-for-science (building physics), and Vertical AI (domain-specific models) — with PGC-relevant MVP experiments.",
+    file: "/briefs/tech-brief-2026-06-01.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Futurist Scan — May 31, 2026",
     date: "May 31, 2026",
     type: "futurist",
     description: "7 synthesized trends anchored on Google I/O 2026: biggest search overhaul in 25 years (AI Search replaces classic Search), Antigravity agent + skills registries (agent teaching agent pattern), agent memory systems as new infrastructure layer, physical AI (Gemini Robotics-ER 1.6, reBot open-source arm), AI supply chain attacks (malicious npm, Pentest Agent Suite, ChatGPT Markdown exploit), MCP/A2A protocols hitting critical mass, and construction AI patent race — with PGC-relevant MVP experiments.",
-    file: "/briefs/futurist-scan-2026-05-31.html",
-    badge: "Latest"
+    file: "/briefs/futurist-scan-2026-05-31.html"
   },
   {
     title: "Weekly Software Watch — May 27, 2026",
