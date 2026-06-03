@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Watch — June 3, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .item { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 16px; background: #fafafa; }
+    .item-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .item-num { font-size: 13px; font-weight: 700; background: #2e7d32; color: white; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .item-title { font-size: 17px; font-weight: 600; color: #1a1a1a; }
+    .verdict { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-left: auto; }
+    .verdict-watch { background: #e8f5e9; color: #2e7d32; }
+    .verdict-try { background: #c8e6c9; color: #1b5e20; }
+    .verdict-skip { background: #ffebee; color: #c62828; }
+    .verdict-trynow { background: #2e7d32; color: white; }
+    .pgc-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+    .pgc-high { background: #e8f5e9; color: #2e7d32; }
+    .pgc-medium { background: #e3f2fd; color: #1565c0; }
+    .pgc-low { background: #fafafa; color: #757575; border: 1px solid #ddd; }
+    p { font-size: 14px; margin-bottom: 8px; }
+    .divider { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+    .meta { font-size: 12px; color: #888; margin-top: 6px; }
+    ul { padding-left: 18px; margin-bottom: 8px; }
+    li { font-size: 14px; margin-bottom: 4px; }
+    .overview { background: #f5f5f7; border-radius: 8px; padding: 20px; margin-bottom: 24px; font-size: 14px; line-height: 1.7; }
+    .mvp { background: #f1f8e9; border-left: 4px solid #558b2f; padding: 10px 14px; margin-top: 10px; font-size: 13px; }
+    .old-tool { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 14px; margin-top: 10px; font-size: 13px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🛠️ Software Watch</h1>
+  <p class="subtitle">New software for construction, manufacturing & building trades &nbsp;|&nbsp; June 3, 2026</p>
+
+  <div class="overview">
+    <strong>This week:</strong> OpenConstructionERP v3.0 drops with full PDF/CAD/BIM takeoff and AI cost matching (42 regional catalogs, 21 languages). Planera replaces P6 with AI scheduling your crew can actually use. Buildots uses helmet cameras + AI to compare site progress against BIM in real time — 25% faster completion reported. Two privacy-first local AI agents launch (Joanium, Phasr). Autodesk Takeoff rebrands as Forma Takeoff. And Microsoft Project Online gets a September 2026 sunset date, forcing the industry's hand.
+  </div>
+
+  <!-- 1 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">1</span>
+      <span class="item-title">OpenConstructionERP v3.0</span>
+      <span class="pgc-tag pgc-high">🟢 High PGC relevance</span>
+      <span class="verdict verdict-trynow">Try Now</span>
+    </div>
+    <p><strong>What it does:</strong> Open-source construction ERP with professional BOQ (Bill of Quantities), 4D scheduling, 5D cost model, AI-powered estimation, and CAD/BIM/PDF takeoff — all in one platform. 71 modules, 42 regional catalogs, 21 languages. AGPL-3.0 open source. Installed via <code>pip install openconstructionerp</code>.</p>
+    <p><strong>Legacy alternative:</strong> Modern replacement for Sage 300, CMiC, or custom spreadsheet-based estimating. Also competes with Autodesk Costing and Procore's estimating module.</p>
+    <p><strong>Key differentiator:</strong> True open-source — no per-seat licensing, no vendor lock-in. PDF and CAD takeoff means it can extract glazing quantities directly from Division 08 specs and drawings. AI cost matching applies historical pricing to a new BOQ automatically.</p>
+    <p><strong>Pricing:</strong> Free (AGPL-3.0). Self-hosted. Commercial use requires AGPL license (or you can purchase a commercial license).</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Upload a PGC PDF spec from a past project. See if AI cost matching pulls the right glass types, frames, and hardware from the 42 regional catalogs. Compare the AI estimate against your actual quote. <code>github.com/datadrivenconstruction/OpenConstructionERP</code> | 1 hour</div>
+    <p class="meta">Source: GitHub, PyPI | Category: ERP/Estimation</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">2</span>
+      <span class="item-title">Planera — AI Construction Scheduling</span>
+      <span class="pgc-tag pgc-medium">🟡 Medium PGC relevance</span>
+      <span class="verdict verdict-try">Try</span>
+    </div>
+    <p><strong>What it does:</strong> Visual, collaborative CPM scheduling built for construction teams who find Primavera P6 too complex. The "Working Schedule" feature links master schedules and field working schedules without spreadsheets. Manny AI assistant lets you ask scheduling questions in plain language, detect risks before they escalate, and run "what if" scenarios — no CPM expertise required.</p>
+    <p><strong>Legacy alternative:</strong> Primavera P6, Microsoft Project, TouchPlan. Planera explicitly targets teams fleeing Microsoft Project Online (sunset September 2026) and TouchPlan users frustrated by the lack of AI and collaboration.</p>
+    <p><strong>Key differentiator:</strong> Field-first design. Works on mobile. Real-time collaboration across office and site. AI that speaks "construction" not "project management." Planera has free tier for US universities — potentially useful for training PGC estimators.</p>
+    <p><strong>Pricing:</strong> Free for universities. Commercial pricing not publicly listed — requires sales contact. Small team pricing rumored around $20-40/user/mo.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Pull a past PGC project's critical path from Procore or your current scheduling tool. Build it in Planera in 30 minutes. Ask Manny: "What's the float on the glazing installation task if the facade delivery slips 5 days?" <code>planera.io</code> | 30 min</div>
+    <p class="meta">Source: planera.io, The Digital Project Manager | Category: PM/Scheduling</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">3</span>
+      <span class="item-title">Buildots — AI Site Progress Monitoring</span>
+      <span class="pgc-tag pgc-medium">🟡 Medium PGC relevance</span>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+    <p><strong>What it does:</strong> Cloud-based construction progress tracking using helmet-mounted 360° cameras and computer vision. Workers wear cameras during regular site walks; AI compares footage against the BIM model and project schedule to automatically flag deviations across 80+ construction stages. 2026 updates added better subcontractor performance scoring and drone integration for aerial progress capture.</p>
+    <p><strong>Legacy alternative:</strong> Manual site walks with photos, written progress reports, and monthly BIM-vs-field comparisons. Replaces the "surprise discovery" pattern where problems are found weeks after they've become expensive.</p>
+    <p><strong>Key differentiator:</strong> Buildots customers report 25% faster completion times through automated deviation detection. AI-generated mitigation suggestions help superintendents prioritize what's most likely to cause delays. Works across the full construction lifecycle.</p>
+    <p><strong>Pricing:</strong> Enterprise pricing only (no public pricing). Targets large GCs and developers with complex projects.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Watch the demo video at <code>buildots.com</code>. If PGC does curtain wall on large commercial projects, a 2-hour trial of their GCP/Autodesk-integrated version could show where glazing clashes with other trades typically get caught too late. | 2 hrs</div>
+    <p class="meta">Source: robotsinconstruction.com, The Digital Project Manager | Category: Field Tools</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">4</span>
+      <span class="item-title">Workyard — GPS Time Tracking + Job Costing</span>
+      <span class="pgc-tag pgc-high">🟢 High PGC relevance</span>
+      <span class="verdict verdict-try">Try</span>
+    </div>
+    <p><strong>What it does:</strong> GPS-verified time clock and job costing for field crews. Founded by a former contractor who ran a 700-person business — it shows. Geofenced clock-ins prevent "truck clocking" (workers clocking in from home before arriving at the site). Automated cost code assignment, works offline on low-signal sites, direct QuickBooks integration. Time entries connect to job and cost codes with location data embedded — no separate add-on needed.</p>
+    <p><strong>Legacy alternative:</strong> Paper timesheets, Excel labor tracking, or expensive multi-module ERP systems for time tracking. Replaces "punch cards + spreadsheets" that most small-to-mid glazing contractors still use.</p>
+    <p><strong>Key differentiator:</strong> Built for crews who don't want to learn complex software — 5-minute onboarding. Accurate labor cost per job is the key output: know exactly what each project cost in man-hours, not just total payroll. Founder experience shows in the field-first UX.</p>
+    <p><strong>Pricing:</strong> Per-user, per month (not publicly listed — estimated $8-15/user/mo based on industry comparisons). Free trial available.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Have one PGC crew use Workyard for one week on a project. Compare GPS-verified hours against manual time cards from the same week. Calculate how much "truck clocking" or rounding was costing you. <code>workyard.com</code> | 1 week trial</div>
+    <p class="meta">Source: workyard.com, Smart Barrel, People Managing People | Category: Field Tools</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">5</span>
+      <span class="item-title">Augment Code — Intent (Spec-Driven Multi-Agent Coding)</span>
+      <span class="pgc-tag pgc-low">⚪ Low direct PGC relevance</span>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+    <p><strong>What it does:</strong> Enterprise AI coding tool for large engineering teams. Intent is their spec-driven multi-agent workflow system — separates "Critique" (pre-execution review) from "Verify" (post-execution validation). Living specs update as agents work. Context Engine spans 400,000+ files. SOC 2 Type II certified, explicit no-training-on-code policy, BYOK enterprise encryption.</p>
+    <p><strong>Legacy alternative:</strong> Cursor, Claude Code, GitHub Copilot — but with spec-driven orchestration instead of single-agent prompting.</p>
+    <p><strong>Key differentiator:</strong> For teams building complex software, Intent outperforms Claude Code and Cursor on multi-file tasks. The "Critique then Verify" pattern is how good senior engineers review code — Intent makes AI do the same thing. EU AI Act compliance tooling built in (relevant for any EU projects PGC might have).</p>
+    <p><strong>Pricing:</strong> Not publicly listed — enterprise sales. Early public beta launched Feb 26, 2026.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> If PGC ever builds custom software (the glass calculator, project tracking tools), test Intent on a 2-hour coding task. Compare against a single-prompt approach. See if spec-driven multi-agent produces more reliable code. <code>augmentcode.com</code> | 2 hrs</div>
+    <p class="meta">Source: Augment Code, TopReviewed.ai, FrontierNews.ai | Category: Dev Tools</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">6</span>
+      <span class="item-title">Joanium — Privacy-First Local AI Agents</span>
+      <span class="pgc-tag pgc-medium">🟡 Medium PGC relevance</span>
+      <span class="verdict verdict-try">Try</span>
+    </div>
+    <p><strong>What it does:</strong> Local AI workspace for automating work across files and SaaS tools. Designed local-first — core workflows run entirely on your machine using local models like Ollama (same setup as Joe, the PGC AI assistant). Privacy-first: data never leaves your machine unless you explicitly configure it. Joanium adds private AI agents to automate work from within your own environment.</p>
+    <p><strong>Legacy alternative:</strong> Zapier, Make.com, or cloud-based AI agents that require sending your data to third-party servers. For glazing contractors with sensitive project data, local-first is a genuine advantage.</p>
+    <p><strong>Key differentiator:</strong> Runs on Ollama — same infrastructure Joe uses. If PGC wants a personal AI agent that works on their local files without cloud dependencies, Joanium could be the workflow layer. The "private AI agents" framing is interesting — it's essentially what Joe is already doing.</p>
+    <p><strong>Pricing:</strong> Free tier available. Paid plans not yet publicly priced.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Install Joanium on the PGC office machine. Connect it to a local folder of past project specs. Ask: "Which projects in the last 2 years had curtain wall over 20 stories?" — see if local AI beats cloud for privacy-sensitive queries. <code>producthunt.com/products/joanium-2</code> | 30 min</div>
+    <p class="meta">Source: Product Hunt, Joanium site | Category: AI Agents</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">7</span>
+      <span class="item-title">Autodesk Forma Takeoff (formerly Autodesk Takeoff)</span>
+      <span class="pgc-tag pgc-medium">🟡 Medium PGC relevance</span>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+    <p><strong>What it does:</strong> Cloud-based 2D and 3D quantification within Autodesk Construction Cloud. Perform 2D takeoffs from sheet drawings and generate automated quantities from 3D BIM models — in the same platform. Rebranded from "Autodesk Takeoff" to "Forma Takeoff" in early 2026 as Autodesk consolidates its construction products under the Forma brand.</p>
+    <p><strong>Legacy alternative:</strong> Manual digitizer-based takeoff, Bluebeam Revu, PlanGrid takeoff, or Agtek for sitework. Replaces Excel quantity summaries with linked, version-controlled quantities from the model.</p>
+    <p><strong>Key differentiator:</strong> Tight integration with Autodesk Docs, BIM 360, and the broader ACC ecosystem. If PGC works on projects where the GC or architect uses Autodesk products, Forma Takeoff is the natural handoff point. Quantities flow directly into Autodesk Build for cost tracking.</p>
+    <p><strong>Pricing:</strong> Included in Autodesk Construction Cloud Pro/Enterprise. Standalone pricing not publicly listed. ACC Pro is ~$495/user/yr.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> If PGC works on projects where GCs provide BIM models, ask the GC to enable Forma Takeoff access on an ACC project. Extract curtain wall quantities from the model vs. doing it manually — measure the time difference. | 2 hrs</div>
+    <p class="meta">Source: Bidi Contracting review, Autodesk | Category: CAD/BIM</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">8</span>
+      <span class="item-title">Phasr — Parallel Coding for Teams</span>
+      <span class="pgc-tag pgc-low">⚪ Low direct PGC relevance</span>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+    <p><strong>What it does:</strong> New AI coding tool launched on Product Hunt that enables parallel coding — multiple AI agents working simultaneously on different parts of the same codebase. Part of the new wave of tools turning multi-agent orchestration into a first-class developer experience.</p>
+    <p><strong>Legacy alternative:</strong> Sequential coding with single AI assistants (one prompt, wait, next prompt). Parallel coding is the difference between one worker and a team working simultaneously.</p>
+    <p><strong>Key differentiator:</strong> Part of the broader shift from "faster single agent" to "agent teams." If PGC ever needs to build or maintain custom software, parallel coding tools like Phasr could dramatically speed up development cycles.</p>
+    <p><strong>Pricing:</strong> Not yet public. Product Hunt launch June 2026.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Watch for public release, then test on a small internal tool project. See if parallel agents produce more consistent code than sequential prompting. <code>producthunt.com</code> | Monitor</div>
+    <p class="meta">Source: Product Hunt Engineering category | Category: Dev Tools</p>
+  </div>
+
+  <!-- 9 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">9</span>
+      <span class="item-title">Mina — Meeting AI Assistant (Real-Time)</span>
+      <span class="pgc-tag pgc-low">⚪ Low direct PGC relevance</span>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+    <p><strong>What it does:</strong> Real-time meeting AI that acts during meetings to update systems and generate follow-up work. Sits in your call, listens, updates CRMs or project management tools live, and generates follow-up actions immediately after the meeting. One of a new class of "meeting-first" AI agents that work in real time rather than summarizing after.</p>
+    <p><strong>Legacy alternative:</strong> Manual note-taking during site meetings, follow-up emails typed after the call, action items lost in chat. Also competes with Fireflies.ai, Otter.ai, and Meetgeek.</p>
+    <p><strong>Key differentiator:</strong> Real-time update during the meeting vs. post-meeting summary. Could be useful for PGC submittal reviews, RFIs, and coordination meetings where actions need to be captured immediately.</p>
+    <p><strong>Pricing:</strong> Not publicly listed.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Use Mina on one coordination meeting (architect/GC/subcontractor). See if real-time action item capture beats manual notes. Compare to Joe (OpenClaw) doing the same task — which is more accurate? <code>producthunt.com</code> | 1 meeting</div>
+    <p class="meta">Source: Product Hunt AI Agents category | Category: Productivity</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-num">10</span>
+      <span class="item-title">Microsoft Project Online — Sunset September 2026</span>
+      <span class="pgc-tag pgc-high">🟢 High PGC relevance</span>
+      <span class="verdict verdict-try">Try Planera</span>
+    </div>
+    <p><strong>What it does:</strong> Not a new tool — a deadline. Microsoft Project Online is being discontinued September 2026. If PGC uses MSP for scheduling, the clock is ticking. Planera and other cloud-native scheduling tools are explicitly targeting MSP refugees.</p>
+    <p><strong>Legacy alternative:</strong> Moving to Planera, Smartsheet, or Procore scheduling. Or staying on the desktop version of MS Project (still supported, but desktop-only).</p>
+    <p><strong>Key differentiator:</strong> The industry-wide forced migration is an opportunity — everyone moving at once means the tooling gets better (Planera is building migration support) and you can negotiate. Also signals the broader shift from desktop to cloud-first construction scheduling.</p>
+    <p><strong>Pricing:</strong> N/A — sunset, not purchase.</p>
+    <div class="mvp">🧪 <strong>MVP trial:</strong> Export one PGC project schedule from MS Project. Import it to Planera. See if the AI scheduling features justify the switch before September. <code>planera.io</code> | 1 hour</div>
+    <p class="meta">Source: Planera.io, Microsoft | Category: Legacy Migration</p>
+  </div>
+
+  <hr class="divider">
+
+  <h2 style="margin-bottom:16px;">📊 This Week's Verdict Summary</h2>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#f5f5f7;">
+          <th style="padding:8px;text-align:left;border-bottom:2px solid #e0e0e0;">Software</th>
+          <th style="padding:8px;text-align:left;border-bottom:2px solid #e0e0e0;">Category</th>
+          <th style="padding:8px;text-align:left;border-bottom:2px solid #e0e0e0;">PGC Relevance</th>
+          <th style="padding:8px;text-align:left;border-bottom:2px solid #e0e0e0;">Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">OpenConstructionERP v3.0</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">ERP/Estimation</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟢 High</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#2e7d32;color:white;padding:2px 8px;border-radius:4px;font-size:12px;">Try Now</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Planera</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">PM/Scheduling</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟡 Medium</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#c8e6c9;color:#1b5e20;padding:2px 8px;border-radius:4px;font-size:12px;">Try</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Buildots</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Field Tools</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟡 Medium</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:4px;font-size:12px;">Watch</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Workyard</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Field Tools</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟢 High</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#c8e6c9;color:#1b5e20;padding:2px 8px;border-radius:4px;font-size:12px;">Try</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Augment Code Intent</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Dev Tools</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">⚪ Low</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:4px;font-size:12px;">Watch</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Joanium</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">AI Agents</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟡 Medium</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#c8e6c9;color:#1b5e20;padding:2px 8px;border-radius:4px;font-size:12px;">Try</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Autodesk Forma Takeoff</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">CAD/BIM</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟡 Medium</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:4px;font-size:12px;">Watch</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Phasr</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Dev Tools</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">⚪ Low</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:4px;font-size:12px;">Watch</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">Mina Meeting AI</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Productivity</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">⚪ Low</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:4px;font-size:12px;">Watch</span></td></tr>
+        <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;">MS Project Online Sunset</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">Migration</td><td style="padding:7px 8px;border-bottom:1px solid #eee;">🟢 High</td><td style="padding:7px 8px;border-bottom:1px solid #eee;"><span style="background:#c8e6c9;color:#1b5e20;padding:2px 8px;border-radius:4px;font-size:12px;">Try Planera</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <h2 style="margin-bottom:16px;">🔗 How They Connect</h2>
+  <div style="background:#f9f9f9;border-radius:8px;padding:20px;font-size:14px;line-height:1.8;">
+    <p>The theme this week: <strong>the construction software stack is fragmenting and reforming around AI.</strong></p>
+    <ul style="margin-top:8px;">
+      <li><strong>Estimation → AI:</strong> OpenConstructionERP brings AI cost matching to open-source ERP — the spreadsheet-to-AI shift is hitting estimating software</li>
+      <li><strong>Scheduling → AI:</strong> Planera embeds AI into CPM scheduling — plain language instead of CPM syntax; MS Project's September sunset accelerates the migration</li>
+      <li><strong>Field → AI:</strong> Buildots uses helmet cameras + AI to catch problems weeks earlier; Workyard replaces manual time cards with GPS-verified costing</li>
+      <li><strong>Local AI:</strong> Joanium proves local-first AI agents are viable for SaaS workflows — same Ollama stack Joe runs on</li>
+      <li><strong>Dev tools → Multi-agent:</strong> Augment Code Intent and Phasr show AI coding is shifting from single agents to orchestrated agent teams</li>
+    </ul>
+    <p style="margin-top:12px;">For PGC: the most impactful immediate trials are <strong>OpenConstructionERP</strong> (PDF takeoff for glazing specs) and <strong>Workyard</strong> (labor cost accuracy). Both are free or low-cost to try this week.</p>
+  </div>
+
+  <p style="font-size:12px; color:#aaa; margin-top:24px;">Generated by Joe | Sources: GitHub, Product Hunt, planera.io, augmentcode.com, workyard.com, Autodesk, Microsoft | June 3, 2026</p>
+</div>
+</body>
+</html>
