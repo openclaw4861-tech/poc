@@ -17,7 +17,7 @@ const briefs: Brief[] = [
     title: "Software Watch — June 3, 2026",
     date: "June 3, 2026",
     type: "software",
-    description: "10 new tools: OpenConstructionERP v3.0 (open-source ERP, free, PDF/CAD/BIM AI takeoff, 42 catalogs), Planera (AI CPM scheduling, MS Project replacement, Manny AI assistant), Buildots (helmet 360° cameras + AI site progress tracking vs BIM, 25% faster completion), Workyard (GPS-verified time tracking + job costing for field crews, Try), Augment Code Intent (spec-driven multi-agent coding), Joanium (privacy-first local AI agents on Ollama), Autodesk Forma Takeoff (renamed from Autodesk Takeoff), Phasr (parallel coding), Mina (real-time meeting AI), and MS Project Online sunset September 2026 deadline. PGC top picks: OpenConstructionERP and Workyard.",
+    description: "12 new tools: NavigateAI (Eric Wu's field copilot, $25M seed), Fresco (Division 8 AI takeoff, Try Now), Rudus (concrete AI takeoff, YC P26), Bobyard (multi-trade AI takeoff, $35M Series A), OpenConstructionERP (open-source ERP v3.0, Try Now), Speckle (open-source BIM data, Try Now), Helonic (AI clash detection), Togal.AI ($199/mo AI takeoff), STACK (cloud takeoff & estimating), vPlan AR (LiDAR field measurement, Try Now), Drawer AI (electrical takeoff, Skip), and Bidi Contracting (takeoff + bid network). PGC top picks: vPlan AR, OpenConstructionERP, Speckle, Fresco.",
     file: "/briefs/software-watch-2026-06-03.html",
     badge: "Latest"
   },
@@ -140,7 +140,6 @@ const briefs: Brief[] = [
     type: "tech",
     description: "AI coding agents, MCP universal integration, edge inference accelerators, construction computer vision, voice AI agents, multimodal models, and 9 more trends with MVP experiments for PGC.",
     file: "/briefs/tech-brief-2026-05-01.html",
-    badge: "Recent"
   },
   {
     title: "Software Watch — 10 New Tools for Glazing",
@@ -148,7 +147,6 @@ const briefs: Brief[] = [
     type: "software",
     description: "Helonic (AI plan review), Opusense (voice field reports), BricsCAD (Revit alternative), Graebert neXt (AutoCAD alternative), and 6 more modern tools replacing 20-year-old software.",
     file: "/briefs/software-watch-2026-04-29.html",
-    badge: undefined
   },
   {
     title: "Futurist Brief — Week of April 26, 2026",
@@ -156,7 +154,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "ConstructConnect's AI Takeoff Boost launch, agentic AI workflows beyond demos, robotics on live construction sites, and 7 trends shaping the future of glazing.",
     file: "/briefs/futurist-brief-2026-04-26.html",
-    badge: undefined
   },
   {
     title: "Tech Trends Brief — 15 Technologies to Watch",
@@ -164,7 +161,6 @@ const briefs: Brief[] = [
     type: "tech",
     description: "Neuromorphic chips, Edge AI, Agentic workflows, humanoid robots, solid-state batteries, CRISPR, quantum-AI hybrids, and 8 more trends with MVP experiments.",
     file: "/briefs/tech-trends-2026-04-27.html",
-    badge: "New Format"
   },
   {
     title: "Tech Deep Dive — AI Takeoff Automation",
@@ -315,7 +311,7 @@ export default function BriefsPage() {
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Briefs List */}
       <div className="max-w-6xl mx-auto px-6 py-12">
