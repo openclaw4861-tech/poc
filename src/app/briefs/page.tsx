@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Top 20 Trending GitHub Repos — June 5, 2026",
+    date: "June 5, 2026",
+    type: "tech",
+    description: "Top 20 trending GitHub repositories by weekly star-growth: Understand-Anything (#1, 2K/week), ECC (#2, 205K+ ⭐), Headroom (95% token compression, 🔥 new), Karpathy Skills, AutoGen v1.0, browser-use (96.8K ⭐), CrewAI, Trivy, MarkItDown (MIT), Hermes Agent, Ollama (120K+ ⭐), MoneyPrinterTurbo, OpenHands, FreeDomain, codegraph, build-your-own-x (350K+ ⭐), openhuman, vLLM (20x throughput), Dify (60K+ ⭐), and LangChain (105K+ ⭐) — with use cases and PGC relevance.",
+    file: "/briefs/github-trending-2026-06-05.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — June 3, 2026",
     date: "June 3, 2026",
     type: "software",
     description: "12 new tools: NavigateAI (Eric Wu's field copilot, $25M seed), Fresco (Division 8 AI takeoff, Try Now), Rudus (concrete AI takeoff, YC P26), Bobyard (multi-trade AI takeoff, $35M Series A), OpenConstructionERP (open-source ERP v3.0, Try Now), Speckle (open-source BIM data, Try Now), Helonic (AI clash detection), Togal.AI ($199/mo AI takeoff), STACK (cloud takeoff & estimating), vPlan AR (LiDAR field measurement, Try Now), Drawer AI (electrical takeoff, Skip), and Bidi Contracting (takeoff + bid network). PGC top picks: vPlan AR, OpenConstructionERP, Speckle, Fresco.",
-    file: "/briefs/software-watch-2026-06-03.html",
-    badge: "Latest"
+    file: "/briefs/software-watch-2026-06-03.html"
   },
   {
     title: "Tech Trends Brief — June 1, 2026",
@@ -311,7 +318,7 @@ export default function BriefsPage() {
             </button>
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Briefs List */}
       <div className="max-w-6xl mx-auto px-6 py-12">

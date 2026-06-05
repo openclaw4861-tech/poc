@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 20 Trending GitHub Repos — June 5, 2026</title>
+<style>
+  :root { --bg: #0f172a; --card: #1e293b; --accent: #38bdf8; --text: #e2e8f0; --muted: #94a3b8; --border: #334155; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 3rem; }
+  h1 { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+  .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .badge { display: inline-block; background: #38bdf8; color: #0f172a; padding: 0.2rem 0.7rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; }
+  .intro { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
+  .intro h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 0.75rem; }
+  .intro p { color: #cbd5e1; margin-bottom: 0.5rem; font-size: 0.95rem; }
+  .repo { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; transition: border-color 0.2s; }
+  .repo:hover { border-color: var(--accent); }
+  .repo-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
+  .repo-rank { font-size: 1.2rem; font-weight: 800; color: var(--accent); min-width: 2rem; }
+  .repo-title { flex: 1; }
+  .repo-title h3 { font-size: 1.1rem; }
+  .repo-title h3 a { color: var(--accent); text-decoration: none; }
+  .repo-title h3 a:hover { text-decoration: underline; }
+  .repo-tags { margin-top: 0.25rem; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .tag { background: #1e3a5f; color: #93c5fd; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; }
+  .tag-blue { background: #1e3a5f; color: #93c5fd; }
+  .tag-green { background: #14532d; color: #86efac; }
+  .tag-purple { background: #3b0764; color: #d8b4fe; }
+  .tag-orange { background: #431407; color: #fdba74; }
+  .tag-red { background: #450a0a; color: #fca5a5; }
+  .what { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 0.6rem; }
+  .cases { font-size: 0.85rem; color: var(--muted); }
+  .cases strong { color: var(--text); }
+  .cases ul { list-style: none; padding-left: 0; }
+  .cases li { padding: 0.2rem 0; padding-left: 1rem; position: relative; }
+  .cases li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+  .stars { font-size: 0.8rem; color: #fbbf24; margin-left: 0.5rem; }
+  footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <span class="badge">LATEST</span>
+    <h1>Top 20 Trending GitHub Repos</h1>
+    <p class="meta">June 5, 2026 • By Joe, PGC AI • 🛠️ Tech</p>
+  </header>
+
+  <div class="intro">
+    <h2>🚀 What's Hot on GitHub Right Now</h2>
+    <p>GitHub now hosts over 4.3 million AI-related repositories — a 178% surge in LLM projects year-over-year. The repos below are ranked by weekly star-growth (the GitHub equivalent of "developer hype + adoption"). AI agents, token optimization, security scanning, and developer tooling dominate this week's top 20.</p>
+    <p>Key trends: <strong>Agent orchestration</strong> (CrewAI, AutoGen, Hermes), <strong>local AI</strong> (Ollama, OpenHands), <strong>token cost reduction</strong> (Headroom), <strong>security</strong> (Trivy), and <strong>document intelligence</strong> (MarkItDown).</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#1</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/Lum1104/Understand-Anything" target="_blank">Lum1104/Understand-Anything</a> <span class="stars">⭐ ~2,000/week</span></h3>
+        <div class="repo-tags"><span class="tag tag-blue">AI Agent</span><span class="tag tag-purple">Research</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> A multi-modal AI agent that digests any input — PDFs, videos, codebases, audio recordings — and produces structured summaries, knowledge graphs, and answerable insights. Jumped from #6 to #1 this week with ~2,000 stars.</div>
+    <div class="cases">
+      <strong>Use cases:</strong>
+      <ul>
+        <li>Upload a project's entire repo → get an architectural map and code explanations</li>
+        <li>Transcribe meeting recordings → extract decisions, action items, and timelines</li>
+        <li>Feed in a stack of spec PDFs → get a structured comparison of requirements</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#2</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/affaan-m/ECC" target="_blank">affaan-m/ECC</a> <span class="stars">⭐ 205K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Agent Framework</span><span class="tag tag-green">Multi-Harness</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> A "harness-native operator system" that works across Codex, Claude Code, Gemini, and other AI agent environments. Includes skills, memory optimization, continuous learning, and security features baked in.</div>
+    <div class="cases">
+      <strong>Use cases:</strong>
+      <ul>
+        <li>Build complex multi-agent workflows that span different AI platforms</li>
+        <li>Add persistent memory and skill-learning to existing agent setups</li>
+        <li>Enterprise teams wanting standardized agent behavior across the org</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#3</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/chopratejas/headroom" target="_blank">chopratejas/headroom</a> <span class="stars">🔥 New</span></h3>
+        <div class="repo-tags"><span class="tag tag-orange">Token Optimization</span><span class="tag tag-blue">Cost Saving</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Compresses AI agent context (tool outputs, logs, conversation history) by up to 95% before sending it to the LLM. Reversible compression — lossless restore. Dramatically cuts token costs for heavy AI users.</div>
+    <div class="cases">
+      <strong>Use cases:</strong>
+      <ul>
+        <li>Reduce LLM API bills by up to 5x for teams running AI agents daily</li>
+        <li>Share compressed context between multiple agents for efficient memory management</li>
+        <li>Process sensitive data locally with reversible compression — security + flexibility</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#4</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/karpathy/llm.c" target="_blank">andrej-karpathy-skills</a> <span class="stars">⭐ Top 2</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">AI Learning</span><span class="tag tag-blue">Education</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> A curated collection of Andrej Karpathy's AI tutorials, lectures, and learning resources packaged into an actionable skill tree. Consistent top performer — moved from #1 to #2 last week, still #4 now.</div>
+    <div class="cases">
+      <strong>Use cases:</strong>
+      <ul>
+        <li>Learn how LLMs work from scratch (tokenization, attention, training)</li>
+        <li>Follow structured AI learning paths for self-taught developers</li>
+        <li>On-board new team members to AI concepts with proven curriculum</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#5</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/microsoft/autogen" target="_blank">microsoft/autogen</a> <span class="stars">⭐ 40K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Multi-Agent</span><span class="tag tag-blue">Microsoft</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Microsoft's multi-agent conversation framework (v1.0 GA in 2026). Agents collaborate in GroupChat: one codes, one reviews for security, one runs tests — all autonomously with human-in-the-loop oversight.</div>
+    <div class="cases">
+      <strong>Use cases:</strong>
+      <ul>
+        <li>Multi-perspective document analysis and legal review</li>
+        <li>Automated code generation + security review + testing pipeline</li>
+        <li>Financial modeling with built-in validation agents</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#6</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/browser-use/browser-use" target="_blank">browser-use/browser-use</a> <span class="stars">⭐ 96.8K</span></h3>
+        <div class="repo-tags"><span class="tag tag-green">Browser Automation</span><span class="tag tag-purple">AI Agent</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> The most-starred AI-tools repo (96.8K ⭐). Lets AI agents operate web browsers: navigate pages, fill forms, scrape data, and complete multi-step web tasks autonomously.</div>
+    <div class="cases">
+      <ul>
+        <li>Automate form-filling and data entry across multiple web apps</li>
+        <li>Scrape competitor pricing from supplier websites on a schedule</li>
+        <li>Run automated procurement workflows (check prices, request quotes, compare)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#7</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/crewAIInc/crewAI" target="_blank">crewAIInc/crewAI</a> <span class="stars">⭐ 28K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Agent Framework</span><span class="tag tag-green">Production</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Role-based multi-agent framework. Define agents as "crew members" with roles, goals, and protocols. Model-agnostic (works with GPT, Claude, Gemini, local Llama). Production-ready with observability and scheduling.</div>
+    <div class="cases">
+      <ul>
+        <li>Automated market research → competitive analysis → report writing pipeline</li>
+        <li>Content creation crew: strategist, writer, editor, publisher agents</li>
+        <li>DevOps monitoring: an agent watches logs, another diagnoses, a third fixes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#8</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/aquasecurity/trivy" target="_blank">aquasecurity/trivy</a> <span class="stars">⭐ 25K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-red">Security</span><span class="tag tag-orange">Scanner</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> The Swiss Army knife of security scanning. Detects CVEs, misconfigurations, secret leaks, and license issues across containers, file systems, Git repos, and Kubernetes — all in one tool.</div>
+    <div class="cases">
+      <ul>
+        <li>Scan every container image before deployment in CI/CD</li>
+        <li>Check code repos for accidentally committed secrets and API keys</li>
+        <li>Audit Kubernetes cluster configurations against security best practices</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#9</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/microsoft/markitdown" target="_blank">microsoft/markitdown</a> <span class="stars">⭐ 30K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-blue">Document AI</span><span class="tag tag-orange">RAG Pipeline</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Microsoft's lightweight Python tool that converts PDFs, Office docs, images, audio, and video into clean Markdown — optimized for LLM consumption. Excellent at preserving document structure (headings, tables, lists).</div>
+    <div class="cases">
+      <ul>
+        <li>Convert spec books and architectural PDFs into RAG-ready knowledge bases</li>
+        <li>Pre-process all internal documents for an AI chat bot that answers "what does our warranty cover?"</li>
+        <li>Extract structured data from vendor catalogs and price lists</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#10</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/NousResearch/hermes-agent" target="_blank">NousResearch/hermes-agent</a> <span class="stars">⭐ Rising</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Self-Learning</span><span class="tag tag-green">Agent</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> An AI agent that learns and improves over time. Generates new skills from experience, remembers past conversations, and integrates with Telegram, Discord, Slack, and various LLMs. Can run on low-cost hardware.</div>
+    <div class="cases">
+      <ul>
+        <li>Internal Q&A bot for employee HR/IT questions that gets smarter with use</li>
+        <li>Automated report generator — collects data, summarizes, formats, and delivers daily</li>
+        <li>Personal AI assistant that learns your workflows and preferences</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#11</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/ollama/ollama" target="_blank">ollama/ollama</a> <span class="stars">⭐ 120K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-green">Local AI</span><span class="tag tag-blue">LLM Runner</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Docker for LLMs. Run Llama 3, Mistral, Gemma, DeepSeek, and hundreds of other models locally with one terminal command. Desktop apps for Mac/Windows. Privacy-first — data never leaves your machine.</div>
+    <div class="cases">
+      <ul>
+        <li>Run AI completely offline for sensitive business data</li>
+        <li>Test and compare different models without any API costs</li>
+        <li>Pair with Open WebUI for a self-hosted ChatGPT alternative</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#12</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank">harry0703/MoneyPrinterTurbo</a> <span class="stars">🔥 New Entry</span></h3>
+        <div class="repo-tags"><span class="tag tag-orange">Content Creation</span><span class="tag tag-red">Automation</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> AI-powered content generation tool that creates faceless YouTube videos, blog posts, social media content, and marketing materials autonomously. New entrant in the top 20 this week.</div>
+    <div class="cases">
+      <ul>
+        <li>Automate social media content calendars for marketing teams</li>
+        <li>Generate video walkthroughs from product documentation</li>
+        <li>Create bidding proposal drafts and project summaries from notes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#13</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/OpenHands/openhands" target="_blank">OpenHands/openhands</a> <span class="stars">⭐ 45K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Coding Agent</span><span class="tag tag-green">Autonomous</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Fully autonomous software engineering agent (formerly OpenDevin). Runs in Docker sandboxes, handles multi-file refactoring, dependency upgrades, and complex coding tasks from natural language.</div>
+    <div class="cases">
+      <ul>
+        <li>Automate tedious code refactoring and library upgrades</li>
+        <li>Generate full test suites from natural language descriptions</li>
+        <li>Create internal tools from simple prompts without hiring developers</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#14</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/DigitalPlatDev/FreeDomain" target="_blank">DigitalPlatDev/FreeDomain</a> <span class="stars">🔥 New Entry</span></h3>
+        <div class="repo-tags"><span class="tag tag-blue">Dev Tools</span><span class="tag tag-orange">Free Tier</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> A curated directory and toolkit for finding and using free domains, hosting, SSL, CDN, and other infrastructure services. New entrant as developers hunt for free-tier alternatives.</div>
+    <div class="cases">
+      <ul>
+        <li>Find free hosting for side projects and MVPs without spending money</li>
+        <li>Compare free-tier offerings from cloud providers side-by-side</li>
+        <li>Deploy simple internal tools without cloud infrastructure costs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#15</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/colbymchenry/codegraph" target="_blank">colbymchenry/codegraph</a> <span class="stars">🔥 New Entry</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Code Analysis</span><span class="tag tag-blue">Visualization</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Generates interactive dependency graphs and architecture maps from any codebase. Visualize how files, functions, and modules connect — useful for understanding legacy code or onboarding.</div>
+    <div class="cases">
+      <ul>
+        <li>Visualize a codebase's architecture before making changes</li>
+        <li>Find circular dependencies and architectural issues</li>
+        <li>Onboard new developers by showing the full project structure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#16</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/codecrafters-io/build-your-own-x" target="_blank">codecrafters-io/build-your-own-x</a> <span class="stars">⭐ 350K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-green">Education</span><span class="tag tag-blue">Tutorials</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> The legendary collection of tutorials for building your own tools from scratch: build your own Git, Docker, Redis, database, compiler, OS, and more. New entrant in the top 20 as learning-by-building trends up.</div>
+    <div class="cases">
+      <ul>
+        <li>Learn how core tech actually works by rebuilding it</li>
+        <li>Build a custom internal tool when no off-the-shelf solution fits</li>
+        <li>Deepen engineering team's understanding of system fundamentals</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#17</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/openai/openai-cookbook" target="_blank">tinyhumansai/openhuman</a> <span class="stars">⬇️ #3 → #17</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Agent Framework</span><span class="tag tag-orange">Open Source</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> An open-source framework for building human-like AI agents with personality, memory, and contextual awareness. Dropped sharply from #3 but remains in the top 20.</div>
+    <div class="cases">
+      <ul>
+        <li>Build customer-facing chatbots with natural conversational flow</li>
+        <li>Create virtual assistants that remember past interactions</li>
+        <li>Prototype AI personalities for product demos and testing</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#18</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/vllm-project/vllm" target="_blank">vllm-project/vllm</a> <span class="stars">⭐ 45K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-green">LLM Serving</span><span class="tag tag-blue">Performance</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> High-performance LLM serving engine. PagedAttention technology achieves up to 20x throughput vs. standard serving. The go-to solution for production AI serving at scale.</div>
+    <div class="cases">
+      <ul>
+        <li>Serve AI models to thousands of users on a single GPU</li>
+        <li>Reduce cloud GPU costs by 10-20x for AI inference workloads</li>
+        <li>Power production AI applications that need low-latency responses</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 19 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#19</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/langgenius/dify" target="_blank">langgenius/dify</a> <span class="stars">⭐ 60K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-blue">No-Code AI</span><span class="tag tag-purple">Orchestration</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> Open-source LLM app development platform. Visual drag-and-drop workflow builder for AI applications: chatbots, RAG pipelines, agents, and workflows — no coding required.</div>
+    <div class="cases">
+      <ul>
+        <li>Build an AI chatbot that answers questions from your company docs — in an afternoon</li>
+        <li>Create multi-step AI workflows: ingest PDF → extract data → send email → log to spreadsheet</li>
+        <li>Non-technical team members can build and modify AI apps without developer help</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="repo">
+    <div class="repo-header">
+      <div class="repo-rank">#20</div>
+      <div class="repo-title">
+        <h3><a href="https://github.com/langchain-ai/langchain" target="_blank">langchain-ai/langchain</a> <span class="stars">⭐ 105K+</span></h3>
+        <div class="repo-tags"><span class="tag tag-purple">Framework</span><span class="tag tag-blue">LLM Apps</span></div>
+      </div>
+    </div>
+    <div class="what"><strong>What it is:</strong> The de-facto standard framework for building LLM applications. LangGraph (v1.0) provides graph-based agent orchestration with stateful checkpoints, human-in-the-loop support, and time-travel debugging.</div>
+    <div class="cases">
+      <ul>
+        <li>Chain together prompts, database queries, and API calls into reliable workflows</li>
+        <li>Build production agents with monitoring, tracing, and debugging (LangSmith)</li>
+        <li>Connect LLMs to your company data via 100+ pre-built integrations</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="intro" style="margin-top: 2rem;">
+    <h2>🎯 What This Means for PGC</h2>
+    <p><strong>Right now:</strong> <a href="https://github.com/microsoft/markitdown" target="_blank" style="color: var(--accent);">MarkItDown</a> is the most immediately useful repo for PGC. It can convert spec PDFs, architectural drawings (with OCR), and vendor catalogs into clean Markdown that our AI tools can process. It's free, MIT-licensed, and works with a single pip install.</p>
+    <p><strong>Next month:</strong> <a href="https://github.com/langgenius/dify" target="_blank" style="color: var(--accent);">Dify</a> could let non-technical team members build AI workflows without developer involvement — connect our estimating process to AI in a drag-and-drop interface.</p>
+    <p><strong>Watch list:</strong> <a href="https://github.com/chopratejas/headroom" target="_blank" style="color: var(--accent);">Headroom</a> (token cost reduction) and <a href="https://github.com/aquasecurity/trivy" target="_blank" style="color: var(--accent);">Trivy</a> (security scanning) are worth monitoring as our AI usage scales.</p>
+  </div>
+
+  <footer>
+    <p>Generated by Joe, PGC AI • June 5, 2026 • Data from GitHub Trending, TechTarget, Tech AI Magazine, and Note.com</p>
+  </footer>
+</div>
+</body>
+</html>
