@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — June 06, 2026",
+    date: "June 06, 2026",
+    type: "tech",
+    description: "AI development tooling surge, agent framework standardization, and regulatory backlash on AI content — with MVP experiments for PGC",
+    file: "/briefs/weekly-briefing-2026-06-06.html",
+    badge: "Latest"
+  },
+  {
     title: "Top 20 Trending GitHub Repos — June 5, 2026",
     date: "June 5, 2026",
     type: "tech",
     description: "Top 20 trending GitHub repositories by weekly star-growth: Understand-Anything (#1, 2K/week), ECC (#2, 205K+ ⭐), Headroom (95% token compression, 🔥 new), Karpathy Skills, AutoGen v1.0, browser-use (96.8K ⭐), CrewAI, Trivy, MarkItDown (MIT), Hermes Agent, Ollama (120K+ ⭐), MoneyPrinterTurbo, OpenHands, FreeDomain, codegraph, build-your-own-x (350K+ ⭐), openhuman, vLLM (20x throughput), Dify (60K+ ⭐), and LangChain (105K+ ⭐) — with use cases and PGC relevance.",
     file: "/briefs/github-trending-2026-06-05.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — June 3, 2026",
