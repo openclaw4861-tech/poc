@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Weekly Tech Briefing — June 06, 2026",
     date: "June 06, 2026",
     type: "tech",
-    description: "AI briefing highlights agentic infrastructure hitting production maturity for autonomous workflows and vision-language-action robotics moving from lab to field",
+    description: "Odysseus open‑source local AI OS, privacy‑preserving vendor‑independent infrastructure and TripoSplat 3D scanning shape this week’s tech briefing",
     file: "/briefs/weekly-briefing-2026-06-06.html",
     badge: "Latest"
+  },
+  {
+    title: "Weekly Tech Briefing — June 06, 2026",
+    date: "June 06, 2026",
+    type: "tech",
+    description: "AI briefing highlights agentic infrastructure hitting production maturity for autonomous workflows and vision-language-action robotics moving from lab to field",
+    file: "/briefs/weekly-briefing-2026-06-06.html",
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — June 06, 2026",
