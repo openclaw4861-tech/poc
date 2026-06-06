@@ -21,229 +21,166 @@
 <body>
     <h1>🔮 Weekly Tech Briefing</h1>
     <p><em>June 06, 2026</em></p>
-    <hr />
+    <h1>Weekly Tech Briefing</h1>
 
-<h1>Weekly Tech Briefing</h1>
-
-<p><strong>For:</strong> Steve Watts, CEO, Pacific Glazing Corporation<br />
-<strong>Date:</strong> Current Week<br />
+<p><strong>For:</strong> Steve Watts, CEO<br />
+<strong>Company:</strong> Pacific Glazing Corporation<br />
+<strong>Date:</strong> June 2026<br />
 <strong>Prepared by:</strong> Technology Research  </p>
 
 <hr />
 
-<h2>1. Executive Summary</h2>
+<h2>Executive Summary</h2>
 
-<p>The biggest signal this week: enterprises are moving AI infrastructure in-house. <strong>Odysseus</strong> (58k GitHub stars) and similar self-hosted AI workspace tools show strong demand for privacy-preserving, vendor-independent AI—directly relevant to PGC if handling sensitive project specs or client data. <strong>Agent memory systems</strong> are maturing fast; persistent context layers using vector databases (Qdrant) are becoming standard for enterprise AI assistants. <strong>Vision-language models</strong> for robotics are advancing toward real-world deployment, which could eventually impact installation labor markets. For PGC, the immediate opportunity is using these open-source building blocks to build internal AI tools—spec assistants, quality checks, training chatbots—at a fraction of SaaS costs.</p>
-
-<hr />
-
-<h2>2. Top 5 Technology Trends</h2>
-
-<h3>🔴 Trend 1: Self-Hosted AI Infrastructure</h3>
-
-<p><strong>What it is:</strong> AI systems that run entirely on your own hardware/cloud, eliminating dependence on OpenAI, Anthropic, or other third-party APIs.</p>
-
-<p><strong>Why it matters:</strong>
-- Full data control—critical for project specs, client quotes, and proprietary installation methods
-- Cost predictable; no per-token pricing that scales with usage
-- Customizable for glazing-specific terminology and workflows</p>
-
-<p><strong>Example:</strong> <strong>Odysseus</strong> (58k ⭐) is the leading self-hosted AI workspace. You deploy it, you own it, you control the data.</p>
-
-<p><strong>PGC Relevance:</strong> Build a private AI assistant trained on your glass catalogs, building codes, and installation procedures—no data leaves your infrastructure.</p>
+<p>This week's AI landscape centers on <strong>agentic infrastructure reaching production maturity</strong>, enabling businesses to run autonomous AI workflows locally—reducing vendor dependency and improving data privacy. <strong>Vision-language-action robotics</strong> are transitioning from lab experiments to field-ready applications, with speed-controllable manipulation now viable for real-world tasks. Meanwhile, <strong>2D-to-3D reconstruction</strong> tools are democratizing spatial computing, directly applicable to facade documentation and BIM workflows. Security incidents and regulatory pressure are accelerating the need for formal AI governance. For PGC, the immediate opportunity is leveraging these advances to automate specification lookup, digitize site capture, and improve quality control—without major capital outlay.</p>
 
 <hr />
 
-<h3>🟡 Trend 2: Agent Memory &amp; Persistent Context</h3>
+<h2>Top 5 Technology Trends</h2>
 
-<p><strong>What it is:</strong> AI systems that remember previous interactions, project history, and accumulated knowledge across sessions—rather than treating every query as a blank slate.</p>
+<h3>1. Agentic AI Infrastructure Maturing</h3>
 
-<p><strong>Why it matters:</strong>
-- Enables AI assistants that "know" your company—previous projects, client preferences, common issues
-- Structured fact storage means consistent answers across teams
-- Vector databases (like Qdrant) make semantic search fast and accurate</p>
+<p><strong>What it is:</strong> Self-hosted AI workspaces (<em>odysseus</em>, 58K stars) and persistent memory systems (<em>memory-os</em>) enabling autonomous agents to run locally with context continuity. These tools let AI agents maintain state across sessions, execute multi-step tasks, and operate without cloud dependency.</p>
 
-<p><strong>Example:</strong> <strong>Memory-OS</strong> (936 ⭐) adds persistent memory to LLM agents using Qdrant. <strong>Munder-difflin</strong> (395 ⭐) coordinates multiple local AI agents.</p>
+<p><strong>Why it matters:</strong> The ecosystem for running production-grade AI agents on-premise is now viable. This reduces vendor lock-in, improves data privacy for sensitive projects, and enables AI workflows that stay within PGC's network. Early evaluation of these tools positions PGC ahead of competitors still reliant on API-only solutions.</p>
 
-<p><strong>PGC Relevance:</strong> A glazing spec assistant that remembers "last project was a hospital with strict fire ratings" and applies that context automatically.</p>
+<h3>2. Vision-Language-Action (VLA) Robotics Entering Field Deployment</h3>
 
-<hr />
+<p><strong>What it is:</strong> VLA models now handle variable-speed tasks—fast transit movements combined with precise contact-phase operations. Research like <em>HANDOFF</em> (humanoid whole-body control) and <em>TempoVLA</em> (speed-controllable manipulation) demonstrates robots adapting to task phases in real time.</p>
 
-<h3>🟡 Trend 3: Vision-Language-Action (VLA) Models for Robotics</h3>
+<p><strong>Why it matters:</strong> Robotics applications are moving from controlled labs to real-world deployment. For construction and glazing, this means inspection automation, guided assembly tasks, and quality verification become technically feasible. PGC should monitor this space for mid-term competitive positioning.</p>
 
-<p><strong>What it is:</strong> AI systems that process visual input (cameras), understand language commands, and output physical actions—enabling robots to follow instructions based on what they see.</p>
+<h3>3. Code Model Adaptability Under Software Evolution</h3>
 
-<p><strong>Why it matters:</strong>
-- <strong>TempoVLA:</strong> Speed-controllable robot manipulation (move faster or slower based on context)
-- <strong>HANDOFF:</strong> Whole-body humanoid control from AI "teachers"
-- These aren't lab experiments anymore—moving toward real deployment</p>
+<p><strong>What it is:</strong> New research (<em>Code2LoRA</em>) enables code LLMs to adapt to API changes and project conventions via hypernetwork-generated adapters—without full retraining. This addresses the core pain point of AI coding tools becoming stale as codebases evolve.</p>
 
-<p><strong>PGC Relevance:</strong> Long-term threat/opportunity. Robotic glass installation is years away, but monitor this space. The glazing labor market could be disrupted.</p>
+<p><strong>Why it matters:</strong> Internal code tooling, specification generators, and compliance checkers can stay current with lightweight updates rather than expensive retraining cycles. PGC could build domain-specific AI tools that remain accurate as building codes and industry standards change.</p>
 
-<hr />
+<h3>4. 2D-to-3D Scene Reconstruction at Scale</h3>
 
-<h3>🟢 Trend 4: Edge AI &amp; Computer Vision</h3>
+<p><strong>What it is:</strong> Tools like <em>TripoSplat</em> (478 stars) convert single images into variable-quality 3D Gaussian representations. What once required laser scanning now needs a smartphone camera and processing software.</p>
 
-<p><strong>What it is:</strong> Running AI models on local hardware (not cloud)—enabling real-time visual inspection, defect detection, or quality control without internet dependency.</p>
+<p><strong>Why it matters:</strong> Building information modeling, facade documentation, and client design reviews become dramatically cheaper to produce. PGC could offer clients BIM-ready deliverables from simple site photos—differentiating the quoting and design process while meeting increasing client expectations for digital twins.</p>
 
-<p><strong>Why it matters:</strong>
-- <strong>ESP32-Plane-Radar</strong> (401 ⭐): AI on $5 hardware chips
-- Industrial cameras + edge AI = instant quality checks on the production floor
-- No latency, no cloud costs, no privacy leaks</p>
+<h3>5. AI Security &amp; Regulatory Pressure Escalating</h3>
 
-<p><strong>PGC Relevance:</strong> Defect detection on glass surfaces. An edge device could flag scratches, bubbles, or coating issues in real-time during installation or fabrication.</p>
+<p><strong>What it is:</strong> Meta chatbot breaches (10K+ Instagram accounts), UK police halting AI in court, and S&amp;P 500 firms blocking unprofitable AI investments signal external pressure mounting on AI deployments. "AI washing" and unsecured endpoints are becoming legal and reputational liabilities.</p>
+
+<p><strong>Why it matters:</strong> Organizations deploying AI without governance frameworks risk breaches, regulatory action, and reputational damage. PGC needs AI governance before scaling AI tools—not after an incident.</p>
 
 <hr />
 
-<h3>🟢 Trend 5: 2D-to-3D Conversion (3D Gaussians)</h3>
-
-<p><strong>What it is:</strong> AI that takes a single 2D image and generates a full 3D model you can rotate, zoom, and manipulate.</p>
-
-<p><strong>Why it matters:</strong>
-- <strong>TripoSplat</strong> converts images to variable 3D Gaussians—fast, high-quality
-- Potential to generate 3D building visualizations from site photos
-- Could enhance client proposals with quick 3D mockups</p>
-
-<p><strong>PGC Relevance:</strong> Generate 3D glass facade mockups from architect drawings or site photos. Useful for client presentations and design validation.</p>
-
-<hr />
-
-<h2>3. Trend Overlaps</h2>
+<h2>Trend Overlaps</h2>
 
 <table>
 <thead>
 <tr>
   <th>Connection</th>
-  <th>Impact</th>
+  <th>Implication for PGC</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>Self-hosted AI + Agent Memory</strong></td>
-  <td>A self-hosted system with persistent memory = a private AI colleague that remembers everything. This is the foundation of a real internal AI assistant.</td>
+  <td><strong>Agentic AI + Code Adaptability</strong></td>
+  <td>Internal tools (specification assistants, code checkers) can self-maintain as standards evolve</td>
 </tr>
 <tr>
-  <td><strong>Vision Models + Edge Deployment</strong></td>
-  <td>Quality control cameras running locally (edge) = instant defect detection without cloud dependency or data privacy concerns.</td>
+  <td><strong>VLA Robotics + 3D Reconstruction</strong></td>
+  <td>Inspection robots with real-time site modeling becoming feasible</td>
 </tr>
 <tr>
-  <td><strong>VLA Models + 3D Generation</strong></td>
-  <td>Vision AI understanding site conditions + 3D modeling = potential for AI-driven installation planning or robotic guidance.</td>
-</tr>
-<tr>
-  <td><strong>Agent Memory + Glazing Knowledge Base</strong></td>
-  <td>Persistent context layers enable AI that knows your product catalog, past projects, and building codes—without retraining every session.</td>
+  <td><strong>Security + All AI Deployments</strong></td>
+  <td>Governance frameworks required before scaling any AI initiative</td>
 </tr>
 </tbody>
 </table>
 
-<p><strong>Bottom line:</strong> These trends stack. Self-hosted infrastructure + agent memory + vision AI = a private, capable AI system tailored to PGC's operations.</p>
+<p>The convergence of agentic infrastructure with code intelligence means PGC could build self-sustaining internal tools. The VLA + 3D overlap points toward field robotics with spatial awareness—potentially useful for facade installation verification.</p>
 
 <hr />
 
-<h2>4. MVP Experiments (1-7 Days, Low Cost)</h2>
+<h2>MVP Experiments (1-7 Days, Low Cost)</h2>
 
-<h3>⚡ Experiment 1: AI Glass Specification Assistant</h3>
+<h3>MVP #1: AI Specification Assistant</h3>
 
-<p><strong>Time:</strong> 3 days<br />
-<strong>Cost:</strong> ~$50 (API calls) or $0 (self-hosted)<br />
-<strong>Goal:</strong> Answer "What glass do I need for [project type]?"</p>
+<p><strong>Time:</strong> 2-3 days<br />
+<strong>Cost:</strong> ~$500 (API + hosting)<br />
+<strong>How:</strong> Deploy a RAG pipeline over PGC's existing building codes, glass specs, and compliance docs. Integrate with internal chat tool.</p>
 
-<p><strong>Steps:</strong>
-1. Compile 20-30 sample spec documents (your existing docs)
-2. Use <strong>Ollama</strong> (free, self-hosted LLM) + <strong>Qdrant</strong> (free vector DB)
-3. Ingest documents, create searchable knowledge base
-4. Deploy simple chat interface</p>
+<p><strong>Deliverable:</strong> Chat interface where engineers query "What glass type meets Calgary-II wind load for a 40-story facade?" and get cited answers.</p>
 
-<p><strong>Success Metric:</strong> Can answer glazing questions with context from your docs.</p>
+<p><strong>Next step:</strong> Evaluate accuracy against manual lookup; iterate.</p>
 
 <hr />
 
-<h3>⚡ Experiment 2: Vision Defect Detection Demo</h3>
+<h3>MVP #2: 3D Facade Capture Demo</h3>
 
-<p><strong>Time:</strong> 2 days<br />
-<strong>Cost:</strong> ~$25 (cloud compute) or $0 (local)<br />
-<strong>Goal:</strong> Prove AI can distinguish good glass from defective glass.</p>
+<p><strong>Time:</strong> 3-5 days<br />
+<strong>Cost:</strong> ~$1,000 (processing + tooling)<br />
+<strong>How:</strong> Use existing facade photos from past projects. Run through open-source 3D Gaussian splatting libraries (e.g., adapted <em>TripoSplat</em> approach). Generate point cloud output.</p>
 
-<p><strong>Steps:</strong>
-1. Collect 50 images: 25 defective (scratches, bubbles), 25 acceptable
-2. Use <strong>LLaVA</strong> or <strong>GPT-4V API</strong> for zero-shot classification
-3. Feed images, ask "Is this glass defective? What's the issue?"</p>
+<p><strong>Deliverable:</strong> Before/after demo showing standard photo → 3D model conversion. Present to design team and select clients.</p>
 
-<p><strong>Success Metric:</strong> Correctly identifies defects &gt;80% of the time.</p>
-
-<p><strong>Note:</strong> This is a demo to show leadership what's possible. Full production would require more data and edge deployment.</p>
+<p><strong>Next step:</strong> Assess quality for design review vs. structural analysis use cases.</p>
 
 <hr />
 
-<h3>⚡ Experiment 3: Thermal Performance Chatbot</h3>
+<h3>MVP #3: Glass Defect Classifier Prototype</h3>
 
-<p><strong>Time:</strong> 1 day<br />
-<strong>Cost:</strong> ~$10 (API calls)<br />
-<strong>Goal:</strong> Answer "What's the U-factor for [glass type] in [climate zone]?"</p>
+<p><strong>Time:</strong> 5-7 days<br />
+<strong>Cost:</strong> ~$800 (edge hardware + labeling)<br />
+<strong>How:</strong> Use existing production line photos (or capture new set). Label defects (bubbles, scratches, dimensional偏差). Fine-tune lightweight image classifier. Deploy on Raspberry Pi for real-time inference demo.</p>
 
-<p><strong>Steps:</strong>
-1. Create structured data from your product specs (U-factor, SHGC, visible transmittance)
-2. Build prompt templates that query this data
-3. Connect to a simple web chat widget</p>
+<p><strong>Deliverable:</strong> Working prototype showing defect detection at line speed with confidence scores.</p>
 
-<p><strong>Success Metric:</strong> Accurate answers to 10 common thermal performance questions.</p>
+<p><strong>Next step:</strong> Measure accuracy against human inspectors; assess production integration requirements.</p>
 
 <hr />
 
-<h2>5. Strategic Implications for PGC</h2>
+<h2>Strategic Implications for PGC</h2>
 
 <table>
 <thead>
 <tr>
   <th>Area</th>
-  <th>Implication</th>
-  <th>Action</th>
+  <th>Impact</th>
+  <th>Recommendation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td><strong>Competitive Position</strong></td>
-  <td>AI-assisted spec writing and compliance checking will become table stakes for glazing contractors. Companies without it lose bids to faster, more accurate competitors.</td>
-  <td>Evaluate self-hosted AI infrastructure this quarter.</td>
-</tr>
-<tr>
-  <td><strong>Data Assets</strong></td>
-  <td>Your accumulated specs, project histories, and installation knowledge are <em>training data</em> for AI. First mover to capture this in a searchable knowledge base wins.</td>
-  <td>Start ingesting documents into a vector database now.</td>
+  <td><strong>Design &amp; Sales</strong></td>
+  <td>3D facade capture reduces quoting time and client presentation costs</td>
+  <td>Prioritize MVP #2; target client-facing differentiation</td>
 </tr>
 <tr>
   <td><strong>Quality Control</strong></td>
-  <td>Vision AI is cheap enough to deploy on production lines or job sites today. Defect detection that once required dedicated inspectors can be automated.</td>
-  <td>Run the defect detection MVP this quarter.</td>
+  <td>Edge AI defect detection reduces waste and warranty claims</td>
+  <td>Evaluate ROI against current inspection labor costs</td>
 </tr>
 <tr>
-  <td><strong>Labor Market</strong></td>
-  <td>VLA models for robotics are advancing. Glazing installation (labor-intensive) is a target use case. This is 5-10 years out, but monitor robotics developments.</td>
-  <td>Add to watch list. No action today.</td>
+  <td><strong>Engineering Efficiency</strong></td>
+  <td>AI specification assistant cuts RFI cycles and specification errors</td>
+  <td>Launch MVP #1 immediately; internal tool, low risk</td>
 </tr>
 <tr>
-  <td><strong>Vendor Risk</strong></td>
-  <td>Over-reliance on SaaS AI (OpenAI, Anthropic) creates dependency. Self-hosted options are now good enough for internal tools.</td>
-  <td>Start prototyping on Ollama or similar.</td>
+  <td><strong>Long-term Competitiveness</strong></td>
+  <td>VLA robotics approaching field viability</td>
+  <td>Start simulation-only exploration; no hardware commitment yet</td>
+</tr>
+<tr>
+  <td><strong>Risk Management</strong></td>
+  <td>AI security incidents rising</td>
+  <td>Establish governance framework before scaling any AI tool</td>
 </tr>
 </tbody>
 </table>
 
-<hr />
-
-<h2>Watch List</h2>
-
-<ul>
-<li>[ ] <strong>Memory-OS ecosystem</strong> — if it gains traction, it becomes the standard for agent development</li>
-<li>[ ] <strong>TripoSplat / 3D Gaussian methods</strong> — could enable AI-driven glass design visualization</li>
-<li>[ ] <strong>Regulatory developments</strong> — AI governance in construction/building sectors</li>
-<li>[ ] <strong>Open-source VLA models</strong> — may unlock robotics applications within 12-18 months</li>
-</ul>
+<p><strong>Bottom line:</strong> The AI tooling ecosystem is mature enough for PGC to run low-cost experiments this week. Start with the specification assistant (highest ROI, lowest risk), parallel-track the 3D facade demo (client differentiation), and monitor VLA/robotics developments for 6-12 month planning.</p>
 
 <hr />
 
-<p><em>End of Briefing</em></p>
+<p><em>Next week's briefing will cover developments in autonomous agent deployment and early results from PGC's MVP experiments.</em></p>
 
 </body>
 </html>

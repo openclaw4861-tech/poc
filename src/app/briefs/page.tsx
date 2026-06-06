@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Weekly Tech Briefing — June 06, 2026",
     date: "June 06, 2026",
     type: "tech",
-    description: "Enterprises are moving AI infrastructure in-house, with self-hosted tools like Odysseus gaining traction for privacy-preserving, vendor-independent AI solutions",
+    description: "AI briefing highlights agentic infrastructure hitting production maturity for autonomous workflows and vision-language-action robotics moving from lab to field",
     file: "/briefs/weekly-briefing-2026-06-06.html",
     badge: "Latest"
+  },
+  {
+    title: "Weekly Tech Briefing — June 06, 2026",
+    date: "June 06, 2026",
+    type: "tech",
+    description: "Enterprises are moving AI infrastructure in-house, with self-hosted tools like Odysseus gaining traction for privacy-preserving, vendor-independent AI solutions",
+    file: "/briefs/weekly-briefing-2026-06-06.html",
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — June 06, 2026",
