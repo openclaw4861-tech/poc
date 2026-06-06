@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Weekly Tech Briefing — June 06, 2026",
     date: "June 06, 2026",
     type: "tech",
-    description: "AI development tooling surge, agent framework standardization, and regulatory backlash on AI content — with MVP experiments for PGC",
+    description: "Enterprises are moving AI infrastructure in-house, with self-hosted tools like Odysseus gaining traction for privacy-preserving, vendor-independent AI solutions",
     file: "/briefs/weekly-briefing-2026-06-06.html",
     badge: "Latest"
+  },
+  {
+    title: "Weekly Tech Briefing — June 06, 2026",
+    date: "June 06, 2026",
+    type: "tech",
+    description: "AI development tooling surge, agent framework standardization, and regulatory backlash on AI content — with MVP experiments for PGC",
+    file: "/briefs/weekly-briefing-2026-06-06.html",
+    badge: ""
   },
   {
     title: "Top 20 Trending GitHub Repos — June 5, 2026",
