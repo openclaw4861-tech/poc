@@ -363,6 +363,16 @@ export default function BriefsPage() {
               🏗️ Construction
             </button>
             <button
+              onClick={() => setFilter('book')}
+              className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                filter === 'book' 
+                  ? 'bg-white text-purple-700' 
+                  : 'bg-purple-500 text-white hover:bg-purple-400'
+              }`}
+            >
+              📚 Books
+            </button>
+            <button
               onClick={() => setFilter('healthcheck')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 filter === 'healthcheck' 
