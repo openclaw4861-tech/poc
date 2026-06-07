@@ -14,6 +14,22 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — June 07, 2026",
+    date: "June 07, 2026",
+    type: "software",
+    description: "Browser‑based BIM viewers (web‑ifc, xeokit, @thatopen/components) and FreeCAD BIM upgrades enable open‑source model review without Revit licensing",
+    file: "/briefs/software-brief-2026-06-07.html",
+    badge: "Latest"
+  },
+  {
+    title: "Futurist Technology Brief — June 07, 2026",
+    date: "June 07, 2026",
+    type: "futurist",
+    description: "Key signals include AI-driven materials design, autonomous logistics, digital twins, robotics, and sustainable smart glazing reshaping construction",
+    file: "/briefs/futurist-brief-2026-06-07.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Scan — June 7, 2026",
     date: "June 7, 2026",
     type: "futurist",

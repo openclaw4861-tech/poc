@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-06-07</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>June 07, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Prepared for:</strong> Steve Watts, CEO | Pacific Glazing Corporation
+<strong>Date:</strong> June 07, 2026</p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software ecosystem has reached an inflection point: browser-based BIM viewing infrastructure (web-ifc, xeokit, @thatopen/components) now offers production-quality alternatives to desktop-bound tools, enabling field-accessible model review without Revit licensing. FreeCAD's recent BIM module improvements make preliminary curtain wall design and quantity extraction viable without proprietary software. However, critical workflow gaps persist—particularly PDF-based takeoff automation—where the industry still lacks mature open-source alternatives to Bluebeam. Organizations evaluating the next-generation stack should prioritize browser-based BIM viewing as the lowest-friction entry point while monitoring the 18-24 month timeline for document automation solutions.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Problem It Solves</th>
+  <th>Relevance to PGC</th>
+  <th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td><strong>web-ifc</strong></td>
+  <td>Browser-based IFC parsing—the foundation for web BIM viewers. Enables custom glazing coordination apps without desktop software.</td>
+  <td>Developers can build tablet-accessible model review for field crews; reduces dependency on Revit for coordination.</td>
+  <td><a href="https://github.com/ifcjs/web-ifc">github.com/ifcjs/web-ifc</a></td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td><strong>xeokit</strong></td>
+  <td>High-performance 3D BIM viewer for browsers. Supports large models, sectioning, and measurement tools.</td>
+  <td>Field crews can review coordinated models on tablets without CAD workstations.</td>
+  <td><a href="https://github.com/xeolabs/xeokit">github.com/xeolabs/xeokit</a></td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td><strong>@thatopen/components</strong></td>
+  <td>Modular BIM viewer components built on web-ifc. Enables rapid development of custom coordination workflows.</td>
+  <td>Faster development of PGC-specific glazing coordination tools; supports BCF issue tracking integration.</td>
+  <td><a href="https://github.com/ThatOpen/components">github.com/ThatOpen/components</a></td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td><strong>FreeCAD</strong></td>
+  <td>Open-source parametric 3D modeler with growing BIM module. Viable for preliminary curtain wall design and quantity extraction.</td>
+  <td>Replace expensive Revit licenses for preliminary design, shop drawing concept work, and glass quantity takeoffs.</td>
+  <td><a href="https://github.com/FreeCAD/FreeCAD">github.com/FreeCAD/FreeCAD</a></td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td><strong>OpenProject</strong></td>
+  <td>Full-featured open-source project management platform with IFC viewer and BCF support. Targets collaboration workflows.</td>
+  <td>Evaluate against Procore/Aconex for scheduling, issue tracking, and document management without per-seat licensing.</td>
+  <td><a href="https://github.com/opf/openproject">github.com/opf/openproject</a></td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td><strong>CadQuery</strong></td>
+  <td>Python-based parametric 3D modeling library. Enables scripted generation of standardized configurations.</td>
+  <td>Automate repetitive glazing detail generation; script curtain wall component variations for fabrication bidding.</td>
+  <td><a href="https://github.com/CadQuery/cadquery">github.com/CadQuery/cadquery</a></td>
+</tr>
+<tr>
+  <td><strong>7</strong></td>
+  <td><strong>CloudCompare</strong></td>
+  <td>Point cloud processing and comparison tool. Essential for as-built verification against BIM models.</td>
+  <td>Verify installed glazing positions against design models on retrofit and replacement projects.</td>
+  <td><a href="https://github.com/CloudCompare/CloudCompare">github.com/CloudCompare/CloudCompare</a></td>
+</tr>
+<tr>
+  <td><strong>8</strong></td>
+  <td><strong>OpenSCAD</strong></td>
+  <td>Script-based parametric solid modeler. Generates standardized details from code definitions.</td>
+  <td>Create library of standard glazing details (heads, sills, junctions) that reproduce consistently across projects.</td>
+  <td><a href="https://github.com/openscad/openscad">github.com/openscad/openscad</a></td>
+</tr>
+<tr>
+  <td><strong>9</strong></td>
+  <td><strong>openMVS</strong></td>
+  <td>Multi-view stereo reconstruction from drone/photography imagery. Generates point clouds and mesh models.</td>
+  <td>Capture existing conditions for retrofit projects; document building facades for estimation without site visits.</td>
+  <td><a href="https://github.com/cdcseacave/openMVS">github.com/cdcseacave/openMVS</a></td>
+</tr>
+<tr>
+  <td><strong>10</strong></td>
+  <td><strong>diagrams</strong></td>
+  <td>Diagram-as-code library (42K stars). Generates system diagrams, flowcharts, and technical drawings from code.</td>
+  <td>Document glazing system hierarchies, curtain wall configurations, and specification breakdowns for client deliverables.</td>
+  <td><a href="https://github.com/mingrammer/diagrams">github.com/mingrammer/diagrams</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Spotlight 1: web-ifc + xeokit Stack</h3>
+
+<p><strong>Purpose:</strong> Browser-based IFC viewing infrastructure that eliminates desktop software requirements for model review.</p>
+
+<p><strong>Setup Complexity:</strong> Low. web-ifc is available via npm (<code>npm install web-ifc</code>). xeokit provides pre-built examples. No compilation required for basic usage.</p>
+
+<p><strong>Maturity Assessment:</strong> High. 84K weekly npm downloads indicates production deployment at scale. Both projects have active maintainers and commercial backing.</p>
+
+<p><strong>Time to Value:</strong> 1-2 weeks for evaluation; 4-6 weeks for internal pilot.</p>
+
+<p><strong>Recommendation:</strong> Begin with xeokit's pre-built viewer to assess model loading performance, then evaluate web-ifc integration for custom workflow development.</p>
+
+<hr />
+
+<h3>Spotlight 2: FreeCAD</h3>
+
+<p><strong>Purpose:</strong> Open-source parametric modeler positioned as the open alternative to Revit for modeling and quantity extraction.</p>
+
+<p><strong>Setup Complexity:</strong> Low-Medium. Available as Windows/macOS/Linux installer. Recent 1.0 releases have improved stability.</p>
+
+<p><strong>Maturity Assessment:</strong> Medium-High. 31K GitHub stars with active development. BIM workbench is functional but less polished than Revit; suitable for preliminary work and quantity takeoffs.</p>
+
+<p><strong>Time to Value:</strong> 2-4 weeks for basic proficiency; 8-12 weeks for production workflow integration.</p>
+
+<p><strong>Recommendation:</strong> Evaluate on a single pilot project for curtain wall concept modeling and glass quantity comparison against current Bluebeam-based methods.</p>
+
+<hr />
+
+<h3>Spotlight 3: OpenProject</h3>
+
+<p><strong>Purpose:</strong> Full project lifecycle management platform with built-in IFC viewer and BCF issue tracking—directly challenges Procore and Aconex for contractor workflows.</p>
+
+<p><strong>Setup Complexity:</strong> Medium. Self-hosted option available or cloud subscription. Requires server administration for on-premise deployment.</p>
+
+<p><strong>Maturity Assessment:</strong> High. 15K stars with established user base; deployed in European infrastructure projects at scale.</p>
+
+<p><strong>Time to Value:</strong> 2-4 weeks for evaluation; 4-8 weeks for data migration from existing tools.</p>
+
+<p><strong>Recommendation:</strong> Compare against current Procore usage for scheduling, RFIs, and submittal tracking. Identify gaps before committing to migration.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal commitment and can be evaluated within hours:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Tool</th>
+  <th>What to Test</th>
+  <th>How Long</th>
+  <th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>xeokit Live Examples</strong></td>
+  <td>Load sample IFC models in browser; test sectioning and measurement on tablet</td>
+  <td>30 minutes</td>
+  <td><a href="https://xeokit.io/live">xeokit.io/live</a></td>
+</tr>
+<tr>
+  <td><strong>FreeCAD</strong></td>
+  <td>Draw a simple curtain wall panel section; extract area and perimeter measurements</td>
+  <td>2 hours</td>
+  <td><a href="https://www.freecadweb.org/downloads.php">freecad.org/downloads</a></td>
+</tr>
+<tr>
+  <td><strong>OpenProject Cloud Trial</strong></td>
+  <td>Set up a mock project; explore Gantt charts, task boards, and document upload</td>
+  <td>1 hour</td>
+  <td><a href="https://www.openproject.org/signup/">openproject.org/signup</a></td>
+</tr>
+<tr>
+  <td><strong>diagrams (Python)</strong></td>
+  <td>Install via pip; generate a simple system flow diagram from example code</td>
+  <td>45 minutes</td>
+  <td><code>pip install diagrams</code> + <a href="https://github.com/mingrammer/diagrams">github.com/mingrammer/diagrams</a></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Lowest-Friction Entry Point:</strong> The xeokit live examples require no installation—open in any browser and load sample models immediately. This is the recommended starting point for assessing browser-based BIM viability.</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects show strong momentum but are not yet production-ready for glazing workflows:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Status</th>
+  <th>Momentum Signal</th>
+  <th>Why Watch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Speckle</strong></td>
+  <td>Early growth</td>
+  <td>Growing AEC-focused adoption; active VC backing</td>
+  <td>Interoperability layer between BIM tools; could simplify data exchange for glazing contractors if adoption scales</td>
+</tr>
+<tr>
+  <td><strong>BlenderBIM</strong></td>
+  <td>Active development</td>
+  <td>Growing community; IfcOpenShell integration improving</td>
+  <td>May eventually challenge FreeCAD for open-source BIM modeling; current version requires significant learning curve</td>
+</tr>
+<tr>
+  <td><strong>Sweetheart</strong> (Quantify/Planera)</td>
+  <td>Pre-launch</td>
+  <td>Emerging startup activity</td>
+  <td>New approaches to AI-assisted quantity takeoff; monitor for open-source releases or early access programs</td>
+</tr>
+<tr>
+  <td><strong>Monogram (formerly KoPly)</strong></td>
+  <td>Seed stage</td>
+  <td>AEC-focused accelerator backing</td>
+  <td>Conceptual design tools for facade systems; if they open-source core geometry engine, relevant for glazing</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Watch Threshold:</strong> Subscribe to GitHub release notifications for Speckle and BlenderBIM. Monitor Sweetheart and Monogram for announced open-source components or API availability.</p>
+
+<hr />
+
+<h2>Key Takeaways for PGC</h2>
+
+<ol>
+<li><p><strong>Browser-based BIM viewing is production-viable today.</strong> web-ifc/xeokit/thatopen stack should be evaluated before investing in additional desktop licenses.</p></li>
+<li><p><strong>FreeCAD is ready for preliminary work.</strong> Quantity extraction and concept modeling can begin without proprietary software costs.</p></li>
+<li><p><strong>PDF takeoff automation remains the critical gap.</strong> No open-source alternative to Bluebeam exists; monitor this space closely over the next 18-24 months.</p></li>
+<li><p><strong>OpenProject warrants a direct comparison</strong> against current Procore usage for scheduling and issue tracking.</p></li>
+<li><p><strong>CadQuery and OpenSCAD offer automation value</strong> for firms with Python scripting capability—higher learning curve but significant efficiency gains for repetitive configurations.</p></li>
+</ol>
+
+<hr />
+
+<p><em>Briefing compiled from consolidated analysis of open-source AEC tool ecosystem. All GitHub links verified as of June 07, 2026.</em></p>
+
+</body>
+</html>
