@@ -17,7 +17,7 @@ const briefs: Brief[] = [
     title: "Futurist Scan — June 7, 2026",
     date: "June 7, 2026",
     type: "futurist",
-    description: "7 synthesized trends: Microsoft Scout 'addiction by design' leak, Meta-Agent Challenge (arXiv 2606.04455 — current agents can't build better agents), AI Agent Reliability paper (arXiv 2602.16666), Agent Continual Learning (arXiv 2606.02461), open-source agent framework explosion (Hermes-Agent, AgentField, AgentScope), multi-model agent systems (arXiv 2606.01725), and GitHub Copilot Workspace vs Claude Code vs Codex race. Theme: reliability is the central problem in AI.",
+    description: "7 synthesized trends: CVPR 2026 multimodal explosion (vision-language papers doubled), Helion fusion $465M Series G for Microsoft power plant, Hello Robot Stretch Gen 4 home robotics, agent infrastructure boom (Coralogix $200M, ZeroDrift $10M, Lowfat 91.8% token savings), Anthropic IPO + Claude Opus 4.8 dynamic workflows, Orion-100B $1.25/hr model training, and the anti-AI backlash (DuckDuckGo boom, Meta AI hack). Triangulated across 6 sources.",
     file: "/briefs/futurist-scan-2026-06-07.html",
     badge: "Latest"
   },
