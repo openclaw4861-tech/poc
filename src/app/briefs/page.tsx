@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Construction Software Brief — June 07, 2026",
     date: "June 07, 2026",
     type: "software",
-    description: "Browser‑based BIM viewers (web‑ifc, xeokit, @thatopen/components) and FreeCAD BIM upgrades enable open‑source model review without Revit licensing",
+    description: "Open‑source AEC tools like the web‑ifc engine now enable browser‑based BIM viewing for glazing, reducing Revit licensing and accelerating adoption",
     file: "/briefs/software-brief-2026-06-07.html",
     badge: "Latest"
+  },
+  {
+    title: "Construction Software Brief — June 07, 2026",
+    date: "June 07, 2026",
+    type: "software",
+    description: "Browser‑based BIM viewers (web‑ifc, xeokit, @thatopen/components) and FreeCAD BIM upgrades enable open‑source model review without Revit licensing",
+    file: "/briefs/software-brief-2026-06-07.html",
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — June 07, 2026",
