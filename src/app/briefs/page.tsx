@@ -19,7 +19,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "7 synthesized trends: CVPR 2026 multimodal explosion (vision-language papers doubled), Helion fusion $465M Series G for Microsoft power plant, Hello Robot Stretch Gen 4 home robotics, agent infrastructure boom (Coralogix $200M, ZeroDrift $10M, Lowfat 91.8% token savings), Anthropic IPO + Claude Opus 4.8 dynamic workflows, Orion-100B $1.25/hr model training, and the anti-AI backlash (DuckDuckGo boom, Meta AI hack). Triangulated across 6 sources.",
     file: "/briefs/futurist-scan-2026-06-07.html",
-    badge: "Latest"
   },
   {
     title: "Weekly Tech Briefing — June 06, 2026",
@@ -110,11 +109,12 @@ const briefs: Brief[] = [
     file: "/briefs/tech-brief-2026-05-18.html",
   },
   {
-    title: "Book Summary: Tiny Experiments",
-    date: "May 17, 2026",
+    title: "Book Summary: Meditations for Mortals",
+    date: "June 7, 2026",
     type: "book",
-    description: "Anne-Laure Le Cunff on why traditional goal-setting is broken: the arrival fallacy, toxic productivity, and rigid linear goals. Her alternative is the tiny experiment — small, low-stakes, hypothesis-driven commitments that let you learn what actually fulfills you. Full of neuroscience, practical pacts, and a reframing of uncertainty as opportunity.",
-    file: "/briefs/book-summary-tiny-experiments.html",
+    description: "Oliver Burkeman on why the quest for self-mastery is a trap: imperfectionism — radical acceptance of your limitations as the gateway to a meaningful life. 28 daily essays covering defeat as liberation, doing things 'dailyish', productivity debt, rules that serve life, starting from sanity, and finishing what you start. With practical applications for running PGC.",
+    file: "/briefs/book-summary-meditations-for-mortals.html",
+    badge: "Latest"
   },
   {
     title: "Book Summary: Decoding Greatness",
