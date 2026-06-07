@@ -14,11 +14,11 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
-    title: "Weekly Tech Briefing — June 06, 2026",
-    date: "June 06, 2026",
-    type: "tech",
-    description: "Odysseus open‑source local AI OS, privacy‑preserving vendor‑independent infrastructure and TripoSplat 3D scanning shape this week’s tech briefing",
-    file: "/briefs/weekly-briefing-2026-06-06.html",
+    title: "Futurist Scan — June 7, 2026",
+    date: "June 7, 2026",
+    type: "futurist",
+    description: "7 synthesized trends: Microsoft Scout 'addiction by design' leak, Meta-Agent Challenge (arXiv 2606.04455 — current agents can't build better agents), AI Agent Reliability paper (arXiv 2602.16666), Agent Continual Learning (arXiv 2606.02461), open-source agent framework explosion (Hermes-Agent, AgentField, AgentScope), multi-model agent systems (arXiv 2606.01725), and GitHub Copilot Workspace vs Claude Code vs Codex race. Theme: reliability is the central problem in AI.",
+    file: "/briefs/futurist-scan-2026-06-07.html",
     badge: "Latest"
   },
   {

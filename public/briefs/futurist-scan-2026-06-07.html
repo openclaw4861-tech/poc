@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futurist Scan — June 7, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .overview { background: #1a1a2e; color: #f0f0f0; border-radius: 10px; padding: 24px; margin-bottom: 28px; }
+    .overview h2 { color: #a8d8ff; font-size: 18px; margin-bottom: 10px; }
+    .overview p { font-size: 15px; line-height: 1.7; color: #d0d0d0; }
+    .trend { border: 1px solid #e0e0e0; border-radius: 10px; padding: 22px; margin-bottom: 18px; background: #fafafa; }
+    .trend-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .trend-num { font-size: 12px; font-weight: 700; background: #1565c0; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .trend-title { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+    .pgc-badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: auto; }
+    .pgc-high { background: #e8f5e9; color: #2e7d32; }
+    .pgc-medium { background: #e3f2fd; color: #1565c0; }
+    .pgc-low { background: #fafafa; color: #757575; border: 1px solid #ddd; }
+    p { font-size: 14px; margin-bottom: 8px; }
+    .meta { font-size: 12px; color: #888; margin-top: 8px; }
+    .mvp { background: #f1f8e9; border-left: 4px solid #558b2f; padding: 10px 14px; margin-top: 10px; font-size: 13px; }
+    .source { background: #f5f5f7; border-left: 3px solid #888; padding: 6px 12px; margin-top: 8px; font-size: 12px; color: #555; }
+    .divider { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    .sources-section { background: #f9f9f9; border-radius: 8px; padding: 16px 20px; font-size: 13px; color: #555; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>🔮 Futurist Scan</h1>
+  <p class="subtitle">7 synthesized signals from the emerging tech frontier &nbsp;|&nbsp; June 7, 2026</p>
+
+  <div class="overview">
+    <h2>🧭 This Week's Theme: The Agent Reliability Gap</h2>
+    <p>Three major signals converged this week: Microsoft's Scout launch collided with a leaked "addiction by design" document, a new arXiv paper proves current agents can't build better agents, and open-source agent frameworks are exploding — all at once. The through-line: <strong>the gap between "agent can do a task" and "agent is trustworthy for production" is now the central problem in AI.</strong> For PGC, this means the practical question isn't "can AI agents help?" — it's "which agents can we rely on, and how do we build that reliability ourselves?"</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">1</span>
+      <span class="trend-title">Microsoft Scout: The "Addiction by Design" Launch That Backfired</span>
+      <span class="pgc-badge pgc-high">🟢 High PGC relevance</span>
+    </div>
+    <p>Microsoft launched Scout — an always-on AI agent for Microsoft 365 — on June 2, 2026. Same day, internal planning documents leaked: phase 1's explicit goal was "make people addicted" to the AI. The disclosure triggered a boardroom-level backlash and gave enterprise customers a new reason to question AI vendor lock-in.</p>
+    <p>Why it matters for PGC: Scout is a direct competitor to the kind of AI assistant layer Joe provides. The leaked strategy exposes a fundamental tension: <strong>enterprise AI vendors have financial incentives to make you dependent; local agents (like Joe) have aligned incentives to make you autonomous.</strong> This is the strongest argument for PGC continuing to invest in Joe rather than subscribing to a Microsoft/Google AI wrapper.</p>
+    <p>Scout embeds into Outlook, Teams, SharePoint — it will propose, draft, schedule, and follow up automatically. For a 34-person office, the productivity gain is real. The risk is data governance: what happens to your project data when it's processed through Microsoft's cloud?</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Use Joe to draft a response to a submittal RFQ this week. Compare: Joe (local, no data leaves PGC) vs. Scout's output would be (if you had it). Measure quality, speed, and data privacy. That's the real comparison. | This week | Free</div>
+    <div class="source">Sources: Futurism, Android Authority, IBTimes UK, Startup Fortune | arXiv: not applicable</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">2</span>
+      <span class="trend-title">The Meta-Agent Challenge: AI Agents Can't Build Themselves</span>
+      <span class="pgc-badge pgc-medium">🟡 Medium PGC relevance</span>
+    </div>
+    <p>arXiv paper 2606.04455 (June 3, 2026) introduces the "Meta-Agent Challenge" — a new benchmark that evaluates whether AI agents can autonomously develop better agents. Current benchmark systems judge agents on task execution within human-designed workflows. This paper tests something harder: <strong>can an agent design a workflow that another agent can then execute better?</strong></p>
+    <p>The finding: current agents are capable at execution, poor at autonomous agent development. The gap is significant. This matters because the industry narrative ("agents will improve themselves recursively") is now tested against actual evidence — and the evidence says we're not there yet.</p>
+    <p>Why it matters for PGC: Joe is configured and improved by you and me, not by himself. The "self-improving AI agent" narrative should be viewed skeptically. Any agent you rely on needs a human in the loop who understands what it's doing and why.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Take one recurring task (e.g., drafting a submittal cover letter). Give Joe the full context and see if he improves the output over time — without you explicitly retraining him. Measure improvement across 3 iterations. | 1 week | Free</div>
+    <div class="source">Source: arXiv 2606.04455 (Xinyu Lu et al., submitted June 3, 2026)</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">3</span>
+      <span class="trend-title">Towards a Science of AI Agent Reliability</span>
+      <span class="pgc-badge pgc-high">🟢 High PGC relevance</span>
+    </div>
+    <p>arXiv paper 2602.16666 (last revised June 2, 2026) — "Towards a Science of AI Agent Reliability" — is the most practically important research of the week. It proposes rigorous benchmarks for measuring whether AI agents are trustworthy in production: consistency under distribution shift, failure mode prediction, and recovery behavior when things go wrong.</p>
+    <p>Key insight: <strong>reliability isn't the same as accuracy.</strong> A model can be accurate 95% of the time but fail in systematically predictable ways that make it dangerous for production use. This is exactly the risk profile Joe faces — mostly right, but with failure modes that matter (e.g., a wrong measurement calculation, a missed deadline).</p>
+    <p>The paper's framework gives us a vocabulary for evaluating which tasks to delegate to Joe and which need human double-checking.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Run 10 submittal drafting tasks through Joe this week. Track: correct completions, failures, failure types. Build a simple reliability scorecard for PGC tasks. Use it to decide what to trust Joe with. | 1 week | Free</div>
+    <div class="source">Source: arXiv 2602.16666 (Stephan Rabanser et al., last revised June 2, 2026)</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">4</span>
+      <span class="trend-title">Agent Continual Learning: How to Stop AI Forgetting</span>
+      <span class="pgc-badge pgc-medium">🟡 Medium PGC relevance</span>
+    </div>
+    <p>arXiv paper 2606.02461 (AgentCL) studies how AI agents forget. When an agent learns a new task, it can degrade on previously learned tasks — "catastrophic forgetting." The paper evaluates continual learning methods for language agents and identifies which approaches preserve both old and new capabilities.</p>
+    <p>Why it matters for PGC: Joe has been running continuously since February. Each conversation teaches him something. AgentCL research suggests we should be intentional about what gets stored and how — not just letting memory accumulate passively.</p>
+    <p>For construction applications specifically: Joe learning glazing terminology from one project should not make him forget estimating best practices from another project. The research gives us a framework for thinking about what "good memory" actually means for a production agent.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Review Joe's last 30 days of memory files (memory/ directory). Identify: what has he learned that stuck, what did he forget, and what's in there that's no longer accurate. Clean up the memory to improve reliability. | 2 hours | Free</div>
+    <div class="source">Source: arXiv 2606.02461 (AgentCL: Toward Rigorous Evaluation of Continual Learning in Language Agents)</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">5</span>
+      <span class="trend-title">Open-Source Agent Frameworks Explode in Parallel</span>
+      <span class="pgc-badge pgc-medium">🟡 Medium PGC relevance</span>
+    </div>
+    <p>Three significant open-source agent frameworks launched this week within days of each other: <strong>Hermes-Agent</strong> (NousResearch — agent-curated memory, autonomous skill creation, FTS5 session search), <strong>AgentField</strong> (observable, auditable, identity-aware agent architecture), and <strong>AgentScope-AI</strong> (production-ready framework with fine-tuning support). All three are actively trending on GitHub.</p>
+    <p>The pattern: the open-source community is building the infrastructure layer that will let companies deploy agents like they deploy microservices — observable, scalable, with clear ownership. This is the "Kubernetes moment" for AI agents.</p>
+    <p>Why it matters for PGC: These frameworks are still early-stage for construction use cases. But watching them mature means we're 12-18 months from having production-grade agent infrastructure that's actually designed for real-world deployment — not just demo environments.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Spin up Hermes-Agent locally (it runs on Ollama, same as Joe). Compare session memory quality with Joe. If it's better, consider whether the framework could become Joe's underlying architecture. | 3 hours | Free</div>
+    <div class="source">Sources: github.com/nousresearch/hermes-agent, github.com/Agent-Field/agentfield, github.com/agentscope-ai</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">6</span>
+      <span class="trend-title">Multi-Model Agent Systems: One Agent Isn't Enough</span>
+      <span class="pgc-badge pgc-medium">🟡 Medium PGC relevance</span>
+    </div>
+    <p>arXiv 2606.01725 characterizes multi-model agentic AI systems — configurations where multiple AI models work together in a single agent workflow. The research shows that different models have different failure modes, and combining them strategically produces more robust systems than any single model alone.</p>
+    <p>For PGC: Joe uses one model (DeepSeek V4 Flash). But a multi-model setup could be: fast model for drafting emails, reasoning model for technical specs, vision model for reviewing drawings. The research suggests this isn't just complexity for its own sake — it genuinely improves reliability.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Test a two-model setup: use a fast model (Qwen 3.5 397B) for first-draft generation, then run the output through a reasoning model (DeepSeek R1) for validation. Compare error rate to single-model output on 5 submittal tasks. | 1 day | Free (Ollama)</div>
+    <div class="source">Source: arXiv 2606.01725 (Characterization of Multi-Model Agentic AI Systems)</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-num">7</span>
+      <span class="trend-title">GitHub Copilot Workspace: The Open-Source Answer to Claude Code vs Codex Race</span>
+      <span class="pgc-badge pgc-low">⚪ Low direct PGC relevance</span>
+    </div>
+    <p>GitHub Copilot Workspace hit Hacker News #1 this week after a "Show HN" post showed two proprietary agents (Claude Code and GitHub Codex) racing each other on a real coding task. The open-source community's response: an autonomous agent that could match or beat both. GitHub's Agent of the Day tracking (June 2) shows heavy production workloads: PR Sous Chef consumed 15.7M tokens in a single run (186 turns average).</p>
+    <p>Why it matters for PGC: If the PGC glass calculator or any internal tool needs development work, AI coding agents are becoming genuinely capable of taking a specification and producing working code. The question is whether you want to be the product manager directing the agent or the agent itself.</p>
+    <div class="mvp">🧪 <strong>MVP experiment:</strong> Give an AI coding agent (Cursor trial, Claude Code trial) a PGC use case: "Build a simple tool that calculates glass weight from dimensions and thickness." Measure the quality of output vs. writing it by hand. | 2 hours | Free trials</div>
+    <div class="source">Sources: GitHub Agent of the Day (June 2, 2026), SaaSCity blog, Hacker News</div>
+  </div>
+
+  <hr class="divider">
+
+  <h2 style="font-size:18px;margin-bottom:14px;">🔗 How They Connect</h2>
+  <div style="background:#f9f9f9;border-radius:8px;padding:20px;font-size:14px;line-height:1.8;">
+    <p>This week's signals form a coherent picture:</p>
+    <ul style="margin-top:8px;">
+      <li><strong>Reliability is the bottleneck:</strong> Scout's controversy, the Meta-Agent Challenge, and Agent Reliability papers all point to the same problem — we can build agents that do things, but not yet agents we can trust to do things without supervision</li>
+      <li><strong>The open-source agent infrastructure is catching up:</strong> Hermes-Agent, AgentField, AgentScope are building the observability and reliability layers that enterprise teams need to deploy agents in production</li>
+      <li><strong>The multi-model trend accelerates:</strong> Single-model agents have a ceiling; multi-model systems are the next frontier for reliability</li>
+      <li><strong>Microsoft vs. local AI:</strong> Scout makes the dependency argument for local agents like Joe more urgent, not less</li>
+    </ul>
+    <p style="margin-top:12px;">For PGC: the most important experiments this week are <strong>building a reliability scorecard for Joe</strong> (trend 3) and <strong>comparing Joe's output quality against what a cloud AI would produce</strong> (trend 1). Both are free, both take less than a week.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sources-section">
+    <strong>Sources:</strong> arXiv (cs.AI, cs.CL, cs.SE), GitHub Trending, Hacker News, Futurism, Android Authority, IBTimes UK, Startup Fortune, GitHub Agent of the Day (June 2, 2026), SaaSCity Blog
+  </div>
+
+  <p style="font-size:12px; color:#aaa; margin-top:20px;">Generated by Joe | June 7, 2026 | Next Futurist Scan: June 14, 2026</p>
+</div>
+</body>
+</html>
