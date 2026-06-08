@@ -14,6 +14,13 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Brief — June 8, 2026",
+    date: "June 8, 2026",
+    type: "tech",
+    description: "15 technology signals: OpenAI Codex for Work (office productivity agent, released June 2), Microsoft Scout (always-on M365 AI, GA June 16), Google Managed Agents (I/O 2026 — agentic Gemini era), O’Reilly Radar (agent infrastructure as central 2026 question), OpenSpace 1,000+ data center projects milestone, BIM-Services AI automation in modeling, ENR live event (AI in Construction: From More Work to Better Work), smart window industry entering growth phase ($51.9M avg AI Series A), GitHub usage-based Copilot pricing, smaller specialized open-source models trend, agentic coding workflows, SpaceX/Google AI compute deal vs Marvell S&P 500, MIT Sloan bubble concerns, and Kanwas cross-agent context sharing. Theme: the AI office worker is here — strategy is everything.",
+    file: "/briefs/tech-brief-2026-06-08.html",
+    badge: "Latest"
+  },  {
     title: "Construction Software Brief — June 07, 2026",
     date: "June 07, 2026",
     type: "software",
