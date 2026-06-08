@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Trends Brief — June 8, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .hero { background: linear-gradient(135deg, #1e3a5f, #2d5a87); color: #fff; padding: 28px 32px; border-radius: 10px; margin-bottom: 32px; }
+    .hero h1 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .hero .subtitle { color: #93c5fd; margin-bottom: 0; }
+    .meta-bar { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .meta-chip { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: #bfdbfe; }
+    .intro { background: #f0f7ff; border-left: 4px solid #0066cc; padding: 16px 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0; }
+    .action-box { background: #fef9c3; border: 2px solid #facc15; border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .action-box h2 { font-size: 15px; color: #713f12; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .action-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .action-table th { background: #92400e; color: #fef3c7; padding: 8px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    .action-table td { padding: 8px 12px; border-bottom: 1px solid #d97706; color: #78350f; }
+    .action-table tr:last-child td { border-bottom: none; }
+    .action-table td:first-child { font-weight: 600; }
+    .trend { border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 20px; background: #fafafa; }
+    .trend-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .trend-name { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+    .category { font-size: 12px; padding: 4px 10px; border-radius: 12px; background: #e8f4fd; color: #0066cc; font-weight: 500; }
+    .field { margin-bottom: 10px; }
+    .field-label { font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .field-value { font-size: 14px; color: #333; }
+    .tag { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 2px; }
+    .verdict { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-read { background: #e8daef; color: #4a235a; }
+    .verdict-demo { background: #d1e7dd; color: #0f5132; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .meta-trend { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 24px 28px; border-radius: 10px; margin: 28px 0; }
+    .meta-trend h3 { font-size: 11px; margin-bottom: 8px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; }
+    .meta-trend p { color: #e2e8f0; font-size: 14px; margin: 0; }
+    .meta-trend .verdict { margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 12px; border-radius: 8px; overflow: hidden; }
+    th { background: #1e293b; color: #e2e8f0; padding: 10px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:last-child td { border-bottom: none; }
+    .footer { color: #94a3af; font-size: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    h2 { font-size: 20px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>🛠️ Tech Trends Brief — June 8, 2026</h1>
+    <p class="subtitle">15 Technologies for Pacific Glazing Corp</p>
+    <div class="meta-bar">
+      <span class="meta-chip">📅 June 8, 2026</span>
+      <span class="meta-chip">🔬 15 Technologies</span>
+      <span class="meta-chip">⚡ MVP Experiments</span>
+      <span class="meta-chip">🏢 PGC Focused</span>
+    </div>
+  </div>
+
+  <div class="action-box">
+    <h2>⚡ Steve's Action Items</h2>
+    <table class="action-table">
+      <tr><th>#</th><th>Action</th><th>Tool / Trend</th><th>Time</th></tr>
+      <tr><td>1</td><td><strong>Try Claude Opus 4.8 in Claude Code</strong> — test the hybrid reasoning model on one PGC code task</td><td>Claude Opus 4.8</td><td>1 hr</td></tr>
+      <tr><td>2</td><td><strong>Set up Perplexity Personal Computer on a Windows machine</strong> — test hybrid local/cloud agent on a PGC supplier portal</td><td>Perplexity Personal Computer</td><td>1 hr</td></tr>
+      <tr><td>3</td><td><strong>Evaluate Structured AI for drawing QC</strong> — AI agent that checks construction docs against building codes</td><td>Structured AI (YC)</td><td>30 min</td></tr>
+      <tr><td>4</td><td><strong>Watch Cursor Design Mode demo</strong> — browser-based UI agent can now accept voice commands to update interfaces</td><td>Cursor 3.7</td><td>10 min</td></tr>
+      <tr><td>5</td><td><strong>Check Copilot usage-based billing impact</strong> — GitHub moved to per-token pricing, calculate PGC's new costs</td><td>Copilot Token Billing</td><td>20 min</td></tr>
+      <tr><td>6</td><td><strong>Test vLLM for local inference</strong> — 20x throughput improvement for running LLMs on PGC hardware</td><td>vLLM</td><td>1 hr</td></tr>
+      <tr><td>7</td><td><strong>Explore Orion-100B training costs</strong> — $1.25/hr model training could make custom PGC models viable</td><td>Orion-100B</td><td>15 min</td></tr>
+    </table>
+  </div>
+
+  <h2>🔍 Meta-Trends</h2>
+
+  <div class="meta-trend">
+    <h3>Meta-Trend 1: The AI IPO Supercycle — SpaceX, Anthropic, and the $30B Compute Deal</h3>
+    <p>The single biggest story this week: <strong>SpaceX signed a $920M/month compute deal with Google</strong> (110K NVIDIA GPUs, running through June 2029) just days ahead of its <strong>June 12 IPO</strong>. Combined with Anthropic's confidential SEC filing (now valued at $965B after Opus 4.8), the AI investment cycle has shifted from venture rounds to public markets. The S-1 filings reveal what AI infrastructure really costs: Google is effectively pre-buying SpaceX/xAI GPU capacity for $30B+. <strong>Anthropic leapfrogged OpenAI in the IPO race</strong> after raising $65B at a $730-965B valuation, while OpenAI's GPT-5.2 and Google's Gemini 3.5 Pro continue the model arms race. <strong>AI compute is becoming a commodity asset class, priced at industrial scale.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — the compute economics favor local inference for business tasks; IPO cycle validates AI as infrastructure, not experiment</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #1e3a2f, #234d3d);">
+    <h3>Meta-Trend 2: The Desktop Agent War — Everyone Ships an "AI That Uses Your Computer"</h3>
+    <p>June 2026 is the month desktop AI agents went mainstream: <strong>Perplexity Personal Computer</strong> launched on Windows with a hybrid local-server inference orchestrator. <strong>Windsurf rebranded to Devin Desktop</strong> (June 2) — the IDE becomes a multi-agent command center. <strong>Cursor 3.7 shipped Design Mode</strong> — click, draw, or describe changes by voice to update your UI. <strong>Claude Opus 4.8</strong> powers computer-use with hybrid reasoning and 1M context. <strong>OpenAI Codex Agents</strong> hit production. The "agent on your machine" category is now a competitive battleground with at least 5 major players. <strong>Testing one this week costs nothing.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — pick one desktop agent and automate a real PGC workflow this week</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #3d1e3a, #4d234d);">
+    <h3>Meta-Trend 3: Construction AI Goes Vertical — YC-funded Agents for Design, Takeoff, and QC</h3>
+    <p>YC's P26 batch confirms construction AI as a hot vertical: <strong>Structured AI</strong> — AI agents performing quality control on construction drawings, applying building codes automatically. <strong>RealPact</strong> — AI agents for real estate paperwork. <strong>Contech raised $121M in the past week</strong> across 6 startups: LightTable ($22M Series A, AI preconstruction), AI copilot for field teams, and more. <strong>August Robotics</strong> now providing robots for AI data center construction via DeWalt partnership. <strong>AI is infiltrating every layer of construction — from design review to takeoff to site robotics.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — construction-specific AI tools maturing fast; test Structured AI or Fresco on a real PGC project</div>
+  </div>
+
+  <h2>📋 15 Technologies</h2>
+
+  <!-- 1 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">1. Claude Opus 4.8 — Anthropic's Hybrid Reasoning Flagship with Dynamic Workflows</span>
+      <span class="category">Frontier Models</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Anthropic's new flagship model — a hybrid reasoning system pushing the frontier for coding and AI agents, featuring a <strong>1M context window</strong>. Released alongside <strong>Dynamic Workflows</strong> for Claude Code (adaptive execution paths) and an "effort control" knob. Released June 2, 2026. Anthropic now valued at $730-965B after confidential SEC filing.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Production coding, multi-step agent tasks, complex document analysis, and computer-use automation. The 1M context window means it can process entire project specs in one shot.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Anthropic</span><span class="tag">Claude Opus 4.8</span><span class="tag">frontier models</span><span class="tag">hybrid reasoning</span><span class="tag">IPO</span><span class="tag">1M context</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">In Claude Code with Opus 4.8 selected: "Analyze this 200-page curtain wall spec and extract all glass type specifications, U-value requirements, and testing standards. Output as a structured table." Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Opus 4.8 handles PGC's entire spec library in one context window. Hybrid reasoning means it's good at both creative problem-solving (installation sequencing) and precise calculation (glass loads, thermal performance). The IPO validates the company's staying power.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">2. Perplexity Personal Computer — Hybrid Local-Cloud Desktop Agent</span>
+      <span class="category">Desktop Agent</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Perplexity's "orchestrator" agent that splits AI work between your local device and the cloud. Launched on Mac, now on Windows (June 3). The hybrid inference system decides real-time what runs locally (simple tasks, private data) vs. what goes to frontier models in the cloud.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Desktop automation — files, apps, and the web — with intelligent cost/performance routing. Tasks needing privacy stay local; complex reasoning uses cloud models.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Perplexity</span><span class="tag">hybrid inference</span><span class="tag">desktop agent</span><span class="tag">local AI</span><span class="tag">orchestrator</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install Perplexity Personal Computer on a PGC Windows machine. Task: "Find the latest GL-301 spec document in the shared drive, extract the glass thickness requirements, and email them to me." Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Hybrid local-cloud means sensitive project documents stay local while using frontier-model intelligence. This is the architecture that scales — private data stays on-prem, compute power comes from the cloud.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">3. Structured AI (YC P26) — AI Agents for Construction Drawing QC</span>
+      <span class="category">Construction AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">YC-backed startup building "the AI workforce for construction design engineering." AI agents perform quality control on technical documents and drawings — learning your standards, applying building codes, and flagging issues before they reach the field.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Automated drawing review: curtain wall detail correct per IBC code? Does glazing spec match structural drawings? AI checks thousands of drawings in minutes instead of days.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">construction AI</span><span class="tag">YC</span><span class="tag">drawing QC</span><span class="tag">building codes</span><span class="tag">design review</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Upload one PGC curtain wall shop drawing set to Structured AI (or LightTable, Fresco). Ask it to flag: code compliance issues, dimension inconsistencies, glass type mismatches. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Drawing QC is manual, expensive, error-prone. An AI layer catching code violations before fabrication saves rework costs. Structured AI is YC-funded — strong signal for quality.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">4. Cursor 3.7 — AI IDE with Design Mode (Voice + Click + Draw)</span>
+      <span class="category">AI Coding</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Cursor 3.7 introduces <strong>Design Mode</strong> — click, draw, or describe changes by voice to help agents update your UI. Combined with multi-model support (Claude Sonnet 4.6, GPT-5, Gemini 3.1 Pro), Cursor is now a model-agnostic AI IDE where frontier models compete to be the engine inside it. New Jira integration also landed. Released June 5, 2026.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI-powered software development with natural UI manipulation. Voice-to-code, click-to-modify, multi-model agent workflows.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Cursor</span><span class="tag">AI IDE</span><span class="tag">Design Mode</span><span class="tag">voice coding</span><span class="tag">multi-model</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">In Cursor 3.7 with Design Mode: Open the PGC Field Tools repo. Say "Move the filter buttons to the right side of the page and make them purple." Watch it happen. Time: 15 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Design Mode means Steve or a PM can describe UI changes without writing code. The model-agnostic design means PGC picks the best model for each task.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">5. SpaceX $30B Google AI Compute Deal — The Infrastructure Era Arrives</span>
+      <span class="category">AI Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Google will pay SpaceX <strong>$920 million per month</strong> from October 2026 through June 2029 for access to ~110,000 NVIDIA GPUs at xAI data centers. The deal (~$30B total) was signed days before SpaceX's June 12 IPO. SpaceX had merged with xAI in February 2026.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Google gets guaranteed AI compute at mass scale. SpaceX monetizes GPU infrastructure ahead of IPO. Sets a pricing benchmark for enterprise AI compute.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">SpaceX</span><span class="tag">Google</span><span class="tag">AI compute</span><span class="tag">GPU infrastructure</span><span class="tag">IPO</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">At $920M/mo for 110K GPUs = ~$8,363/GPU/month. Compare to running one local RTX 4090 at ~$0.30/hr. Could PGC run 80% of AI tasks on one local GPU for $2,000/year? Time: 15 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">This deal signals big AI compute is becoming an industrial commodity. The unit economics show cloud inference is expensive at scale. For PGC's workload (spec extraction, bid analysis), local inference is orders of magnitude cheaper.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — market signal; reinforces local inference thesis for PGC</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">6. vLLM — 20x Throughput for Local LLM Serving</span>
+      <span class="category">Local AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">High-throughput, memory-efficient LLM serving engine from UC Berkeley. Achieves <strong>20x throughput</strong> vs. naive implementations. Features PagedAttention for near-zero memory waste, continuous batching, and tensor parallelism. The standard for serving open-source models in production.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Serving open-source LLMs (Llama, Qwen, Phi, Mistral) at production scale on modest hardware. Turns a single GPU into a multi-user model server.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">vLLM</span><span class="tag">LLM serving</span><span class="tag">throughput</span><span class="tag">inference</span><span class="tag">Berkeley</span><span class="tag">open source</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>pip install vllm && python -m vllm.entrypoints.openai.api_server --model phi-4-mini:3.8b</code>. Send requests via curl, compare latency vs. Ollama. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">One machine running vLLM serves the whole office's AI needs. Combined with Ollama for prototyping and vLLM for production, PGC gets enterprise-grade local AI for zero monthly fees.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">7. Orion-100B — Open-Source Model Training at $1.25/hr</span>
+      <span class="category">Open Source AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">New open-source model offering training costs at <strong>$1.25/hour</strong> — a dramatic reduction from the $10M+ it cost to train GPT-3. Combined with nanochat (Karpathy's full training stack in one Python file), custom model training has collapsed from millions to hundreds of dollars.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Fine-tuning and training custom AI models for specific business domains — without Silicon Valley budgets.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Orion-100B</span><span class="tag">cheap training</span><span class="tag">open source</span><span class="tag">nanochat</span><span class="tag">custom models</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>git clone https://github.com/karpathy/nanochat && cd nanochat</code>. Prepare 100 PGC specifications as training data. <code>python train.py --data ./pgc-specs.txt</code>. Time: 2 hours to train a tiny model. See if it learns PGC-specific terminology.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Custom model training is now affordable. PGC could train a model that understands glazing-specific terminology, internal standards, and preferred suppliers — for the cost of a nice dinner.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">8. Contech Funding Boom — $121M Raised by 6 Startups in One Week</span>
+      <span class="category">Construction Tech</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Six contech startups raised a combined <strong>$121M</strong> in a single week. Standouts: <strong>LightTable</strong> ($22M Series A) — AI preconstruction platform reading drawings to flag errors. <strong>AI field copilot</strong> — quality control, scoping, on-demand knowledge. <strong>August Robotics</strong> — robots for AI data center construction via DeWalt partnership.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI-powered preconstruction, field automation, and construction robotics — all attracting serious venture capital.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">contech</span><span class="tag">funding</span><span class="tag">construction AI</span><span class="tag">LightTable</span><span class="tag">preconstruction</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Browse LightTable's product page. Upload one PGC project drawing. See what errors/omissions it catches that were missed in manual review. Compare to PGC's change order rate from drawing errors. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">$121M in one week confirms construction AI is a real market. LightTable's preconstruction AI could catch costly glass dimension errors before fabrication.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — test LightTable or Fresco on a real PGC project this week</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">9. Devin Desktop (formerly Windsurf) — Multi-Agent IDE Command Center</span>
+      <span class="category">AI Coding</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Cognition AI rebranded Windsurf as <strong>Devin Desktop</strong> (June 2) — shifting from AI code completion to a "command center for managing all your agents in one place." Powered by in-house SWE-1.5 model, introduces Agent Control Protocol (ACP) for multi-agent orchestration.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Multi-agent software development — one agent writes code, another reviews it, a third runs tests, all coordinated from one IDE.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Devin Desktop</span><span class="tag">Windsurf</span><span class="tag">multi-agent</span><span class="tag">IDE</span><span class="tag">ACP</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install Devin Desktop. Create project: "Build a dashboard showing PGC's open change orders grouped by project, updated daily from a spreadsheet." Watch multi-agent system decompose, build, test. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Multi-agent orchestration beyond single coding agents. Specialized agents for frontend, data processing, testing — all coordinated. Evaluate when PGC's dev workload justifies it.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — powerful but complex; evaluate when workload justifies multi-agent orchestration</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">10. Gemini 3.5 Pro — Google's Next-Gen Frontier Model</span>
+      <span class="category">Frontier Models</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Google DeepMind's Gemini 3.5 Pro, successor to Gemini 3.1 Pro. Now available inside Cursor and other AI IDEs. Enhanced reasoning, longer context, improved agentic capabilities. Google pushing users from open-source Gemini CLI to closed-source Antigravity CLI.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">State-of-the-art AI reasoning, coding, multimodal analysis, agent orchestration. Competes with Claude Opus 4.8 and GPT-5.2.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Gemini 3.5</span><span class="tag">Google</span><span class="tag">frontier models</span><span class="tag">DeepMind</span><span class="tag">Antigravity</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">In Cursor, switch to Gemini 3.5 Pro. Ask: "Review this curtain wall structural calculation for ASCE 7 wind load compliance." Compare reasoning quality vs. Claude Opus 4.8. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Model competition benefits PGC — Claude, GPT, and Gemini compete inside same tools, driving quality up and prices down. Test each on PGC-specific tasks.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — test when available; competition is good for quality and pricing</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">11. GitHub Copilot Usage-Based Pricing — Token Economics Hit Every Developer</span>
+      <span class="category">AI Economics</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">GitHub completed switch to usage-based token billing for Copilot (effective June 1). Developers pay per token consumed across inputs, outputs, and cached context. The old unlimited plan is gone. Signals that <strong>all AI tools will eventually be metered</strong>.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Monetizing AI code generation at scale. Sets pricing precedent for every AI developer tool. Companies calculating token budgets like cloud spend.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Copilot</span><span class="tag">token billing</span><span class="tag">usage-based</span><span class="tag">developer costs</span><span class="tag">GitHub</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Request PGC's GitHub Copilot usage for May. Calculate June cost under token model. Compare: local alternatives (Codeium, Continue + Ollama, Cursor BYOK). Time: 20 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Every AI tool PGC evaluates will move to usage-based pricing. Understanding token economics now helps make better build-vs-buy decisions.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH + CALCULATE</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">12. Awesome Claude Skills — 55K+ ⭐ Ecosystem for Agent Customization</span>
+      <span class="category">AI Agent Skills</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">The vast collection of drop-in CLAUDE.md skills (55K+ ⭐). New additions include <strong>transitions.dev</strong> (12 CSS animations as skill file), <strong>andrej-karpathy-skills</strong> (4 coding principles), and domain-specific skills for data processing, security, design. With Claude Opus 4.8 Dynamic Workflows, skills now support adaptive execution paths.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Extending Claude Code without writing skills from scratch. The "app store" of the agent era — install domain expertise without training models.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Claude Code</span><span class="tag">skills</span><span class="tag">agent customization</span><span class="tag">open source</span><span class="tag">55K stars</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install 3 skills and test: <code>curl -o .claude/skills/design.md https://raw.githubusercontent.com/.../transitions.md</code>. Ask Claude: "Make this PGC dashboard look professional." Time: 15 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">The skills ecosystem makes Claude Code exponentially more capable for free. Design + data processing + code review skills combine without writing configuration.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">13. Small Language Models (SLMs) — Good Enough for 80% of Business Tasks</span>
+      <span class="category">Local AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">The SLM thesis continues: models under 7B parameters (Phi-4, Llama-3.2-3B, Qwen2.5-7B, Gemma-3) achieve GPT-3.5-to-GPT-4 performance on business tasks — running entirely locally. Gartner: 40% of enterprise workloads using industrial AI agents by end of 2026. <strong>Smaller specialized models consistently outperform general-purpose giants on specific domains.</strong></div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Spec extraction, document classification, material lookup, RFI routing, data entry — 80% of a business's actual AI needs.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">SLMs</span><span class="tag">edge AI</span><span class="tag">local inference</span><span class="tag">on-device</span><span class="tag">good enough</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>ollama run phi4-mini:3.8b</code>. Prompt: "Extract all glass types, thicknesses, U-values, and SHGC values from this spec." Compare output to GPT-4o. Track accuracy, speed, cost per query. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Phi-4 on a $1,000 laptop handles spec extraction, bid parsing, and material lookups — zero per-query cost, zero data leaving PGC's network.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">14. Kanwas — Cross-Agent Context Sharing</span>
+      <span class="category">Agent Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">New open-source tool for <strong>sharing context across agents</strong>. Workgroups collaborate on projects by giving multiple agents access to a shared context store — one agent's output becomes another's input. Solves the "siloed agent" problem. (O'Reilly Radar, June 2026)</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Multi-agent collaboration: Agent A does research → writes findings. Agent B reads findings → creates plan → writes plan. Agent C executes plan. All share common context.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Kanwas</span><span class="tag">shared context</span><span class="tag">multi-agent</span><span class="tag">agent collaboration</span><span class="tag">workgroup</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Set up Kanwas. Agent A extracts specs from PDF. Agent B generates material list from those specs. Agent C formats output as a quote. Watch context flow between them. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC's workflows are multi-step: spec → quantities → materials → labor. Kanwas shared context connects these steps into an automated pipeline.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">15. Agentic AI Infrastructure Boom — Investment Floods In</span>
+      <span class="category">Enterprise AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Wave of infrastructure investments: <strong>Coralogix ($200M)</strong> AI observability, <strong>ZeroDrift ($10M)</strong> AI reliability testing, <strong>Lowfat (91.8% token savings)</strong> agent cost optimization. O'Reilly Radar tracks "agent infrastructure" as central 2026 question. <strong>Cerebras IPO</strong> (May 14) and <strong>SpaceX roadshow</strong> (June 8) signal Wall Street appetite for AI infrastructure.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Plumbing for production AI agents: monitoring, cost control, reliability testing, observability. The "Cloudflare for AI" category emerging.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">agent infrastructure</span><span class="tag">observability</span><span class="tag">token optimization</span><span class="tag">Coralogix</span><span class="tag">Cerebras</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Map PGC's current software infrastructure. Where would an agent fit? Identify needed pieces (monitoring, logging, cost tracking) before deploying agents in production. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">The companies building agent infrastructure are getting funded at massive scale — confirming the market. PGC can adopt agents now, scale with infrastructure later when tools mature.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — infrastructure maturing; adopt agents now, scale with infrastructure later</div>
+  </div>
+
+  <h2>📊 Summary Table</h2>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Technology</th>
+      <th>What it is</th>
+      <th>PGC Applicability</th>
+      <th>Verdict</th>
+    </tr>
+    <tr><td>1</td><td><strong>Claude Opus 4.8</strong></td><td>Anthropic hybrid reasoning, 1M context, Dynamic Workflows</td><td>🟢 High — full spec library, IPO validates staying power</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>2</td><td><strong>Perplexity Personal Computer</strong></td><td>Hybrid local-cloud desktop agent for Windows/Mac</td><td>🟢 High — private data local, cloud brain for complex tasks</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>3</td><td><strong>Structured AI (YC)</strong></td><td>AI drawing QC — building code compliance</td><td>🟢 High — catch curtain wall errors before fabrication</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>4</td><td><strong>Cursor 3.7 Design Mode</strong></td><td>AI IDE with voice, click, draw UI editing</td><td>🟢 High — PMs can describe UI changes</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>5</td><td><strong>SpaceX $30B Google Deal</strong></td><td>$920M/mo GPU compute benchmark</td><td>🟡 Med — confirms local inference thesis</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>6</td><td><strong>vLLM</strong></td><td>20x throughput LLM serving on one GPU</td><td>🟢 High — serve whole office with one machine</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>7</td><td><strong>Orion-100B</strong></td><td>Open-source model training at $1.25/hr</td><td>🟢 High — custom model for cost of dinner</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>8</td><td><strong>Contech $121M Week</strong></td><td>LightTable, field copilots, funding boom</td><td>🟢 High — test LightTable/Fresco on real drawings</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>9</td><td><strong>Devin Desktop</strong></td><td>Windsurf rebrand to multi-agent IDE</td><td>🟡 Med — powerful but complex</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>10</td><td><strong>Gemini 3.5 Pro</strong></td><td>Google's next frontier model</td><td>🟡 Med — test vs Claude for PGC tasks</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>11</td><td><strong>Copilot Usage Billing</strong></td><td>GitHub per-token pricing from June 1</td><td>🟡 Med — calculate PGC impact</td><td><strong>WATCH</strong></td></tr>
+    <tr><td>12</td><td><strong>Awesome Claude Skills</strong></td><td>55K+ ⭐ drop-in skills ecosystem</td><td>🟢 High — extend Claude Code for free</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>13</td><td><strong>Small Language Models</strong></td><td>Phi-4, Llama-3.2, etc. — 80% of tasks, zero cost</td><td>🟢 High — daily AI needs met locally</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>14</td><td><strong>Kanwas</strong></td><td>Cross-agent shared context store</td><td>🟢 High — connects multi-step workflows</td><td><strong>TRY NOW</strong></td></tr>
+    <tr><td>15</td><td><strong>Agent Infrastructure Boom</strong></td><td>Coralogix, ZeroDrift, Lowfat — AI ops funding</td><td>🟡 Med — infrastructure maturing for future scale</td><td><strong>WATCH</strong></td></tr>
+  </table>
+
+  <h2>🏗️ PGC Action Plan</h2>
+
+  <div class="trend" style="border-left: 4px solid #0066cc;">
+    <p><strong>This Week (30 min — 2 hours each):</strong></p>
+    <ul style="margin-left:20px;margin-bottom:16px;">
+      <li>1️⃣ <strong>Structured AI / LightTable test</strong> — upload one PGC drawing set for AI QC review (30 min)</li>
+      <li>2️⃣ <strong>Claude Opus 4.8 eval</strong> — test in Claude Code with a real PGC spec (1 hr)</li>
+      <li>3️⃣ <strong>SLM benchmark</strong> — <code>ollama run phi4-mini:3.8b</code> vs GPT-4o on spec extraction (30 min)</li>
+      <li>4️⃣ <strong>Perplexity Personal Computer</strong> — install on Windows, try one supplier portal task (1 hr)</li>
+      <li>5️⃣ <strong>Copilot budget calc</strong> — check May usage, estimate June costs (20 min)</li>
+    </ul>
+
+    <p><strong>This Month:</strong></p>
+    <ul style="margin-left:20px;margin-bottom:16px;">
+      <li>1️⃣ <strong>vLLM production test</strong> — set up serving a small model, stress-test with 10 concurrent spec queries</li>
+      <li>2️⃣ <strong>Kanwas shared context PoC</strong> — two-agent pipeline: spec → extract → quote</li>
+      <li>3️⃣ <strong>Awesome Claude Skills deep dive</strong> — install 5 skills, evaluate for dev workflow</li>
+      <li>4️⃣ <strong>Contech tool evaluation</strong> — LightTable, Fresco, or Togal.AI on a real PGC project</li>
+    </ul>
+
+    <p><strong>Next Quarter:</strong></p>
+    <ul style="margin-left:20px;">
+      <li>1️⃣ <strong>Local SLM deployment</strong> — deploy Phi-4 via vLLM for daily spec extraction</li>
+      <li>2️⃣ <strong>Desktop agent workflow</strong> — automate one supplier portal with Perplexity Personal Computer</li>
+      <li>3️⃣ <strong>Custom PGC model</strong> — train a tiny model on PGC specs using nanochat or Orion-100B</li>
+      <li>4️⃣ <strong>Multi-agent pipeline</strong> — connect spec-in → takeoff → quote via Kanwas shared context</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Generated June 8, 2026 by Joe 🔧 | Sources: TechCrunch, CNBC, Reuters, VentureBeat, Bloomberg, Y Combinator, Construction Dive, GitHub, Anthropic, O'Reilly Radar, Product Hunt
+  </div>
+</div>
+</body>
+</html>
