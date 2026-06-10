@@ -14,12 +14,19 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — June 10, 2026",
+    date: "June 10, 2026",
+    type: "software",
+    description: "10 new tools: Kreo AI (Caddie) — best-ranked AI takeoff for specialty trades (Try Now), Beam AI — automated takeoff for subcontractors (Try Now), STACK (Forbes June 8 feature, Watch), Togal.AI (Watch, try Kreo instead), PlanSwift & Bluebeam Revu (Skip, current tools), Linear — agent-ready task flows (Watch), n8n — open-source AI workflow automation (Try Now, free self-hosted), Lovable — AI app builder (Watch, try for glass calculator), Microsoft Scout GA June 16 (Watch, test then), Permitify — YC AI building permit review (Watch, track adoption). Priority: Kreo > n8n > Beam > Scout (June 16). Theme: AI takeoff market is maturing — $149-$299/month for mid-market.",
+    file: "/briefs/software-watch-2026-06-10.html",
+    badge: "Latest"
+  },  {
     title: "Tech Trends Brief — June 8, 2026",
     date: "June 8, 2026",
     type: "tech",
     description: "15 trending technologies: Claude Opus 4.8 (Anthropic hybrid reasoning flagship with 1M context, IPO at $965B valuation), Perplexity Personal Computer (hybrid local-cloud desktop agent now on Windows), Structured AI (YC P26) construction drawing QC, Cursor 3.7 Design Mode (voice + click + draw UI editing), SpaceX $30B Google AI compute deal ($920M/mo, IPO June 12), vLLM 20x throughput local inference, Orion-100B $1.25/hr model training, contech $121M funding week (LightTable, August Robotics), Devin Desktop (Windsurf rebrand to multi-agent IDE), Gemini 3.5 Pro, Copilot usage-based billing, Awesome Claude Skills 55K+ ⭐, SLM thesis (80% of tasks locally), Kanwas cross-agent shared context, and agent infrastructure boom (Coralogix $200M) — with 3 meta-trends: AI IPO supercycle, the desktop agent war, and construction AI going vertical.",
     file: "/briefs/tech-trends-2026-06-08.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Brief — June 8, 2026",
@@ -34,7 +41,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Open-source AEC tools like the web-ifc engine now enable browser-based BIM viewing for glazing, reducing Revit licensing and accelerating adoption",
     file: "/briefs/software-brief-2026-06-07.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief - June 07, 2026",
@@ -50,7 +57,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Key signals include AI-driven materials design, autonomous logistics, digital twins, robotics, and sustainable smart glazing reshaping construction",
     file: "/briefs/futurist-brief-2026-06-07.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Scan - June 7, 2026",
@@ -153,7 +160,7 @@ const briefs: Brief[] = [
     type: "book",
     description: "Oliver Burkeman on why the quest for self-mastery is a trap: imperfectionism - radical acceptance of your limitations as the gateway to a meaningful life. 28 daily essays covering defeat as liberation, doing things 'dailyish', productivity debt, rules that serve life, starting from sanity, and finishing what you start. With practical applications for running PGC.",
     file: "/briefs/book-summary-meditations-for-mortals.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Book Summary: Decoding Greatness",
