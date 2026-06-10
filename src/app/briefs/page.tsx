@@ -17,7 +17,7 @@ const briefs: Brief[] = [
     title: "Software Watch — June 10, 2026",
     date: "June 10, 2026",
     type: "software",
-    description: "10 new tools: Kreo AI (Caddie) — best-ranked AI takeoff for specialty trades (Try Now), Beam AI — automated takeoff for subcontractors (Try Now), STACK (Forbes June 8 feature, Watch), Togal.AI (Watch, try Kreo instead), PlanSwift & Bluebeam Revu (Skip, current tools), Linear — agent-ready task flows (Watch), n8n — open-source AI workflow automation (Try Now, free self-hosted), Lovable — AI app builder (Watch, try for glass calculator), Microsoft Scout GA June 16 (Watch, test then), Permitify — YC AI building permit review (Watch, track adoption). Priority: Kreo > n8n > Beam > Scout (June 16). Theme: AI takeoff market is maturing — $149-$299/month for mid-market.",
+    description: "12 new tools: AdamCAD (YC W25 AI text-to-CAD, $4.1M, Watch), Zoo Design Studio (open-source AI CAD kernel, ~$49/mo, Watch), OpenConstructionERP (free self-hosted construction ERP, v3.0, Try Now), Togal.AI ($299/mo AI takeoff, 95%+ accuracy, Try Now), STACK ($2,499/yr AI takeoff + PM, Try Now), OpenSpace (360° jobsite documentation, Watch), Knowify ($99/mo trade contractor PM + QB, Try Now), Buildertrend ($499-799/mo cloud PM, Watch), Bild AI (YC blueprint material extraction, Watch), Kreo ($149-299/mo BIM estimating, Watch), Buildbite ($39-89/mo field-to-billing, Watch), Scope AR/Trimble XR10 (AR for construction, Watch). Top picks: Togal.AI > Knowify > OpenConstructionERP > STACK.",
     file: "/briefs/software-watch-2026-06-10.html",
     badge: "Latest"
   },  {

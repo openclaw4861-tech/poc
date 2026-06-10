@@ -3,258 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Watch — June 10, 2026 | PGC</title>
+  <title>Software Watch — June 10, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
-    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    h1 { font-size: 28px; margin-bottom: 8px; }
-    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
-    .overview { background: #1a1a2e; color: #f0f0f0; border-radius: 10px; padding: 24px; margin-bottom: 28px; }
-    .overview h2 { color: #a8d8ff; font-size: 18px; margin-bottom: 10px; }
-    .overview p { font-size: 15px; line-height: 1.7; color: #d0d0d0; }
-    .tool { border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 16px; background: #fafafa; }
-    .tool-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-    .tool-num { font-size: 11px; font-weight: 700; background: #1565c0; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .tool-name { font-size: 17px; font-weight: 600; }
-    .tool-category { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: auto; }
-    .cat-construction { background: #e8f5e9; color: #2e7d32; }
-    .cat-productivity { background: #e3f2fd; color: #1565c0; }
-    .cat-dev { background: #fce4ec; color: #c62828; }
-    .cat-ai { background: #f3e5f5; color: #6a1b9a; }
-    .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 3px; margin: 1px; }
-    .tag-try { background: #e8f5e9; color: #2e7d32; }
-    .tag-watch { background: #fff3e0; color: #e65100; }
-    .tag-skip { background: #fafafa; color: #888; border: 1px solid #ddd; }
-    p { font-size: 14px; margin-bottom: 6px; }
-    .pricing { font-size: 12px; color: #666; margin: 4px 0; }
-    .mvp { background: #f1f8e9; border-left: 4px solid #558b2f; padding: 10px 14px; margin-top: 8px; font-size: 13px; }
-    .source { font-size: 12px; color: #888; margin-top: 4px; }
-    .divider { border: none; border-top: 1px solid #eee; margin: 24px 0; }
-    .scoring-section { background: #f9f9f9; border-radius: 8px; padding: 18px 20px; font-size: 13px; line-height: 1.7; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #f5f6f9; color: #1a1a2e; line-height: 1.6; padding: 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { margin-bottom: 2rem; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #0a0a1a; }
+    header .subtitle { color: #5a5a7a; font-size: 1.05rem; margin-top: 0.25rem; }
+    header .date { display: inline-block; background: #e8eaf0; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #4a4a6a; margin-top: 0.5rem; }
+    .verdict-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .glazing-high { background: #d4edda; color: #155724; }
+    .glazing-medium { background: #fff3cd; color: #856404; }
+    .glazing-low { background: #f8d7da; color: #721c24; }
+    .tool-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 768px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
+    .tool-card { background: #fff; border-radius: 14px; border: 1px solid #e4e6ef; padding: 1.25rem; display: flex; flex-direction: column; transition: box-shadow 0.15s; }
+    .tool-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .tool-card-header { margin-bottom: 0.6rem; }
+    .tool-card-header h2 { font-size: 1.15rem; font-weight: 600; color: #0a0a1a; }
+    .tool-card-header .category { font-size: 0.8rem; color: #6a6a8a; font-weight: 500; }
+    .tool-card-body { flex: 1; }
+    .tool-card-body p { font-size: 0.92rem; color: #2a2a3e; margin-bottom: 0.5rem; }
+    .tool-card-body .label { font-weight: 600; font-size: 0.82rem; color: #3a3a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.5rem; }
+    .tool-card-footer { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid #eeeef4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem; }
+    .footer-summary { margin-top: 2.5rem; background: #fff; border-radius: 14px; border: 1px solid #e4e6ef; padding: 1.5rem; }
+    .footer-summary h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .footer-summary .top-picks { list-style: none; }
+    .footer-summary .top-picks li { padding: 0.3rem 0; font-size: 0.95rem; }
+    .footer-summary .top-picks li strong { color: #0a0a1a; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.75rem 0; }
+    th { text-align: left; padding: 0.5rem 0.6rem; background: #f0f1f6; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: #3a3a5a; }
+    td { padding: 0.5rem 0.6rem; border-bottom: 1px solid #eeeef4; }
   </style>
 </head>
 <body>
-<div class="container">
-  <h1>💻 Software Watch</h1>
-  <p class="subtitle">What's new, what's worth trying &nbsp;|&nbsp; June 10, 2026</p>
+  <div class="container">
+    <header>
+      <h1>🔧 Software Watch</h1>
+      <div class="subtitle">New tools for construction, glazing &amp; fabrication — curated for PGC</div>
+      <div class="date">June 10, 2026</div>
+    </header>
 
-  <div class="overview">
-    <h2>🔍 This Week's Take: The Takeoff AI Market Is Maturing</h2>
-    <p>Forbes published a major piece on AI construction takeoffs (June 8) and the Dan Cumberland Labs 2026 ranking is the most comprehensive I've seen. The pattern: AI takeoff tools are moving from "novelty" to "table stakes" — $149-$299/month for mid-market contractors. Meanwhile, the broader software world is shifting toward agent-ready tools (Linear, n8n, Lovable from VivaTech's ranking). For PGC, the question isn't "should we use AI takeoff software" — it's which one, and how much integration we need.</p>
-  </div>
+    <div class="tool-grid">
+      <!-- 1. AdamCAD -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>AdamCAD</h2>
+          <div class="category">AI Text-to-CAD</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Turn natural language descriptions into parametric 3D CAD models. Understands wall thickness, draft angles, bolt patterns. YC W25, $4.1M raised.</p>
+          <p><strong>Legacy alt:</strong> Modeling from scratch in SolidWorks/AutoCAD.</p>
+          <p><strong>Differentiator:</strong> Parametric, editable CAD output — not just mesh. Manufacturing-aware geometry.</p>
+          <p><strong>Pricing:</strong> Free tier, Pro ~$29/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Five free exports — describe a bracket or support shoe.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
 
-  <!-- 1 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">1</span>
-      <span class="tool-name">Kreo AI (Caddie)</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
+      <!-- 2. Zoo Design Studio -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Zoo Design Studio</h2>
+          <div class="category">Open-Source AI CAD Kernel</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Full CAD environment + AI agent "Zookeeper" for text-to-CAD. REST API for programmatic CAD generation. Open-source geometric kernel.</p>
+          <p><strong>Legacy alt:</strong> Fusion 360, SolidWorks parametric modeling.</p>
+          <p><strong>Differentiator:</strong> Open-source core + ML CAD Generator. Geometry in seconds via API.</p>
+          <p><strong>Pricing:</strong> Free (OSS self-host). Cloud ~$49/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Run the OSS version locally or try free cloud tier.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 3. OpenConstructionERP -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>OpenConstructionERP</h2>
+          <div class="category">Open-Source Construction ERP</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Full ERP: BOQ, PDF/CAD/BIM takeoff, AI cost matching, 42 regional catalogues, 71 modules, 21 languages. DDC CAD/BIM data converters included.</p>
+          <p><strong>Legacy alt:</strong> Sage 100, Viewpoint, Procore ($400+/mo).</p>
+          <p><strong>Differentiator:</strong> Completely free self-hosted. 55K+ CWICR resource database. BIM takeoff built in.</p>
+          <p><strong>Pricing:</strong> Free (AGPL-3.0). <code>pip install openconstructionerp</code></p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Install locally, load a sample glazing BOQ.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 4. Togal.AI -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Togal.AI</h2>
+          <div class="category">AI Quantity Takeoff</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Upload plans — AI identifies walls, doors, windows, rooms. Generates quantities in seconds. 95%+ accuracy, 80-85% faster takeoffs.</p>
+          <p><strong>Legacy alt:</strong> PlanSwift, Bluebeam manual takeoff.</p>
+          <p><strong>Differentiator:</strong> Computer vision works with scanned PDFs — no manual scaling. Auto-detects revisions.</p>
+          <p><strong>Pricing:</strong> Growth Plan ~$299/mo per user.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Demo with a recent project PDF. Compare AI vs. manual takeoff time.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 5. STACK -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>STACK</h2>
+          <div class="category">AI-Enhanced Takeoff &amp; PM</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Cloud-based takeoff + estimating with AI auto-counting for doors, windows, walls. Integrated project management module.</p>
+          <p><strong>Legacy alt:</strong> Excel + manual plan measuring.</p>
+          <p><strong>Differentiator:</strong> AI Assist1 auto-detects symbols from blueprints. Connects takeoff to project tracking.</p>
+          <p><strong>Pricing:</strong> Standard ~$2,499/yr, Premium (AI) ~$2,999/yr per user.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> 14-day free trial. Upload glazing-heavy drawings.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 6. OpenSpace -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>OpenSpace</h2>
+          <div class="category">Visual Intelligence / Field Documentation</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Walk a jobsite with 360° camera — AI maps imagery to floor plans. Progress tracking, BIM comparison, issue tracking. 95K+ projects.</p>
+          <p><strong>Legacy alt:</strong> Manual photo documentation, daily reports.</p>
+          <p><strong>Differentiator:</strong> AI spatial indexing — no manual tagging. 41% fewer claims. Integrates with Procore/BIM 360.</p>
+          <p><strong>Pricing:</strong> Custom (est. $500-2K/mo).</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Demo. Walk a current project with smartphone.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 7. Knowify -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Knowify</h2>
+          <div class="category">Trade Contractor Management</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Estimating, proposals, contracts, scheduling, time tracking, job costing, AI billing, QuickBooks sync. Built for specialty trades.</p>
+          <p><strong>Legacy alt:</strong> Spreadsheets + QB + separate PM tools.</p>
+          <p><strong>Differentiator:</strong> Designed for trade subs. AI Connector for automated billing. Deep QB integration.</p>
+          <p><strong>Pricing:</strong> Starts at ~$99/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> 14-day free trial. Import a current project to test job costing.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 8. Buildertrend -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Buildertrend</h2>
+          <div class="category">Cloud Construction PM</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Scheduling, change orders, daily logs, financials, client communication, warranty management. Popular with residential/light commercial GCs.</p>
+          <p><strong>Legacy alt:</strong> Paper logs, spreadsheets, manual change order tracking.</p>
+          <p><strong>Differentiator:</strong> Client portal for approvals. Integrated financial modules. Mobile-first field app.</p>
+          <p><strong>Pricing:</strong> ~$499-799/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> 30-day trial. Test scheduling and change order workflow.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 9. Bild AI -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Bild AI</h2>
+          <div class="category">Blueprint Intelligence</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> YC-backed AI that reads blueprints → extracts materials + cost data. End-to-end from drawings to procurement lists.</p>
+          <p><strong>Legacy alt:</strong> Manual material takeoff and data entry.</p>
+          <p><strong>Differentiator:</strong> End-to-end pipeline: drawing → material list → cost estimate. Built for builders.</p>
+          <p><strong>Pricing:</strong> Not public. Est. $200-500/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Request early access. Upload a glazing shop drawing.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 10. Kreo -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Kreo</h2>
+          <div class="category">AI Estimating &amp; BIM Analytics</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI-driven takeoff with 2D/3D plan analysis, automated quantification. BIM integration for 5D estimating (cost + time).</p>
+          <p><strong>Legacy alt:</strong> Bluebeam, standalone estimating tools.</p>
+          <p><strong>Differentiator:</strong> Strong on complex commercial projects. BIM-based 5D estimating. Collaborative analytics.</p>
+          <p><strong>Pricing:</strong> ~$149-299/mo per user.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Demo with a complex commercial curtain wall project.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 11. Buildbite -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Buildbite</h2>
+          <div class="category">Field-to-Billing Platform</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Connects daily reports, time tracking, progress photos directly to billing and invoicing. Fieldwire alternative with stronger field-to-office pipeline.</p>
+          <p><strong>Legacy alt:</strong> Fieldwire + separate billing process.</p>
+          <p><strong>Differentiator:</strong> Unified field → office → billing. Mobile-native with offline support.</p>
+          <p><strong>Pricing:</strong> ~$39-89/mo per user.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Free trial. Test daily reporting from a glazing install site.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 12. Scope AR / Trimble XR10 -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Scope AR / Trimble XR10</h2>
+          <div class="category">AR/VR for Construction</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Overlay BIM/IFC models onto physical jobsites with AR headsets. See where panels go before installation. Hard-hat-compatible.</p>
+          <p><strong>Legacy alt:</strong> 2D drawings, manual layout marking.</p>
+          <p><strong>Differentiator:</strong> Works with standard BIM/IFC formats. Trimble ecosystem. Hands-free, hard-hat compatible.</p>
+          <p><strong>Pricing:</strong> Hardware ~$3,500-5,000 + subscription ~$200-500/mo.</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Trimble offers demo units. Test on complex commercial install.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
     </div>
-    <span class="tag tag-try">✅ Try Now</span>
-    <p>Kreo's AI agent "Caddie" reads construction drawings like an engineer — understanding context, scale, and intent. It automatically detects rooms, doors, and windows, cross-references data across sheets. Cloud-based, flexible reporting, create-iterate-repeat workflow. One of the highest-rated AI takeoff tools of 2026.</p>
-    <p class="pricing">$149-$299/month range (mid-market)</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> Upload a glazing spec sheet to Kreo. Test whether Caddie correctly identifies window types, dimensions, and quantities. Compare extraction accuracy to manual takeoff on one past project. | 1 hour | Free trial</div>
-    <div class="source">Sources: Dan Cumberland Labs 2026 ranking, welcome.ai, aichief.com</div>
-  </div>
 
-  <!-- 2 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">2</span>
-      <span class="tool-name">Beam AI</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
+    <!-- Summary Matrix -->
+    <div class="footer-summary">
+      <h3>📊 Summary Matrix</h3>
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Category</th><th>Glazing</th><th>Verdict</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AdamCAD</td><td>AI Text-to-CAD</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Zoo Design Studio</td><td>Open-Source AI CAD</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>OpenConstructionERP</td><td>ERP / Estimating</td><td><span class="verdict-badge glazing-high">High</span></td><td><span class="verdict-badge verdict-try">Try Now</span></td></tr>
+          <tr><td>Togal.AI</td><td>AI Takeoff</td><td><span class="verdict-badge glazing-high">High</span></td><td><span class="verdict-badge verdict-try">Try Now</span></td></tr>
+          <tr><td>STACK</td><td>Takeoff &amp; PM</td><td><span class="verdict-badge glazing-high">High</span></td><td><span class="verdict-badge verdict-try">Try Now</span></td></tr>
+          <tr><td>OpenSpace</td><td>Field Documentation</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Knowify</td><td>Trade PM / ERP</td><td><span class="verdict-badge glazing-high">High</span></td><td><span class="verdict-badge verdict-try">Try Now</span></td></tr>
+          <tr><td>Buildertrend</td><td>Cloud PM</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Bild AI</td><td>Blueprint Intelligence</td><td><span class="verdict-badge glazing-high">High</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Kreo</td><td>Estimating / BIM</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Buildbite</td><td>Field-to-Billing</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+          <tr><td>Scope AR / XR10</td><td>AR/VR</td><td><span class="verdict-badge glazing-medium">Medium</span></td><td><span class="verdict-badge verdict-watch">Watch</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:1rem;">🏆 Top Picks for PGC</h3>
+      <ol class="top-picks">
+        <li><strong>Togal.AI</strong> — Automate glass/window takeoff from plans</li>
+        <li><strong>Knowify</strong> — Trade-specific PM with QuickBooks integration</li>
+        <li><strong>OpenConstructionERP</strong> — Free, self-hosted construction ERP</li>
+        <li><strong>STACK</strong> — AI takeoff + integrated project management</li>
+      </ol>
     </div>
-    <span class="tag tag-try">✅ Try Now</span>
-    <p>Beam AI focuses on automated takeoffs specifically for subcontractors and specialty contractors. It's mentioned in Palcode.ai's 2026 construction AI workflow analysis as one of the tools most relevant to subs. Designed for the kind of work PGC does (extract quantities from PDFs, generate BOMs).</p>
-    <p class="pricing">Not publicly listed</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> Request a demo. Compare Beam AI's specialty-trade output against Kreo. Specialty subs need different extraction logic than GCs — Beam claims to be designed for subs specifically. | 1 week | Free demo</div>
-    <div class="source">Source: palcode.ai Construction AI Workflow Software (June 2026)</div>
   </div>
-
-  <!-- 3 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">3</span>
-      <span class="tool-name">STACK Construction Technologies</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>Featured in the Forbes June 8 article ("AI Provides Speed And Precision For Construction Takeoffs & Bids") as a leading cloud-based takeoff and estimating platform. STACK has been around longer than the AI-native tools, but is integrating AI features. Good for GCs and specialty contractors alike. More established but slower to innovate than pure AI plays.</p>
-    <p class="pricing">~$199/month</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> SKIP for now if you try Kreo or Beam first. STACK is better as a fallback. | N/A | N/A</div>
-    <div class="source">Source: Forbes (June 8, 2026)</div>
-  </div>
-
-  <!-- 4 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">4</span>
-      <span class="tool-name">Togal.AI</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>One of the most well-known AI takeoff tools, highlighted in multiple 2026 roundups including Dan Cumberland Labs. Palcode.ai also flags it as relevant for specialty contractors. Togal.Ai uses AI to auto-detect and measure quantities from construction drawings.</p>
-    <p class="pricing">$199/month</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> If you already requested a Togal.AI trial (from the earlier MVP strategy), run the comparison. If not, use Kreo instead — they're similar but Kreo's Caddie scored higher in 2026 rankings. | N/A | $199/mo</div>
-    <div class="source">Sources: Dan Cumberland Labs, palcode.ai (June 2026)</div>
-  </div>
-
-  <!-- 5 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">5</span>
-      <span class="tool-name">PlanSwift & Bluebeam Revu</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
-    </div>
-    <span class="tag tag-skip">⏭️ Skip (Current)</span>
-    <p>The industry standards — PlanSwift for digital takeoff and Bluebeam Revu for PDF measurement. Professional estimators rely on these heavily per the 2026 surveys. AI takeoff tools are beginning to surpass them in speed, but Bluebeam+PlanSwift still have the deepest workflow integration with teams that already use them.</p>
-    <p class="pricing">Already in use or available</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> If PGC uses either of these, run a side-by-side test: time a manual takeoff in Bluebeam vs. AI takeoff in Kreo on the same drawing. Measure time savings and accuracy differences. | 2 hours | Free</div>
-    <div class="source">Sources: aconengineering.com, greenmargins.com (June 2026)</div>
-  </div>
-
-  <!-- 6 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">6</span>
-      <span class="tool-name">Linear (Agent-Ready Task Flows)</span>
-      <span class="tool-category cat-productivity">⚙️ Productivity</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>Linear has evolved beyond issue tracking into releases, code context, Slack-linked project work, and agent-ready task flows. The June 2026 coverage describes it as "a full product operating layer rather than a ticket tool." For PGC, this represents the direction project management software is heading — agent-native workflows, not just chat integrations.</p>
-    <p class="pricing">$8-16/user/month</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> For PGC's internal project tracking, compare Linear (free tier) vs. current tool. The agent-ready aspect is the differentiator — Linear's upcoming agent API means Joe could create and update tasks directly. | 2 hours | Free tier</div>
-    <div class="source">Source: blog.mean.ceo Linear News (June 2026)</div>
-  </div>
-
-  <!-- 7 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">7</span>
-      <span class="tool-name">n8n (AI Workflow Automation)</span>
-      <span class="tool-category cat-productivity">⚙️ Productivity</span>
-    </div>
-    <span class="tag tag-try">✅ Try Now</span>
-    <p>Highlighted at VivaTech 2026 startup ranking as a top European AI productivity tool. n8n is an open-source workflow automation platform (like Zapier but self-hostable). With AI nodes, it can chain LLM calls, database lookups, Slack messages, and file processing into automated workflows. For a 34-person company, n8n could automate a lot of the manual glue between tools.</p>
-    <p class="pricing">Free self-hosted (OSS), Cloud from $20/month</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> Build one workflow in n8n self-hosted: new submittal uploaded → notify Steve in Telegram → draft cover letter via Joe → save to Drive. Test the full pipeline. If it works, expand to 5 more workflows. | 2 hours | Free (self-hosted)</div>
-    <div class="source">Source: VivaTech 2026 rankings via blog.mean.ceo (June 2026)</div>
-  </div>
-
-  <!-- 8 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">8</span>
-      <span class="tool-name">Lovable (AI App Builder)</span>
-      <span class="tool-category cat-dev">💻 Dev Tools</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>Lovable was part of VivaTech's top startup list. It's an AI-powered web app builder that generates full-stack applications from natural language descriptions. For PGC's glass calculator or other internal tools, Lovable could reduce initial development time from weeks to days — but the output quality varies and you're dependent on Lovable's infrastructure.</p>
-    <p class="pricing">$25-99/month</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> Give Lovable one PGC tool spec: "Build a simple glass weight calculator that takes dimensions and thickness, outputs weight per lite." Compare the output quality and development time vs. building it in the poc-site codebase. | 4 hours | Free trial</div>
-    <div class="source">Source: VivaTech 2026 rankings via blog.mean.ceo</div>
-  </div>
-
-  <!-- 9 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">9</span>
-      <span class="tool-name">Microsoft Scout (GA June 16)</span>
-      <span class="tool-category cat-ai">🤖 AI</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>Scout reaches General Availability on June 16. Covered in depth in Monday's Tech Brief — Scout is Microsoft's always-on AI agent for M365 (Outlook, Teams, SharePoint). It proposes, drafts, schedules, and follows up. For PGC, Scout represents the easiest potential AI onboarding: it just works inside tools you likely already use. The cost and data privacy trade-offs need evaluation.</p>
-    <p class="pricing">Part of M365 Copilot ($30/user/month) or standalone pricing TBD</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> On June 16, request a Scout trial. Run Steve's morning routine through Scout for 3 days. Compare quality, speed, and convenience vs. Joe's morning brief. | 3 days starting June 16 | Free trial</div>
-    <div class="source">Sources: Reuters (June 2, 2026), CNET (Build 2026)</div>
-  </div>
-
-  <!-- 10 -->
-  <div class="tool">
-    <div class="tool-header">
-      <span class="tool-num">10</span>
-      <span class="tool-name">Permitify (YC, AI Building Permit Review)</span>
-      <span class="tool-category cat-construction">🏗️ Construction</span>
-    </div>
-    <span class="tag tag-watch">👀 Watch</span>
-    <p>Y Combinator-funded startup that allows city building-plan reviewers to "10x their productivity covering the labor shortage, reducing time to issue a building permit." Uses AI to automate building code compliance checks against submitted plans. When this tool (or competitors like it) gets adopted by PGC's local permitting offices, it directly impacts how fast permits get issued — and thus how fast PGC can start and finish projects.</p>
-    <p class="pricing">City/subscription, not contractor-facing (yet)</p>
-    <div class="mvp">🧪 <strong>MVP:</strong> Track whether PGC's local building departments adopt any AI permit review tool. If they do, feed PGC's standard glazing details to the system early — know the AI's review criteria before submitting. | 30 min research | Free</div>
-    <div class="source">Source: Y Combinator startups list (June 2026)</div>
-  </div>
-
-  <hr class="divider">
-
-  <h2 style="font-size:18px;margin-bottom:12px;">⚖️ PGC Priority: What to Try This Week</h2>
-  <div class="scoring-section">
-    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <tr style="border-bottom:1px solid #ddd;">
-        <th style="text-align:left;padding:8px 4px;">Tool</th>
-        <th style="text-align:center;padding:8px 4px;">Action</th>
-        <th style="text-align:center;padding:8px 4px;">Time</th>
-        <th style="text-align:center;padding:8px 4px;">Cost</th>
-        <th style="text-align:left;padding:8px 4px;">Why</th>
-      </tr>
-      <tr style="background:#f0f8f0;">
-        <td style="padding:8px 4px;"><strong>Kreo (Caddie)</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-try">Try</span></td>
-        <td style="text-align:center;padding:8px 4px;">1 hour</td>
-        <td style="text-align:center;padding:8px 4px;">Free trial</td>
-        <td style="padding:8px 4px;">Best-ranked AI takeoff for specialty trades</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 4px;"><strong>Beam AI</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-try">Try</span></td>
-        <td style="text-align:center;padding:8px 4px;">1 week</td>
-        <td style="text-align:center;padding:8px 4px;">Free demo</td>
-        <td style="padding:8px 4px;">Specialty-sub focused</td>
-      </tr>
-      <tr style="background:#f0f8f0;">
-        <td style="padding:8px 4px;"><strong>n8n</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-try">Try</span></td>
-        <td style="text-align:center;padding:8px 4px;">2 hours</td>
-        <td style="text-align:center;padding:8px 4px;">Free (self-hosted)</td>
-        <td style="padding:8px 4px;">Automation glue between tools</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 4px;"><strong>Scout</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-watch">Watch</span></td>
-        <td style="text-align:center;padding:8px 4px;">Jun 16</td>
-        <td style="text-align:center;padding:8px 4px;">Trial</td>
-        <td style="padding:8px 4px;">GA on June 16, then test</td>
-      </tr>
-      <tr style="background:#f0f8f0;">
-        <td style="padding:8px 4px;"><strong>Lovable</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-watch">Watch</span></td>
-        <td style="text-align:center;padding:8px 4px;">4 hours</td>
-        <td style="text-align:center;padding:8px 4px;">Free trial</td>
-        <td style="padding:8px 4px;">Glass calculator experiment</td>
-      </tr>
-      <tr>
-        <td style="padding:8px 4px;"><strong>Togal.AI</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-watch">Watch</span></td>
-        <td style="text-align:center;padding:8px 4px;">—</td>
-        <td style="text-align:center;padding:8px 4px;">$199/mo</td>
-        <td style="padding:8px 4px;">Try Kreo instead (higher rated)</td>
-      </tr>
-      <tr style="background:#f0f8f0;">
-        <td style="padding:8px 4px;"><strong>STACK</strong></td>
-        <td style="text-align:center;padding:8px 4px;"><span class="tag tag-skip">Skip</span></td>
-        <td style="text-align:center;padding:8px 4px;">—</td>
-        <td style="text-align:center;padding:8px 4px;">$199/mo</td>
-        <td style="padding:8px 4px;">Fallback only</td>
-      </tr>
-    </table>
-  </div>
-
-  <hr class="divider">
-
-  <div class="sources-section">
-    <strong>Sources:</strong> Forbes (June 8, 2026), Dan Cumberland Labs 2026 AI Estimating Ranking, palcode.ai Construction AI Workflow Report, Y Combinator June 2026 cohort, VivaTech 2026 rankings, Product Hunt 2026, aconengineering.com, welcome.ai, aichief.com, blog.mean.ceo
-  </div>
-
-  <p style="font-size:12px; color:#aaa; margin-top:20px;">Generated by Joe | June 10, 2026 | Next Software Watch: June 17, 2026</p>
-</div>
 </body>
 </html>
