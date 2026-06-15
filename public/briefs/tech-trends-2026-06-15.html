@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Trends Brief — June 15, 2026 | PGC</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a1a; background: #f5f5f7; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    h1 { font-size: 28px; margin-bottom: 8px; color: #1a1a1a; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+    .hero { background: linear-gradient(135deg, #1e3a5f, #2d5a87); color: #fff; padding: 28px 32px; border-radius: 10px; margin-bottom: 32px; }
+    .hero h1 { color: #fff; font-size: 24px; margin-bottom: 6px; }
+    .hero .subtitle { color: #93c5fd; margin-bottom: 0; }
+    .meta-bar { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+    .meta-chip { background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: #bfdbfe; }
+    .intro { background: #f0f7ff; border-left: 4px solid #0066cc; padding: 16px 20px; margin-bottom: 24px; border-radius: 0 8px 8px 0; }
+    .action-box { background: #fef9c3; border: 2px solid #facc15; border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .action-box h2 { font-size: 15px; color: #713f12; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .action-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .action-table th { background: #92400e; color: #fef3c7; padding: 8px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    .action-table td { padding: 8px 12px; border-bottom: 1px solid #d97706; color: #78350f; }
+    .action-table tr:last-child td { border-bottom: none; }
+    .action-table td:first-child { font-weight: 600; }
+    .trend { border: 1px solid #e0e0e0; border-radius: 8px; padding: 24px; margin-bottom: 20px; background: #fafafa; }
+    .trend-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .trend-name { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+    .category { font-size: 12px; padding: 4px 10px; border-radius: 12px; background: #e8f4fd; color: #0066cc; font-weight: 500; }
+    .field { margin-bottom: 10px; }
+    .field-label { font-size: 12px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .field-value { font-size: 14px; color: #333; }
+    .tag { display: inline-block; background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-right: 4px; margin-bottom: 2px; }
+    .verdict { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-read { background: #e8daef; color: #4a235a; }
+    .verdict-track { background: #d1ecf1; color: #0c5460; }
+    .verdict-demo { background: #d1e7dd; color: #0f5132; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .meta-trend { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 24px 28px; border-radius: 10px; margin: 28px 0; }
+    .meta-trend h3 { font-size: 11px; margin-bottom: 8px; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.8px; }
+    .meta-trend p { color: #e2e8f0; font-size: 14px; margin: 0; }
+    .meta-trend .verdict { margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 12px; border-radius: 8px; overflow: hidden; }
+    th { background: #1e293b; color: #e2e8f0; padding: 10px 12px; text-align: left; font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+    tr:nth-child(even) { background: #f8fafc; }
+    tr:last-child td { border-bottom: none; }
+    .footer { color: #94a3af; font-size: 12px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    h2 { font-size: 20px; margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>🛠️ Tech Trends Brief — June 15, 2026</h1>
+    <p class="subtitle">15 Technologies for Pacific Glazing Corp</p>
+    <div class="meta-bar">
+      <span class="meta-chip">📅 June 15, 2026</span>
+      <span class="meta-chip">🔬 15 Technologies</span>
+      <span class="meta-chip">⚡ MVP Experiments</span>
+      <span class="meta-chip">🏢 PGC Focused</span>
+    </div>
+  </div>
+
+  <div class="action-box">
+    <h2>⚡ Steve's Action Items</h2>
+    <table class="action-table">
+      <tr><th>#</th><th>Action</th><th>Tool / Trend</th><th>Time</th></tr>
+      <tr><td>1</td><td><strong>Test Claude Fable 5</strong> — try Anthropic's Mythos-class model on a PGC spec extraction task</td><td>Claude Fable 5</td><td>30 min</td></tr>
+      <tr><td>2</td><td><strong>Try WWDC Siri AI on your iPhone</strong> — test cross-app context awareness for pulling project data</td><td>iOS 27 / Siri AI</td><td>15 min</td></tr>
+      <tr><td>3</td><td><strong>Evaluate Trace for field meeting transcripts</strong> — offline Mac meeting transcription with mid-call flagging</td><td>Trace</td><td>1 hr</td></tr>
+      <tr><td>4</td><td><strong>Check Kage for offline archiving</strong> — shadow PGC project specs to a single binary for field access</td><td>Kage</td><td>30 min</td></tr>
+      <tr><td>5</td><td><strong>Set up zeroserve for local inference</strong> — 3x throughput, 70% lower latency serving models internally</td><td>zeroserve + Caddy</td><td>1 hr</td></tr>
+      <tr><td>6</td><td><strong>Watch DeepMind agent swarms briefing</strong> — understand risks of multi-agent coordination for PGC's tools</td><td>MIT Tech Review report</td><td>15 min</td></tr>
+      <tr><td>7</td><td><strong>Explore contech YC batch companies</strong> — browse YC P26 for glazing-specific AI tools</td><td>YC P26 contech</td><td>1 hr</td></tr>
+    </table>
+  </div>
+
+  <h2>🔍 Meta-Trends</h2>
+
+  <div class="meta-trend">
+    <h3>Meta-Trend 1: The Mythos-Class AI Race — Anthropic Fable 5, Export Controls, and the New Tier of Intelligence</h3>
+    <p>The biggest story this week: <strong>Anthropic released Claude Fable 5 on June 9</strong> — the first publicly available Mythos-class model, sitting above Opus in capability. It excels at software engineering, knowledge work, and vision — but within <strong>3 days</strong>, a US government export directive temporarily forced it back offline. Anthropic also offers an unrestricted version (Claude Mythos 5) to enterprise Glasswing partners. Meanwhile, <strong>Anthropic's confidential SEC filing</strong> values the company at $730-965B, and <strong>SpaceX IPO'd June 12</strong> after the $30B Google compute deal. <strong>AI capability tiers are becoming regulated — the top tier is now government-controlled.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — Fable 5 on a single PGC task this week; the export control signal means access will tighten</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #1e3a2f, #234d3d);">
+    <h3>Meta-Trend 2: Apple's Siri AI Moment — WWDC 2026 Delivers the Consumer AI Agent That Actually Works</h3>
+    <p>Apple's WWDC 2026 (June 9) was arguably the most consequential in a decade: <strong>Siri AI</strong> — totally revamped with Apple Intelligence at its core — can now access Messages, Mail, Photos, and <strong>on-screen content in real-time without switching apps</strong>. Cross-app context awareness, one-tap password updates, Safari tab management, and an <strong>AI agent integration with the App Store</strong>. Combined with <strong>Tim Cook's CEO transition to John Ternus</strong>, this signals a generational platform shift. <strong>Consumer AI agents just went truly mainstream.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — Siri AI on your primary device; test pulling project data across apps without manual switching</div>
+  </div>
+
+  <div class="meta-trend" style="background: linear-gradient(135deg, #3d1e3a, #4d234d);">
+    <h3>Meta-Trend 3: The Construction AI Supply Chain — From YC Startups to Agent Swarm Risks</h3>
+    <p>This week spans both ends of the construction AI spectrum: <strong>YC P26 batch</strong> confirms contech as a hot vertical (Structured AI for drawing QC, RealPact for real estate paperwork, $121M+ in contech funding). Meanwhile, <strong>MIT Tech Review reports DeepMind is worried about what happens when millions of agents interact</strong> — agent swarms could create emergent behaviors, coordination failures, and security risks. <strong>China's first brain-chip BCI patient</strong> adds a wildcard. For PGC, the message is clear: <strong>construction-specific AI tools are ready to use, but agent governance frameworks need attention as deployment scales.</strong></p>
+    <div class="verdict verdict-try">🟢 TRY — pick one contech tool for a real PGC workflow; start documenting agent interaction patterns</div>
+  </div>
+
+  <h2>📋 15 Technologies</h2>
+
+  <!-- 1 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">1. Claude Fable 5 / Mythos 5 — Anthropic's Mythos-Class Model with Export Controls</span>
+      <span class="category">Frontier Models</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Anthropic's first publicly available <strong>Mythos-class model</strong> (sits above Opus in capability). Fable 5 is the safety-hardened public version; Mythos 5 is the unrestricted version for Glasswing partners. Released June 9, <strong>pulled offline 3 days later</strong> by US export directive. Excels at software engineering, knowledge work, and vision.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Production coding at Mythos level, complex multi-step agent tasks, vision-based analysis, professional knowledge work with safeguards against cyber capabilities and biological risks.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Anthropic</span><span class="tag">Claude Fable 5</span><span class="tag">Mythos class</span><span class="tag">export controls</span><span class="tag">frontier models</span><span class="tag">safety</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">In Claude.ai with Fable 5 selected: "Analyze this curtain wall spec — extract all glass types, U-values, structural load ratings, and testing standards. Output as a structured comparison table." Time: 30 minutes. Compare to Opus 4.8 output quality.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Fable 5 represents the most capable AI PGC can use publicly. The export control signal means access to top-tier AI is tightening — <strong>test now while it's available</strong>. Even the "downgraded" version outperforms everything else.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — before export restrictions tighten further</div>
+  </div>
+
+  <!-- 2 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">2. WWDC 2026: Siri AI + iOS 27 — Apple's Agentic OS Revolution</span>
+      <span class="category">Consumer AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value">Apple's WWDC 2026 unveiled the biggest Siri overhaul ever: <strong>Siri AI</strong> powered by Apple Intelligence, with cross-app context awareness (accessing Messages, Mail, Photos, and on-screen content in real-time without switching apps). New features: one-tap password updates, Safari tab management with AI, <strong>Agent Store integration</strong>, and iOS 27 / macOS Golden Gate shipping this fall. Tim Cook's farewell, John Ternus taking over.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Apple device AI assistant — booking reservations, managing tasks, editing documents, surfacing specific photos, cross-app data retrieval, all with on-device privacy. iPhone 16/17+ get full features.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Apple</span><span class="tag">WWDC 2026</span><span class="tag">Siri AI</span><span class="tag">iOS 27</span><span class="tag">Apple Intelligence</span><span class="tag">consumer AI</span><span class="tag">Tim Cook</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">On your iPhone 16/17: Install iOS 27 beta. Test: "Find the photos from our last curtain wall installation at the hospital project" and "What was the glass thickness spec from that email last week?" Time: 15 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If field PMs and estimators use iPhones (which most do), Siri AI becomes a powerful tool for on-site spec retrieval, photo-based progress tracking, and cross-app project data access — all hands-free.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — install iOS 27 beta on one office device</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">3. Trace — Offline Mac Meeting Transcripts with Mid-Call Flagging</span>
+      <span class="category">Productivity AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Trace</strong> (Show HN, 163 points) — an <strong>offline</strong> Mac app that transcribes meetings in real-time and lets you flag key moments mid-call. Everything runs locally, no cloud upload. Supports searchable transcripts, highlights, and sharing. #1 on Show HN June 14.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Meeting transcription, action item capture, mid-call flagging of important decisions, searchable meeting history — all fully offline.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">offline AI</span><span class="tag">meeting transcripts</span><span class="tag">privacy</span><span class="tag">productivity</span><span class="tag">Show HN</span><span class="tag">Mac</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Download Trace. Use it for PGC's next project coordination call. Flag "glass delivery date" and "installation sequence change" during the call. Export the summary. Time: 1 meeting cycle.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC has 34 people in-office with frequent project coordination meetings. An offline meeting transcript tool means no sensitive project data leaves the office, while ensuring nothing falls through the cracks.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — install for next project meeting</div>
+  </div>
+
+  <!-- 4 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">4. Kage — Shadow Any Website to a Single Binary for Offline Viewing</span>
+      <span class="category">Developer Tools</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Kage</strong> — #1 on HN front page (564 points). Shadows any website to a <strong>single binary</strong> for offline viewing. Basically wget + packaging into a standalone executable. Perfect for archiving documentation, specs, or web tools for offline field access. Open-source, MIT license.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Offline archiving of web content — project specs hosted on portals, manufacturer catalogs, building code references — all accessible without internet.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">offline</span><span class="tag">archiving</span><span class="tag">static sites</span><span class="tag">developer tools</span><span class="tag">open source</span><span class="tag">Show HN</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value"><code>git clone https://github.com/tamnd/kage && cd kage</code> then <code>kage shadow https://pgc-construction-docs.example.com</code>. Test the resulting binary on a laptop with no internet. Time: 30 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC field teams often work in buildings under construction with poor or no internet. Kage means entire project spec libraries, code books, and manufacturer catalogs can be <strong>carried as a single file</strong> on a laptop or tablet — zero connectivity required.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — archive one PGC supplier catalog as a binary this week</div>
+  </div>
+
+  <!-- 5 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">5. zeroserve + Caddy — 3x Throughput, 70% Lower Latency for Local AI Serving</span>
+      <span class="category">AI Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>zeroserve</strong> — a new AI inference server that achieves <strong>3x throughput and 70% lower latency</strong> compared to standard approaches, now with <strong>Caddy compatibility</strong> (automated HTTPS, reverse proxy, Let's Encrypt). The June 14 benchmarks show production-ready performance for serving models on modest hardware.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Self-hosted AI model serving — replacing cloud inference with local models at significantly better performance and lower cost.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">zeroserve</span><span class="tag">Caddy</span><span class="tag">inference</span><span class="tag">self-hosted</span><span class="tag">performance</span><span class="tag">local AI</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install zeroserve on a PGC server. Configure Caddy for auto-HTTPS. Deploy a small model (Phi-4-mini). Compare latency vs. existing cloud API for 100 spec-analysis requests. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC runs local AI models (which the data suggests is the right economics), zeroserve + Caddy is the <strong>most performant self-hosted stack available</strong>. 3x throughput means one machine serves the entire office.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — set up on a PGC machine this week</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">6. DeepMind Agent Swarm Warning — MIT Tech Review Report</span>
+      <span class="category">AI Safety / Governance</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>MIT Technology Review</strong> (June 11) reports that <strong>Google DeepMind is worried about what happens when millions of AI agents interact</strong>. Key concerns: emergent coordination failures, cascading errors across agent networks, adversarial agent manipulation, and the difficulty of auditing multi-agent systems.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Understanding the risks of multi-agent AI deployments — relevant to any organization deploying AI agents in workflows.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">DeepMind</span><span class="tag">agent swarms</span><span class="tag">AI safety</span><span class="tag">MIT Tech Review</span><span class="tag">multi-agent</span><span class="tag">governance</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Audit PGC's current AI tool usage. List every agent/tool that could interact autonomously. Map the interaction chain. Identify one cascade risk scenario. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">As PGC adopts more AI tools, agent interactions multiply. A drawing QC agent flags an issue → triggers an estimate change → triggers a bid revision. Understanding and managing these chains prevents costly errors.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — but audit existing agent interactions this week</div>
+  </div>
+
+  <!-- 7 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">7. China Brain-Computer Interface — World's First BCI Patient Milestone</span>
+      <span class="category">Frontier Tech</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>MIT Technology Review</strong> (June 1) reports on China's <strong>world-first brain-chip patient</strong> — a fully implanted brain-computer interface achieving real-time neural decoding with wireless transmission. While Beijing touts medical applications, the tech community notes implications for neural control of external devices, exoskeletons, and human-machine interaction.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Medical restoration (paralysis, prosthetics), neural device control, and potentially construction safety systems (fatigue monitoring, equipment control).</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">BCI</span><span class="tag">brain-computer interface</span><span class="tag">neural tech</span><span class="tag">China</span><span class="tag">MIT Tech Review</span><span class="tag">medical</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">No experiment needed this week — but research: "Could BCI-based fatigue monitoring systems improve construction site safety within 5 years?" Read the MIT Tech Review report. Time: 20 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Long-term signal: construction safety is a prime BCI application. Fatigue detection, equipment operation, and hands-free spec review while on-site. Not actionable today, but 5-year planning relevant.</div></div>
+    <div class="verdict verdict-read">🔵 READ — understand the trajectory; not actionable yet</div>
+  </div>
+
+  <!-- 8 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">8. YC P26 Batch — Construction AI Startups Go Vertical</span>
+      <span class="category">Construction AI</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>YC's P26 batch</strong> (June 2026) confirms construction AI as a major vertical: <strong>Structured AI</strong> (AI workforce for design engineering — drawing QC, code compliance), <strong>RealPact</strong> (AI agents for real estate paperwork), <strong>Rudus</strong> (concrete AI takeoff), plus <strong>Corvera</strong> and <strong>Madrone</strong> (data center cooling). Combined with $121M+ in contech funding this month.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI-powered drawing quality control, takeoff automation, construction document review, field data collection, and real estate document agents.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">YC P26</span><span class="tag">construction AI</span><span class="tag">contech</span><span class="tag">Structured AI</span><span class="tag">takeoff</span><span class="tag">drawing QC</span><span class="tag">funding</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Browse YC's P26 batch list. Find the 3 most PGC-relevant startups. Visit their product pages. Sign up for one demo with a real PGC curtain wall drawing. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">YC is the best signal for early-stage contech quality. Multiple P26 companies are building for glazing-adjacent workflows. <strong>Structured AI directly addresses PGC's drawing QC bottleneck.</strong></div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — Structured AI demo with a real PGC drawing this week</div>
+  </div>
+
+  <!-- 9 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">9. Linux 7.1 — Major Kernel Release with Enhanced Security</span>
+      <span class="category">Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Linux 7.1</strong> released June 14 — a major kernel version with 294 points on HN. Includes enhanced memory safety features, improved container security, new I/O scheduling for NVMe, and better support for ARM servers. Security hardening is the headline feature.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Server operating system kernel — running everything from PGC's internal servers to cloud infrastructure.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Linux 7.1</span><span class="tag">kernel</span><span class="tag">security</span><span class="tag">infrastructure</span><span class="tag">open source</span><span class="tag">Linus Torvalds</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">On a non-production PGC server: <code>sudo apt update && sudo apt upgrade linux-image-7.1</code>. Verify security hardening features. Benchmark file I/O vs. current kernel. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Linux 7.1's security focus means PGC's on-premises servers get meaningful security upgrades. For a glazing company managing sensitive bid data, specs, and client information, kernel-level security improvements are a free insurance policy.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — plan upgrade for non-critical systems first, then roll out</div>
+  </div>
+
+  <!-- 10 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">10. GitHub Copilot Token Billing — Usage-Based Pricing Goes Live</span>
+      <span class="category">AI Pricing</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>GitHub moved Copilot to usage-based billing</strong> (per-token pricing) starting June. Developers now pay for what they use rather than flat monthly fees. Early reports show heavy users paying more, casual users paying less. Follows the broader shift in AI pricing from seat-based to consumption-based models.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">AI code completion — now priced per token instead of per seat. Forces teams to optimize their AI usage.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">GitHub Copilot</span><span class="tag">token billing</span><span class="tag">usage-based</span><span class="tag">AI pricing</span><span class="tag">developer tools</span><span class="tag">cost optimization</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Check PGC's GitHub Copilot usage for the past month. Calculate projected cost under token billing vs. current flat rate. Run <code>gh copilot usage</code> to get data. Time: 20 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC developers use Copilot (or plan to), understanding the new pricing model prevents bill shock. The token billing model also incentivizes using cheaper models for simple tasks — which aligns with PGC's local inference strategy.</div></div>
+    <div class="verdict verdict-track">🟡 TRACK — calculate PGC's projected cost this week</div>
+  </div>
+
+  <!-- 11 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">11. Formal Methods at Jane Street — Verified Software Going Mainstream</span>
+      <span class="category">Software Engineering</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Jane Street's formal methods series</strong> hit #6 on HN (273 points) — a deep dive into how the trading firm uses formal verification (OCaml, Coq, TLA+) to prove software correctness. The trend: <strong>verified software is moving from academic research to production finance and now to general infrastructure</strong>. 10x fewer bugs, mathematically guaranteed correctness.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Ensuring critical software systems are mathematically correct — trading systems, infrastructure, safety-critical applications.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">formal methods</span><span class="tag">Jane Street</span><span class="tag">verified software</span><span class="tag">OCaml</span><span class="tag">correctness</span><span class="tag">software engineering</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Read the Jane Street series (30 min). Then ask Claude: "Could formal methods benefit PGC's estimating software or project tracking tools? What would an MVP look like?" Time: 45 minutes.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">For a glazing company where estimating errors from software bugs cost real money (wrong glass spec = $10K+ reorder), formal verification of critical calculation paths could save significant costs.</div></div>
+    <div class="verdict verdict-read">🔵 READ — understand the trajectory; bookmark for 2027 planning</div>
+  </div>
+
+  <!-- 12 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">12. Headroom — 95% Token Compression for LLM Context Windows</span>
+      <span class="category">AI Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Headroom</strong> — a new open-source token compression technique achieving <strong>95% reduction</strong> in context window token usage while preserving semantic meaning. Trending on GitHub (🔥 new). Dramatically reduces costs for long-context tasks. Compresses spec documents, contracts, and multi-page drawings into a fraction of the tokens.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Reducing LLM API costs and latency for long-context tasks — spec analysis, contract review, document comparison, multi-page drawing analysis.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">Headroom</span><span class="tag">token compression</span><span class="tag">context window</span><span class="tag">cost reduction</span><span class="tag">GitHub trending</span><span class="tag">LLM optimization</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Install Headroom. Take one PGC curtain wall spec (30+ pages). Compress it. Compare the compressed version to the original for content preservation. Feed the compressed version to Claude for analysis — compare results vs. full spec. Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC deals with long documents — specs, contracts, bid packages. 95% token compression means PGC can analyze <strong>entire project libraries</strong> in a single API call instead of 20. Direct cost reduction on every AI operation.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — compress one spec this week and measure quality retention</div>
+  </div>
+
+  <!-- 13 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">13. Understand-Anything — #1 GitHub Trending Visual Understanding Model</span>
+      <span class="category">AI / Vision</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>Understand-Anything</strong> — the #1 trending GitHub repo this week (2K+ stars/week). An open-source visual understanding model that can describe, analyze, and reason about any image or video. Think "CLIP but better" — it can identify glass types from photos, detect installation issues from site images, and understand construction drawings.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Visual AI — analyzing photos, drawings, and videos. Identifying objects, materials, defects, and relationships in visual data.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">visual AI</span><span class="tag">GitHub #1 trending</span><span class="tag">open source</span><span class="tag">computer vision</span><span class="tag">image understanding</span><span class="tag">construction</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Clone the repo. Feed it 10 PGC site photos (different glass types, different installation stages). Ask: "Identify each glass type" and "Flag any potential installation issues." Time: 1 hour.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">Visual inspection is core to glazing quality. If understand-anything can ID glass types and detect installation issues from photos, it becomes a <strong>free quality control layer</strong> for PGC field teams.</div></div>
+    <div class="verdict verdict-try">🟢 TRY NOW — test on PGC site photos this week</div>
+  </div>
+
+  <!-- 14 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">14. ReactOS Plays Half-Life — Open-Source Windows Revolution Milestone</span>
+      <span class="category">Open Source / Infrastructure</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>ReactOS</strong>, the open-source Windows-compatible OS, achieved <strong>running Half-Life with 3D acceleration on real hardware</strong> (282 points HN). A decade-long project milestone — Windows API compatibility without Microsoft code. While still experimental, this is the closest any open-source project has come to a drop-in Windows replacement.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Running Windows applications on an open-source OS — potential for reducing Windows licensing costs in enterprise environments.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">ReactOS</span><span class="tag">Windows compatibility</span><span class="tag">open source</span><span class="tag">3D acceleration</span><span class="tag">HN</span><span class="tag">operating systems</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Download ReactOS. Install on a spare machine. Test PGC's most-used Windows application (QuickBooks? Estimating software?). See what works and what breaks. Time: 2 hours.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">PGC runs Windows applications (estimating, accounting, BIM tools). If ReactOS matures, it could <strong>eliminate Windows licensing costs</strong> for 34 office machines — that's real money. Not ready today, but the Half-Life milestone is a significant signal.</div></div>
+    <div class="verdict verdict-watch">🟡 WATCH — significant milestone but not production-ready</div>
+  </div>
+
+  <!-- 15 -->
+  <div class="trend">
+    <div class="trend-header">
+      <span class="trend-name">15. Build-Your-Own-X — 350K+ Stars, the DIY Everything Movement</span>
+      <span class="category">Developer Education</span>
+    </div>
+    <div class="field"><div class="field-label">What it is</div><div class="field-value"><strong>build-your-own-x</strong> — the legendary GitHub repo (350K+ ⭐) continues trending as the definitive resource for building everything from scratch: your own OS, database, Git, Docker, text editor, neural network, programming language, and more. The resurgence reflects a growing trend of <strong>developers wanting to understand fundamentals</strong> rather than just API-calling.</div></div>
+    <div class="field"><div class="field-label">What it's used for</div><div class="field-value">Learning how technology works by building it yourself. Training resource for junior developers and cross-training senior developers.</div></div>
+    <div class="field"><div class="field-label">Trend tags</div><div class="field-value"><span class="tag">build-your-own-x</span><span class="tag">GitHub trending</span><span class="tag">education</span><span class="tag">DIY</span><span class="tag">fundamentals</span><span class="tag">350K stars</span></div></div>
+    <div class="field"><div class="field-label">MVP experiment</div><div class="field-value">Pick one: "Build your own neural network" or "Build your own text editor". Spend 2 hours following the guide. Apply the "build to understand" approach to one PGC pain point. Time: 2 hours.</div></div>
+    <div class="field"><div class="field-label">Why it matters for PGC</div><div class="field-value">If PGC has aspiring developer talent (or Steve wants to learn), this repo is the best free CS education available. Building understanding leads to better tool selection and less vendor lock-in.</div></div>
+    <div class="verdict verdict-read">🔵 READ — bookmark for PGC team development</div>
+  </div>
+
+  <h2>📊 Summary Table</h2>
+  <table>
+    <tr><th>#</th><th>Technology</th><th>Verdict</th><th>Time to MVP</th><th>PGC Impact</th></tr>
+    <tr><td>1</td><td>Claude Fable 5 / Mythos 5</td><td>🟢 TRY NOW</td><td>30 min</td><td>Frontier AI access tightening — test now</td></tr>
+    <tr><td>2</td><td>Siri AI / iOS 27 (WWDC)</td><td>🟢 TRY NOW</td><td>15 min</td><td>Field team AI access on existing devices</td></tr>
+    <tr><td>3</td><td>Trace (offline transcripts)</td><td>🟢 TRY NOW</td><td>1 meeting</td><td>Never miss a coordination action item</td></tr>
+    <tr><td>4</td><td>Kage (website → single binary)</td><td>🟢 TRY NOW</td><td>30 min</td><td>Carry specs as single file to field</td></tr>
+    <tr><td>5</td><td>zeroserve + Caddy</td><td>🟢 TRY NOW</td><td>1 hr</td><td>Best self-hosted AI inference stack</td></tr>
+    <tr><td>6</td><td>DeepMind agent swarm warning</td><td>🟡 WATCH</td><td>1 hr</td><td>Audit PGC's AI interaction chains</td></tr>
+    <tr><td>7</td><td>China BCI milestone</td><td>🔵 READ</td><td>20 min</td><td>5-year safety planning signal</td></tr>
+    <tr><td>8</td><td>YC P26 contech startups</td><td>🟢 TRY NOW</td><td>1 hr</td><td>Structured AI for drawing QC</td></tr>
+    <tr><td>9</td><td>Linux 7.1</td><td>🟡 WATCH</td><td>1 hr</td><td>Server security upgrade</td></tr>
+    <tr><td>10</td><td>Copilot token billing</td><td>🟡 TRACK</td><td>20 min</td><td>Calculate PGC's new costs</td></tr>
+    <tr><td>11</td><td>Formal methods (Jane Street)</td><td>🔵 READ</td><td>45 min</td><td>Future software correctness strategy</td></tr>
+    <tr><td>12</td><td>Headroom (95% token compression)</td><td>🟢 TRY NOW</td><td>1 hr</td><td>20x cheaper spec analysis</td></tr>
+    <tr><td>13</td><td>Understand-Anything (vision model)</td><td>🟢 TRY NOW</td><td>1 hr</td><td>Free AI visual QC for field photos</td></tr>
+    <tr><td>14</td><td>ReactOS Half-Life milestone</td><td>🟡 WATCH</td><td>2 hrs</td><td>Long-term Windows licensing leverage</td></tr>
+    <tr><td>15</td><td>Build-Your-Own-X</td><td>🔵 READ</td><td>2 hrs</td><td>Developer education resource</td></tr>
+  </table>
+
+  <div class="footer">
+    <p><strong>Verdict Key:</strong> 🟢 TRY NOW — invest time this week • 🟡 WATCH — monitor trajectory • 🟡 TRACK — monitor pricing/policy • 🔵 READ — understand the space • 🔴 SKIP — not relevant</p>
+    <p>Generated by Joe 🔧 • June 15, 2026 • Sources: TechCrunch, MIT Tech Review, Hacker News, GitHub Trending, arXiv, Product Hunt, Y Combinator, Apple WWDC</p>
+  </div>
+</div>
+</body>
+</html>
