@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — June 17, 2026",
+    date: "June 17, 2026",
+    type: "software",
+    description: "Browser-based BIM tools web-ifc, @thatopen/components and xeokit in production, as photogrammetry reaches cost parity for facade surveys",
+    file: "/briefs/software-brief-2026-06-17.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — June 15, 2026",
     date: "June 15, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: AdamCAD (YC W25 AI text-to-CAD, $4.1M, Watch), Zoo Design Studio (open-source AI CAD kernel, ~$49/mo, Watch), OpenConstructionERP (free self-hosted construction ERP, v3.0, Try Now), Togal.AI ($299/mo AI takeoff, 95%+ accuracy, Try Now), STACK ($2,499/yr AI takeoff + PM, Try Now), OpenSpace (360° jobsite documentation, Watch), Knowify ($99/mo trade contractor PM + QB, Try Now), Buildertrend ($499-799/mo cloud PM, Watch), Bild AI (YC blueprint material extraction, Watch), Kreo ($149-299/mo BIM estimating, Watch), Buildbite ($39-89/mo field-to-billing, Watch), Scope AR/Trimble XR10 (AR for construction, Watch). Top picks: Togal.AI > Knowify > OpenConstructionERP > STACK.",
     file: "/briefs/software-watch-2026-06-10.html",
-    badge: "Latest"
+    badge: ""
   },  {
     title: "Tech Trends Brief — June 8, 2026",
     date: "June 8, 2026",
