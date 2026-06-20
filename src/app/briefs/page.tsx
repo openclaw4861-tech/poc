@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — June 20, 2026",
+    date: "June 20, 2026",
+    type: "tech",
+    description: "The briefing notes shift to composable local-first AI, robotics commoditization for mid-size firms, and barrier collapse for industry-specific AI",
+    file: "/briefs/weekly-briefing-2026-06-20.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — June 17, 2026",
     date: "June 17, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Claude Fable 5/Mythos 5 (Anthropic Mythos-class, pulled offline by export directive 3 days after launch), WWDC 2026 Siri AI + iOS 27 (Apple's agentic OS with cross-app context, Tim Cook → John Ternus transition), Trace (offline Mac meeting transcripts), Kage (#1 HN, shadow websites to single binary), zeroserve + Caddy (3x throughput, 70% lower latency), DeepMind agent swarm warnings (MIT Tech Review), China BCI world-first brain-chip patient, YC P26 contech startups (Structured AI, RealPact, Rudus), Linux 7.1, Copilot token billing, formal methods at Jane Street, Headroom (95% token compression), Understand-Anything (#1 GitHub trending vision model), ReactOS Half-Life 3D milestone, and Build-Your-Own-X (350K+ ⭐) — with 3 meta-trends: the Mythos-class AI race (export controls on frontier models), Apple's Siri AI moment (consumer AI agents go mainstream), and the construction AI supply chain (from YC startups to agent swarm risks).",
     file: "/briefs/tech-trends-2026-06-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — June 13, 2026",
