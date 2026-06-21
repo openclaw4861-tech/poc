@@ -112,7 +112,7 @@ export default function BlogPage() {
 }
 
 function PostCard({ post }: { post: BlogPost }) {
-  const photoId = getPhotoId(post.category);
+  const photoId = getPhotoId(post.category, post.slug);
   const colorClass = categoryColors[post.category] || 'bg-gray-100 text-gray-800';
   const emoji = categoryEmojis[post.category] || '📄';
 

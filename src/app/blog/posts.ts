@@ -11,16 +11,60 @@ export interface BlogPost {
   content: string;
 }
 
-export function getPhotoId(category: string): string {
-  const photos: Record<string, string> = {
-    "Leadership": "1522079734",
-    "Lean": "1454165804606",
-    "Software": "1555066931",
-    "Equipment": "1504917595217",
-    "Life": "1441974231531",
-    "Business": "1486406146926",
+export function getPhotoId(category: string, slug?: string): string {
+  // Category defaults
+  const categoryDefaults: Record<string, string> = {
+    "Leadership": "1522079734", // Team meeting/collaboration
+    "Lean": "1586449328817", // Manufacturing floor with workers
+    "Software": "1555066931", // Computer/code
+    "Equipment": "1504917595217", // CNC machine/tools
+    "Life": "1441974231531", // Nature/balance
+    "Business": "1486406146926", // Corporate/construction
   };
-  return photos[category] || "1441974231531";
+
+  // Post-specific images (more relevant to content)
+  const postImages: Record<string, string> = {
+    // Lean posts
+    "2-second-lean": "1581389798823", // Books/learning on desk
+    "lean-videos": "1581068721437", // Video camera/recording
+    "update-on-our-lean-journey": "1565190999624", // Factory production line
+    
+    // Equipment posts
+    "drum-buffer-rope-a-view-of-pull-and-flow": "1565241199016", // Assembly line flow
+    "getting-your-data-to-the-machines": "1621692696251", // CNC machine close-up
+    
+    // Leadership posts
+    "skills-vs-experience": "1521771125711", // Professional development/mentoring
+    "things-you-should-know": "1454109004145", // Library/knowledge books
+    "leaders-read": "1456513825689", // Person reading book
+    "going-paperless": "1517671633969", // iPad/digital tablet workspace
+    "get-promoted-or-at-least-get-a-raise": "1573466938195", // Business handshake/success
+    "focus": "1434075539629", // Person working at desk focused
+    "the-art-of-interviews": "1577531209037", // Two people in conversation
+    "planning-meetings": "1552620899055", // Meeting room planning session
+    "lean-journey-update-2014": "1586449328817", // Manufacturing improvement
+    
+    // Software posts
+    "custom-drawing-tools": "1542838192090", // CAD software interface
+    "database-design-for-mortals": "1558494369474", // Database/server concept
+    "autocad-to-inventor-migration": "1581068721437", // 3D modeling workspace
+    "software-integration": "1551656716584", // API/integration concept
+    
+    // Life posts
+    "work-life-balance": "1441974231531", // Nature/outdoor balance
+    "family-and-career": "1511519479032", // Family time concept
+    "personal-productivity": "1486392345968", // Morning routine/productivity
+    
+    // Business posts  
+    "curtainwall-innovation": "1506249916217", // Glass building facade
+    "industry-future": "1486406146926", // Construction site modern
+    "esops-and-ownership": "1556706011298", // Teamwork/collaboration office
+  };
+
+  if (slug && postImages[slug]) {
+    return postImages[slug];
+  }
+  return categoryDefaults[category] || "1441974231531";
 }
 
 export const posts: BlogPost[] = [
