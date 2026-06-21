@@ -158,13 +158,20 @@ export default function Home() {
           <p className="text-xl text-blue-100 mb-8">
             Pacific Glazing Corporation — Digital measurement and estimation tools
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <Link
               href="/gantt"
               className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center space-x-2"
             >
               <span>🏗️</span>
               <span>Launch Gantt Chart</span>
+            </Link>
+            <Link
+              href="/blog"
+              className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center space-x-2"
+            >
+              <span>✍️</span>
+              <span>Read the Blog</span>
             </Link>
           </div>
         </div>
@@ -261,6 +268,28 @@ export default function Home() {
               </ul>
               <div className="mt-4 text-blue-600 font-medium">
                 Read Latest →
+              </div>
+            </div>
+          </Link>
+
+          {/* Blog Card */}
+          <Link href="/blog" className="block">
+            <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer">
+              <div className="text-4xl mb-4">✍️</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Division8 Blog
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Personal insights on construction tech, autonomous agents, and building the future of glazing.
+              </p>
+              <ul className="text-sm text-gray-500 space-y-1">
+                <li>✓ Industry perspectives</li>
+                <li>✓ Tech experiments</li>
+                <li>✓ Automation insights</li>
+                <li>✓ Building in public</li>
+              </ul>
+              <div className="mt-4 text-blue-600 font-medium">
+                Start Reading →
               </div>
             </div>
           </Link>
