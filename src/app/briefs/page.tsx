@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — June 22, 2026",
+    date: "June 22, 2026",
+    type: "tech",
+    description: "15 trending technologies: Claude Fable 5 (access restored June 18 after export control saga, Epoch 161 score), Apple container v1.0 (Apple's official Docker alternative, 37,845 stars), NVIDIA SkillSpector (26% of agent skills have vulnerabilities, 4,633 stars/week), Codebase-Memory-MCP (99% token reduction, pure C, 158 languages), Omnigent (YC P26 multi-agent orchestration, 2,736 stars), solid-state air conditioning (MIT Tech Review, 80% more efficient, no refrigerants), Xcimer Phoenix (most powerful private laser for fusion, $100M raised), YC P26 agent supply chain (identity, payments, memory, insurance for AI agents), Headroom (95% token compression), Understand-Anything (#1 GitHub trending vision model), PicoClaw (AI agents on $10 hardware), Ponytail (24,417 stars in first week), Linux 7.1, Copilot token billing, and Build-Your-Own-X (350K+ ⭐) — with 3 meta-trends: the agent supply chain goes vertical (YC P26 + NVIDIA SkillSpector), the developer tooling revolution (Apple container + Codebase-Memory-MCP), and the physical infrastructure shift (solid-state cooling + fusion energy).",
+    file: "/briefs/tech-trends-2026-06-22.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — June 20, 2026",
     date: "June 20, 2026",
     type: "tech",
     description: "The briefing notes shift to composable local-first AI, robotics commoditization for mid-size firms, and barrier collapse for industry-specific AI",
     file: "/briefs/weekly-briefing-2026-06-20.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — June 17, 2026",
