@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — June 24, 2026",
+    date: "June 24, 2026",
+    type: "software",
+    description: "12 new tools: Trunk Tools Cortex (AI brain for drawing review, Try Now), PLAN0 AI (predictive cost analytics with 24-month forecasts, Try Now), Resolve (web-based BIM+VR collaboration, Watch), Rudus (concrete AI takeoff, Skip), Foreman (all-in-one contractor PM, Watch), Helonic (AI clash detection and draft RFIs, Try Now), Structured AI (building code QC on drawings, Watch), Snaptrude (free cloud BIM, Watch), Zoo Design Studio (open-source AI CAD, Watch), Togal.AI ($299/mo AI takeoff, Try Now), Quotr.ai (plans-to-proposal estimating, Try Now), and OpenSpace (reality capture for as-built verification, Try Now). Top picks: Trunk Tools Cortex > Helonic > Togal.AI > Quotr.ai > OpenSpace > PLAN0 AI.",
+    file: "/briefs/software-watch-2026-06-24.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — June 24, 2026",
     date: "June 24, 2026",
     type: "software",
     description: "Open-source BIM tools like web-ifc and @thatopen/components surge to production with 3× growth, while Procore v17.8.0 expands integration",
     file: "/briefs/software-brief-2026-06-24.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — June 22, 2026",
@@ -27,7 +35,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Claude Fable 5 (access restored June 18 after export control saga, Epoch 161 score), Apple container v1.0 (Apple's official Docker alternative, 37,845 stars), NVIDIA SkillSpector (26% of agent skills have vulnerabilities, 4,633 stars/week), Codebase-Memory-MCP (99% token reduction, pure C, 158 languages), Omnigent (YC P26 multi-agent orchestration, 2,736 stars), solid-state air conditioning (MIT Tech Review, 80% more efficient, no refrigerants), Xcimer Phoenix (most powerful private laser for fusion, $100M raised), YC P26 agent supply chain (identity, payments, memory, insurance for AI agents), Headroom (95% token compression), Understand-Anything (#1 GitHub trending vision model), PicoClaw (AI agents on $10 hardware), Ponytail (24,417 stars in first week), Linux 7.1, Copilot token billing, and Build-Your-Own-X (350K+ ⭐) — with 3 meta-trends: the agent supply chain goes vertical (YC P26 + NVIDIA SkillSpector), the developer tooling revolution (Apple container + Codebase-Memory-MCP), and the physical infrastructure shift (solid-state cooling + fusion energy).",
     file: "/briefs/tech-trends-2026-06-22.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — June 20, 2026",
