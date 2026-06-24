@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — June 24, 2026",
+    date: "June 24, 2026",
+    type: "software",
+    description: "Open-source BIM tools like web-ifc and @thatopen/components surge to production with 3× growth, while Procore v17.8.0 expands integration",
+    file: "/briefs/software-brief-2026-06-24.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — June 22, 2026",
     date: "June 22, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Quotr.ai (takeoff-to-procurement, 40-50% material savings, Try Now), Togal.AI (gold-standard AI takeoff, Try Now), Snaptrude (browser-based BIM at LOD 350, Watch), Kreo + Caddie AI agent (drawings to Excel cost workbook, Try Now), OpenConstructionERP v3.0 (free self-hosted ERP, Try Now), Veras by Chaos (AI rendering for Revit, Watch), Metaroom by Amrax (iPhone LiDAR field measurement to CAD, Try Now), Fieldwire by Hilti (drawing-based field mgmt, Try Now), EasyGLASS (glass-specific CAD/CAM, Watch), R2U (AR staging on Apple Vision Pro, Watch), Snap Spectacles ($2,195 consumer AR glasses shipping Fall 2026, Watch), and Caddie AI Agent (automated Excel workbook from drawings, Try Now). Top picks: Quotr.ai > Metaroom > OpenConstructionERP > Fieldwire > Kreo+Caddie.",
     file: "/briefs/software-watch-2026-06-17.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — June 17, 2026",
