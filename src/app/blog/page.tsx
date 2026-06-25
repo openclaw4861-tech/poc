@@ -116,19 +116,28 @@ function PostCard({ post }: { post: BlogPost }) {
   const colorClass = categoryColors[post.category] || 'bg-gray-100 text-gray-800';
   const emoji = categoryEmojis[post.category] || '📄';
 
-  // Use Lorem Picsum for reliable placeholder images with category-based seeds
-  const categorySeeds: Record<string, string> = {
-    Leadership: 'leadership-team',
-    Lean: 'lean-manufacturing',
-    Software: 'software-code',
-    Equipment: 'equipment-tools',
-    Life: 'life-nature',
-    Business: 'business-construction',
+  // Use Pexels for topic-relevant free stock photos (no API key needed for basic URLs)
+  const categoryKeywords: Record<string, string> = {
+    Leadership: 'team meeting',
+    Lean: 'manufacturing factory',
+    Software: 'programming computer',
+    Equipment: 'CNC machine',
+    Life: 'nature balance',
+    Business: 'construction office',
   };
 
-  const seed = categorySeeds[post.category] || 'business';
-  // Use deterministic seed based on category for consistent images
-  const imageUrl = `https://picsum.photos/seed/${seed}/600/338`;
+  const keyword = categoryKeywords[post.category] || 'business';
+  // Pexels curated photo URLs - these are stable, working photo IDs
+  const pexelsPhotos: Record<string, string> = {
+    Leadership: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?w=600&h=338&fit=crop',
+    Lean: 'https://images.pexels.com/photos/957714/pexels-photo-957714.jpeg?w=600&h=338&fit=crop',
+    Software: 'https://images.pexels.com/photos/5483077/pexels-photo-5483077.jpeg?w=600&h=338&fit=crop',
+    Equipment: 'https://images.pexels.com/photos/3649750/pexels-photo-3649750.jpeg?w=600&h=338&fit=crop',
+    Life: 'https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?w=600&h=338&fit=crop',
+    Business: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?w=600&h=338&fit=crop',
+  };
+
+  const imageUrl = pexelsPhotos[post.category] || pexelsPhotos.Business;
 
   return (
     <Link href={`/blog/${post.slug}`} className="block group">
