@@ -116,12 +116,26 @@ function PostCard({ post }: { post: BlogPost }) {
   const colorClass = categoryColors[post.category] || 'bg-gray-100 text-gray-800';
   const emoji = categoryEmojis[post.category] || '📄';
 
+  // Use Lorem Picsum for reliable placeholder images with category-based seeds
+  const categorySeeds: Record<string, string> = {
+    Leadership: 'leadership-team',
+    Lean: 'lean-manufacturing',
+    Software: 'software-code',
+    Equipment: 'equipment-tools',
+    Life: 'life-nature',
+    Business: 'business-construction',
+  };
+
+  const seed = categorySeeds[post.category] || 'business';
+  // Use deterministic seed based on category for consistent images
+  const imageUrl = `https://picsum.photos/seed/${seed}/600/338`;
+
   return (
     <Link href={`/blog/${post.slug}`} className="block group">
       <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-48 overflow-hidden bg-gray-200">
           <img
-            src={`https://images.unsplash.com/${photoId}?w=600&h=338&fit=crop&auto=format`}
+            src={imageUrl}
             alt={post.category}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
