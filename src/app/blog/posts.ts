@@ -12,59 +12,60 @@ export interface BlogPost {
 }
 
 export function getPhotoId(category: string, slug?: string): string {
-  // Category defaults
+  // Use Unsplash source URLs for reliable image loading
+  // Format: https://source.unsplash.com/featured/?{keyword}
+  // Note: Unsplash source was deprecated, using direct image URLs from Unsplash CDN
   const categoryDefaults: Record<string, string> = {
-    "Leadership": "1522079734", // Team meeting/collaboration
-    "Lean": "1586449328817", // Manufacturing floor with workers
-    "Software": "1555066931", // Computer/code
-    "Equipment": "1504917595217", // CNC machine/tools
-    "Life": "1441974231531", // Nature/balance
-    "Business": "1486406146926", // Corporate/construction
+    "Leadership": "photo-1522070110765-a6be78b6fddf", // Team meeting/collaboration
+    "Lean": "photo-1581068721437", // Manufacturing floor
+    "Software": "photo-1555066931", // Computer/technology
+    "Equipment": "photo-1504917595217", // CNC machine/tools
+    "Life": "photo-1441974231531", // Nature/balance
+    "Business": "photo-1486406146926", // Corporate/construction
   };
 
-  // Post-specific images (more relevant to content)
   const postImages: Record<string, string> = {
     // Lean posts
-    "2-second-lean": "1581389798823", // Books/learning on desk
-    "lean-videos": "1581068721437", // Video camera/recording
-    "update-on-our-lean-journey": "1565190999624", // Factory production line
+    "2-second-lean": "photo-1581389798823",
+    "lean-videos": "photo-1581068721437",
+    "update-on-our-lean-journey": "photo-1565190999624",
     
     // Equipment posts
-    "drum-buffer-rope-a-view-of-pull-and-flow": "1565241199016", // Assembly line flow
-    "getting-your-data-to-the-machines": "1621692696251", // CNC machine close-up
+    "drum-buffer-rope-a-view-of-pull-and-flow": "photo-1565241199016",
+    "getting-your-data-to-the-machines": "photo-1621692696251",
     
     // Leadership posts
-    "skills-vs-experience": "1521771125711", // Professional development/mentoring
-    "things-you-should-know": "1454109004145", // Library/knowledge books
-    "leaders-read": "1456513825689", // Person reading book
-    "going-paperless": "1517671633969", // iPad/digital tablet workspace
-    "get-promoted-or-at-least-get-a-raise": "1573466938195", // Business handshake/success
-    "focus": "1434075539629", // Person working at desk focused
-    "the-art-of-interviews": "1577531209037", // Two people in conversation
-    "planning-meetings": "1552620899055", // Meeting room planning session
-    "lean-journey-update-2014": "1586449328817", // Manufacturing improvement
+    "skills-vs-experience": "photo-1521771125711",
+    "things-you-should-know": "photo-1454109004145",
+    "leaders-read": "photo-1456513825689",
+    "going-paperless": "photo-1517671633969",
+    "get-promoted-or-at-least-get-a-raise": "photo-1573466938195",
+    "focus": "photo-1434075539629",
+    "the-art-of-interviews": "photo-1577531209037",
+    "planning-meetings": "photo-1552620899055",
+    "lean-journey-update-2014": "photo-1586449328817",
     
     // Software posts
-    "custom-drawing-tools": "1542838192090", // CAD software interface
-    "database-design-for-mortals": "1558494369474", // Database/server concept
-    "autocad-to-inventor-migration": "1581068721437", // 3D modeling workspace
-    "software-integration": "1551656716584", // API/integration concept
+    "custom-drawing-tools": "photo-1542838192090",
+    "database-design-for-mortals": "photo-1558494369474",
+    "autocad-to-inventor-migration": "photo-1581068721437",
+    "software-integration": "photo-1551656716584",
     
     // Life posts
-    "work-life-balance": "1441974231531", // Nature/outdoor balance
-    "family-and-career": "1511519479032", // Family time concept
-    "personal-productivity": "1486392345968", // Morning routine/productivity
+    "work-life-balance": "photo-1441974231531",
+    "family-and-career": "photo-1511519479032",
+    "personal-productivity": "photo-1486392345968",
     
     // Business posts  
-    "curtainwall-innovation": "1506249916217", // Glass building facade
-    "industry-future": "1486406146926", // Construction site modern
-    "esops-and-ownership": "1556706011298", // Teamwork/collaboration office
+    "curtainwall-innovation": "photo-1506249916217",
+    "industry-future": "photo-1486406146926",
+    "esops-and-ownership": "photo-1556706011298",
   };
 
   if (slug && postImages[slug]) {
     return postImages[slug];
   }
-  return categoryDefaults[category] || "1441974231531";
+  return categoryDefaults[category] || "photo-1441974231531";
 }
 
 export const posts: BlogPost[] = [

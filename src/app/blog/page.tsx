@@ -121,7 +121,7 @@ function PostCard({ post }: { post: BlogPost }) {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div className="relative h-48 overflow-hidden">
           <img
-            src={`https://images.unsplash.com/photo-${photoId}?w=600&h=338&fit=crop&auto=format`}
+            src={`https://images.unsplash.com/${photoId}?w=600&h=338&fit=crop&auto=format`}
             alt={post.category}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
