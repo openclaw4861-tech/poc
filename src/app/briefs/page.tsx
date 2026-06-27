@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — June 27, 2026",
+    date: "June 27, 2026",
+    type: "tech",
+    description: "AI now viable for field ops via local‑first architectures, urging a single glazing‑specific model and addressing prompt‑injection security",
+    file: "/briefs/weekly-briefing-2026-06-27.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — June 24, 2026",
     date: "June 24, 2026",
     type: "software",
