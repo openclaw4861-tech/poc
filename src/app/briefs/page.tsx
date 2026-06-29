@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — June 29, 2026",
+    date: "June 29, 2026",
+    type: "tech",
+    description: "15 trending technologies: Wan-Streamer (real-time video AI, Watch), OpenAI Jalapeño custom chip (inference cost drop, Read), OpenKnowledge (AI-first knowledge management, Try Now), AI Voice Agents for Business (automate customer calls, Try Now), OpenConstructionERP (free open-source ERP, Try Now), BlockTrain (decentralized AI training, Read), AI Safety & Evaluation Platforms ($50M Patronus round, Watch), Asian Mythos-like models (cost competition, Watch), Computer Vision for Construction Takeoffs (automate blueprint measurement, Try Now), AI Photo-based Client Updates (automated progress photos, Try Now), White House AI Executive Order (federal funding for AI adoption, Try Now), Flow Voice-First AI Platform (voice project management, Watch), Firmus AI Design Review (preconstruction risk analysis, Try Now), Open-Source Design Tools (free CAD alternatives, Watch), and AI Subcontractor Scheduling (crew optimization, Try Now) — with 3 meta-trends: AI is eating construction, the cost of AI is crashing, and voice/video are the new interfaces.",
+    file: "/briefs/tech-trends-2026-06-29.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — June 27, 2026",
     date: "June 27, 2026",
     type: "tech",
     description: "AI now viable for field ops via local‑first architectures, urging a single glazing‑specific model and addressing prompt‑injection security",
     file: "/briefs/weekly-briefing-2026-06-27.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — June 24, 2026",
