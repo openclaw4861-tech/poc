@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — July 01, 2026",
+    date: "July 01, 2026",
+    type: "software",
+    description: "LLM call failed - model 'minimax-m2.7:cloud' may not be available",
+    file: "/briefs/software-brief-2026-07-01.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — June 30, 2026",
     date: "June 30, 2026",
     type: "futurist",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Trunk Tools Cortex (AI brain for drawing review, Try Now), PLAN0 AI (predictive cost analytics with 24-month forecasts, Try Now), Resolve (web-based BIM+VR collaboration, Watch), Rudus (concrete AI takeoff, Skip), Foreman (all-in-one contractor PM, Watch), Helonic (AI clash detection and draft RFIs, Try Now), Structured AI (building code QC on drawings, Watch), Snaptrude (free cloud BIM, Watch), Zoo Design Studio (open-source AI CAD, Watch), Togal.AI ($299/mo AI takeoff, Try Now), Quotr.ai (plans-to-proposal estimating, Try Now), and OpenSpace (reality capture for as-built verification, Try Now). Top picks: Trunk Tools Cortex > Helonic > Togal.AI > Quotr.ai > OpenSpace > PLAN0 AI.",
     file: "/briefs/software-watch-2026-06-24.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — June 24, 2026",
