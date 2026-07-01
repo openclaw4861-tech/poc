@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — July 1, 2026",
+    date: "July 1, 2026",
+    type: "software",
+    description: "10 new tools: Bidflow (AI CAD symbol counting, 99% accuracy, Try Now), Civils.ai (glazing/façade AI takeoff from elevation PDFs, Try Now), Opusense AI (voice-to-report field documentation, Try Now), Helonic (AI clash detection + auto RFIs, Try Now), OpenConstructionERP v3.5 (free open-source ERP, Try Now), FlowManual (AI back-office procurement, Watch), Beam AI (cross-trade takeoff + Revit, Watch), Foreman (all-in-one contractor PM, Watch), Bild AI (Division 8 opening schedules, Watch), Karmen (AI crew scheduling, Watch). Top picks: Civils.ai > Bidflow > Opusense AI > Helonic > OpenConstructionERP.",
+    file: "/briefs/software-watch-2026-07-01.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — July 01, 2026",
     date: "July 01, 2026",
     type: "software",
     description: "LLM call failed - model 'minimax-m2.7:cloud' may not be available",
     file: "/briefs/software-brief-2026-07-01.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — June 30, 2026",
