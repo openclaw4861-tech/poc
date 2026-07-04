@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — July 04, 2026",
+    date: "July 04, 2026",
+    type: "tech",
+    description: "Local AI moves to production, offering a 12‑18 month window for PGC to deploy AI tools; data quality and agent security are key",
+    file: "/briefs/weekly-briefing-2026-07-04.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — July 1, 2026",
     date: "July 1, 2026",
     type: "software",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Wan-Streamer (real-time video AI, Watch), OpenAI Jalapeño custom chip (inference cost drop, Read), OpenKnowledge (AI-first knowledge management, Try Now), AI Voice Agents for Business (automate customer calls, Try Now), OpenConstructionERP (free open-source ERP, Try Now), BlockTrain (decentralized AI training, Read), AI Safety & Evaluation Platforms ($50M Patronus round, Watch), Asian Mythos-like models (cost competition, Watch), Computer Vision for Construction Takeoffs (automate blueprint measurement, Try Now), AI Photo-based Client Updates (automated progress photos, Try Now), White House AI Executive Order (federal funding for AI adoption, Try Now), Flow Voice-First AI Platform (voice project management, Watch), Firmus AI Design Review (preconstruction risk analysis, Try Now), Open-Source Design Tools (free CAD alternatives, Watch), and AI Subcontractor Scheduling (crew optimization, Try Now) — with 3 meta-trends: AI is eating construction, the cost of AI is crashing, and voice/video are the new interfaces.",
     file: "/briefs/tech-trends-2026-06-29.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — June 27, 2026",
