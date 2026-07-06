@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — July 6, 2026",
+    date: "July 6, 2026",
+    type: "tech",
+    description: "15 trending technologies: Agentic AI for Construction (Try Now), Computer Vision Safety Monitoring (Try Now), Digital Twins for Buildings (Try Now), Edge AI for Jobsite Devices (Watch), AI Video Generation Veo 3.1/Kling 3.0 (Watch), RAG + Fine-Tuning for Enterprise Knowledge (Try Now), Humanoid Robots in Construction (Explore), Autonomous Heavy Equipment (Explore), Open-Source LLMs Qwen3/DeepSeek (Try Now), AI-Powered Drone Site Mapping (Try Now), AI Coding Assistants Cursor/Copilot (Try Now), Self-Hosted AI Infrastructure (Watch), AI Workflow Automation n8n/LangChain (Try Now), Proptech/Construction Fintech (Watch), and AI-Generated 3D Models for BIM (Try Now) — with 3 meta-trends: Physical AI Hits the Jobsite, The AI Stack Goes Open-Source and Self-Hosted, and From Reactive to Predictive Operations.",
+    file: "/briefs/tech-trends-2026-07-06.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — July 04, 2026",
     date: "July 04, 2026",
     type: "tech",
     description: "Local AI moves to production, offering a 12‑18 month window for PGC to deploy AI tools; data quality and agent security are key",
     file: "/briefs/weekly-briefing-2026-07-04.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — July 1, 2026",
