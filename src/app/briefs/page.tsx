@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Futurist Technology Brief — July 07, 2026",
     date: "July 07, 2026",
     type: "futurist",
-    description: "AI-driven materials discovery combined with narrow robotic glass-handling automation, enabling rapid prototyping and cost-efficient R&D for glazing",
+    description: "Readiness over feasibility, AI-accelerated materials now production-ready (160k+ validations), glazing with digital twins and green supply chains",
     file: "/briefs/futurist-brief-2026-07-07.html",
     badge: "Latest"
+  },
+  {
+    title: "Futurist Technology Brief — July 07, 2026",
+    date: "July 07, 2026",
+    type: "futurist",
+    description: "AI-driven materials discovery combined with narrow robotic glass-handling automation, enabling rapid prototyping and cost-efficient R&D for glazing",
+    file: "/briefs/futurist-brief-2026-07-07.html",
+    badge: ""
   },
   {
     title: "Tech Trends Brief — July 6, 2026",
