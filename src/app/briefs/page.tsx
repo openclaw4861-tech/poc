@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — July 07, 2026",
+    date: "July 07, 2026",
+    type: "futurist",
+    description: "AI-driven materials discovery combined with narrow robotic glass-handling automation, enabling rapid prototyping and cost-efficient R&D for glazing",
+    file: "/briefs/futurist-brief-2026-07-07.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — July 6, 2026",
     date: "July 6, 2026",
     type: "tech",
@@ -51,7 +59,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "AI-driven convergence across robotics, quantum computing, and materials science compresses discovery cycles, reshaping the next‑decade horizon",
     file: "/briefs/futurist-brief-2026-06-30.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — June 29, 2026",
