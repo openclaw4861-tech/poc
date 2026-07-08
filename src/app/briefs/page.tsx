@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — July 8, 2026",
+    date: "July 8, 2026",
+    type: "software",
+    description: "12 new tools: Foreman (AI estimating + proposals from shop drawings, Try Now), Rudus (concrete AI takeoff, Watch), Helonic (AI clash detection + auto RFIs, Try Now), FlowManual (AI back-office automation, Try Now), PLAN0 AI (analytics layer for developers, Skip), Resolve (VR BIM review, Watch), Scope3D (3D building twins for retrofit glazing, Try Now), OpenConstructionERP v3.0 (free open-source ERP, Try Now), Higharc ($95M Series C AI homebuilding, Watch), Autodesk Fusion July update (construction geometry, Watch), Gstarsoft (open CAD/BIM ecosystem, Watch), Contractor Foreman ($49/mo Procore alternative, Try Now). Top picks: Foreman > FlowManual > Scope3D > OpenConstructionERP > Contractor Foreman > Helonic.",
+    file: "/briefs/software-watch-2026-07-08.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — July 08, 2026",
     date: "July 08, 2026",
     type: "software",
     description: "Open-source AEC stack, Procore-validated browser-based BIM, drone photogrammetry at cost-parity, and AI-driven automation reshaping glazing workflows",
     file: "/briefs/software-brief-2026-07-08.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — July 07, 2026",
@@ -27,7 +35,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Readiness over feasibility, AI-accelerated materials now production-ready (160k+ validations), glazing with digital twins and green supply chains",
     file: "/briefs/futurist-brief-2026-07-07.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — July 07, 2026",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Agentic AI for Construction (Try Now), Computer Vision Safety Monitoring (Try Now), Digital Twins for Buildings (Try Now), Edge AI for Jobsite Devices (Watch), AI Video Generation Veo 3.1/Kling 3.0 (Watch), RAG + Fine-Tuning for Enterprise Knowledge (Try Now), Humanoid Robots in Construction (Explore), Autonomous Heavy Equipment (Explore), Open-Source LLMs Qwen3/DeepSeek (Try Now), AI-Powered Drone Site Mapping (Try Now), AI Coding Assistants Cursor/Copilot (Try Now), Self-Hosted AI Infrastructure (Watch), AI Workflow Automation n8n/LangChain (Try Now), Proptech/Construction Fintech (Watch), and AI-Generated 3D Models for BIM (Try Now) — with 3 meta-trends: Physical AI Hits the Jobsite, The AI Stack Goes Open-Source and Self-Hosted, and From Reactive to Predictive Operations.",
     file: "/briefs/tech-trends-2026-07-06.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — July 04, 2026",
