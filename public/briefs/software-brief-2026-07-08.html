@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-07-08</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>July 08, 2026</em></p>
+    <hr />
+
+<h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>For:</strong> Steve Watts, CEO, Pacific Glazing Corporation
+<strong>Date:</strong> July 08, 2026
+<strong>Prepared by:</strong> Software Research Team</p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software stack has reached production maturity across every glazing-relevant workflow, with browser-based BIM viewing now validated even by market incumbent Procore. Drone photogrammetry has achieved cost parity with $10K+ commercial tools, enabling PGC to capture existing facade conditions without surveyors or proprietary licenses. The single largest strategic opportunity remains PDF-based quantity takeoff—a gap with no production-ready open-source solution and an estimated 12-month first-mover window. For PGC, the immediate question is not whether to adopt open-source tools, but which to integrate first.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<h3>2.1 web-ifc — Browser-Based IFC Rendering Engine</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/web-ifc
+<strong>Weekly npm Downloads:</strong> 105,839 (13.5% single-week surge as of July 1, 2026)
+<strong>Problem Solved:</strong> Opens IFC BIM files directly in web browsers without desktop software or licensing fees.
+<strong>Relevance to PGC:</strong> Embeddable in client portals for submittals review, RFI coordination, and transparent project communication. Zero licensing cost replaces tools like Autodesk BIM 360 viewer for external stakeholder access.
+<strong>Status:</strong> Production-ready.</p>
+
+<h3>2.2 @thatopen/components — Modular BIM Application Framework</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/components
+<strong>Current Version:</strong> v3.4.6 (core); v3.4.3 (frontend companion)
+<strong>Problem Solved:</strong> Provides ready-made UI components (selection, isolation, annotations, measurements) for building custom BIM applications.
+<strong>Relevance to PGC:</strong> Enables rapid development of bespoke glazing coordination interfaces without building from scratch. The frontend companion (v3.4.3) accelerates web UI development.
+<strong>Status:</strong> Production-ready; actively maintained.</p>
+
+<h3>2.3 @procore/bim-webviewer-sdk v17.8.0 — Incumbent Validates Open-Source Stack</h3>
+
+<p><strong>GitHub:</strong> https://github.com/procore/bim-webviewer-sdk
+<strong>Problem Solved:</strong> Procore's official BIM viewer SDK for their construction management platform.
+<strong>Relevance to PGC:</strong> Procore's viewer relies on three.js + web-ifc—the same free stack PGC can deploy independently. This validates the approach and confirms zero-cost alternatives can match incumbent capability.
+<strong>Status:</strong> Production-ready; proprietary (but reveals underlying stack).</p>
+
+<h3>2.4 OpenDroneMap (ODM) — Drone-Based Site Documentation</h3>
+
+<p><strong>GitHub:</strong> https://github.com/OpenDroneMap/ODM
+<strong>Problem Solved:</strong> Converts drone imagery into georeferenced point clouds, orthomosaics, and 3D models without $10K+ commercial licensing.
+<strong>Relevance to PGC:</strong> Captures existing facade conditions for replacement glazing bids, enabling accurate dimensioning without professional surveyors. Directly applicable to facade assessment and pre-bid site documentation.
+<strong>Status:</strong> Production-ready; confirmed comparable to Pix4D and ContextCapture in independent analysis.</p>
+
+<h3>2.5 CloudCompare — Point Cloud Processing</h3>
+
+<p><strong>GitHub:</strong> https://github.com/CloudCompare/CloudCompare
+<strong>Problem Solved:</strong> Processes, analyzes, and visualizes large 3D point clouds from drone or laser scans.
+<strong>Relevance to PGC:</strong> Works in tandem with OpenDroneMap output to extract facade measurements, window openings, and existing conditions for glazing replacement estimates. Free desktop application replaces $5K+ Leica or FARO processing licenses.
+<strong>Status:</strong> Production-ready; mature open-source project.</p>
+
+<h3>2.6 OpenProject with BCF Support — BIM Collaboration &amp; Project Management</h3>
+
+<p><strong>GitHub:</strong> https://github.com/opf/openproject
+<strong>Problem Solved:</strong> Full-featured project management with native BIM Collaboration Format (BCF) issue tracking.
+<strong>Relevance to PGC:</strong> Direct threat to Procore's collaboration lock-in. BCF support means BIM issues raised in web-ifc viewers can flow directly into task management without manual transcription. Evaluate as Procore cost alternative.
+<strong>Status:</strong> Production-ready; enterprise features available.</p>
+
+<h3>2.7 FreeCAD — Parametric CAD for Shop Drawings</h3>
+
+<p><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD
+<strong>Problem Solved:</strong> Creates 2D and 3D parametric models for fabrication and shop drawings without AutoCAD or Revit licensing.
+<strong>Relevance to PGC:</strong> Approaching viability for non-complex curtain wall and storefront shop drawings. Can generate fabrication-ready geometry directly from glazing schedules.
+<strong>Status:</strong> Pre-production for AEC workflows; evaluate over next 30–90 days.</p>
+
+<h3>2.8 three-mesh-bvh — Spatial Queries on 3D Geometry</h3>
+
+<p><strong>GitHub:</strong> https://github.com/gjkf/three-mesh-bvh
+<strong>GitHub Stars:</strong> 3,411
+<strong>Problem Solved:</strong> Enables fast raycasting and spatial queries (intersection, containment) on large 3D meshes.
+<strong>Relevance to PGC:</strong> Key enabler for automated window count extraction from point clouds or BIM models. Could power custom takeoff tools by identifying glazing elements programmatically.
+<strong>Status:</strong> Mature library; production-ready for integration.</p>
+
+<h3>2.9 LibreCAD — 2D Drawing for Takeoff Preparation</h3>
+
+<p><strong>GitHub:</strong> https://github.com/LibreCAD/LibreCAD
+<strong>Problem Solved:</strong> Open-source 2D CAD for creating and editing technical drawings.
+<strong>Relevance to PGC:</strong> Useful for cleaning up PDF-imported drawings or creating markup overlays for quantity takeoff workflows. No licensing cost for in-office drawing manipulation.
+<strong>Status:</strong> Production-ready for 2D workflows.</p>
+
+<h3>2.10 @xeokit/xeokit-bim-viewer v2.7.1 — Turnkey BIM Viewer (Secondary Option)</h3>
+
+<p><strong>GitHub:</strong> https://github.com/xeokit/xeokit-bim-viewer
+<strong>Problem Solved:</strong> Complete, out-of-the-box BIM viewer with minimal configuration required.
+<strong>Relevance to PGC:</strong> Lower development overhead than web-ifc stack for client-facing portals where engineering resources are constrained. Fallback option if custom development capacity is limited.
+<strong>Status:</strong> Production-ready; lower npm traction than web-ifc but strong GitHub activity and superior mobile performance.</p>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Spotlight 1: ThatOpen Components Ecosystem (web-ifc + @thatopen/components)</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>What It Does</strong></td>
+  <td>Browser-based IFC viewing and custom BIM application framework</td>
+</tr>
+<tr>
+  <td><strong>Maturity</strong></td>
+  <td>Production-ready; 105K+ weekly npm downloads, active commercial use</td>
+</tr>
+<tr>
+  <td><strong>Setup Complexity</strong></td>
+  <td>Low–Medium. web-ifc alone is straightforward; custom applications using @thatopen/components require Node.js familiarity.</td>
+</tr>
+<tr>
+  <td><strong>PGC Applicability</strong></td>
+  <td>High. Replace external stakeholder BIM access currently handled by desktop software or paid viewer subscriptions.</td>
+</tr>
+<tr>
+  <td><strong>Immediate Use Case</strong></td>
+  <td>Client submittal portal, RFI coordination interface, pre-bid facade review</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Recommendation:</strong> Evaluate this week. A proof-of-concept viewer embedding a sample IFC file can be live within one day using web-ifc alone.</p>
+
+<hr />
+
+<h3>Spotlight 2: OpenDroneMap + CloudCompare Pipeline</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>What It Does</strong></td>
+  <td>Drone image capture to 3D point cloud to measurement-ready facade model</td>
+</tr>
+<tr>
+  <td><strong>Maturity</strong></td>
+  <td>Production-ready; validated against $10K+ commercial alternatives</td>
+</tr>
+<tr>
+  <td><strong>Setup Complexity</strong></td>
+  <td>Medium. Requires drone hardware (consumer-grade DJI drones suffice) and CloudCompare desktop installation. ODM can run locally or via cloud instance.</td>
+</tr>
+<tr>
+  <td><strong>PGC Applicability</strong></td>
+  <td>High. Eliminates surveyor cost for existing condition documentation on facade replacement projects.</td>
+</tr>
+<tr>
+  <td><strong>Immediate Use Case</strong></td>
+  <td>Pre-bid site assessment for curtain wall replacement; dimension verification against design drawings</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Recommendation:</strong> Pilot on the next facade assessment project. Estimated savings: $3,000–$8,000 per project in survey costs.</p>
+
+<hr />
+
+<h3>Spotlight 3: OpenProject with BCF Plugin</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Attribute</th>
+  <th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>What It Does</strong></td>
+  <td>Project management with native BIM issue tracking (BCF format)</td>
+</tr>
+<tr>
+  <td><strong>Maturity</strong></td>
+  <td>Production-ready; active enterprise deployments in Europe</td>
+</tr>
+<tr>
+  <td><strong>Setup Complexity</strong></td>
+  <td>Medium. Self-hosted or cloud-hosted options; BCF plugin requires configuration.</td>
+</tr>
+<tr>
+  <td><strong>PGC Applicability</strong></td>
+  <td>Medium–High. Strongest open-source alternative to Procore for BIM-aware collaboration. Cost advantage if Procore licensing becomes prohibitive.</td>
+</tr>
+<tr>
+  <td><strong>Immediate Use Case</strong></td>
+  <td>Internal pilot to evaluate BCF workflow compatibility with current BIM coordination processes</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Recommendation:</strong> Evaluate as 90-day initiative. Do not rush migration; pilot alongside current tools first.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal setup and deliver immediate value for PGC workflows:</p>
+
+<h3>For BIM Viewing (Zero Setup, Try Today)</h3>
+
+<p><strong>web-ifc Live Demo</strong>
+- <strong>URL:</strong> https://github.com/ThatOpen/web-ifc/tree/main/examples/web
+- <strong>Action:</strong> Download the example HTML file, open in browser, load any sample IFC file (available at https://www.ifcopenshell.org/ifc-files.html)
+- <strong>Time Required:</strong> 30 minutes
+- <strong>Delivers:</strong> Immediate familiarity with browser-based BIM capability; no installation required</p>
+
+<h3>For Facade Documentation (Setup in 1–2 Hours)</h3>
+
+<p><strong>OpenDroneMap Cloud Instance</strong>
+- <strong>URL:</strong> https://www.opendronemap.org/webodm/
+- <strong>Action:</strong> Sign up for WebODM cloud trial, upload a sample drone image set (available from WebODM samples), generate a point cloud
+- <strong>Time Required:</strong> 1–2 hours for first run
+- <strong>Delivers:</strong> Proof-of-concept for drone-based site documentation pipeline</p>
+
+<p><strong>CloudCompare Desktop</strong>
+- <strong>URL:</strong> https://www.danielgm.net/cc/
+- <strong>Action:</strong> Download and install (Windows/Mac/Linux); load sample point cloud from WebODM output
+- <strong>Time Required:</strong> 30 minutes to install and explore
+- <strong>Delivers:</strong> Understanding of point cloud measurement workflow for facade dimensions</p>
+
+<h3>For PDF Takeoff Exploration (Begin Evaluation)</h3>
+
+<p><strong>LibreCAD for Drawing Markup</strong>
+- <strong>URL:</strong> https://librecad.org/
+- <strong>Action:</strong> Install LibreCAD, import a PDF drawing from an existing project, practice creating measurement annotations
+- <strong>Time Required:</strong> 1 hour
+- <strong>Delivers:</strong> Baseline assessment of current PDF-based workflow gaps; informs internal requirements for future takeoff tool evaluation</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects show promise but are not yet production-ready for PGC workflows. Monitor for maturity milestones.</p>
+
+<h3>5.1 CadQuery + build123d — Python-Based Parametric CAD</h3>
+
+<p><strong>GitHub (CadQuery):</strong> https://github.com/CadQuery/cadquery
+<strong>GitHub (build123d):</strong> https://github.com/gumyr/build123d
+<strong>Why It Matters:</strong> Python-native CAD scripting could automate glazing component generation from schedule data.
+<strong>Current Status:</strong> Active development; lacks AEC-specific workflows. Monitor for integration with IFC export.
+<strong>Watch Timeline:</strong> 12+ months.</p>
+
+<h3>5.2 text-to-cad — Natural Language to Geometry</h3>
+
+<p><strong>Representative Project:</strong> https://github.com/kalmanbartha/text-to-cad
+<strong>Why It Matters:</strong> Could eventually allow estimators to generate 2D glazing layouts from written specifications.
+<strong>Current Status:</strong> Experimental; single-shape generation only. Not ready for production workflows.
+<strong>Watch Timeline:</strong> 12–24 months.</p>
+
+<h3>5.3 PDF Spec Extraction Tools — Parsing Material Specifications from Documents</h3>
+
+<p><strong>Status:</strong> No dedicated open-source project identified in current landscape.
+<strong>Why It Matters:</strong> Automated extraction of glazing specifications (U-factor, SHGC, glass type) from PDF submittals or specifications would reduce manual data entry.
+<strong>Current Status:</strong> Gap identified; no viable open-source solution yet. Recommend monitoring AI-assisted document parsing space (e.g., LlamaParse, unstructured.io).
+<strong>Watch Timeline:</strong> 12+ months; evaluate AI-based alternatives as interim solution.</p>
+
+<h3>5.4 PDF Drawing Diff Tools — Automated Revision Comparison</h3>
+
+<p><strong>Status:</strong> No dedicated AEC-focused open-source project.
+<strong>Why It Matters:</strong> Automated diffing of two PDF drawing revisions (e.g., R2 vs. R3) would flag glazing specification changes without manual page-by-page review.
+<strong>Current Status:</strong> Achievable with existing open-source diff engines (e.g., diff-pdf, PdfDiff); AEC-specific integration does not yet exist.
+<strong>Watch Timeline:</strong> 6–12 months for custom internal tool development feasibility.</p>
+
+<hr />
+
+<h2>Key Takeaway for This Week</h2>
+
+<p>The open-source AEC stack is production-ready across every glazing-relevant workflow <strong>except PDF-based quantity takeoff.</strong> This gap represents PGC's most actionable strategic opportunity. Browser-based BIM viewing (web-ifc), drone-based site documentation (OpenDroneMap + CloudCompare), and open-source project management (OpenProject) are available today at zero software cost.</p>
+
+<p><strong>Immediate action for Steve Watts:</strong> Direct the team to spend 30 minutes this week opening a BIM model in a browser using web-ifc. Personal familiarity with the capability will accelerate internal evaluation and vendor conversations.</p>
+
+<hr />
+
+<p><em>Compiled from: Primary Analysis (week of June 24, 2026) and Independent Review (July 1, 2026).</em></p>
+
+</body>
+</html>
