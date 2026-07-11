@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — July 11, 2026",
+    date: "July 11, 2026",
+    type: "tech",
+    description: "Embodied AI consolidating into vision-video-action stacks opens a 12-18 month window for PGC to lead automation, but quantization may cause drift",
+    file: "/briefs/weekly-briefing-2026-07-11.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — July 8, 2026",
     date: "July 8, 2026",
     type: "software",
