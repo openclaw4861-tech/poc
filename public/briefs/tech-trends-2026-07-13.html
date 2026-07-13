@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Trends Brief - 2026-07-13</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #6f42c1; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #6f42c1; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #6f42c1; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+        .meta-trend { background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #17a2b8; }
+        .action-items { background: #fff3cd; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107; }
+        .action-items ul { margin: 10px 0; padding-left: 20px; }
+        .action-items li { margin: 8px 0; }
+        .tag { display: inline-block; background: #e8d5f5; color: #6f42c1; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin: 2px; }
+        .verdict-adopt { display: inline-block; background: #d4edda; color: #155724; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .verdict-watch { display: inline-block; background: #fff3cd; color: #856404; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .verdict-experiment { display: inline-block; background: #cce5ff; color: #004085; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .trend-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .trend-card h3 { margin-top: 0; }
+        .trend-number { display: inline-block; background: #6f42c1; color: white; width: 28px; height: 28px; text-align: center; line-height: 28px; border-radius: 50%; font-size: 0.85em; font-weight: bold; margin-right: 8px; }
+        .trend-section { margin: 10px 0; }
+        .trend-section strong { color: #555; }
+        .mvp-box { background: #f0f8ff; border: 1px dashed #6f42c1; padding: 12px; border-radius: 6px; margin: 10px 0; }
+        .why-pgc { background: #f0fdf4; border: 1px solid #86efac; padding: 12px; border-radius: 6px; margin: 10px 0; }
+        hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
+        .summary-table { margin: 20px 0; }
+        .summary-table th { background: #6f42c1; color: white; }
+        .summary-table .verdict-col { text-align: center; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Tech Trends Brief</h1>
+    <p><em>July 13, 2026 — 15 trending technologies curated for Pacific Glazing Corporation</em></p>
+    <hr />
+
+    <div class="executive-summary">
+        <strong>Executive Summary</strong>
+        <p>This week's landscape is dominated by three converging forces: <strong>agentic infrastructure maturing for real-world deployment</strong>, <strong>open-weight models challenging proprietary dominance</strong>, and <strong>ambient sensing breaking out of the lab</strong>. For PGC, the actionable signal is clear — the tools to automate estimation, job-site coordination, and customer communication are now cheap enough to experiment with in days, not months.</p>
+    </div>
+
+    <h2>📊 At a Glance</h2>
+    <div class="summary-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Trend</th>
+                    <th>Verdict</th>
+                    <th>PGC Relevance</th>
+                    <th>MVP Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>GPT-5.6</td><td class="verdict-col"><span class="verdict-adopt">⚡ Adopt</span></td><td>Customer-facing AI, estimation</td><td>2 days</td></tr>
+                <tr><td>2</td><td>LongCat-2.0 (1.6T MoE)</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Self-hosted coding agent</td><td>1 day</td></tr>
+                <tr><td>3</td><td>CubeSandbox (AI Agent Sandbox)</td><td class="verdict-col"><span class="verdict-adopt">⚡ Adopt</span></td><td>Secure agent deployment</td><td>3 days</td></tr>
+                <tr><td>4</td><td>MCP Ecosystem (10K+ servers)</td><td class="verdict-col"><span class="verdict-adopt">⚡ Adopt</span></td><td>Connect AI to PGC tools</td><td>2 days</td></tr>
+                <tr><td>5</td><td>pgrust (Postgres in Rust)</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Database infrastructure</td><td>1 day</td></tr>
+                <tr><td>6</td><td>Ternlight (7MB browser embeddings)</td><td class="verdict-col"><span class="verdict-experiment">🧪 Experiment</span></td><td>On-device AI for field tablets</td><td>3 days</td></tr>
+                <tr><td>7</td><td>Voicebox (Open-source voice cloning)</td><td class="verdict-col"><span class="verdict-experiment">🧪 Experiment</span></td><td>Automated customer calls</td><td>2 days</td></tr>
+                <tr><td>8</td><td>RuView (WiFi spatial sensing)</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Job-site occupancy, safety</td><td>4 days</td></tr>
+                <tr><td>9</td><td>Meta Iris AI Chip</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Future AI hardware</td><td>—</td></tr>
+                <tr><td>10</td><td>FloatForm (Swarm aquatic robots)</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Construction automation R&D</td><td>—</td></tr>
+                <tr><td>11</td><td>Bun → Rust rewrite (Anthropic)</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>JS runtime performance</td><td>1 day</td></tr>
+                <tr><td>12</td><td>YC B2B at 2,623 companies</td><td class="verdict-col"><span class="verdict-adopt">⚡ Adopt</span></td><td>Vendor discovery</td><td>3 days</td></tr>
+                <tr><td>13</td><td>Autonomous defense → deployment</td><td class="verdict-col"><span class="verdict-watch">👁 Watch</span></td><td>Site security tech spillover</td><td>—</td></tr>
+                <tr><td>14</td><td>OmniVoice (600+ language TTS)</td><td class="verdict-col"><span class="verdict-experiment">🧪 Experiment</span></td><td>Multilingual customer support</td><td>2 days</td></tr>
+                <tr><td>15</td><td>agency-agents (Multi-agent orchestration)</td><td class="verdict-col"><span class="verdict-adopt">⚡ Adopt</span></td><td>Multi-agent orchestration</td><td>3 days</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr />
+
+    <h2>🔥 The 15 Trends</h2>
+
+    <!-- Trend 1 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">1</span> GPT-5.6 — OpenAI's Latest Frontier Model</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-adopt">⚡ Adopt</span> <span class="tag">#frontier-models</span> <span class="tag">#reasoning</span> <span class="tag">#api-economy</span> <span class="tag">#agentic-ai</span></div>
+        <div class="trend-section"><strong>What it is:</strong> OpenAI released GPT-5.6 in late June 2026, the latest iteration of their flagship model. It introduces significant improvements in reasoning depth, tool-use reliability, and context handling compared to GPT-5.5. The model is available via API and ChatGPT.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> General-purpose AI reasoning, coding assistance, document analysis, customer-facing chatbots, complex multi-step task planning. GPT-5.6 shows particular strength in following nuanced instructions and maintaining coherence over long conversations.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (2 days):</strong> Set up a GPT-5.6-powered estimation assistant. Feed it 10 past PGC project specs and their final quotes. Test whether it can generate a first-pass estimate from a new job description within 15% accuracy. Use the API directly — no frontend needed.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Estimation is PGC's highest-leverage AI application. A model that can ingest a scope of work and produce a ballpark figure saves senior estimators hours per bid. GPT-5.6's improved instruction-following makes it the best off-the-shelf option today.</div>
+    </div>
+
+    <!-- Trend 2 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">2</span> LongCat-2.0 — 1.6 Trillion Parameter Open-Source MoE</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#open-source</span> <span class="tag">#frontier-models</span> <span class="tag">#coding-agents</span> <span class="tag">#china-ai</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Meituan open-sourced LongCat-2.0 on July 6 under MIT license — a Mixture-of-Experts model with 1.6T total parameters (48B active per token), 1M token context window, and a 59.5% SWE-bench Pro score that beats GPT-5.5. Trained on 50,000 domestic Chinese AI chips.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Agentic coding, whole-codebase reasoning, long-document analysis. The 1M context means it can ingest an entire codebase or project spec in one pass.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (1 day):</strong> Download the LongCat-2.0 weights (or use the hosted demo at trylongcat.com). Feed it PGC's entire estimating methodology document and ask it to generate a structured estimation checklist. Compare output quality against GPT-5.6.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Open-source models at this capability level mean PGC could eventually run a private coding or estimation agent without per-token API costs. The 1M context is particularly relevant for ingesting large project specifications.</div>
+    </div>
+
+    <!-- Trend 3 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">3</span> CubeSandbox — Tencent's Secure AI Agent Sandbox</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-adopt">⚡ Adopt</span> <span class="tag">#agent-infrastructure</span> <span class="tag">#sandbox</span> <span class="tag">#rust</span> <span class="tag">#ai-safety</span></div>
+        <div class="trend-section"><strong>What it is:</strong> TencentCloud open-sourced CubeSandbox (Apache 2.0), a lightweight, instant-boot sandbox for AI agents written in Rust. It provides isolated execution environments where agents can safely run code, access filesystems, and use shell commands without compromising the host. 9,800+ GitHub stars, +2.5K this week.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Running untrusted AI agent code safely, multi-agent simulations, code execution environments for coding agents, secure testing of AI-generated scripts.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (3 days):</strong> Deploy CubeSandbox on a PGC server. Connect it to an MCP server to give an AI agent safe access to PGC's estimating database. Test: "Read the last 5 completed jobs and summarize average margin by project type."</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Before PGC can let AI agents touch production data, they need a sandbox. CubeSandbox is free, self-hosted, and purpose-built for this. It's the infrastructure layer that makes all other agent experiments production-safe.</div>
+    </div>
+
+    <!-- Trend 4 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">4</span> MCP Ecosystem — 10,000+ Servers and Counting</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-adopt">⚡ Adopt</span> <span class="tag">#agent-infrastructure</span> <span class="tag">#standards</span> <span class="tag">#api-economy</span> <span class="tag">#enterprise-ai</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The Model Context Protocol (MCP), originally created by Anthropic, has grown to over 10,000 active public servers. The July 2026 spec release candidate introduces a stateless core (standard HTTP), enterprise OAuth 2.1 authorization, and MCP Apps (server-rendered UIs). Microsoft, IBM, and Cloudflare all now support MCP natively.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Standardized connections between AI agents and external tools/databases/APIs. Instead of custom integrations for every tool, MCP provides one protocol. An agent can discover and use any MCP-connected tool.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (2 days):</strong> Set up an MCP server that exposes PGC's job database (even a simple SQLite copy). Connect it to Claude Desktop or any MCP-compatible client. Ask: "Which customers have had more than 3 service calls in the last year?" — no custom code needed.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> MCP is becoming the USB-C of AI integrations. Instead of building custom connectors for every tool PGC uses (QuickBooks, CRM, scheduling), one MCP layer connects everything. The enterprise auth update makes it viable for production.</div>
+    </div>
+
+    <!-- Trend 5 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">5</span> pgrust — PostgreSQL Rewritten in Rust</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#rust</span> <span class="tag">#database</span> <span class="tag">#infrastructure</span> <span class="tag">#memory-safety</span></div>
+        <div class="trend-section"><strong>What it is:</strong> pgrust is an ambitious project to reimplement PostgreSQL in Rust, now passing 100% of the PostgreSQL regression test suite. It aims to provide memory safety without sacrificing performance, while maintaining full wire compatibility with existing Postgres clients and tools.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Database infrastructure where memory safety and performance are critical. pgrust can drop into existing Postgres deployments as a replacement backend.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (1 day):</strong> Spin up a pgrust instance in a Docker container. Point PGC's existing Postgres tooling (pgAdmin, any ORM) at it. Verify that all existing queries, migrations, and backups work identically.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> PGC runs on Postgres (or should be). A Rust-based Postgres means fewer memory-related crashes, better performance under load, and a smaller attack surface. Not urgent, but worth tracking — when it hits 1.0, migration will be a drop-in replacement.</div>
+    </div>
+
+    <!-- Trend 6 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">6</span> Ternlight — 7MB Embedding Model Running in Browser</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-experiment">🧪 Experiment</span> <span class="tag">#embeddings</span> <span class="tag">#on-device-ai</span> <span class="tag">#wasm</span> <span class="tag">#privacy</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Ternlight is a 7MB embedding model that runs entirely in-browser via WebAssembly. It generates high-quality text embeddings on-device with no server calls, no API keys, and no data leaving the machine.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Semantic search, document similarity, clustering, and RAG (retrieval-augmented generation) entirely on-device. Particularly valuable for offline or privacy-sensitive applications.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (3 days):</strong> Build a simple HTML page that loads Ternlight via WASM. Upload PGC's product catalog (glass types, frame specs, sealant options). Add a search box that finds the closest matching product to a natural language description — all running on a field tablet with no internet.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Field tablets on job sites often have spotty connectivity. Ternlight means PGC can run semantic search and product matching entirely offline. A foreman types "tempered low-e for commercial storefront" and gets the right SKU instantly.</div>
+    </div>
+
+    <!-- Trend 7 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">7</span> Voicebox — Open-Source AI Voice Studio</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-experiment">🧪 Experiment</span> <span class="tag">#voice-ai</span> <span class="tag">#open-source</span> <span class="tag">#local-first</span> <span class="tag">#content-creation</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Voicebox is a free, open-source, local-first alternative to ElevenLabs. It clones voices from a few seconds of audio, generates speech in 23 languages across 7 TTS engines, and runs entirely on local hardware. No cloud dependency, no per-character costs.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Voice cloning, text-to-speech, dictation, automated voice content. The local-first approach means sensitive voice data never leaves the machine.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (2 days):</strong> Install Voicebox on a PGC office machine. Record Steve reading a standard project update. Clone the voice. Generate an automated daily job-site status call: "This is Steve with your PGC project update for July 14..." — test with 5 customers.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Customer communication is labor-intensive. Voicebox lets PGC generate personalized voice updates, bid confirmations, and appointment reminders using a cloned voice — at zero marginal cost. The local-first aspect means customer voice data stays private.</div>
+    </div>
+
+    <!-- Trend 8 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">8</span> RuView — WiFi-Based Spatial Sensing</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#ambient-sensing</span> <span class="tag">#iot</span> <span class="tag">#privacy</span> <span class="tag">#edge-ai</span></div>
+        <div class="trend-section"><strong>What it is:</strong> RuView turns commodity WiFi signals into real-time spatial intelligence using $9 ESP32 microcontrollers and an 8KB AI model. It detects people, monitors vital signs, and maps occupancy — all without cameras. The project went viral on GitHub this week (+666 stars).</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Occupancy detection, people counting, fall detection, vital sign monitoring, security — all through existing WiFi infrastructure. Privacy-preserving because no video is captured.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (4 days):</strong> Deploy 3 ESP32-based RuView sensors in PGC's office and warehouse. Set up a dashboard showing real-time occupancy heatmaps. Test accuracy against manual counts during shift changes.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Job-site safety and occupancy tracking are perennial challenges. RuView means PGC can monitor who's in a dangerous zone without cameras (privacy-friendly), track warehouse occupancy for insurance, and even detect if someone falls in a remote area. At $9 per sensor, it's trivial to deploy.</div>
+    </div>
+
+    <!-- Trend 9 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">9</span> Meta Iris — First-Generation AI Training Chip</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#ai-hardware</span> <span class="tag">#semiconductors</span> <span class="tag">#hyperscaler</span> <span class="tag">#custom-silicon</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Meta announced its first in-house AI training chip, Iris, entering production in September 2026. Designed to reduce Meta's dependence on NVIDIA GPUs, Iris targets training workloads for Meta's AI models. Production is slated for TSMC's 3nm process.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> AI model training at scale. Iris is a purpose-built ASIC for large neural network training, competing with NVIDIA's H100/B200 and AMD's MI series.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Indirect but significant. More AI chip competition means cheaper inference costs over the next 12-18 months. Every AI experiment PGC runs today becomes cheaper tomorrow. The real impact is on the economics of self-hosting AI models.</div>
+    </div>
+
+    <!-- Trend 10 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">10</span> FloatForm — MIT's Self-Assembling Swarm Robots</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#robotics</span> <span class="tag">#swarm</span> <span class="tag">#construction-tech</span> <span class="tag">#autonomous-systems</span></div>
+        <div class="trend-section"><strong>What it is:</strong> MIT CSAIL's FloatForm is a swarm of 21cm-square autonomous robotic boats that self-assemble into floating structures. Using distributed algorithms (no central controller), they snap together magnetically, reconfigure on command, and can form bridges, platforms, or barriers.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Temporary floating infrastructure, emergency response, environmental monitoring, construction platforms on water.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Long-term R&D signal. The distributed coordination algorithms could inspire PGC's multi-crew scheduling system. More immediately, if this technology matures, it could change how temporary access platforms and scaffolding are deployed on waterfront projects.</div>
+    </div>
+
+    <!-- Trend 11 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">11</span> Bun → Rust Rewrite (Anthropic Acquisition)</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#rust</span> <span class="tag">#javascript</span> <span class="tag">#runtime</span> <span class="tag">#infrastructure</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Anthropic acquired Bun (the JavaScript runtime) and is rewriting it in Rust for stability and performance. This follows the broader industry trend of rewriting performance-critical infrastructure in Rust (see also: pgrust, CubeSandbox).</div>
+        <div class="trend-section"><strong>What it's used for:</strong> JavaScript/TypeScript runtime for server-side applications. A Rust-based Bun promises better memory safety, faster startup, and lower resource usage.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (1 day):</strong> If PGC has any Node.js applications (internal tools, website backend), benchmark them on Bun today vs Node.js. When the Rust rewrite stabilizes, re-benchmark. The performance gains could mean running the same workload on cheaper hardware.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> PGC's web presence and any internal tools built on JavaScript/TypeScript will benefit from a faster, safer runtime. The Rust rewrite signals that JavaScript infrastructure is getting a serious performance upgrade.</div>
+    </div>
+
+    <!-- Trend 12 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">12</span> YC B2B Portfolio Hits 2,623 Companies</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-adopt">⚡ Adopt</span> <span class="tag">#startups</span> <span class="tag">#b2b-saas</span> <span class="tag">#construction-tech</span> <span class="tag">#vendor-discovery</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Y Combinator's B2B portfolio has grown to 2,623 companies, reflecting accelerating demand for specialized business services. This represents a massive ecosystem of startups building tools for every conceivable business function.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Vendor discovery — YC's B2B companies cover construction tech, field service software, accounting, HR, compliance, and more. Many offer founder-friendly pricing and are open to feedback from early customers.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (3 days):</strong> Search the YC B2B directory for construction, glazing, and field-service categories. Identify 5 companies whose products could solve a known PGC pain point. Reach out to 3 for demos. YC founders are unusually responsive to early customers.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> PGC doesn't need to build everything from scratch. There are 2,623 startups that have already built solutions for problems PGC faces. The challenge is discovery — this trend is a reminder to actively look rather than build in-house.</div>
+    </div>
+
+    <!-- Trend 13 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">13</span> Autonomous Defense → Commercial Spillover</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-watch">👁 Watch</span> <span class="tag">#defense-tech</span> <span class="tag">#autonomous-systems</span> <span class="tag">#computer-vision</span> <span class="tag">#drones</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Autonomous defense startups (Anduril, Shield AI, etc.) are moving from prototyping to deployment. Technologies developed for defense — autonomous navigation, computer vision in harsh conditions, secure mesh networking — are beginning to spill into commercial construction and industrial applications.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Job-site security, autonomous material transport, drone-based site inspection, perimeter monitoring.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Job-site security is a real cost (theft, vandalism, safety monitoring). Defense-grade autonomous monitoring systems coming down in price could replace or augment human security guards. The computer vision models trained on battlefield conditions transfer well to construction site hazard detection.</div>
+    </div>
+
+    <!-- Trend 14 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">14</span> OmniVoice — 600+ Language TTS & Voice Cloning</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-experiment">🧪 Experiment</span> <span class="tag">#voice-ai</span> <span class="tag">#open-source</span> <span class="tag">#multilingual</span> <span class="tag">#accessibility</span></div>
+        <div class="trend-section"><strong>What it is:</strong> OmniVoice (k2-fsa/OmniVoice) is an open-source TTS system supporting 600+ languages with high-quality voice cloning. The companion OmniVoice-Studio provides a desktop GUI. It's positioned as an open-source ElevenLabs alternative with broader language coverage.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Multilingual text-to-speech, voice cloning for any language, dubbing, accessibility tools. The 600+ language support is unprecedented in open-source TTS.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (2 days):</strong> Install OmniVoice and test Spanish and Mandarin voice cloning. Record a short project update in English, clone the voice, and generate versions in Spanish and Mandarin. Test with PGC's Spanish-speaking crew members and any Mandarin-speaking suppliers.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> PGC's workforce is increasingly multilingual. Safety announcements, project updates, and training materials in workers' preferred languages reduce accidents and improve quality. OmniVoice makes this affordable — generate voiceovers in 600+ languages from a single recording.</div>
+    </div>
+
+    <!-- Trend 15 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">15</span> agency-agents — Multi-Agent Orchestration Framework</h3>
+        <div style="margin-bottom: 10px;"><span class="verdict-adopt">⚡ Adopt</span> <span class="tag">#agentic-ai</span> <span class="tag">#orchestration</span> <span class="tag">#multi-agent</span> <span class="tag">#workflow-automation</span></div>
+        <div class="trend-section"><strong>What it is:</strong> agency-agents is a trending GitHub project (and broader pattern) for orchestrating multiple AI agents that collaborate on complex tasks. Each agent has a specialized role (researcher, coder, reviewer, estimator) and they communicate to produce better results than any single agent.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Complex multi-step workflows where different expertise is needed. An agency of agents can handle end-to-end processes: receive a request, research, draft, review, and deliver.</div>
+        <div class="mvp-box"><strong>🧪 MVP Experiment (3 days):</strong> Set up a 3-agent "estimating agency": Agent A (spec reader) extracts requirements from a job description, Agent B (materials expert) looks up current pricing, Agent C (estimator) produces a quote. Use GPT-5.6 for all agents. Compare output quality and speed against a single-agent approach.</div>
+        <div class="why-pgc"><strong>🎯 Why it matters for PGC:</strong> Complex tasks like estimating involve multiple distinct skills. A multi-agent approach lets PGC specialize each agent and swap out individual agents as better models emerge. It's also more debuggable — if the estimate is wrong, you know which agent failed.</div>
+    </div>
+
+    <hr />
+
+    <h2>🔗 Three Meta-Trends</h2>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 1: The Agent Infrastructure Stack Is Solidifying</strong>
+        <p>CubeSandbox (#3), MCP (#4), and agency-agents (#15) form a coherent stack: sandboxed execution → standardized tool access → multi-agent orchestration. Six months ago, these were fragmented experiments. Today, they're production-ready open-source projects. <strong>For PGC, this means the "build an AI agent" path is now a weekend project, not a quarter-long engineering effort.</strong></p>
+    </div>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 2: Open-Weight Models Are Closing the Gap</strong>
+        <p>LongCat-2.0 (#2) beats GPT-5.5 on coding benchmarks. Ternlight (#6) runs embedding models in-browser. Voicebox (#7) and OmniVoice (#14) match cloud TTS quality locally. The gap between open-source and proprietary AI is narrowing fast. <strong>PGC should design its AI architecture with model-swappability in mind — don't lock into one provider.</strong></p>
+    </div>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 3: Sensing Without Cameras Is Real</strong>
+        <p>RuView (#8) turns WiFi into radar. FloatForm (#10) coordinates without central control. Autonomous defense (#13) navigates without GPS. The common thread: <strong>ambient intelligence that works without traditional sensors.</strong> For PGC, this means job-site monitoring, safety tracking, and inventory management that respects privacy and works in challenging environments (dust, darkness, weather).</p>
+    </div>
+
+    <hr />
+
+    <div class="action-items">
+        <h3>🎯 Steve's Action Items</h3>
+        <p><strong>This Week</strong></p>
+        <ul>
+            <li>☐ <strong>Set up GPT-5.6 estimation experiment</strong> — 10 past projects, compare AI estimate vs actual. 2 hours.</li>
+            <li>☐ <strong>Install Voicebox or OmniVoice</strong> — clone your voice, generate one test customer update call. 1 hour.</li>
+            <li>☐ <strong>Browse YC B2B directory</strong> for construction/field-service tools. 30 minutes.</li>
+        </ul>
+        <p><strong>This Month</strong></p>
+        <ul>
+            <li>☐ <strong>Deploy an MCP server</strong> connecting PGC's job database to an AI client. 2 days.</li>
+            <li>☐ <strong>Run the 3-agent estimating experiment</strong> (agency-agents pattern). 3 days.</li>
+            <li>☐ <strong>Order 5 ESP32 boards</strong> for a RuView pilot in the warehouse. $45 total.</li>
+        </ul>
+        <p><strong>This Quarter</strong></p>
+        <ul>
+            <li>☐ <strong>Evaluate CubeSandbox</strong> for production agent deployment.</li>
+            <li>☐ <strong>Build an offline product catalog search</strong> using Ternlight for field tablets.</li>
+            <li>☐ <strong>Review PGC's AI architecture</strong> for model-swappability (don't lock into one provider).</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p><em>Brief generated July 13, 2026. Research sources: arXiv, GitHub Trending, Hacker News, TechCrunch, MIT Tech Review, Product Hunt, Y Combinator, and supplementary deep-dives.</em></p>
+    </div>
+
+</body>
+</html>

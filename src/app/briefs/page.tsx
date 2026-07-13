@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — July 13, 2026",
+    date: "July 13, 2026",
+    type: "tech",
+    description: "15 trending technologies: GPT-5.6 (Adopt), LongCat-2.0 1.6T MoE (Watch), CubeSandbox agent sandbox (Adopt), MCP 10K+ servers (Adopt), pgrust Postgres in Rust (Watch), Ternlight 7MB browser embeddings (Experiment), Voicebox open-source voice cloning (Experiment), RuView WiFi spatial sensing (Watch), Meta Iris AI chip (Watch), FloatForm swarm robots (Watch), Bun Rust rewrite (Watch), YC B2B 2,623 companies (Adopt), autonomous defense spillover (Watch), OmniVoice 600+ language TTS (Experiment), agency-agents multi-agent orchestration (Adopt) — with 3 meta-trends: Agent Infrastructure Stack Solidifying, Open-Weight Models Closing the Gap, Sensing Without Cameras Is Real.",
+    file: "/briefs/tech-trends-2026-07-13.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — July 11, 2026",
     date: "July 11, 2026",
     type: "tech",
     description: "Embodied AI consolidating into vision-video-action stacks opens a 12-18 month window for PGC to lead automation, but quantization may cause drift",
     file: "/briefs/weekly-briefing-2026-07-11.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — July 8, 2026",
