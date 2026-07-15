@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — July 15, 2026",
+    date: "July 15, 2026",
+    type: "software",
+    description: "Open-source AEC tools enable browser BIM viewing and drone photogrammetry, cutting submittal costs while PDF‑based quantity takeoff remains a gap",
+    file: "/briefs/software-brief-2026-07-15.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — July 15, 2026",
     date: "July 15, 2026",
     type: "futurist",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Foreman (AI estimating + proposals from shop drawings, Try Now), Rudus (concrete AI takeoff, Watch), Helonic (AI clash detection + auto RFIs, Try Now), FlowManual (AI back-office automation, Try Now), PLAN0 AI (analytics layer for developers, Skip), Resolve (VR BIM review, Watch), Scope3D (3D building twins for retrofit glazing, Try Now), OpenConstructionERP v3.0 (free open-source ERP, Try Now), Higharc ($95M Series C AI homebuilding, Watch), Autodesk Fusion July update (construction geometry, Watch), Gstarsoft (open CAD/BIM ecosystem, Watch), Contractor Foreman ($49/mo Procore alternative, Try Now). Top picks: Foreman > FlowManual > Scope3D > OpenConstructionERP > Contractor Foreman > Helonic.",
     file: "/briefs/software-watch-2026-07-08.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — July 08, 2026",
