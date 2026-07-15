@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — July 15, 2026",
+    date: "July 15, 2026",
+    type: "software",
+    description: "12 new tools: FlowManual (AI bidding + procurement, Try Now), Foreman (AI takeoff to proposal, Try Now), Rudus (concrete AI takeoff, Watch), PLAN0 AI (analytics layer, Watch), Helonic (AI clash detection + auto RFIs, Try Now), OpenConstructionERP v3.0 (free open-source ERP, Try Now), Prolo (a16z-backed procurement, Try Now), OpenSpace (visual intelligence, Watch), Trimble AI Takeoff (MEP estimating, Watch), Togal.AI (one-click AI takeoff, Try Now), ConstructionBids.ai (AI bid matching, Try Now), Aasaan (AI PM platform, Watch). Top picks: FlowManual > Foreman > Helonic > OpenConstructionERP > Prolo > Togal.AI > ConstructionBids.ai.",
+    file: "/briefs/software-watch-2026-07-15.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — July 15, 2026",
     date: "July 15, 2026",
     type: "software",
     description: "Open-source AEC tools enable browser BIM viewing and drone photogrammetry, cutting submittal costs while PDF‑based quantity takeoff remains a gap",
     file: "/briefs/software-brief-2026-07-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — July 15, 2026",
@@ -27,7 +35,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "AI‑driven materials discovery, narrow robotic autonomy, manufacturing controls signal shift from tech to construction solutions",
     file: "/briefs/futurist-brief-2026-07-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — July 13, 2026",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: GPT-5.6 (Adopt), LongCat-2.0 1.6T MoE (Watch), CubeSandbox agent sandbox (Adopt), MCP 10K+ servers (Adopt), pgrust Postgres in Rust (Watch), Ternlight 7MB browser embeddings (Experiment), Voicebox open-source voice cloning (Experiment), RuView WiFi spatial sensing (Watch), Meta Iris AI chip (Watch), FloatForm swarm robots (Watch), Bun Rust rewrite (Watch), YC B2B 2,623 companies (Adopt), autonomous defense spillover (Watch), OmniVoice 600+ language TTS (Experiment), agency-agents multi-agent orchestration (Adopt) — with 3 meta-trends: Agent Infrastructure Stack Solidifying, Open-Weight Models Closing the Gap, Sensing Without Cameras Is Real.",
     file: "/briefs/tech-trends-2026-07-13.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — July 11, 2026",

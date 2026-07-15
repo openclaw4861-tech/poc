@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Watch — July 15, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #f5f6f9; color: #1a1a2e; line-height: 1.6; padding: 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { margin-bottom: 2rem; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #0a0a1a; }
+    header .subtitle { color: #5a5a7a; font-size: 1.05rem; margin-top: 0.25rem; }
+    header .date { display: inline-block; background: #e8eaf0; padding: 0.25rem 0.8rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #4a4a6a; margin-top: 0.5rem; }
+    header .theme { margin-top: 0.75rem; font-size: 0.95rem; color: #3a3a5a; background: #eef0f8; padding: 0.6rem 1rem; border-radius: 10px; border-left: 3px solid #6366f1; }
+    .verdict-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; }
+    .verdict-try { background: #d4edda; color: #155724; }
+    .verdict-watch { background: #fff3cd; color: #856404; }
+    .verdict-skip { background: #f8d7da; color: #721c24; }
+    .glazing-high { background: #d4edda; color: #155724; }
+    .glazing-medium { background: #fff3cd; color: #856404; }
+    .glazing-low { background: #f8d7da; color: #721c24; }
+    .tool-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 768px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
+    .tool-card { background: #fff; border-radius: 14px; border: 1px solid #e4e6ef; padding: 1.25rem; display: flex; flex-direction: column; transition: box-shadow 0.15s; }
+    .tool-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .tool-card-header { margin-bottom: 0.6rem; }
+    .tool-card-header h2 { font-size: 1.15rem; font-weight: 600; color: #0a0a1a; }
+    .tool-card-header .category { font-size: 0.8rem; color: #6a6a8a; font-weight: 500; }
+    .tool-card-body { flex: 1; }
+    .tool-card-body p { font-size: 0.92rem; color: #2a2a3e; margin-bottom: 0.5rem; }
+    .tool-card-body .label { font-weight: 600; font-size: 0.82rem; color: #3a3a5a; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.5rem; }
+    .tool-card-footer { margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid #eeeef4; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem; }
+    .footer-summary { margin-top: 2.5rem; background: #fff; border-radius: 14px; border: 1px solid #e4e6ef; padding: 1.5rem; }
+    .footer-summary h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .footer-summary .top-picks { list-style: none; }
+    .footer-summary .top-picks li { padding: 0.3rem 0; font-size: 0.95rem; }
+    .footer-summary .top-picks li strong { color: #0a0a1a; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.75rem 0; }
+    th { text-align: left; padding: 0.5rem 0.6rem; background: #f0f1f6; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; color: #3a3a5a; }
+    td { padding: 0.5rem 0.6rem; border-bottom: 1px solid #eeeef4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔧 Software Watch</h1>
+      <div class="subtitle">New tools for construction, glazing &amp; fabrication — curated for PGC</div>
+      <div class="date">July 15, 2026</div>
+      <div class="theme">📌 This week's theme: <strong>YC Summer 2026 cohort goes deep on construction AI</strong> — FlowManual, Foreman, Rudus, PLAN0 AI, and Helonic all target back-office and preconstruction pain points. Plus: open-source ERP hits v3.0, a16z backs construction procurement, and AI takeoff tools mature.</div>
+    </header>
+
+    <div class="tool-grid">
+      <!-- 1. FlowManual -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>FlowManual</h2>
+          <div class="category">Bidding / Procurement</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> All-in-one AI bidding and purchasing platform for general and specialty contractors. Automates the buying process during pre-construction — from plan upload to supplier quotes. Built by two engineers and Harvard dropouts. YC S26.</p>
+          <p><strong>Legacy alt:</strong> Manual spreadsheet bidding + phone/email supplier sourcing</p>
+          <p><strong>Differentiator:</strong> End-to-end from bid to purchase order in one platform. Built for both GCs and specialty trades.</p>
+          <p><strong>Pricing:</strong> Not public (YC S26, seed-stage)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Upload glass shop drawings, get supplier-matched quotes and POs.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 2. Foreman -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Foreman</h2>
+          <div class="category">Estimating / Takeoff</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Replaces spreadsheets, email chains, and Word proposals with AI-generated takeoffs, estimates, and proposals from uploaded plans. YC S26.</p>
+          <p><strong>Legacy alt:</strong> Manual takeoff (Bluebeam + Excel) + Word proposals</p>
+          <p><strong>Differentiator:</strong> Full pipeline from plan → takeoff → estimate → proposal in one AI-native workflow. No CAD plugin needed.</p>
+          <p><strong>Pricing:</strong> Not public (YC S26, seed-stage)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Upload glass shop drawings, get structured takeoffs and proposals.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 3. Rudus -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Rudus</h2>
+          <div class="category">Estimating / Takeoff (Specialty)</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI-powered takeoff and estimation platform purpose-built for concrete contractors. Claims 70% reduction in estimation time and 3x more projects won annually. YC S26.</p>
+          <p><strong>Legacy alt:</strong> Manual concrete takeoff + spreadsheets</p>
+          <p><strong>Differentiator:</strong> Niche focus on concrete means deep domain accuracy. Tied to AI data center infrastructure buildout tailwind.</p>
+          <p><strong>Pricing:</strong> Not public (YC S26, seed-stage)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-low">Low</span></p>
+          <p><span class="label">MVP:</span> Concept validation for specialty trade takeoff — watch for glazing-specific spin-off.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 4. PLAN0 AI -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>PLAN0 AI</h2>
+          <div class="category">Project Management / Analytics</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Analytics layer for developers, investors, and GCs. Vision models analyze architectural plans to generate cost estimates and market-benchmarked analytics in minutes. Claims $20B in projects already on platform. YC S26.</p>
+          <p><strong>Legacy alt:</strong> Manual benchmarking + historical cost databases</p>
+          <p><strong>Differentiator:</strong> Market-benchmarked analytics at seed stage with unusually large project volume ($20B).</p>
+          <p><strong>Pricing:</strong> Not public (YC S26, seed-stage)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Benchmark PGC glass project costs against market data.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 5. Helonic -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Helonic</h2>
+          <div class="category">CAD / BIM</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Analyzes PDF construction plans to automatically detect clashes and inconsistencies across architectural, structural, and MEP drawings. Drafts RFIs automatically. Integrates with Procore and Autodesk. YC S26.</p>
+          <p><strong>Legacy alt:</strong> Manual cross-referencing of drawing sets + manual RFI drafting</p>
+          <p><strong>Differentiator:</strong> Catches coordination errors in preconstruction (not mid-build), preventing costs that routinely reach hundreds of thousands per project.</p>
+          <p><strong>Pricing:</strong> Not public (YC S26, seed-stage)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Upload PGC glass shop drawings against structural/MEP plans to catch clashes before fabrication.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 6. OpenConstructionERP -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>OpenConstructionERP</h2>
+          <div class="category">ERP / Inventory</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Open-source construction ERP with 71 modules including BOQ, PDF/CAD/BIM takeoff, AI cost matching. 42 regional catalogues, 21 languages. AGPL-3.0. v3.0.</p>
+          <p><strong>Legacy alt:</strong> Sage, Viewpoint, or other commercial construction ERPs ($10k+/year)</p>
+          <p><strong>Differentiator:</strong> Free, open-source, self-hosted. Massive module library. AI cost matching across 42 regional catalogues.</p>
+          <p><strong>Pricing:</strong> Free (AGPL-3.0, self-hosted)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> <code>pip install openconstructionerp</code> — immediate self-hosted trial with inventory and BOQ modules.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 7. Prolo -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Prolo</h2>
+          <div class="category">Procurement / Supply Chain</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> Modernizes construction procurement with AI-powered supplier matching, quote comparison, and purchase order management. Raised £4.2M (a16z-backed).</p>
+          <p><strong>Legacy alt:</strong> Manual phone/email supplier sourcing + paper POs</p>
+          <p><strong>Differentiator:</strong> a16z-backed with focus on construction-specific procurement workflows. AI matches suppliers to project needs.</p>
+          <p><strong>Pricing:</strong> Not public (likely SaaS, per-project or subscription)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Test supplier matching for glass/material procurement on a current PGC project.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 8. OpenSpace -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>OpenSpace</h2>
+          <div class="category">Field Measurement / Documentation</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> 360° photo capture on job sites with AI-powered visual documentation. Creates a visual timeline of construction progress. Tracks installed work against plans. "Google Street View for construction sites."</p>
+          <p><strong>Legacy alt:</strong> Manual progress photos + daily reports</p>
+          <p><strong>Differentiator:</strong> Automated 360° capture with AI that maps photos to BIM/plans. 1,000+ data center projects milestone.</p>
+          <p><strong>Pricing:</strong> Per-project or subscription (established company)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Document glass installation progress on a large project and verify against shop drawings.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 9. Trimble AI Takeoff -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Trimble AI Takeoff</h2>
+          <div class="category">Estimating / Takeoff</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI-powered takeoff tools specifically targeting the MEP (mechanical, electrical, plumbing) estimating bottleneck. Automates quantity extraction from digital plans.</p>
+          <p><strong>Legacy alt:</strong> Manual takeoff with Trimble's own legacy tools or Bluebeam</p>
+          <p><strong>Differentiator:</strong> From Trimble (industry giant) — integrates with existing Trimble ecosystem. AI layer on top of proven estimating tools.</p>
+          <p><strong>Pricing:</strong> Likely add-on to Trimble estimating products</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> If PGC uses Trimble products, evaluate as a natural upgrade path.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+
+      <!-- 10. Togal.AI -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Togal.AI</h2>
+          <div class="category">Estimating / Takeoff</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI-powered construction takeoff and estimating platform. Automatically measures areas, counts objects, and extracts quantities from construction plans.</p>
+          <p><strong>Legacy alt:</strong> Manual takeoff with Bluebeam or PlanSwift</p>
+          <p><strong>Differentiator:</strong> One-click takeoff from uploaded plans. Trained on construction-specific drawings. Fastest in class for speed.</p>
+          <p><strong>Pricing:</strong> Subscription-based (per-user/month)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Upload glass shop drawings for automated window counts, glass areas, and curtain wall measurements.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 11. ConstructionBids.ai -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>ConstructionBids.ai</h2>
+          <div class="category">Estimating / Project Management</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI-powered bid matching platform that saves 8+ hours/week vs. manual portal checking. Matches contractors to relevant project opportunities.</p>
+          <p><strong>Legacy alt:</strong> Manually checking Dodge, ConstructConnect, or other bid boards</p>
+          <p><strong>Differentiator:</strong> AI learns which projects are relevant to your specific trade and capacity. Saves hours of manual filtering.</p>
+          <p><strong>Pricing:</strong> Likely subscription (competitors $3k–$12k/year range)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-high">High</span></p>
+          <p><span class="label">MVP:</span> Set up PGC trade profile and see if relevant glazing bids surface.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-try">Try Now</span>
+        </div>
+      </div>
+
+      <!-- 12. Aasaan -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <h2>Aasaan</h2>
+          <div class="category">Project Management / AI</div>
+        </div>
+        <div class="tool-card-body">
+          <p><strong>What it does:</strong> AI construction software platform for scheduling, cost management, and project delivery. Uses predictive analytics to forecast delays and cost overruns.</p>
+          <p><strong>Legacy alt:</strong> MS Project + spreadsheets for scheduling and cost tracking</p>
+          <p><strong>Differentiator:</strong> Predictive AI that learns from project data to forecast issues before they happen. Focus on ROI and cost reduction.</p>
+          <p><strong>Pricing:</strong> Not public (likely per-project or subscription)</p>
+          <p><span class="label">Glazing:</span> <span class="verdict-badge glazing-medium">Medium</span></p>
+          <p><span class="label">MVP:</span> Test scheduling and cost tracking on a large PGC glazing installation project.</p>
+        </div>
+        <div class="tool-card-footer">
+          <span class="verdict-badge verdict-watch">Watch</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="footer-summary">
+      <h3>📊 Summary</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tool</th>
+            <th>Category</th>
+            <th>Verdict</th>
+            <th>Glazing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>FlowManual</td><td>Bidding/Procurement</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>2</td><td>Foreman</td><td>Takeoff/Estimating</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>3</td><td>Rudus</td><td>Concrete Estimating</td><td><span class="verdict-badge verdict-watch">Watch</span></td><td><span class="verdict-badge glazing-low">Low</span></td></tr>
+          <tr><td>4</td><td>PLAN0 AI</td><td>Analytics</td><td><span class="verdict-badge verdict-watch">Watch</span></td><td><span class="verdict-badge glazing-medium">Medium</span></td></tr>
+          <tr><td>5</td><td>Helonic</td><td>BIM/Clash Detection</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>6</td><td>OpenConstructionERP</td><td>ERP</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>7</td><td>Prolo</td><td>Procurement</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>8</td><td>OpenSpace</td><td>Field Documentation</td><td><span class="verdict-badge verdict-watch">Watch</span></td><td><span class="verdict-badge glazing-medium">Medium</span></td></tr>
+          <tr><td>9</td><td>Trimble AI Takeoff</td><td>MEP Estimating</td><td><span class="verdict-badge verdict-watch">Watch</span></td><td><span class="verdict-badge glazing-medium">Medium</span></td></tr>
+          <tr><td>10</td><td>Togal.AI</td><td>Takeoff/Estimating</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>11</td><td>ConstructionBids.ai</td><td>Bid Matching</td><td><span class="verdict-badge verdict-try">Try Now</span></td><td><span class="verdict-badge glazing-high">High</span></td></tr>
+          <tr><td>12</td><td>Aasaan</td><td>PM/AI</td><td><span class="verdict-badge verdict-watch">Watch</span></td><td><span class="verdict-badge glazing-medium">Medium</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 1.5rem;">🎯 Top Picks for PGC This Week</h3>
+      <ul class="top-picks">
+        <li><strong>FlowManual</strong> — AI bidding and purchasing. Try on next glass procurement cycle.</li>
+        <li><strong>Foreman</strong> — AI takeoff to proposal in one workflow. Upload shop drawings and test.</li>
+        <li><strong>Helonic</strong> — Catch glass/structural clashes before fabrication. Integrates with Procore.</li>
+        <li><strong>OpenConstructionERP</strong> — Free self-hosted ERP. <code>pip install</code> and test inventory + BOQ modules.</li>
+        <li><strong>Prolo</strong> — a16z-backed procurement platform. Test supplier matching for glass materials.</li>
+        <li><strong>Togal.AI</strong> — One-click AI takeoff. Best bet for immediate glass takeoff automation.</li>
+        <li><strong>ConstructionBids.ai</strong> — AI bid matching. Set up PGC profile to find relevant glazing opportunities.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
