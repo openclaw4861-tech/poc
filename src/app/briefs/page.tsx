@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — July 20, 2026",
+    date: "July 20, 2026",
+    type: "tech",
+    description: "15 trending technologies: Strix AI pen testing agent (Adopt), Grok Build open-source coding agent (Watch), Vibe-Trading AI research platform (Experiment), Codebase-Memory-MCP 99% token reduction (Adopt), Hallmark anti-AI-slop design (Adopt), Orca parallel agent workspace (Watch), CubeSandbox agent sandbox (Adopt), OmniRoute local AI gateway (Adopt), Sakana AI brain-like learning (Watch), AlayaWorld open-source world models (Watch), Destructive Command Guard agent safety (Adopt), Moonshot AI world's largest open model (Watch), Noetra Japan's multimodal AI (Watch), PsiQuantum commercial quantum computer (Watch), GPT-Red OpenAI's super-hacker LLM (Watch) — with 3 meta-trends: The Agent Safety Stack Is Maturing, Brain-Inspired Learning Is Challenging Backprop, The AI Gateway Pattern Goes Mainstream.",
+    file: "/briefs/tech-trends-2026-07-20.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — July 18, 2026",
     date: "July 18, 2026",
     type: "tech",
     description: "This briefing covers AI's shift to local, on‑device tools, their commoditization, and implications for Pacific Glazing's field operations",
     file: "/briefs/weekly-briefing-2026-07-18.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — July 15, 2026",
