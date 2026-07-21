@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — July 21, 2026",
+    date: "July 21, 2026",
+    type: "futurist",
+    description: "Signals narrow robotics reaching production viability, a shift from research demos to real‑world deployment, and three converging tech streams",
+    file: "/briefs/futurist-brief-2026-07-21.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — July 20, 2026",
     date: "July 20, 2026",
     type: "tech",
