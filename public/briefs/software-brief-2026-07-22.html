@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-07-22</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>July 22, 2026</em></p>
+    <hr />
+
+<h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>For:</strong> Steve Watts, CEO, Pacific Glazing Corporation
+<strong>Date:</strong> July 22, 2026
+<strong>Prepared by:</strong> Research Team</p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>This week's analysis confirms that browser-based BIM viewing has reached production maturity, with ThatOpen's ecosystem decisively displacing legacy alternatives for glazing submittal workflows. Open-source photogrammetry tools have achieved cost parity with commercial survey options, presenting an immediate opportunity to reduce facade documentation expenses. Most significantly, the PDF-based quantity takeoff space remains the largest untapped opportunity—no production-ready open-source solution exists—creating a potential 12-month first-mover window for companies willing to invest in custom development. For Pacific Glazing, immediate action is warranted on browser BIM deployment, with medium-term strategic planning required around the takeoff gap and parametric glazing libraries.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Category</th>
+  <th>Relevance to PGC</th>
+  <th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td><strong>ThatOpen Engine</strong></td>
+  <td>Browser-Based BIM</td>
+  <td>Replace Bluebeam for submittal workflows; view IFC models directly in browser without desktop software</td>
+  <td>Production Ready</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td><strong>web-ifc</strong></td>
+  <td>IFC Parsing</td>
+  <td>Parse and manipulate IFC files in web applications; foundation for custom glazing BIM tools</td>
+  <td>Production Ready</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td><strong>OpenDroneMap (ODM)</strong></td>
+  <td>Photogrammetry</td>
+  <td>Zero-cost facade documentation; generate 3D point clouds from drone imagery</td>
+  <td>Production Ready</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td><strong>CloudCompare</strong></td>
+  <td>Point Cloud Processing</td>
+  <td>Analyze drone-generated point clouds; measure facade dimensions and check as-built conditions</td>
+  <td>Production Ready</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td><strong>FreeCAD 1.0</strong></td>
+  <td>3D/2D CAD</td>
+  <td>Viable for 2D shop drawings and basic parametric work; no glazing-specific libraries yet</td>
+  <td>Pre-Release</td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td><strong>CGAL</strong></td>
+  <td>Computational Geometry</td>
+  <td>Clash detection and panelization algorithms; relevant for custom glazing detail workflows</td>
+  <td>Mature Library</td>
+</tr>
+<tr>
+  <td><strong>7</strong></td>
+  <td><strong>OpenSCAD</strong></td>
+  <td>Script-Based CAD</td>
+  <td>Generate repeatable mullion profiles and connection details programmatically</td>
+  <td>Stable</td>
+</tr>
+<tr>
+  <td><strong>8</strong></td>
+  <td><strong>CadQuery</strong></td>
+  <td>Parametric CAD</td>
+  <td>Python-based parametric modeling; potential for building custom glazing component libraries</td>
+  <td>Active Development</td>
+</tr>
+<tr>
+  <td><strong>9</strong></td>
+  <td><strong>Procore BIM Webviewer SDK v17.8.0</strong></td>
+  <td>BIM Viewing</td>
+  <td>Industry validation of browser-based BIM as the standard direction; confirms market trajectory</td>
+  <td>Production</td>
+</tr>
+<tr>
+  <td><strong>10</strong></td>
+  <td><strong>Adam-CAD</strong></td>
+  <td>Text-to-CAD</td>
+  <td>Emerging AI-assisted CAD that could bypass traditional interface; early but explosive growth</td>
+  <td>Experimental</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>GitHub Links:</strong></p>
+
+<ul>
+<li>ThatOpen Engine: https://github.com/ThatOpen/engine</li>
+<li>web-ifc: https://github.com/ThatOpen/engine (included in ThatOpen ecosystem)</li>
+<li>OpenDroneMap: https://github.com/OpenDroneMap/ODM</li>
+<li>CloudCompare: https://github.com/CloudCompare/CloudCompare</li>
+<li>FreeCAD: https://github.com/FreeCAD/FreeCAD</li>
+<li>CGAL: https://github.com/CGAL/cgal</li>
+<li>OpenSCAD: https://github.com/openscad/openscad</li>
+<li>CadQuery: https://github.com/CadQuery/cadquery</li>
+</ul>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Spotlight 1: ThatOpen Engine + web-ifc</h3>
+
+<p><strong>What It Does:</strong> Enables viewing, editing, and managing IFC BIM files entirely in a web browser without AutoCAD, Revit, or Bluebeam dependencies.</p>
+
+<p><strong>Maturity:</strong> Production-ready; 99,423 weekly npm downloads and growing. Procore's own SDK validates this as the industry direction.</p>
+
+<p><strong>Setup Complexity:</strong> Low. JavaScript/TypeScript developers can integrate within days. Pre-built components available for common workflows.</p>
+
+<p><strong>Relevance to PGC:</strong> Replace current Bluebeam dependency for submittal workflows. Embed IFC viewers in project portals, automate submittal generation, and reduce per-seat licensing costs.</p>
+
+<p><strong>Resource:</strong> https://github.com/ThatOpen/engine</p>
+
+<hr />
+
+<h3>Spotlight 2: OpenDroneMap</h3>
+
+<p><strong>What It Does:</strong> Transform drone-captured photos into georeferenced 3D point clouds, digital surface models, and orthomosaics—competent replacements for traditional topographic and facade surveys.</p>
+
+<p><strong>Maturity:</strong> Production-ready; widely adopted in surveying and construction monitoring. Version 3.x significantly improved accuracy and processing speed.</p>
+
+<p><strong>Setup Complexity:</strong> Medium. Self-hosted option requires Linux server or Docker container. Cloud hosting options reduce technical barrier. Commercial services (WebODM) offer managed deployment.</p>
+
+<p><strong>Relevance to PGC:</strong> Document existing facade conditions for retrofit bidding, verify field measurements against design, generate as-built records for complex curtain wall projects.</p>
+
+<p><strong>Resource:</strong> https://github.com/OpenDroneMap/ODM</p>
+
+<hr />
+
+<h3>Spotlight 3: CadQuery</h3>
+
+<p><strong>What It Does:</strong> Python-based parametric 3D CAD kernel for building and manipulating geometry. Unlike traditional CAD, CadQuery scripts define geometry procedurally, enabling automated component generation.</p>
+
+<p><strong>Maturity:</strong> Active development (v2.x); stable API. Used in manufacturing and engineering but limited AEC adoption.</p>
+
+<p><strong>Setup Complexity:</strong> Medium. Requires Python knowledge. Documentation improving. Works well with FreeCAD for visualization.</p>
+
+<p><strong>Relevance to PGC:</strong> Potential to build custom libraries for standard glazing components—mullion sections, hardware templates, panel configurations—that can be regenerated programmatically for project-specific requirements.</p>
+
+<p><strong>Resource:</strong> https://github.com/CadQuery/cadquery</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal setup and can provide immediate value:</p>
+
+<h3>For BIM Viewing (Zero Commitment)</h3>
+
+<p><strong>ThatOpen BIM Viewer (Web-based)</strong>
+https://thatopen.github.io/engine-viewer/</p>
+
+<ul>
+<li>Open any sample IFC file directly in browser</li>
+<li>No installation required</li>
+<li>Test: Navigate a glazing-heavy model, zoom to curtain wall intersections, inspect panel dimensions</li>
+<li>Time required: 15 minutes</li>
+</ul>
+
+<hr />
+
+<h3>For Photogrammetry Exploration</h3>
+
+<p><strong>OpenDroneMap WebODM (Cloud-hosted demo)</strong>
+https://www.opendronemap.org/webodm/</p>
+
+<ul>
+<li>Upload a few test photos of a building facade</li>
+<li>See point cloud and orthomosaic output</li>
+<li>No local installation required for evaluation</li>
+<li>Time required: 30 minutes + processing time</li>
+</ul>
+
+<hr />
+
+<h3>For Takeoff Workflows</h3>
+
+<p><strong>PDF iRoe / Measure PDF Areas (Browser-based)</strong>
+https://pdf.area-calculator.app/ (example tool; verify current options)</p>
+
+<ul>
+<li>Upload a facade elevation PDF</li>
+<li>Measure panel areas, window openings, and facade zones</li>
+<li>Compare against manual Bluebeam workflows</li>
+<li>Time required: 20 minutes</li>
+</ul>
+
+<hr />
+
+<h3>For Parametric Component Thinking</h3>
+
+<p><strong>OpenSCAD (Desktop Download)</strong>
+https://openscad.org/downloads.html</p>
+
+<ul>
+<li>Download and install (Windows/Mac/Linux)</li>
+<li>Work through built-in tutorials to understand script-based modeling</li>
+<li>Useful exercise: Model a simple mullion cross-section</li>
+<li>Time required: 1-2 hours</li>
+</ul>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects show strong momentum but are not yet production-ready for PGC workflows:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Category</th>
+  <th>Why It Matters</th>
+  <th>Current Stage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Adam-CAD / CADAM</strong></td>
+  <td>Text-to-CAD</td>
+  <td>Potential to generate 2D drawings from written specifications; could streamline glazing detail documentation</td>
+  <td>Early beta; explosive GitHub growth but unstable API</td>
+</tr>
+<tr>
+  <td><strong>Speckle 3.0</strong></td>
+  <td>Data Interoperability</td>
+  <td>Next-generation BIM data platform; significant investment and growing AEC adoption</td>
+  <td>Public beta; breaking changes expected</td>
+</tr>
+<tr>
+  <td><strong>nxBRE</strong></td>
+  <td>BIM Rules Engine</td>
+  <td>Logic-based validation for BIM data; could automate curtain wall component checking</td>
+  <td>Niche; requires .NET stack</td>
+</tr>
+<tr>
+  <td><strong>BlenderBIM</strong></td>
+  <td>BIM Authoring</td>
+  <td>Open-source BIM modeling within Blender; maturing rapidly but not yet CAD-replacement for design</td>
+  <td>Active development; v1.0 approaching</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>Open Questions for Next Briefing</h2>
+
+<ol>
+<li>What is PGC's current annual spend on Bluebeam and proprietary takeoff tools?</li>
+<li>Has OpenDroneMap been pilot-tested against a traditional survey on a comparable project?</li>
+<li>Does PGC have internal Python or TypeScript development capacity for custom tooling?</li>
+<li>Which specific submittal workflow would benefit most from browser-based BIM viewing?</li>
+<li>What percentage of current projects involve facade documentation that could leverage photogrammetry?</li>
+</ol>
+
+<hr />
+
+<p><strong>Next briefing scheduled:</strong> July 29, 2026</p>
+
+<p><strong>Research Team Status:</strong> Ready to support strategic planning session upon request.</p>
+
+</body>
+</html>

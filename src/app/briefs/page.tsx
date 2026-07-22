@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — July 22, 2026",
+    date: "July 22, 2026",
+    type: "software",
+    description: "Browser‑based BIM viewing with ThatOpen displaces tools for glazing submittals, while open‑source photogrammetry matches survey costs",
+    file: "/briefs/software-brief-2026-07-22.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — July 21, 2026",
     date: "July 21, 2026",
     type: "futurist",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: FlowManual (AI bidding + procurement, Try Now), Foreman (AI takeoff to proposal, Try Now), Rudus (concrete AI takeoff, Watch), PLAN0 AI (analytics layer, Watch), Helonic (AI clash detection + auto RFIs, Try Now), OpenConstructionERP v3.0 (free open-source ERP, Try Now), Prolo (a16z-backed procurement, Try Now), OpenSpace (visual intelligence, Watch), Trimble AI Takeoff (MEP estimating, Watch), Togal.AI (one-click AI takeoff, Try Now), ConstructionBids.ai (AI bid matching, Try Now), Aasaan (AI PM platform, Watch). Top picks: FlowManual > Foreman > Helonic > OpenConstructionERP > Prolo > Togal.AI > ConstructionBids.ai.",
     file: "/briefs/software-watch-2026-07-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — July 15, 2026",
