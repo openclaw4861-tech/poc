@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — July 22, 2026",
+    date: "July 22, 2026",
+    type: "software",
+    description: "12 new tools: Merlin (AI-native construction ERP, Try Now), Prolo (£4.2M AI procurement + embedded finance, Try Now), Helonic (AI clash detection + auto RFIs, Try Now), OpenConstructionERP v3.0 (free open-source ERP, Try Now), Togal.AI ($299/mo gold standard AI takeoff, Try Now), Foreman (AI full lifecycle contractor platform, Try Now), FlowManual (AI bidding to PO, Try Now), Resolve (VR BIM review, Watch), Snaptrude (free cloud BIM, Watch), CentralComs (AI agents for property management, Watch), Rudus (concrete AI takeoff, Skip), PLAN0 AI (construction analytics, Skip). Top picks: Merlin > Prolo > Helonic > OpenConstructionERP > Togal.AI > Foreman > FlowManual.",
+    file: "/briefs/software-watch-2026-07-22.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — July 22, 2026",
     date: "July 22, 2026",
     type: "software",
     description: "Browser‑based BIM viewing with ThatOpen displaces tools for glazing submittals, while open‑source photogrammetry matches survey costs",
     file: "/briefs/software-brief-2026-07-22.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — July 21, 2026",
