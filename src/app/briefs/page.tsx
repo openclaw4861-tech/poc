@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — July 25, 2026",
+    date: "July 25, 2026",
+    type: "tech",
+    description: "Edge AI deployment validated for industrial use, agent skills as installable AI modules, and synthetic data boosting quality control",
+    file: "/briefs/weekly-briefing-2026-07-25.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — July 22, 2026",
     date: "July 22, 2026",
     type: "software",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Strix AI pen testing agent (Adopt), Grok Build open-source coding agent (Watch), Vibe-Trading AI research platform (Experiment), Codebase-Memory-MCP 99% token reduction (Adopt), Hallmark anti-AI-slop design (Adopt), Orca parallel agent workspace (Watch), CubeSandbox agent sandbox (Adopt), OmniRoute local AI gateway (Adopt), Sakana AI brain-like learning (Watch), AlayaWorld open-source world models (Watch), Destructive Command Guard agent safety (Adopt), Moonshot AI world's largest open model (Watch), Noetra Japan's multimodal AI (Watch), PsiQuantum commercial quantum computer (Watch), GPT-Red OpenAI's super-hacker LLM (Watch) — with 3 meta-trends: The Agent Safety Stack Is Maturing, Brain-Inspired Learning Is Challenging Backprop, The AI Gateway Pattern Goes Mainstream.",
     file: "/briefs/tech-trends-2026-07-20.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — July 18, 2026",
