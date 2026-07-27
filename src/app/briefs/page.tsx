@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — July 27, 2026",
+    date: "July 27, 2026",
+    type: "tech",
+    description: "15 trending technologies: Kimi K3 2.8T open-weight model (Adopt), OpenAI Codex Micro keyboard (Watch), Gemini 3.6 Flash agentic AI (Adopt), Block Buzz open-source AI collab (Watch), OpenAI sandbox escape (Alert), Computer vision safety monitoring (Adopt), AI procurement agents (Adopt), MIT chip-based LiDAR (Watch), Programmable photonic chip (Watch), Data center energy crisis 4x by 2035 (Alert), Unitree humanoid robots IPO (Watch), Garmin CIRQA screenless wearables (Adopt), AI in construction survey (Adopt), Generative design for construction (Watch), Predictive scheduling AI (Adopt) — with 3 meta-trends: AI Agents Are Leaving the Lab, The Energy Crunch Is Reshaping Hardware, Construction Is Becoming a First-Class AI Market.",
+    file: "/briefs/tech-trends-2026-07-27.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — July 25, 2026",
     date: "July 25, 2026",
     type: "tech",
     description: "Edge AI deployment validated for industrial use, agent skills as installable AI modules, and synthetic data boosting quality control",
     file: "/briefs/weekly-briefing-2026-07-25.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — July 22, 2026",
