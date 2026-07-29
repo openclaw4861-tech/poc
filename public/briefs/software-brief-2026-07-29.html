@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-07-29</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>July 29, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Prepared for:</strong> Steve Watts, CEO
+<strong>Company:</strong> Pacific Glazing Corporation
+<strong>Date:</strong> July 29, 2026
+<strong>Focus:</strong> Next-Generation AEC Software Evaluation</p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software stack has crossed a critical inflection point this week, with browser-based BIM viewing, drone photogrammetry, and point cloud processing now all production-ready at near-zero software cost. The strongest development: ThatOpen Engine (<code>@thatopen/components</code> v3.4.8) has achieved the consensus of both independent analyses as ready for immediate deployment, directly replacing legacy PDF-based submittal workflows. A strategic void remains in PDF-based quantity takeoff—this represents the largest unresolved gap and a genuine first-mover opportunity for Pacific Glazing. Implementation speed now determines competitive advantage in the transition from 20-year-old legacy tools.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Version</th>
+  <th>Problem It Solves</th>
+  <th>PGC Workflow Impact</th>
+  <th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td><strong>ThatOpen Engine</strong></td>
+  <td>v3.4.8</td>
+  <td>Browser-based IFC BIM viewing without desktop software</td>
+  <td><strong>Replaces Bluebeam</strong> for submittal workflows; enables client-facing 3D review in any browser</td>
+  <td><a href="https://github.com/ThatOpen/library">thatopen/components</a></td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td><strong>OpenDroneMap / WebODM</strong></td>
+  <td>Current</td>
+  <td>Survey-grade point clouds and orthomosaics from drone imagery</td>
+  <td>Facade documentation, as-built capture at near-zero software cost</td>
+  <td><a href="https://github.com/OpenDroneMap/WebODM">WebODM GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td><strong>LibreCAD</strong></td>
+  <td>v2.2.x</td>
+  <td>Full DXF/DWG read/write for 2D documentation</td>
+  <td>Cost reduction for AutoCAD-dependent facade details and shop drawings</td>
+  <td><a href="https://github.com/LibreCAD/LibreCAD">LibreCAD GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td><strong>Speckle</strong></td>
+  <td>v2.x</td>
+  <td>Open-source interoperability platform connecting Revit, Rhino, Grasshopper</td>
+  <td>Alternative to Autodesk Forge for data streaming; glazing geometry pipelines</td>
+  <td><a href="https://github.com/specklesystems/speckle-server">Speckle GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td><strong>CloudCompare</strong></td>
+  <td>v2.13.x</td>
+  <td>Point cloud processing and analysis</td>
+  <td>Next-step workflow after ODM drone capture; facade verification</td>
+  <td><a href="https://github.com/CloudCompare/CloudCompare">CloudCompare GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td><strong>OpenProject</strong></td>
+  <td>SaaS/On-prem</td>
+  <td>Project management with Gantt, boards, and time tracking</td>
+  <td><strong>$50/user/month</strong> versus Procore's ~$375/user/month for base tier</td>
+  <td><a href="https://github.com/opf/openproject">OpenProject GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>7</strong></td>
+  <td><strong>FreeCAD BIM</strong></td>
+  <td>Development</td>
+  <td>Parametric 3D modeling with BIM workflows</td>
+  <td>Pilot for shop drawing generation; parametric glazing component library</td>
+  <td><a href="https://github.com/FreeCAD/FreeCAD">FreeCAD GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>8</strong></td>
+  <td><strong>CadQuery + Python</strong></td>
+  <td>v2.x</td>
+  <td>Parametric 2D/3D geometry scripting</td>
+  <td>Glazing library development—standardize curtain wall and storefront details</td>
+  <td><a href="https://github.com/CadQuery/cadquery">CadQuery GitHub</a></td>
+</tr>
+<tr>
+  <td><strong>9</strong></td>
+  <td><strong>MeshLab</strong></td>
+  <td>2024.x</td>
+  <td>3D mesh processing and visualization</td>
+  <td>Complement CloudCompare for mesh-based facade analysis</td>
+  <td><a href="https://www.meshlab.net/">MeshLab SourceForge</a></td>
+</tr>
+<tr>
+  <td><strong>10</strong></td>
+  <td><strong>xeokit BIM Viewer</strong></td>
+  <td>v2.7.1</td>
+  <td>Specialized IFC viewing with enterprise features</td>
+  <td>Complementary path for firms already in xeokit ecosystem</td>
+  <td><a href="https://github.com/xeokit/xeokit-bim-viewer">xeokit GitHub</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>A. ThatOpen Engine — Browser-Based BIM</h3>
+
+<p><strong>Maturity:</strong> ⭐⭐⭐⭐⭐ Production-Ready
+<strong>Setup Complexity:</strong> Low (npm package, documentation comprehensive)
+<strong>License:</strong> Apache 2.0</p>
+
+<p>This is the strongest consensus finding across both analyses. The <code>web-ifc</code> core (v0.0.77, 96,352 weekly npm downloads) has crossed into production maturity. It renders IFC files directly in any modern browser without desktop software, plugins, or licensing fees. For PGC, this means submittal workflows currently dependent on Bluebeam or Adobe Acrobat can migrate to interactive 3D models clients can review without specialized software. The team can embed viewers in internal portals or send lightweight links instead of multi-gigabyte files.</p>
+
+<p><strong>Immediate Use Case:</strong> Replace PDF-based submittal packages for curtain wall and storefront projects with hosted IFC viewers.</p>
+
+<hr />
+
+<h3>B. OpenDroneMap / WebODM — Drone Photogrammetry</h3>
+
+<p><strong>Maturity:</strong> ⭐⭐⭐⭐ Production-Ready (with training)
+<strong>Setup Complexity:</strong> Medium (requires drone hardware, GPU recommended)
+<strong>License:</strong> GPL v3</p>
+
+<p>OpenDroneMap generates survey-grade point clouds and orthomosaics from consumer drone imagery. Commercial drone surveys cost $3,000–$15,000 per engagement; the software cost is near zero. WebODM provides the web interface for processing, making it accessible to staff without Linux command-line expertise. For PGC, this enables rapid as-built facade documentation, pre-bid site capture, and change-order verification without external survey contracts.</p>
+
+<p><strong>Immediate Use Case:</strong> Pilot drone + WebODM workflow on a single facade project to compare output quality against traditional survey.</p>
+
+<hr />
+
+<h3>C. Speckle — AEC Data Interoperability</h3>
+
+<p><strong>Maturity:</strong> ⭐⭐⭐⭐ Established, Growing
+<strong>Setup Complexity:</strong> Medium (server component + connectors)
+<strong>License:</strong> Apache 2.0</p>
+
+<p>Speckle connects Revit, Rhino, Grasshopper, and other design tools into a centralized data stream. It is an open-source alternative to Autodesk Forge for firms wanting to build glazing-specific geometry pipelines without per-API-call costs. For PGC, Speckle could standardize how glazing geometry flows from architectural models into fabrication drawings, eliminating manual translation steps that introduce errors.</p>
+
+<p><strong>Immediate Use Case:</strong> Evaluate Speckle connectors for any existing Rhino/Grasshopper workflows; monitor as alternative to Forge for in-house development.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal commitment and demonstrate immediate value:</p>
+
+<h3>For BIM Viewing (Zero Setup)</h3>
+
+<p><strong>ThatOpen Engine — Live Demo</strong>
+- Visit: <a href="https://thatopen.com">thatopen.com</a>
+- Try the live IFC viewer with sample files—no install, no account
+- Action: Upload a current project IFC and share the link internally to test client review workflow</p>
+
+<h3>For Takeoffs and Estimating</h3>
+
+<p><strong>PDF Quantity Takeoff — Strategic Void</strong>
+- Current commercial options: Bluebeam Revu ($400+ annual), PlanSwift (proprietary)
+- No open-source production-ready alternative exists—this is confirmed gap
+- Action: Identify one current project where manual PDF takeoff consumes significant estimator time; document the workflow for potential custom build or partnership evaluation</p>
+
+<h3>For 2D Documentation</h3>
+
+<p><strong>LibreCAD — Download and Test</strong>
+- Download: <a href="https://librecad.org">librecad.org</a> or <a href="https://github.com/LibreCAD/LibreCAD/releases">GitHub releases</a>
+- Open a current DXF facade detail
+- Action: Identify one 2D-only drafting staff member to evaluate compatibility with existing drawing standards; assess DXF round-trip quality</p>
+
+<h3>For Site Documentation</h3>
+
+<p><strong>WebODM — Cloud Trial</strong>
+- Trial: <a href="https://www.webodm.net">webodm.net</a> offers hosted processing (free tier available)
+- Upload a few smartphone photos of a building facade
+- Action: Evaluate whether current drone hardware (if available) can capture usable orthomosaics; if no drone, research DJI Mini-series for sub-250g options</p>
+
+<h3>For Point Cloud Workflow</h3>
+
+<p><strong>CloudCompare — Download and Open ODM Output</strong>
+- Download: <a href="https://www.cloudcompare.org">cloudcompare.org</a>
+- Action: If any existing point cloud files (.e57, .las) are available from recent surveys, open in CloudCompare to assess measurement and annotation capabilities</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects show strong momentum but are not production-ready for PGC deployment:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Status</th>
+  <th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Text-to-CAD (AI + CAD Intersection)</strong></td>
+  <td>18–24 month horizon to production</td>
+  <td>GitHub shows 11,574 stars reflecting interest, not readiness. Primary analysis correctly flags capabilities as experimental. Natural language to shop drawing generation would transform glazing estimating, but current accuracy insufficient for fabrication. Monitor: check monthly for model improvements.</td>
+</tr>
+<tr>
+  <td><strong>Bentley Construction Schema</strong> (<code>@bentley/construction-schema</code> v1.0.4)</td>
+  <td>Early-stage npm package</td>
+  <td>Worth monitoring for spec integration, though proprietary Bentley lineage limits open-source purity. No immediate action needed.</td>
+</tr>
+<tr>
+  <td><strong>FreeCAD BIM Workbenches</strong></td>
+  <td>Active development</td>
+  <td>When CadQuery + Python parametric library matures (90–180 days), FreeCAD becomes the desktop front-end for glazing-specific modeling. Worth revisiting quarterly.</td>
+</tr>
+<tr>
+  <td><strong>OpenAI / Claude CAD Plugins</strong></td>
+  <td>Experimental</td>
+  <td>Emerging integration of large language models with CAD geometry generation. Not deployment-ready but represents the trajectory of parametric modeling.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>Recommended Next Actions</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Priority</th>
+  <th>Timeline</th>
+  <th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td>0–30 days</td>
+  <td>Deploy ThatOpen Engine pilot for submittals</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td>0–45 days</td>
+  <td>Evaluate LibreCAD with one drafting staff member</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td>0–60 days</td>
+  <td>Assess drone hardware requirements for WebODM pilot</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td>30–90 days</td>
+  <td>Build CloudCompare/MeshLab point cloud workflow</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td>30–90 days</td>
+  <td>Evaluate OpenProject for non-core PM functions</td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td>90–365 days</td>
+  <td>Investigate PDF quantity takeoff—custom build or partnership</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><em>This briefing consolidates independent analyses of the current AEC software landscape. No tools have been adopted by Pacific Glazing; all recommendations are for evaluation only.</em></p>
+
+</body>
+</html>
