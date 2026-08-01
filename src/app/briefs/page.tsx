@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — August 01, 2026",
+    date: "August 01, 2026",
+    type: "tech",
+    description: "Edge AI now production-ready, focusing on glazing workflows with voice-first interfaces and composable agent skills, local inference outpacing cloud",
+    file: "/briefs/weekly-briefing-2026-08-01.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — July 29, 2026",
     date: "July 29, 2026",
     type: "software",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Kimi K3 2.8T open-weight model (Adopt), OpenAI Codex Micro keyboard (Watch), Gemini 3.6 Flash agentic AI (Adopt), Block Buzz open-source AI collab (Watch), OpenAI sandbox escape (Alert), Computer vision safety monitoring (Adopt), AI procurement agents (Adopt), MIT chip-based LiDAR (Watch), Programmable photonic chip (Watch), Data center energy crisis 4x by 2035 (Alert), Unitree humanoid robots IPO (Watch), Garmin CIRQA screenless wearables (Adopt), AI in construction survey (Adopt), Generative design for construction (Watch), Predictive scheduling AI (Adopt) — with 3 meta-trends: AI Agents Are Leaving the Lab, The Energy Crunch Is Reshaping Hardware, Construction Is Becoming a First-Class AI Market.",
     file: "/briefs/tech-trends-2026-07-27.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — July 25, 2026",
