@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Watch — August 5, 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .header p { opacity: 0.9; font-size: 1.1rem; }
+    .header .badge {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.75rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+    }
+    .card-header h2 { font-size: 1.25rem; color: #111827; }
+    .card-header .category {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .verdict {
+      display: inline-block;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .verdict-try { background: #d1fae5; color: #065f46; }
+    .verdict-watch { background: #fef3c7; color: #92400e; }
+    .verdict-skip { background: #fee2e2; color: #991b1b; }
+    .glazing-high { color: #059669; font-weight: 600; }
+    .glazing-medium { color: #d97706; font-weight: 600; }
+    .glazing-low { color: #6b7280; font-weight: 600; }
+    .field { margin-bottom: 0.4rem; }
+    .field-label { font-weight: 600; color: #374151; }
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .summary-table th {
+      background: #1e3a5f;
+      color: white;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    .summary-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+    .summary-table tr:last-child td { border-bottom: none; }
+    .summary-table tr:hover { background: #f9fafb; }
+    .top-picks {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      border: 2px solid #10b981;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+    .top-picks h3 { color: #065f46; margin-bottom: 0.75rem; }
+    .top-picks ol { margin-left: 1.5rem; }
+    .top-picks li { margin-bottom: 0.3rem; font-weight: 500; }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 640px) {
+      .header h1 { font-size: 1.5rem; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔧 Software Watch</h1>
+    <p>August 5, 2026 — 12 new tools for construction &amp; glazing</p>
+    <span class="badge">Latest</span>
+  </div>
+
+  <div class="container">
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>OpenConstructionERP v3.0</h2>
+        <span class="category">ERP / Estimating / CAD-BIM Takeoff</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Open-source construction ERP with 71 modules including BOQ, PDF/CAD/BIM takeoff, AI cost matching, 42 regional catalogues, 21 languages. v3.0 adds vector DWG/DXF takeoff and AI-driven cost estimation.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Sage 100 Contractor, Viewpoint, Procore + manual takeoff</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Completely free (AGPL-3.0), self-hosted, no per-user fees. Covers full ERP-to-takeoff pipeline in one system. pip-installable.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Free (open source)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-high">High</span> — BOQ, takeoff from CAD shop drawings, cost matching for glass/frame/hardware catalogues</div>
+      <div class="field"><span class="field-label">MVP trial:</span> <code>pip install openconstructionerp</code> — runs locally in 15 minutes</div>
+      <span class="verdict verdict-try">Try Now</span>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Nomic AI</h2>
+        <span class="category">CAD/BIM / AI Document Intelligence</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> AEC-specific AI platform that automates drawing review against firm standards, code compliance checks, first-pass submittal review, RFI research, and BIM coordination. Strategic investment from Arcadis.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual drawing review, Bluebeam markups, outsourced code compliance</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Purpose-built for AEC workflows (not generic LLM). Agents trained on building codes, specs, and technical documentation. Backed by a top-5 global engineering firm.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Not public (enterprise, likely per-seat or project-based)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-high">High</span> — Automated review of glazing shop drawings against specs, code compliance for IBC/energy codes, RFI research on glass types</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Contact Nomic for pilot (Arcadis partnership suggests enterprise onboarding)</div>
+      <span class="verdict verdict-try">Try Now</span>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>goNeon</h2>
+        <span class="category">CAD/BIM / AI Infrastructure Planning</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> AI platform for infrastructure planning that automatically generates designs based on engineering requirements, local regulations, and real-world constraints.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual CAD drafting, GIS analysis, civil engineering consultants</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Agentic systems that generate multiple compliant design options from natural language requirements. Zurich-based, €160k raised.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Not public (early stage)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-low">Low</span> — More relevant to civil/infrastructure than building envelope. Could be useful for large-scale curtainwall planning on infrastructure projects.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Contact goNeon for early access</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Text-to-CAD (earthtojake)</h2>
+        <span class="category">CAD/BIM / AI-Assisted Design</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Open-source library of agent skills for CAD, CAE, and CAM. Describe 3D models in plain text and get CAD output. Integrates with existing CAD tools as an AI skill layer.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual 3D modeling in SolidWorks, Rhino, or Fusion 360</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Agent-based approach — skills are composable and can be chained. Not a replacement CAD tool but an AI layer on top of existing CAD workflows. MIT license.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Free (open source, MIT)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-medium">Medium</span> — Could accelerate parametric modeling of curtainwall panels, mullion profiles, and glass lite layouts.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Clone repo, run agent skills against a simple glazing profile</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Chili3D</h2>
+        <span class="category">CAD/BIM / Browser-Based 3D CAD</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Browser-based 3D CAD application for online model design and editing. No install required — runs entirely in the browser.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> AutoCAD, SolidWorks, Fusion 360 (desktop-installed CAD)</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Zero-install, browser-native 3D CAD. Open source. Good for quick edits, collaboration, and mobile access to 3D models.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Free (open source)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-medium">Medium</span> — Useful for quick 3D visualization of glazing assemblies, sharing models with clients, and field access to 3D details.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Open in browser, load a simple glazing profile</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Buildots</h2>
+        <span class="category">Project Management / AI Site Monitoring</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> AI-powered construction site monitoring using 360° helmet-mounted cameras. Automatically compares site footage against BIM models to track progress, detect deviations, and generate status reports.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual site walks, daily reports, Procore photo logs</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Computer vision that matches real site conditions to BIM automatically. No manual tagging or data entry. Real-time progress tracking against the model.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Not public (enterprise, typically per-project)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-medium">Medium</span> — Useful for tracking curtainwall installation progress against BIM, detecting installation errors early.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Request demo with a sample curtainwall BIM model</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Togal.AI</h2>
+        <span class="category">Estimating/Takeoff / AI Takeoff</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> AI-powered pre-construction estimating that automatically detects, measures, compares, and labels features and spaces in architectural plans. One-click takeoff from PDFs.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual takeoff with PlanSwift, Bluebeam, On-Screen Takeoff</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Pure computer vision — scans plans and identifies components (doors, windows, rooms, walls) without manual input. $299/mo flat rate, no per-project fees.</div>
+      <div class="field"><span class="field-label">Pricing:</span> $299/month</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-high">High</span> — Automatically detects window/door openings, measures glass areas, generates quantity reports.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> 14-day free trial, upload a set of glazing shop drawings</div>
+      <span class="verdict verdict-try">Try Now</span>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Fixxly</h2>
+        <span class="category">Inventory / Procurement / Quick Commerce</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> AI-powered quick commerce platform for building materials (plywood, paint, electricals, hardware, plumbing). 30-minute delivery from local dark stores. Raised $5.5M seed from Accel, Fireside, Lightspeed.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Traditional building supply ordering, phone calls to suppliers, manual procurement</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Quick commerce model applied to construction — 30-minute delivery, AI-driven inventory and routing.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Per-item (marketplace model)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-low">Low</span> — Focused on interior finishes and MEP materials. Procurement model is interesting for PGC's hardware and sealant supply chain.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Available in Bengaluru from September 2026</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Buildforce</h2>
+        <span class="category">Project Management / Labor Staffing</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Tech-enabled staffing platform for electricians and electrical contractors. Dual-sided marketplace connecting skilled tradespeople to commercial/industrial projects. Raised $10M Series A.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Temp agencies, manual hiring, word-of-mouth recruiting</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Purpose-built for electrical trade with workflow integrations beyond job posting. Mobile app for workers, web platform for contractors.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Marketplace fees (not public)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-low">Low</span> — Electrical trade focus, not glazing. The platform model is interesting if they expand to other trades.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Sign up as contractor on buildforce.com</div>
+      <span class="verdict verdict-skip">Skip</span>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Alpen High Performance Products</h2>
+        <span class="category">Fabrication / Glazing Materials</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Manufacturer of high-efficiency window solutions including thin-glass IGUs, secondary glazing (WinSert), and high-performance fiberglass/uPVC window/door systems. Raised $6M Series B.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Standard double-pane IGUs, traditional window manufacturers</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Thin-glass multi-pane solutions reduce weight/thickness/cost barriers to triple glazing. Secondary glazing reduces air leakage up to 97%. Dual model: own brand + OEM IGU supply.</div>
+      <div class="field"><span class="field-label">Pricing:</span> B2B (manufacturer pricing)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-high">High</span> — Directly relevant: thin-glass IGUs, secondary glazing systems, high-performance window solutions.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Request sample IGUs and pricing for a test project</div>
+      <span class="verdict verdict-try">Try Now</span>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>OpenSpace</h2>
+        <span class="category">Field Measurement / Visual Intelligence</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Visual intelligence platform for construction that captures 360° site imagery and maps it to BIM/plans automatically. Workers wear helmet cameras during site walks; AI stitches and aligns everything.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual progress photos, site walk reports, drone surveys</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Automatic alignment of 360° photos to BIM without manual tagging. Complete visual record of every corner of the site, searchable and comparable to the model.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Not public (enterprise, per-project or annual subscription)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-medium">Medium</span> — Useful for documenting curtainwall installation, verifying alignment with BIM, and creating as-built records.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Request demo with a glazing installation project</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <div class="card-header">
+        <h2>Dusty Robotics</h2>
+        <span class="category">Fabrication/CAM / Construction Robotics</span>
+      </div>
+      <div class="field"><span class="field-label">What it does:</span> Robotic layout system for construction — autonomous robots print full-scale BIM layouts directly onto concrete slabs, walls, and ceilings. Eliminates manual tape measuring and layout errors.</div>
+      <div class="field"><span class="field-label">Legacy alternative:</span> Manual layout with tape measures, chalk lines, laser levels</div>
+      <div class="field"><span class="field-label">Key differentiator:</span> Full autonomy — robot navigates the site and prints layout from BIM data. Eliminates a major source of field errors. Featured at BuiltWorlds 2026.</div>
+      <div class="field"><span class="field-label">Pricing:</span> Not public (robotics-as-a-service or purchase)</div>
+      <div class="field"><span class="field-label">Glazing applicability:</span> <span class="glazing-medium">Medium</span> — Layout for curtainwall anchors, mullion placement, and glazing grid lines. More relevant to new construction than retrofit.</div>
+      <div class="field"><span class="field-label">MVP trial:</span> Request demo/rental for a large project</div>
+      <span class="verdict verdict-watch">Watch</span>
+    </div>
+
+    <!-- Summary Table -->
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Category</th>
+          <th>Verdict</th>
+          <th>Glazing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>OpenConstructionERP v3.0</td><td>ERP / Takeoff</td><td><span class="verdict verdict-try" style="margin:0">Try Now</span></td><td class="glazing-high">High</td></tr>
+        <tr><td>Nomic AI</td><td>CAD/BIM / AI Docs</td><td><span class="verdict verdict-try" style="margin:0">Try Now</span></td><td class="glazing-high">High</td></tr>
+        <tr><td>goNeon</td><td>CAD/BIM / Planning</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-low">Low</td></tr>
+        <tr><td>Text-to-CAD</td><td>CAD/BIM / AI Design</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-medium">Medium</td></tr>
+        <tr><td>Chili3D</td><td>CAD/BIM / Browser</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-medium">Medium</td></tr>
+        <tr><td>Buildots</td><td>PM / Site Monitoring</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-medium">Medium</td></tr>
+        <tr><td>Togal.AI</td><td>Estimating / Takeoff</td><td><span class="verdict verdict-try" style="margin:0">Try Now</span></td><td class="glazing-high">High</td></tr>
+        <tr><td>Fixxly</td><td>Inventory / Procurement</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-low">Low</td></tr>
+        <tr><td>Buildforce</td><td>PM / Labor Staffing</td><td><span class="verdict verdict-skip" style="margin:0">Skip</span></td><td class="glazing-low">Low</td></tr>
+        <tr><td>Alpen High Performance</td><td>Fabrication / Glazing</td><td><span class="verdict verdict-try" style="margin:0">Try Now</span></td><td class="glazing-high">High</td></tr>
+        <tr><td>OpenSpace</td><td>Field Measurement</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-medium">Medium</td></tr>
+        <tr><td>Dusty Robotics</td><td>Fabrication / Robotics</td><td><span class="verdict verdict-watch" style="margin:0">Watch</span></td><td class="glazing-medium">Medium</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Top Picks -->
+    <div class="top-picks">
+      <h3>🏆 Top Picks for PGC This Week</h3>
+      <ol>
+        <li>OpenConstructionERP v3.0 — Free ERP with CAD takeoff, install today</li>
+        <li>Togal.AI — $299/mo AI takeoff, 14-day trial, directly applicable to glazing</li>
+        <li>Nomic AI — AEC AI agents for drawing review and code compliance</li>
+        <li>Alpen High Performance Products — Thin-glass IGUs and secondary glazing, request samples</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Generated by Joe 🔧 for Pacific Glazing Corporation • August 5, 2026</p>
+  </div>
+</body>
+</html>
