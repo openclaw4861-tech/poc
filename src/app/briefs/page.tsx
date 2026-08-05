@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — August 05, 2026",
+    date: "August 05, 2026",
+    type: "software",
+    description: "Open-source AEC tools—ThatOpen Engine, OpenDroneMap, and web‑ifc—hit production readiness, signaling a shift to cost‑free workflows",
+    file: "/briefs/software-brief-2026-08-05.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — August 3, 2026",
     date: "August 3, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Structured AI (AI workforce for construction design QC, Try Now), Beam AI (cross-trade AI takeoff with façade support, Try Now), Helonic (AI clash detection + auto RFIs production-ready, Try Now), OpenConstructionERP v8.6 (free open-source ERP with vector DWG/DXF takeoff, Try Now), Togal.AI ($299/mo gold standard AI takeoff, Try Now), Foreman (AI full lifecycle contractor platform, Try Now), FlowManual (AI bidding to PO, Try Now), Merlin (AI-native construction ERP, Try Now), Prolo (AI procurement + embedded finance, Try Now), Cascade ($3.5M a16z-backed AI project discovery, Watch), ODA MCP Servers (CAD/BIM for AI agents, Watch), Stabileo (open-source browser structural analysis, Watch). Top picks: Structured AI > Beam AI > Helonic > OpenConstructionERP > Togal.AI > Foreman > FlowManual > Merlin > Prolo.",
     file: "/briefs/software-watch-2026-07-29.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — July 29, 2026",
