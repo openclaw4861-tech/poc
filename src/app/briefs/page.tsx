@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — August 08, 2026",
+    date: "August 08, 2026",
+    type: "tech",
+    description: "The briefing outlines the move from monolithic AI to modular agent skills packaged as apps, plus production‑ready local inference on field hardware",
+    file: "/briefs/weekly-briefing-2026-08-08.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — August 5, 2026",
     date: "August 5, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: MCP 2026-07-28 Spec (Adopt), Autonomous Coding Agents (Adopt), Edge AI/On-Device ML (Adopt), Computer Vision for Construction Safety (Adopt), Digital Twins in BIM (Adopt), Synthetic Data Generation (Evaluate), Domain-Specific Language Models (Evaluate), Physical AI/Robotics Infrastructure (Evaluate), Agentic AI Frameworks CrewAI/AutoGen (Adopt), 6G & Native AI Networking (Watch), AI-Powered Drone Monitoring (Adopt), Open-Source AI Agent Frameworks (Adopt), AI-Enhanced Document Management (Adopt), Federated Learning (Watch), Smart PPE & Wearables (Evaluate) — with 3 meta-trends: The AI-Native Construction Site, The Democratization of AI Building, Edge-First Architecture.",
     file: "/briefs/tech-trends-2026-08-03.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — August 01, 2026",
