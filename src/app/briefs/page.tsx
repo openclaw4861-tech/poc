@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — August 10, 2026",
+    date: "August 10, 2026",
+    type: "tech",
+    description: "15 trending technologies: Agentic AI in Construction / Procore Digital Coworkers (Adopt), AI Takeoff & Estimating Automation (Adopt), Construction Robotics / Monumental $32M (Evaluate), Edge AI / On-Device Inference (Adopt), Agent Memory Systems (Adopt), Visual AI Agent Builders / Langflow-Dify-Flowise (Adopt), MCP & Agent Interoperability (Adopt), Autonomous Coding Agents (Adopt), Computer Vision for Construction Safety (Adopt), Digital Twins in BIM (Adopt), Synthetic Data Generation (Evaluate), Domain-Specific LLMs (Evaluate), AI-Enhanced Document Management (Adopt), Smart PPE & Wearables (Evaluate), AI Procurement Rules & EU AI Act (Watch) — with 3 meta-trends: Construction Is Now a First-Class AI Market, The Democratization of AI Building, From Generic AI to Teach-It-Your-Standards.",
+    file: "/briefs/tech-trends-2026-08-10.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — August 08, 2026",
     date: "August 08, 2026",
     type: "tech",
     description: "The briefing outlines the move from monolithic AI to modular agent skills packaged as apps, plus production‑ready local inference on field hardware",
     file: "/briefs/weekly-briefing-2026-08-08.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — August 5, 2026",
