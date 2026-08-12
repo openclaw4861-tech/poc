@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — August 12, 2026",
+    date: "August 12, 2026",
+    type: "software",
+    description: "12 new tools: Exayard (AI glazing takeoff that reads window schedules/type marks, Try Now), GlassBook (cloud glazing estimating, Try Now), Manifold (phone LiDAR field measurement, Try Now), OnRamp (fabrication-shop ERP built inside a real plant, Try Now), Glazyr (quick glass estimating, Try Now), HxGN SMART Build (Hexagon/Leica construction platform, Watch), Magicplan (LiDAR floor plans, Watch), VisualLive (BIM-to-AR on-site, Watch), Autodesk Forma (ACC integration, Watch), JobBOSS² (small-mfr ERP, Watch), Procore Concept Projects (owner tool, Skip), InEight Control (GC cost control, Skip). Top picks: Exayard > GlassBook > Manifold > OnRamp > Glazyr.",
+    file: "/briefs/software-watch-2026-08-12.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — August 12, 2026",
     date: "August 12, 2026",
     type: "software",
     description: "Open-source AEC now offers IFC parsing, browser BIM review, and photogrammetry at zero cost, driving free web tools for construction",
     file: "/briefs/software-brief-2026-08-12.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — August 10, 2026",
@@ -27,7 +35,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Agentic AI in Construction / Procore Digital Coworkers (Adopt), AI Takeoff & Estimating Automation (Adopt), Construction Robotics / Monumental $32M (Evaluate), Edge AI / On-Device Inference (Adopt), Agent Memory Systems (Adopt), Visual AI Agent Builders / Langflow-Dify-Flowise (Adopt), MCP & Agent Interoperability (Adopt), Autonomous Coding Agents (Adopt), Computer Vision for Construction Safety (Adopt), Digital Twins in BIM (Adopt), Synthetic Data Generation (Evaluate), Domain-Specific LLMs (Evaluate), AI-Enhanced Document Management (Adopt), Smart PPE & Wearables (Evaluate), AI Procurement Rules & EU AI Act (Watch) — with 3 meta-trends: Construction Is Now a First-Class AI Market, The Democratization of AI Building, From Generic AI to Teach-It-Your-Standards.",
     file: "/briefs/tech-trends-2026-08-10.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — August 08, 2026",
@@ -91,7 +99,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Open-source robotics, AI-accelerated materials discovery, and high-fidelity simulation compress automation deployment from years to 18 months",
     file: "/briefs/futurist-brief-2026-07-28.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — July 27, 2026",
