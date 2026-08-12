@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-08-12</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>August 12, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation — Internal Briefing</strong>
+<strong>August 12, 2026</strong>
+<strong>Prepared for: Steve Watts, CEO</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software stack has reached a decisive inflection point this week: three core capabilities—IFC parsing, browser-native BIM review, and survey-grade photogrammetry—are now production-grade infrastructure available at zero licensing cost. The most significant development for PGC is that browser-based markup and review can now displace Bluebeam entirely for submittal workflows, eliminating per-seat licensing while removing version-control friction. Meanwhile, the unresolved gap in PDF-based quantity takeoff represents the largest first-mover opportunity in the open-source AEC ecosystem, and two major incumbents (Autodesk and Bentley) have begun open-sourcing their automation layers—strong evidence that the proprietary oligopoly recognizes the competitive threat and is adapting. Firms that build on free, interoperable tooling in the next 12 months will establish cost structures competitors cannot match.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Version</th>
+  <th>Problem It Solves</th>
+  <th>Relevance to PGC</th>
+  <th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><strong>web-ifc</strong></td>
+  <td>v0.0.77</td>
+  <td>Native-speed IFC file parsing in any JavaScript environment; transforms IFC from a collaboration format into a programmable data layer.</td>
+  <td>Foundation for building custom glazing applications, automating quantity extraction, and integrating BIM data into existing workflows without proprietary SDK costs.</td>
+  <td>https://github.com/tomvandig/web-ifc</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>ThatOpen Engine</strong></td>
+  <td>v3.4.8</td>
+  <td>Browser-native 3D BIM viewing and markup; eliminates the need for desktop BIM viewers or paid collaboration platforms for design review.</td>
+  <td>Displaces Bluebeam for submittal workflows—PGC can create web-based review environments where field teams annotate glazing shop drawings without seat licenses or file version confusion.</td>
+  <td>https://github.com/ThatOpen/engine</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>OpenDroneMap</strong></td>
+  <td>Latest</td>
+  <td>Transforms drone imagery into survey-grade point clouds, orthomosaics, and digital elevation models without five-figure photogrammetry software costs.</td>
+  <td>Replaces external surveyor fees for as-built site verification pre-installation and post-installation tolerance checks. Can be deployed in-house on every project.</td>
+  <td>https://github.com/OpenDroneMap/ODM</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>CloudCompare</strong></td>
+  <td>Latest</td>
+  <td>Open-source 3D point cloud processing and comparison; enables tolerance verification between captured as-built conditions and design models.</td>
+  <td>Complements OpenDroneMap for glazing installation verification—compare point clouds against BIM models to confirm anchor positions and facade alignment.</td>
+  <td>https://github.com/CloudCompare/CloudCompare</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>xeokit</strong></td>
+  <td>v2.7.1</td>
+  <td>Second production-ready browser-native BIM viewer ecosystem; provides an alternative stack with different API design and feature emphasis.</td>
+  <td>Redundancy in open tooling eliminates single-vendor lock-in risk. PGC can evaluate both xeokit and ThatOpen Engine to determine which aligns better with internal development capabilities.</td>
+  <td>https://github.com/xeokit/xeokit</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>pascalorg/editor</strong></td>
+  <td>Latest</td>
+  <td>Browser-native parametric CAD design built on React Three Fiber; signals that web-based design tools are gaining serious developer traction.</td>
+  <td>Worth monitoring for future design-phase workflows. 21,000+ GitHub stars indicates significant developer interest in web-native CAD—a potential paradigm shift in how glazing systems are designed.</td>
+  <td>https://github.com/pascalorg/editor</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>DynamoDS</strong></td>
+  <td>Latest</td>
+  <td>Autodesk open-sourced its Revit automation and scripting layer; automation ecosystem is now community-owned rather than proprietary.</td>
+  <td>Reduces Autodesk lock-in at the scripting level. PGC's fabrication detailers can leverage community-contributed Dynamo scripts without licensing dependencies.</td>
+  <td>https://github.com/DynamoDS/Dynamo</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>@bentley/construction-schema</strong></td>
+  <td>v1.0.4</td>
+  <td>Bentley's open-sourced construction data model; represents a strategic pivot by a major incumbent to retain developer mindshare.</td>
+  <td>Evidence that open-source pressure is real. Bentley is acknowledging that developers expect open data access, signaling industry-wide shift toward interoperability.</td>
+  <td>https://github.com/iTwin/bentley-construction-schema</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>OpenBim-Components</strong></td>
+  <td>v3.4.4</td>
+  <td>Production-grade UI component library for ThatOpen Engine; provides ready-built buttons, panels, and interaction primitives for custom BIM applications.</td>
+  <td>Confirms the frontend tooling ecosystem keeps pace with core engines. Enables faster custom application development without building UI elements from scratch.</td>
+  <td>https://github.com/ThatOpen/components</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>assimp</strong></td>
+  <td>Latest</td>
+  <td>Universal asset pipeline supporting 40+ file format conversions; settled infrastructure for converting proprietary BIM exports into open workflows.</td>
+  <td>Essential plumbing for PGC's data pipeline: convert proprietary BIM exports from architects into open IFC, then process with web-ifc or ThatOpen Engine without format lock-in.</td>
+  <td>https://github.com/assimp/assimp</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Project A: ThatOpen Engine v3.4.8</h3>
+
+<p><strong>What It Is:</strong> A component library for building browser-native BIM applications; includes 3D viewing, markup, selection, and measurement capabilities.</p>
+
+<p><strong>Problem It Solves:</strong> Eliminates the need for Bluebeam seats and desktop BIM viewers for submittal review workflows. Field teams can access interactive 3D models from any browser, annotate issues, and share feedback without software installation or version conflicts.</p>
+
+<p><strong>Setup Complexity: LOW</strong>
+- Available via npm (<code>npm install @thatopen/components</code>)
+- Comprehensive documentation at thatopen.com
+- Example applications deployable in under an hour
+- No server infrastructure required for basic viewing</p>
+
+<p><strong>Maturity Assessment: PRODUCTION-READY</strong>
+- Version 3.4.8 indicates stable release cadence
+- 149,000+ weekly npm downloads for web-ifc (the underlying engine) confirms community adoption
+- Active development with regular releases
+- Suitable for immediate pilot on non-critical submittal review workflows</p>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/engine</p>
+
+<hr />
+
+<h3>Project B: OpenDroneMap + CloudCompare Stack</h3>
+
+<p><strong>What It Is:</strong> Open-source photogrammetry pipeline (ODM) paired with point cloud processing (CloudCompare) for survey-grade as-built verification at zero licensing cost.</p>
+
+<p><strong>Problem It Solves:</strong> Replaces $10,000–$50,000 annual photogrammetry software budgets with free, in-house capability. Enables pre-installation anchor verification and post-installation tolerance checks on every project.</p>
+
+<p><strong>Setup Complexity: MEDIUM</strong>
+- OpenDroneMap runs on local hardware or cloud instances (Docker container available)
+- CloudCompare is a desktop application with straightforward installation
+- Basic photogrammetry processing requires consumer-grade drone and 20–30 overlapping photos per area of interest
+- Initial setup and calibration requires 1–2 days of familiarization</p>
+
+<p><strong>Maturity Assessment: PRODUCTION-READY</strong>
+- Established project with 15,000+ GitHub stars (ODM)
+- Used by surveying professionals and construction firms globally
+- Point cloud comparison features are stable and validated
+- CloudCompare is a mature, decade-old tool with active maintenance</p>
+
+<p><strong>GitHub:</strong> https://github.com/OpenDroneMap/ODM | https://github.com/CloudCompare/CloudCompare</p>
+
+<hr />
+
+<h3>Project C: web-ifc v0.0.77</h3>
+
+<p><strong>What It Is:</strong> The foundational IFC parsing library for JavaScript environments; enables native-speed reading and writing of IFC files in browsers, Node.js, or any JavaScript runtime.</p>
+
+<p><strong>Problem It Solves:</strong> Transforms IFC from a collaboration file format into a programmable data source. PGC can extract glazing quantities, door and window counts, and panel dimensions directly from BIM models without AutoCAD or Revit dependencies.</p>
+
+<p><strong>Setup Complexity: LOW</strong>
+- Single npm package: <code>npm install web-ifc</code>
+- Comprehensive API documentation
+- Example code available for common operations (extracting walls, windows, quantities)
+- No build tooling required for basic integration</p>
+
+<p><strong>Maturity Assessment: PRODUCTION-READY</strong>
+- 149,879 weekly npm downloads (approximately 7.8 million annually)
+- Active maintenance with 77 releases
+- Both independent analyses confirm production readiness
+- Cornerstone of the open BIM ecosystem</p>
+
+<p><strong>GitHub:</strong> https://github.com/tomvandig/web-ifc</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal setup and deliver immediate value for PGC workflows:</p>
+
+<h3>For BIM Review and Submittal Markup</h3>
+
+<p><strong>ThatOpen Engine — Interactive BIM Viewer Demo</strong>
+- <strong>Action:</strong> Open the live demo at https://thatopen.com/demo in Chrome or Edge
+- <strong>What You'll See:</strong> A browser-based 3D model with markup, measurement, and selection tools
+- <strong>Next Step:</strong> Upload a sample glazing shop drawing (in IFC or glTF format) to test annotation workflows
+- <strong>Time Required:</strong> 15–30 minutes
+- <strong>Why This Week:</strong> Confirms whether browser-based review can replace Bluebeam for your submittal process</p>
+
+<hr />
+
+<h3>For As-Built Verification</h3>
+
+<p><strong>OpenDroneMap — Cloud Processing Trial</strong>
+- <strong>Action:</strong> Deploy the free WebODM cloud instance or install Docker locally, then process a set of 30–50 overlapping drone photos from a current project site
+- <strong>What You'll Get:</strong> Orthomosaic, digital elevation model, and point cloud of the site
+- <strong>Time Required:</strong> 2–3 hours for first processing run (subsequent runs faster)
+- <strong>Why This Week:</strong> Establishes baseline familiarity before the next site visit where verification is needed</p>
+
+<hr />
+
+<h3>For Quantity Extraction</h3>
+
+<p><strong>web-ifc — Basic IFC Query Test</strong>
+- <strong>Action:</strong> Run the following in a browser console or Node.js environment:</p>
+
+<pre><code>import { WebIFC } from "web-ifc";
+const ifc = new WebIFC();
+const model = await ifc.OpenModel("your-file.ifc");
+const walls = ifc.GetLineIDsWithType(model, 173); // Wall type
+console.log("Wall count:", walls.size());
+</code></pre>
+
+<ul>
+<li><strong>What You'll Get:</strong> Wall count from any IFC file without Revit or Navisworks</li>
+<li><strong>Time Required:</strong> 30 minutes (including installing Node.js if needed)</li>
+<li><strong>Why This Week:</strong> Validates the foundation for building custom glazing quantity takeoff tools</li>
+</ul>
+
+<hr />
+
+<h3>For Point Cloud Comparison</h3>
+
+<p><strong>CloudCompare — Tolerance Verification</strong>
+- <strong>Action:</strong> Download CloudCompare at https://www.cloudcompare.org, then open a sample point cloud alongside a DXF or IFC of the same space
+- <strong>What You'll Get:</strong> Visual comparison showing deviations between captured as-built conditions and design model
+- <strong>Time Required:</strong> 1 hour
+- <strong>Why This Week:</strong> Determines if CloudCompare meets tolerance verification needs before committing to full OpenDroneMap pipeline</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects are not production-ready but demonstrate strong momentum and warrant monitoring over the next 12–18 months:</p>
+
+<hr />
+
+<h3>OpenConstructionERP — Takeoff Module</h3>
+
+<p><strong>Status:</strong> Early production, AGPL license requires review
+<strong>What It Is:</strong> Open-source ERP with a quantity takeoff module designed for construction workflows
+<strong>Why Watch:</strong> If the licensing review clears, this could provide a head start on PDF takeoff automation without building from scratch
+<strong>Timeline:</strong> 6–12 months for evaluation; license review is immediate
+<strong>Link:</strong> Monitor at https://github.com/openconstruction (verify exact repository)</p>
+
+<hr />
+
+<h3>pascalorg/editor — Web-Native Parametric CAD</h3>
+
+<p><strong>Status:</strong> Experimental, 21,000+ GitHub stars indicates momentum
+<strong>What It Is:</strong> Browser-native parametric design environment built on React Three Fiber; enables CAD-like operations entirely in the browser
+<strong>Why Watch:</strong> Represents a potential paradigm shift from desktop CAD to web-based design. If maturity improves, PGC could eventually design glazing systems in-browser without AutoCAD or Revit licenses
+<strong>Timeline:</strong> 12–18 months before production viability for design workflows
+<strong>Link:</strong> https://github.com/pascalorg/editor</p>
+
+<hr />
+
+<h3>AI-Assisted Text-to-CAD</h3>
+
+<p><strong>Status:</strong> Nascent, no stable implementations identified
+<strong>What It Is:</strong> Emerging research area combining large language models with CAD geometry generation; early demos suggest natural language could generate basic glazing details
+<strong>Why Watch:</strong> AI-native CAD is the next wave beyond current parametric tools. If viable, could automate shop drawing generation from specifications
+<strong>Timeline:</strong> 18–24 months before practical usability; monitor for open-source implementations
+<strong>Note:</strong> No specific GitHub repository identified yet; track via research publications and industry coverage</p>
+
+<hr />
+
+<h3>iTwin.js — Bentley's Open Visualization Stack</h3>
+
+<p><strong>Status:</strong> Active development, enterprise-focused
+<strong>What It Is:</strong> Bentley's open-source platform for digital twin visualization and infrastructure data synchronization
+<strong>Why Watch:</strong> Bentley's strategic pivot to open-source (evidenced by @bentley/construction-schema) signals competitive pressure on the proprietary stack. If iTwin.js matures, it may provide enterprise-grade stability for BIM workflows
+<strong>Timeline:</strong> 12–18 months for feature parity with proprietary alternatives
+<strong>Link:</strong> https://github.com/iTwin/itwinjs-core</p>
+
+<hr />
+
+<h2>Strategic Implications for PGC</h2>
+
+<p>The open-source AEC ecosystem has crossed a threshold: the core infrastructure for IFC parsing, BIM viewing, and photogrammetry is solved and freely available. The remaining competitive differentiation lies not in accessing these capabilities but in applying them faster and more creatively than competitors.</p>
+
+<p><strong>The PDF takeoff gap remains the largest unmet opportunity.</strong> No production-ready open-source tool automates quantity extraction from PDF submittals—the dominant format for architectural drawings in glazing workflows. Building this capability on web-ifc would establish a defensible advantage.</p>
+
+<p><strong>The action plan from this week's analysis:</strong></p>
+
+<ol>
+<li><strong>This quarter:</strong> Pilot ThatOpen Engine for submittal review; stand up OpenDroneMap for the next site verification project</li>
+<li><strong>6–12 months:</strong> Build PDF takeoff prototype on web-ifc; evaluate OpenConstructionERP takeoff module</li>
+<li><strong>12–18 months:</strong> Monitor pascalorg/editor and AI-assisted CAD developments; reassess based on maturity</li>
+</ol>
+
+<p>The oligopoly is being bypassed, not attacked. Firms that build on free, browser-native, interoperable tools in the next 12 months will establish cost structures and workflow efficiencies competitors cannot match.</p>
+
+<hr />
+
+<p><em>Classification: Internal Briefing — Pacific Glazing Corporation</em>
+<em>Sources: Primary Analysis (August 5, 2026) and Independent Analysis</em>
+<em>Briefing Date: August 12, 2026</em></p>
+
+</body>
+</html>

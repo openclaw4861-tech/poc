@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — August 12, 2026",
+    date: "August 12, 2026",
+    type: "software",
+    description: "Open-source AEC now offers IFC parsing, browser BIM review, and photogrammetry at zero cost, driving free web tools for construction",
+    file: "/briefs/software-brief-2026-08-12.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — August 10, 2026",
     date: "August 10, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: OpenConstructionERP v3.0 (free open-source ERP with CAD takeoff, Try Now), Nomic AI (AEC AI agents for drawing review, Try Now), Togal.AI ($299/mo AI takeoff, Try Now), Alpen High Performance Products (thin-glass IGUs, Try Now), Buildots (AI site monitoring, Watch), OpenSpace (visual intelligence, Watch), Dusty Robotics (robotic layout, Watch), Text-to-CAD (AI CAD skills, Watch), Chili3D (browser CAD, Watch), goNeon (AI infrastructure planning, Watch), Fixxly (building materials quick commerce, Watch), Buildforce (electrician staffing, Skip). Top picks: OpenConstructionERP v3.0 > Togal.AI > Nomic AI > Alpen High Performance Products.",
     file: "/briefs/software-watch-2026-08-05.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — August 05, 2026",
