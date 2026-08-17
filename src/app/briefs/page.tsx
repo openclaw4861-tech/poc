@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — August 17, 2026",
+    date: "August 17, 2026",
+    type: "tech",
+    description: "15 trending technologies: AI Agent Skills Marketplaces / SKILL.md (Adopt), Agentic Payments & Commerce (Evaluate), EU AI Act + California AI Transparency Act enforcement (Watch), Agentic AI Governance & Observability (Evaluate), Frontier Model Race / Grok 4.6 + GPT-5.6 (Adopt), Chinese Frontier Models & Price Collapse (Adopt), Small & Edge Language Models (Adopt), AI Glass Defect Detection & Vision Inspection (Adopt), A+W Order Entry AI (Adopt), AI Structural Design of Glass Facades (Evaluate), Intelligent & Dynamic Facades (Evaluate), glasstec 2026 / GlassBuild America (Watch), Agentic AI in Construction (Adopt), The Agent Leap in Enterprise AI (Adopt), Digital Twins & Construction Robotics (Evaluate) — with 3 meta-trends: AI as an Owned Asset, Governance as the New Bottleneck, and the Glazing Industry's Own AI Stack.",
+    file: "/briefs/tech-trends-2026-08-17.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — August 15, 2026",
     date: "August 15, 2026",
     type: "tech",
     description: "AI focus shifts from models to packaged skills, edge inference grows, and Pacific Glazing Corp can turn its glazing knowledge into a defensible asset",
     file: "/briefs/weekly-briefing-2026-08-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — August 12, 2026",

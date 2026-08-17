@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Trends Brief - 2026-08-17</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; background: #fafafa; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #6f42c1; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #6f42c1; margin: 20px 0; border-radius: 0 8px 8px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #6f42c1; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+        .meta-trend { background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #17a2b8; }
+        .action-items { background: #fff3cd; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107; }
+        .action-items ul { margin: 10px 0; padding-left: 20px; }
+        .action-items li { margin: 8px 0; }
+        .tag { display: inline-block; background: #e8d5f5; color: #6f42c1; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin: 2px; }
+        .verdict-adopt { display: inline-block; background: #d4edda; color: #155724; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .verdict-evaluate { display: inline-block; background: #fff3cd; color: #856404; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .verdict-watch { display: inline-block; background: #e2e3e5; color: #383d41; padding: 2px 10px; border-radius: 12px; font-weight: bold; font-size: 0.85em; }
+        .trend-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .trend-card h3 { margin-top: 0; }
+        .trend-number { display: inline-block; background: #6f42c1; color: white; width: 28px; height: 28px; text-align: center; line-height: 28px; border-radius: 50%; font-size: 0.85em; font-weight: bold; margin-right: 8px; }
+        .trend-section { margin: 10px 0; }
+        .trend-section strong { color: #555; }
+        .mvp-box { background: #f0f8ff; border: 1px dashed #6f42c1; padding: 12px; border-radius: 6px; margin: 10px 0; }
+        .why-pgc { background: #f0fdf4; border: 1px solid #86efac; padding: 12px; border-radius: 6px; margin: 10px 0; }
+        hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
+        .summary-table { margin: 20px 0; }
+        .summary-table th { background: #6f42c1; color: white; }
+        .summary-table .verdict-col { text-align: center; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #888; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
+        @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <h1>🔧 Tech Trends Brief</h1>
+    <p><em>August 17, 2026 — 15 trending technologies curated for Pacific Glazing Corporation</em></p>
+    <hr />
+
+    <div class="executive-summary">
+        <strong>Executive Summary</strong>
+        <p>This week's signal is unmistakable: <strong>AI is becoming an installable, owned asset rather than a rented tool</strong> — the SKILL.md "app store for agents" is trending #1 on GitHub, Chinese labs are collapsing model prices, and small on-device models are getting production-ready. At the same time, <strong>agents are graduating to real work with money and liability attached</strong> — Mastercard launched Agent Pay, and the EU AI Act + California AI Transparency Act both went into force on August 2. And critically for PGC: <strong>the glazing industry is getting its own AI stack</strong> — AI glass defect detection, A+W's AI order entry, AI facade design tools, and two flagship trade shows (glasstec, GlassBuild America) to scout it all. The actionable start: run the Procore agents, test AI defect inspection on PGC's own photos, and get someone to GlassBuild America.</p>
+    </div>
+
+    <h2>📊 At a Glance</h2>
+    <div class="summary-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Trend</th>
+                    <th>Category</th>
+                    <th>Verdict</th>
+                    <th>PGC Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>AI Agent Skills Marketplaces (SKILL.md)</td><td>AI Infrastructure</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Installable "how-to" packs for PGC's AI</td></tr>
+                <tr><td>2</td><td>Agentic Payments & Agentic Commerce</td><td>Fintech</td><td class="verdict-col"><span class="verdict-evaluate">🟡 Evaluate</span></td><td>AI agents buying/ordering materials</td></tr>
+                <tr><td>3</td><td>EU AI Act + California AI Transparency Act</td><td>Regulatory</td><td class="verdict-col"><span class="verdict-watch">🔵 Watch</span></td><td>Aug 2 enforcement is live</td></tr>
+                <tr><td>4</td><td>Agentic AI Governance & Observability</td><td>AI Infrastructure</td><td class="verdict-col"><span class="verdict-evaluate">🟡 Evaluate</span></td><td>Trace, guardrail & audit agents</td></tr>
+                <tr><td>5</td><td>Frontier Model Race (Grok 4.6, GPT-5.6)</td><td>AI Models</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Faster, cheaper, agent-optimized</td></tr>
+                <tr><td>6</td><td>Chinese Frontier Models & Price Collapse</td><td>AI Models</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Quality near commodity pricing</td></tr>
+                <tr><td>7</td><td>Small & Edge Language Models</td><td>Hardware + AI</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Run AI on jobsite devices, offline</td></tr>
+                <tr><td>8</td><td>AI Glass Defect Detection & Vision Inspection</td><td>Vertical AI</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Direct ROI in PGC QC & fabrication</td></tr>
+                <tr><td>9</td><td>AI Order Entry for Glass (A+W Order Entry AI)</td><td>Vertical AI</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Automate manual PDF order entry</td></tr>
+                <tr><td>10</td><td>AI Structural Design of Glass Facades</td><td>Construction Tech</td><td class="verdict-col"><span class="verdict-evaluate">🟡 Evaluate</span></td><td>AI computes facade engineering faster</td></tr>
+                <tr><td>11</td><td>Intelligent & Dynamic Facades (Smart Glass)</td><td>Materials</td><td class="verdict-col"><span class="verdict-evaluate">🟡 Evaluate</span></td><td>Next-gen IGUs & electrochromic glass</td></tr>
+                <tr><td>12</td><td>glasstec 2026 / GlassBuild America</td><td>Industry Events</td><td class="verdict-col"><span class="verdict-watch">🔵 Watch</span></td><td>Where PGC should scout tech + suppliers</td></tr>
+                <tr><td>13</td><td>Agentic AI in Construction (continued)</td><td>Vertical AI</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>Procore/Trimble agent expansion</td></tr>
+                <tr><td>14</td><td>The "Agent Leap" in Enterprise AI</td><td>AI Infrastructure</td><td class="verdict-col"><span class="verdict-adopt">🟢 Adopt</span></td><td>AI orchestrates end-to-end workflows</td></tr>
+                <tr><td>15</td><td>Digital Twins & Construction Robotics</td><td>Construction Tech</td><td class="verdict-col"><span class="verdict-evaluate">🟡 Evaluate</span></td><td>Simulate + automate repetitive site work</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>🔍 The 15 Trends</h2>
+
+    <div class="grid">
+
+    <!-- Trend 1 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">1</span> AI Agent Skills Marketplaces (SKILL.md)</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">AI Infrastructure</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The hottest thing on GitHub this week is the rise of <strong>agent skills</strong> — portable, installable "how-to" packages (folders of instructions, scripts, and resources) that teach an AI agent to do a specific task consistently. Anthropic's official <code>anthropics/skills</code> repo, Vercel's agent-skills pack, and community marketplaces (Agensi, Cursor Directory, Addy Osmani's collection) are turning skills into the "app store for AI agents." The SKILL.md open standard makes a skill work across Claude Code, Codex, OpenCode, OpenClaw, and more. GitHub's trending board this week was dominated by skills repos — Matt Pocock's skills held the #1 spot with ~11,000 new stars.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Installing specialized capabilities into AI agents without writing code — from "review this contract for glazing liability clauses" to "build a Supabase app." It's the same idea as app stores: someone packages the expertise, anyone installs it.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Agentic AI in Construction</span> <span class="tag">The Agent Leap</span> <span class="tag">Governance</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (3 days):</strong> Browse the Anthropic skills repo and one marketplace (Agensi or Cursor Directory). Find 2-3 skills relevant to PGC — e.g., document review, spreadsheet analysis, or estimating. Install one into your coding agent and run it against a real PGC RFI or spec sheet. Measure: did it follow a repeatable, higher-quality process than a raw prompt?</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Skills are the fastest way to encode PGC's <em>way of doing things</em> into AI. Instead of re-explaining "how we review submittals" every time, PGC could package it as a skill once and reuse it across tools. For a 34-person company with no dev team, this is the cheapest path to specialized AI.</div>
+    </div>
+
+    <!-- Trend 2 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">2</span> Agentic Payments & Agentic Commerce</h3>
+        <div><span class="verdict-evaluate">🟡 Evaluate</span> <span class="tag">Fintech</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Payments that AI agents initiate, authorize, and execute autonomously on behalf of a user or company. In June, Mastercard launched <strong>Agent Pay for Machines</strong> — secure, continuous machine payments across cards, accounts, and stablecoins. Google announced the open-source <strong>Universal Commerce Protocol (UCP)</strong> to let agents interoperate with retail systems. The IMF published a note on how agentic AI reshapes payments, and B2B agentic treasury is hitting 88–92% cash-forecast accuracy in production. This is the infrastructure that lets an AI actually <em>buy things</em> end-to-end (discovery → authorization → payment → fulfillment).</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Autonomous purchasing — an agent that reorders sealant when stock is low, or compares and buys glazing materials from multiple suppliers. For B2B it means machine-to-machine procurement without a human in every step.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">The Agent Leap</span> <span class="tag">Frontier Models</span> <span class="tag">Chinese Price Collapse</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (2 days):</strong> Don't wire real money yet. Map PGC's highest-frequency, lowest-risk purchase (e.g., sealant, gaskets, or hardware restock). Sketch an "agentic purchase flow": agent checks inventory → gets quotes from 2 approved suppliers → proposes a PO for human approval. Test the <em>decision logic</em> in a spreadsheet or simple AI workflow before any automation touches payments.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Procurement is a quiet cost center for glazing. Agentic commerce will let a PGC agent reorder standard materials automatically and shop multiple distributors for the best price — but it needs guardrails (approval limits, approved-supplier lists) first. The technology is arriving now; the governance is the real work.</div>
+    </div>
+
+    <!-- Trend 3 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">3</span> EU AI Act + California AI Transparency Act Enforcement</h3>
+        <div><span class="verdict-watch">🔵 Watch</span> <span class="tag">Regulatory</span></div>
+        <div class="trend-section"><strong>What it is:</strong> On <strong>August 2, 2026</strong>, both the EU AI Act's core transparency obligations and the California AI Transparency Act (CAITA) came into force simultaneously — a rare dual-regime moment. The EU AI Office and national authorities began enforcing the AI Act, and new transparency rules now apply to AI systems serving EU users, while CAITA governs California users. Regulators in Europe and California "flipped the switch on real enforcement" this month. The shift: from merely <em>telling</em> users AI was used, to building <em>technical systems</em> that make AI-generated content detectable.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Governing how AI is deployed — transparency, disclosure, risk classification, and enforcement. Any company using AI in safety-critical or high-risk contexts (like construction safety monitoring or automated decisions) must now consider compliance.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Agentic Governance</span> <span class="tag">Agentic AI in Construction</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (1 day):</strong> No technical MVP. Run a compliance review: list every AI tool PGC uses or plans to use. Note which ones touch worker safety, employment decisions, or produce content shown to EU/California clients. File a one-page note flagging transparency obligations. This is a 1-day audit with real legal upside.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Even though PGC is US-based, if any project touches EU or California requirements, or if PGC deploys AI safety monitoring on jobsites, transparency rules now apply. Knowing the landscape now avoids compliance surprises — especially on public-sector glazing contracts that are starting to demand AI governance.</div>
+    </div>
+
+    <!-- Trend 4 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">4</span> Agentic AI Governance & Observability</h3>
+        <div><span class="verdict-evaluate">🟡 Evaluate</span> <span class="tag">AI Infrastructure</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Gartner's 2026 Hype Cycle for Agentic AI highlights governance, security, and cost as defining new profiles — the signal that agents moved from demos to production. A fast-growing tool category (Arize AX, LangSmith, Braintrust, Helicone, Datadog LLM Observability, AgentOps) now traces how multi-step agent workflows execute, which tools they call, and where errors/latency occur — built on OpenTelemetry/OpenInference standards. The mantra for 2026: build traces, evaluations, and guardrails into agent architecture <em>from day one</em>, not after.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Observing and controlling AI agents in production — seeing what an agent did, why, and whether it stayed within policy. Audit trails, policy enforcement, and continuous evaluation before scaling agents.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Agent Skills</span> <span class="tag">EU AI Act</span> <span class="tag">The Agent Leap</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (3 days):</strong> If you run any AI agent workflow (even a simple one), add a free observability layer (Helicone or Arize Phoenix). Watch how your agent calls tools and where it stalls. Measure: how many steps, which tools, where the failures happen. This builds the habit of governing agents before they scale.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> If PGC is going to let AI agents touch estimating, RFIs, or procurement, it needs to know what they did and why — for trust and for liability. Observability is cheap to add now and painful to retrofit. Start tracing early.</div>
+    </div>
+
+    <!-- Trend 5 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">5</span> Frontier Model Race (Grok 4.6, GPT-5.6)</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">AI Models</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The frontier labs are shipping fast. On August 12, SpaceXAI (formerly xAI) launched <strong>Grok 4.6</strong>, optimized for long-running agents, coding, and multi-step interactive tasks — matching GPT-5.6 "Sol" on the Artificial Analysis Intelligence Index. Frontier models now refresh every 2-4 weeks, with 1M-token context windows standard and agent-orchestration as the core design goal (not just chat). The competitive pressure is relentless: every month brings a new flagship better at <em>doing</em> things end-to-end.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Long-horizon agent tasks, autonomous coding, complex multi-step workflows. The models themselves are becoming the "brain" that drives the agent ecosystem in trends 1, 2, 4, and 14.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Chinese Price Collapse</span> <span class="tag">The Agent Leap</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (2 days):</strong> Pick a real PGC task — "summarize this 40-page spec and flag all glazing performance requirements" — and run it through the latest available frontier model. Compare the output quality and speed against the model PGC used even 3 months ago. Measure the improvement; it's a reminder that model capability is compounding.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Model quality is rising so fast that tools PGC couldn't trust 6 months ago are now genuinely useful. That changes the calculus on every "evaluate later" item in past briefs — many should be revisited now with a newer, cheaper, more capable model.</div>
+    </div>
+
+    <!-- Trend 6 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">6</span> Chinese Frontier Models & Price Collapse</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">AI Models</span></div>
+        <div class="trend-section"><strong>What it is:</strong> This month, Chinese labs dropped frontier models that <strong>undercut Western pricing dramatically</strong> — near-frontier quality at a fraction of the cost. Combined with open-weight releases (the Qwen small series, DeepSeek's ongoing output, and new harness tooling trending on GitHub), the effective cost of capable AI is collapsing. The trend: high-quality AI is becoming a commodity input rather than a premium product.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Cutting AI operating costs, running models on your own infrastructure, and removing the pricing barrier to AI adoption. Open-weight frontier-class models mean PGC isn't locked into any single vendor's API.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Frontier Models</span> <span class="tag">Edge/Small Models</span> <span class="tag">Agentic Payments</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (2 days):</strong> Take a task PGC already does with a paid API (e.g., document summarization or RFI classification). Run it through a leading open-weight or lower-cost Chinese model (DeepSeek or Qwen). Compare cost per 1,000 tasks and output quality. Measure: what's the savings at PGC's actual volume?</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Price collapse means AI is now cheap enough for PGC to automate high-volume, low-judgment tasks (RFI triage, document classification, data extraction) without a big budget. The economics of "try it on a small job" just improved dramatically.</div>
+    </div>
+
+    <!-- Trend 7 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">7</span> Small & Edge Language Models (On-Device AI)</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">Hardware + AI</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Compact, task-specific models ("micro LLMs") that run <em>directly on devices</em> — phones, laptops, edge hardware, even inside the browser. Alibaba's Qwen small series spans 0.8B–9B parameters targeting IoT to local servers. Microsoft Edge now ships the Aion-1.0-Instruct model plus on-device translation and speech APIs. CES 2026 was full of Qualcomm-powered local-AI devices. Dell calls it "The Power of Small" — moving intelligence to the edge. A June arXiv paper even ran a full RAG pipeline on a Snapdragon NPU entirely on-device.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> On-device translation, voice, document processing, and small-model inference — no cloud latency, no bandwidth costs, works offline. Critical for jobsites with unreliable internet and for keeping sensitive data local.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Chinese Models</span> <span class="tag">Glass Vision Inspection</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (5 days):</strong> Take the Raspberry Pi + camera idea from prior briefs one step further: install a small on-device LLM (Qwen small or Phi-3) alongside a vision model on a jobsite device. Test: can it caption/classify progress photos or answer "what's on this drawing" fully offline? Measure accuracy vs. cloud.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Glazing jobsites often have patchy internet. On-device AI means PGC can run useful automation (photo documentation, safety checks, form extraction) where the network fails — and keep client/project data off the cloud entirely.</div>
+    </div>
+
+    <!-- Trend 8 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">8</span> AI Glass Defect Detection & Vision Inspection</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">Vertical AI</span></div>
+        <div class="trend-section"><strong>What it is:</strong> AI-powered vision systems that detect surface and internal defects in glass — chips, cracks, seal failures, coating flaws — using optical inspection plus deep-learning analysis. 2026 research (including in <em>Engineering Applications of Artificial Intelligence</em>) is pushing lightweight, scale/shape-aware networks specifically for glass surface defects. Systems like iFactory run edge AI on NVIDIA Jetson with sub-100ms inference, no cloud required, and handle tricky transparent/reflective materials with specialized lighting. The glass trade press this month notes "AI is changing the way glass is inspected."</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Automated QC on fabrication lines and at delivery — catching defects before glass ships or gets installed. Where manual inspection misses subtle flaws, vision AI sees them consistently.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Edge/Small Models</span> <span class="tag">Smart Facades</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (5 days):</strong> Use PGC's existing photo archive. Set up a small vision model (YOLO-class) to detect common glass defects (chips, edge chips, seal voids) on a labeled sample set — or use a vendor demo (Cognex, iFactory). Test against manual QC on 50 units. Measure: detection rate, false positives, time per inspection.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Glass defects are expensive — a chipped panel installed on a high-rise means rework, replacement, and reputational damage. Automated inspection catches problems at fabrication/delivery instead of on the building. This is among the highest-direct-ROI AI applications for a glazing contractor.</div>
+    </div>
+
+    <!-- Trend 9 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">9</span> AI Order Entry for Glass (A+W Order Entry AI)</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">Vertical AI</span></div>
+        <div class="trend-section"><strong>What it is:</strong> A+W (a leading glass/fenestration ERP vendor) is launching <strong>A+W Order Entry AI powered by Mira</strong> at GlassBuild America 2026 — an AI that automates <em>manual PDF order entry</em> for smaller glass fabricators. It reads order PDFs, extracts the line items (glass type, size, quantity, coatings, edgework), and populates the order automatically — a simple, scalable way to kill a tedious, error-prone manual process.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Replacing human data-entry of glass orders from PDFs/emails into the ERP. Reduces transcription errors and frees office staff from repetitive typing.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">AI Document Management</span> <span class="tag">Agentic Commerce</span> <span class="tag">Glass Vision</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (3 days):</strong> If PGC uses A+W or a similar ERP, request a demo of Order Entry AI. If not, run a manual experiment: take 20 past glass orders and see how accurately a general AI tool (or an LLM + extraction script) can pull the line items into a spreadsheet. Measure: error rate vs. manual entry, time saved per order.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Order entry errors cascade into wrong glass cut, wrong coatings, and rework. Automating PDF-to-ERP entry is a low-risk, immediately measurable win — and it's the same pattern PGC can apply to submittals, POs, and invoices.</div>
+    </div>
+
+    <!-- Trend 10 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">10</span> AI Structural Design of Glass Facades</h3>
+        <div><span class="verdict-evaluate">🟡 Evaluate</span> <span class="tag">Construction Tech</span></div>
+        <div class="trend-section"><strong>What it is:</strong> A new wave of AI-powered tools is transforming the structural design and analysis of glass facades — glassonweb reported an AI tool that automates facade structural engineering. Combined with algorithmic facade design (e.g., SOM using AI to explore thousands of options for occupant views, floor space, and sunlight), this lets engineers compute and validate glazing systems far faster than manual methods.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Automating structural analysis, code compliance checks, and design optimization for glass facades — producing and evaluating many design options quickly.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Glass Vision</span> <span class="tag">Smart Facades</span> <span class="tag">Digital Twins</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (3 days):</strong> Ask an AI engineering tool (or a capable LLM with the right inputs) to run a preliminary wind-load and deflection check on a PGC facade design. Compare its output to a senior engineer's manual calc. Measure: time saved, where the AI needs human verification. Treat AI as a fast first pass, not the final sign-off.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Facade engineering is a competitive differentiator and a place where speed wins bids. If AI handles the routine structural calcs, PGC's engineers focus on the complex, high-value cases — and PGC can respond to design-build RFPs faster.</div>
+    </div>
+
+    <!-- Trend 11 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">11</span> Intelligent & Dynamic Facades (Smart Glass)</h3>
+        <div><span class="verdict-evaluate">🟡 Evaluate</span> <span class="tag">Materials</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The glazing trade press is spotlighting next-generation intelligent facades: triple-silver low-emissivity coatings, triple-glazed IGUs, and dynamic/electrochromic glass that integrates with building management systems to control daylight and heat in real time. It's a materials-and-specs trend reshaping what gets specified on new curtain walls in 2026.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> High-performance building envelopes — energy efficiency, occupant comfort, and smart-building integration. Dynamic glass is becoming a cornerstone of "intelligent facades."</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Glass Design AI</span> <span class="tag">Glass Vision</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (2 days):</strong> No build MVP. Instead: brief PGC's estimators on the trending glass products (triple-silver low-E, dynamic glass) and update the spec library. Check whether PGC's suppliers can quote these — being able to bid intelligent-facade projects is a market opportunity.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Curtain-wall projects increasingly specify advanced glass PGC must be able to procure, handle, and install. Staying current on the materials market means PGC doesn't lose bids to competitors who already quote the latest low-E and IGU specs.</div>
+    </div>
+
+    <!-- Trend 12 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">12</span> glasstec 2026 / GlassBuild America</h3>
+        <div><span class="verdict-watch">🔵 Watch</span> <span class="tag">Industry Events</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The glass industry's two flagship trade events are on the near horizon — <strong>glasstec 2026</strong> in Düsseldorf (the world's leading glass trade fair, "providing guidance for the future of the glass industry") and <strong>GlassBuild America 2026</strong> (where A+W is debuting its AI order entry). These are where the industry's innovation roadmap is showcased.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Scouting new glass products, machinery, AI tools, and suppliers — and seeing the direction of the industry in person.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> Everything — these are where trends 8, 9, 10, and 11 get demonstrated.</div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (1 day):</strong> No technical MVP. Identify which event is reachable for PGC (GlassBuild America is more likely US-side). Pre-book meetings with suppliers of AI inspection and order-entry tools. Build a shortlist of 3-5 tech vendors to evaluate in person.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Trade events are the highest-density source of glazing tech intelligence. Sending one person to GlassBuild America to evaluate AI inspection, order entry, and facade tools is a cheap way to compress months of vendor research into days.</div>
+    </div>
+
+    <!-- Trend 13 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">13</span> Agentic AI in Construction (continued)</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">Vertical AI</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The vertical-AI momentum from prior weeks continues: Procore's 20 "Digital Coworker" agents and "teach it your standards" Skills layer are rolling out across packages, and Trimble's AI takeoff keeps expanding. The trend is now mainstream — construction platforms ship agentic AI as a feature, not a pilot.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Automating submittal review, RFI triage, contract review, takeoff, and document search with agents that learn <em>your</em> standards.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Agent Skills</span> <span class="tag">AI Governance</span> <span class="tag">EU AI Act</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (3 days):</strong> If PGC is on Procore, enable the Starter pack and run the RFI and Contract Review agents on a live (already-processed) job. Treat output as a first-pass reviewer. Measure time saved and accuracy vs. your team.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> This is the concrete, low-risk entry point into agentic AI that's been building for weeks. The Skills layer means the agents can learn PGC's RFI language and submittal conventions — not generic defaults.</div>
+    </div>
+
+    <!-- Trend 14 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">14</span> The "Agent Leap" in Enterprise AI</h3>
+        <div><span class="verdict-adopt">🟢 Adopt</span> <span class="tag">AI Infrastructure</span></div>
+        <div class="trend-section"><strong>What it is:</strong> Google Cloud's 2026 agent-trends report captures the defining shift: <em>"The era of simple prompts is over — we're witnessing the agent leap, where AI orchestrates complex, end-to-end workflows semi-autonomously."</em> SS&amp;C Blue Prism frames it as "the true democratization of AI" where every company can wield intelligence at scale. The agent is no longer a chatbot answering questions; it's a worker executing multi-step processes.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> End-to-end workflow automation — an agent that takes an RFI from inbox to routed response, or a bid from takeoff to proposal. This is the umbrella under which trends 1, 2, 4, and 13 operate.</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Agent Skills</span> <span class="tag">Agentic Payments</span> <span class="tag">Governance</span> <span class="tag">Construction Agentic AI</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (4 days):</strong> Pick one end-to-end PGC workflow (e.g., "new RFI → classify → extract deadline → route to PM → log to tracker"). Assemble it with a visual agent builder (Dify/Langflow) or a coding agent. Run it on 10 real (anonymized) RFIs. Measure: % completed without human touch, where it needs help.</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> The agent leap is what makes PGC's 34-person team punch above its weight. Instead of hiring for every administrative task, PGC wires an agent to orchestrate the workflow — the human approves, the agent does the legwork.</div>
+    </div>
+
+    <!-- Trend 15 -->
+    <div class="trend-card">
+        <h3><span class="trend-number">15</span> Digital Twins & Construction Robotics</h3>
+        <div><span class="verdict-evaluate">🟡 Evaluate</span> <span class="tag">Construction Tech</span></div>
+        <div class="trend-section"><strong>What it is:</strong> The twin threads of construction automation continue: digital twins that stay synchronized with real site data (used to plan and simulate work, including robotic work), and construction robotics addressing the labor shortage. The capital is flowing — and the technology keeps maturing toward facade and repetitive-task automation.</div>
+        <div class="trend-section"><strong>What it's used for:</strong> Simulating construction sequences before site work, monitoring performance, and automating repetitive, hazardous tasks (bricklaying today; glass handling and panel installation as the technology matures).</div>
+        <div class="trend-section"><strong>Trend overlap:</strong> <span class="tag">Glass Facade AI</span> <span class="tag">Intelligent Facades</span> <span class="tag">Edge AI</span></div>
+        <div class="mvp-box"><strong>⚡ MVP Experiment (1 day):</strong> No build MVP. Research glass-handling and facade-installation robotics (robotic glazing arms, AI vacuum lifters). Track whether any vendor is demoing near PGC's region. Measure: could a robot assist with panel staging or installation on a future project?</div>
+        <div class="why-pgc"><strong>🏢 Why it matters for PGC:</strong> Glass panels are heavy, fragile, and expensive. As skilled glaziers get harder to find and labor costs rise, robotics for handling and installation could cut breakage, injury, and labor cost. PGC should track facade-specific robotics closely — the capital is clearly flowing toward it.</div>
+    </div>
+
+    </div>
+
+    <hr />
+
+    <h2>🔗 3 Meta-Trends Connecting the 15</h2>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 1: AI Is Becoming an Installed, Owned Asset — Not a Tool You Rent</strong>
+        <p>Trends 1 (skills), 6 (Chinese open-weight models), and 7 (edge/small models) converge on the same shift: AI is moving from a cloud API you rent by the token to <strong>portable, installable, ownable assets</strong>. SKILL.md packs encode your expertise; open-weight models run on your own hardware; small models run on your jobsite devices. <strong>PGC can now build a glazing-specific AI library it actually owns — skills, models, and data — instead of renting generic intelligence.</strong></p>
+    </div>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 2: Agents Are Now Doing Real Work — So Governance Is the New Bottleneck</strong>
+        <p>Trends 2 (agentic payments), 4 (governance/observability), 3 (EU/California enforcement), and 14 (the agent leap) all point to one fact: AI agents are graduating from answering questions to <strong>executing work with money and liability attached</strong>. The barrier to adoption is no longer capability — it's trust, audit, and control. <strong>The companies that win are the ones that build guardrails and observability in from day one, not retroactively.</strong> For PGC that means: approve-before-execute, audit trails, and approved-vendor lists.</p>
+    </div>
+
+    <div class="meta-trend">
+        <strong>Meta-Trend 3: The Glazing Industry Is Getting Its Own AI Stack</strong>
+        <p>Trends 8 (glass defect detection), 9 (A+W order entry AI), 10 (facade design AI), 11 (intelligent facades), and 12 (glasstec/GlassBuild) show something specific and important: <strong>AI tools purpose-built for glass and fenestration are arriving now, not later.</strong> This is the verticalization of AI — tools that speak glass, not generic construction. <strong>PGC has a narrow window to evaluate and adopt these before competitors do — and it starts with the two flagship trade shows.</strong></p>
+    </div>
+
+    <hr />
+
+    <h2>✅ Steve's Action Items</h2>
+
+    <div class="action-items">
+        <h3>This Week</h3>
+        <ul>
+            <li><input type="checkbox"> <strong>Run the Procore Digital Coworker Starter pack</strong> on a live job (if PGC is on Procore). (Trend #13)</li>
+            <li><input type="checkbox"> <strong>Browse the Anthropic skills repo + one marketplace</strong> — pick 2-3 skills relevant to PGC and test one on a real document. (Trend #1)</li>
+            <li><input type="checkbox"> <strong>Run a 1-day AI compliance review</strong> — list every AI tool PGC uses/plans, flag transparency obligations. (Trend #3)</li>
+        </ul>
+    </div>
+
+    <div class="action-items">
+        <h3>This Month</h3>
+        <ul>
+            <li><input type="checkbox"> <strong>Test AI glass defect detection</strong> on PGC's photo archive or a vendor demo (Cognex, iFactory). Measure detection rate vs. manual QC. (Trend #8)</li>
+            <li><input type="checkbox"> <strong>Test AI order entry</strong> on 20 past glass orders — measure error rate and time saved vs. manual entry. (Trend #9)</li>
+            <li><input type="checkbox"> <strong>Assemble a simple "RFI triage" agent</strong> (Dify/Langflow) and run it on 10 anonymized RFIs. (Trend #14)</li>
+            <li><input type="checkbox"> <strong>Re-benchmark one task</strong> PGC already does with AI against a newer/cheaper model — measure the cost/quality improvement. (Trends #5, #6)</li>
+        </ul>
+    </div>
+
+    <div class="action-items">
+        <h3>This Quarter</h3>
+        <ul>
+            <li><input type="checkbox"> <strong>Send someone to GlassBuild America 2026</strong> to evaluate AI inspection, order entry, and facade tools in person. (Trend #12)</li>
+            <li><input type="checkbox"> <strong>Run a wind-load/deflection check</strong> through an AI facade design tool as a fast first pass, verified by an engineer. (Trend #10)</li>
+            <li><input type="checkbox"> <strong>Deploy an on-device small model</strong> on a jobsite for offline photo documentation or safety checks. (Trend #7)</li>
+            <li><input type="checkbox"> <strong>Map PGC's highest-frequency purchase</strong> and sketch an agentic reorder flow with approval guardrails. (Trend #2)</li>
+        </ul>
+    </div>
+
+    <div class="action-items">
+        <h3>Watch List</h3>
+        <ul>
+            <li><input type="checkbox"> Facade/glass-handling robotics — track vendors and demos near PGC's region (Trend #15)</li>
+            <li><input type="checkbox"> EU AI Act + California AI Transparency Act — monitor as PGC adopts safety-monitoring AI (Trend #3)</li>
+            <li><input type="checkbox"> Update PGC's spec library for trending intelligent-facade glass products (Trend #11)</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p><em>Generated August 17, 2026 from arXiv, GitHub Trending, HN Show, TechCrunch, MIT Tech Review, Product Hunt, and Y Combinator sources.</em></p>
+        <p><a href="https://plankton-app-reijh.ondigitalocean.app/briefs/tech-trends-2026-08-17.html">🔗 Permanent link</a></p>
+    </div>
+</body>
+</html>
