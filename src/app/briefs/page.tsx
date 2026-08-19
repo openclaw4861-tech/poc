@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — August 19, 2026",
+    date: "August 19, 2026",
+    type: "software",
+    description: "Open-source AEC tools ThatOpen Engine and xeokit, powered by web-ifc with 107k npm downloads, drive browser BIM review and replace Bluebeam licenses",
+    file: "/briefs/software-brief-2026-08-19.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — August 17, 2026",
     date: "August 17, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Exayard (AI glazing takeoff that reads window schedules/type marks, Try Now), GlassBook (cloud glazing estimating, Try Now), Manifold (phone LiDAR field measurement, Try Now), OnRamp (fabrication-shop ERP built inside a real plant, Try Now), Glazyr (quick glass estimating, Try Now), HxGN SMART Build (Hexagon/Leica construction platform, Watch), Magicplan (LiDAR floor plans, Watch), VisualLive (BIM-to-AR on-site, Watch), Autodesk Forma (ACC integration, Watch), JobBOSS² (small-mfr ERP, Watch), Procore Concept Projects (owner tool, Skip), InEight Control (GC cost control, Skip). Top picks: Exayard > GlassBook > Manifold > OnRamp > Glazyr.",
     file: "/briefs/software-watch-2026-08-12.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — August 12, 2026",
