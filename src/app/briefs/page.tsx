@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — August 19, 2026",
+    date: "August 19, 2026",
+    type: "software",
+    description: "12 new tools: Handoff H1 (AI takeoff model with API, beats human estimators, Try Now), CostLogic Onyx (AI agent takeoff-to-invoice, Try Now), OpenConstructionERP (free open-source ERP with takeoff, Try Now), A+W Cantor 8.0 (door/window mfr ERP, Try Now), MonitGlass (IGU ERP/MES with traceability, Try Now), glass365/Hegla (browser glass ERP with AI stock check, Try Now), GlassManager (glazier raw-material inventory, Try Now), Beam AI (AI takeoff + human review, G2 4.9, Try Now), STACK for Excel (Velixo integration, Watch), xBuild (AI-native estimating, Watch), OpenSpace (visual intelligence, Watch), Togal.AI ($299/mo one-click takeoff, Watch). Top picks: Handoff H1 > CostLogic Onyx > OpenConstructionERP > A+W Cantor 8.0 > MonitGlass > glass365 > GlassManager > Beam AI.",
+    file: "/briefs/software-watch-2026-08-19.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — August 19, 2026",
     date: "August 19, 2026",
     type: "software",
     description: "Open-source AEC tools ThatOpen Engine and xeokit, powered by web-ifc with 107k npm downloads, drive browser BIM review and replace Bluebeam licenses",
     file: "/briefs/software-brief-2026-08-19.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — August 17, 2026",
@@ -27,7 +35,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: AI Agent Skills Marketplaces / SKILL.md (Adopt), Agentic Payments & Commerce (Evaluate), EU AI Act + California AI Transparency Act enforcement (Watch), Agentic AI Governance & Observability (Evaluate), Frontier Model Race / Grok 4.6 + GPT-5.6 (Adopt), Chinese Frontier Models & Price Collapse (Adopt), Small & Edge Language Models (Adopt), AI Glass Defect Detection & Vision Inspection (Adopt), A+W Order Entry AI (Adopt), AI Structural Design of Glass Facades (Evaluate), Intelligent & Dynamic Facades (Evaluate), glasstec 2026 / GlassBuild America (Watch), Agentic AI in Construction (Adopt), The Agent Leap in Enterprise AI (Adopt), Digital Twins & Construction Robotics (Evaluate) — with 3 meta-trends: AI as an Owned Asset, Governance as the New Bottleneck, and the Glazing Industry's Own AI Stack.",
     file: "/briefs/tech-trends-2026-08-17.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — August 15, 2026",
