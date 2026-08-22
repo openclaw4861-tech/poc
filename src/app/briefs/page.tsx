@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — August 22, 2026",
+    date: "August 22, 2026",
+    type: "tech",
+    description: "Edge AI moves to production, eliminating cloud dependency, as industry shifts focus to AI governance and auditability",
+    file: "/briefs/weekly-briefing-2026-08-22.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — August 19, 2026",
     date: "August 19, 2026",
     type: "software",
