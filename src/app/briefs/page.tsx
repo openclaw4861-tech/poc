@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Tech Trends Brief — August 24, 2026",
+    date: "August 24, 2026",
+    type: "tech",
+    description: "15 trending technologies: Agent Skills Go Mainstream / SKILL.md + Procore Agent Studio (Adopt), Visual Agent Builders Langflow/Dify/Flowise (Adopt), AI Takeoff & Estimating Agents Trimble Accubid/Togal/Beam (Adopt), Agentic Procurement & Materials Supply Chain / Higharc $95M (Evaluate), Frontier Model Price Collapse ~80% (Adopt), Desktop & Terminal AI Agents Claude Cowork/Gemini CLI (Adopt), On-Device & Edge AI Qwen small/Aion-1.0 (Adopt), AI Glass Defect Detection & Vision QC (Adopt), A+W Order Entry AI (Adopt), AI Facade Structural Design (Evaluate), Intelligent & Dynamic Facades (Evaluate), Construction Robotics Monumental/Higharc (Evaluate), Agentic AI Governance & Observability (Evaluate), EU AI Act + California AI Transparency Act enforcement (Watch), The Agent Leap — End-to-End Workflows (Adopt) — with 3 meta-trends: AI as an Installed Owned Asset, Governance as the New Bottleneck, and the Glazing Industry's Own AI Stack.",
+    file: "/briefs/tech-trends-2026-08-24.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — August 22, 2026",
     date: "August 22, 2026",
     type: "tech",
