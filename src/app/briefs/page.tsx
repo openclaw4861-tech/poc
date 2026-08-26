@@ -14,12 +14,20 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Software Watch — August 26, 2026",
+    date: "August 26, 2026",
+    type: "software",
+    description: "12 new tools: Windowmaker (fenestration CAD/CAM+ERP with glass optimization, Try Now), TheoSoft (multi-material glazing CAD/CAM/ERP, Try Now), SigmaNEST (true-shape nesting to cut glass waste, Try Now), HEGLA GlasteQ (glass cutting optimization, Try Now), EasyGLASS/DDX (all-in-one glass CAD/CAM, Try Now), Trimble Accubid Anywhere AI (AI takeoff in MEP, Watch), Procore Helix (unified AI layer, Watch), Autodesk Construction IQ (AI risk scoring, Watch), Resolve (VR-enabled BIM review, Watch), Sledge (AI bid-to-paid, Watch), Magicplan (photo floor plans, Watch), Scope AR (AR field guidance, Watch). Top picks: Windowmaker > TheoSoft > SigmaNEST > HEGLA GlasteQ > EasyGLASS — a strong fabrication/CAM week.",
+    file: "/briefs/software-watch-2026-08-26.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — August 26, 2026",
     date: "August 26, 2026",
     type: "software",
     description: "Briefing highlights browser‑native, open‑source tools like ThatOpen Engine v3.4 and markup trends shifting away from legacy platforms",
     file: "/briefs/software-brief-2026-08-26.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Tech Trends Brief — August 24, 2026",
