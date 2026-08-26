@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — August 26, 2026",
+    date: "August 26, 2026",
+    type: "software",
+    description: "Briefing highlights browser‑native, open‑source tools like ThatOpen Engine v3.4 and markup trends shifting away from legacy platforms",
+    file: "/briefs/software-brief-2026-08-26.html",
+    badge: "Latest"
+  },
+  {
     title: "Tech Trends Brief — August 24, 2026",
     date: "August 24, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "12 new tools: Handoff H1 (AI takeoff model with API, beats human estimators, Try Now), CostLogic Onyx (AI agent takeoff-to-invoice, Try Now), OpenConstructionERP (free open-source ERP with takeoff, Try Now), A+W Cantor 8.0 (door/window mfr ERP, Try Now), MonitGlass (IGU ERP/MES with traceability, Try Now), glass365/Hegla (browser glass ERP with AI stock check, Try Now), GlassManager (glazier raw-material inventory, Try Now), Beam AI (AI takeoff + human review, G2 4.9, Try Now), STACK for Excel (Velixo integration, Watch), xBuild (AI-native estimating, Watch), OpenSpace (visual intelligence, Watch), Togal.AI ($299/mo one-click takeoff, Watch). Top picks: Handoff H1 > CostLogic Onyx > OpenConstructionERP > A+W Cantor 8.0 > MonitGlass > glass365 > GlassManager > Beam AI.",
     file: "/briefs/software-watch-2026-08-19.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — August 19, 2026",
