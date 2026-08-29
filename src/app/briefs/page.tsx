@@ -17,9 +17,17 @@ const briefs: Brief[] = [
     title: "Futurist Technology Brief — August 29, 2026",
     date: "August 29, 2026",
     type: "futurist",
-    description: "Signals convergence of commoditized autonomous systems and generative design, accelerating material-to-deployment via open-source robotics",
+    description: "AI and autonomous system deployment cycles compress to ~18 months, fueled by open-source infrastructure and three converging technology developments",
     file: "/briefs/futurist-brief-2026-08-29.html",
     badge: "Latest"
+  },
+  {
+    title: "Futurist Technology Brief — August 29, 2026",
+    date: "August 29, 2026",
+    type: "futurist",
+    description: "Signals convergence of commoditized autonomous systems and generative design, accelerating material-to-deployment via open-source robotics",
+    file: "/briefs/futurist-brief-2026-08-29.html",
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — August 29, 2026",
