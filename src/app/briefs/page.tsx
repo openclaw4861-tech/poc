@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — August 29, 2026",
+    date: "August 29, 2026",
+    type: "tech",
+    description: "AI moving to domain‑specific installable expertise, urging Pacific Glazing to secure its proprietary glazing knowledge as a digital asset",
+    file: "/briefs/weekly-briefing-2026-08-29.html",
+    badge: "Latest"
+  },
+  {
     title: "Software Watch — August 26, 2026",
     date: "August 26, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "15 trending technologies: Agent Skills Go Mainstream / SKILL.md + Procore Agent Studio (Adopt), Visual Agent Builders Langflow/Dify/Flowise (Adopt), AI Takeoff & Estimating Agents Trimble Accubid/Togal/Beam (Adopt), Agentic Procurement & Materials Supply Chain / Higharc $95M (Evaluate), Frontier Model Price Collapse ~80% (Adopt), Desktop & Terminal AI Agents Claude Cowork/Gemini CLI (Adopt), On-Device & Edge AI Qwen small/Aion-1.0 (Adopt), AI Glass Defect Detection & Vision QC (Adopt), A+W Order Entry AI (Adopt), AI Facade Structural Design (Evaluate), Intelligent & Dynamic Facades (Evaluate), Construction Robotics Monumental/Higharc (Evaluate), Agentic AI Governance & Observability (Evaluate), EU AI Act + California AI Transparency Act enforcement (Watch), The Agent Leap — End-to-End Workflows (Adopt) — with 3 meta-trends: AI as an Installed Owned Asset, Governance as the New Bottleneck, and the Glazing Industry's Own AI Stack.",
     file: "/briefs/tech-trends-2026-08-24.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — August 22, 2026",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "Edge AI moves to production, eliminating cloud dependency, as industry shifts focus to AI governance and auditability",
     file: "/briefs/weekly-briefing-2026-08-22.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Software Watch — August 19, 2026",
