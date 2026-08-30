@@ -104,7 +104,7 @@ export default function Home() {
                         <span className="text-xl">📰</span>
                         <div>
                           <div className="font-medium">Intelligence Briefs</div>
-                          <div className="text-xs text-gray-500">Weekly futurist scans</div>
+                          <div className="text-xs text-gray-500">Book reviews + weekly note</div>
                         </div>
                       </div>
                     </Link>
@@ -258,13 +258,13 @@ export default function Home() {
                 Intelligence Briefs
               </h3>
               <p className="text-gray-600 mb-4">
-                Weekly futurist scans and tech deep-dives for PGC leadership. AI trends, construction tech, and actionable MVPs.
+                Book reviews plus a single weekly experiment note for PGC leadership — not a trend factory.
               </p>
               <ul className="text-sm text-gray-500 space-y-1">
-                <li>✓ Weekly futurist briefs</li>
-                <li>✓ Tech deep-dive analysis</li>
-                <li>✓ Actionable MVP experiments</li>
-                <li>✓ Industry trend tracking</li>
+                <li>✓ One weekly experiment note</li>
+                <li>✓ Book summaries for operators</li>
+                <li>✓ Tied to tools already shipped</li>
+                <li>✓ Kill criteria, not 15-trend scans</li>
               </ul>
               <div className="mt-4 text-blue-600 font-medium">
                 Read Latest →
