@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Healthcheck Brief - 2026-08-30</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+h1 { color: #1a1a1a; border-bottom: 2px solid #dc2626; padding-bottom: 10px; }
+h2 { color: #333; margin-top: 30px; }
+.executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #dc2626; margin: 20px 0; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background: #f5f5f5; }
+.posture { display: inline-block; padding: 6px 16px; border-radius: 20px; color: #fff; font-weight: 600; }
+code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+footer { margin-top: 40px; color: #777; font-size: 0.85em; border-top: 1px solid #ddd; padding-top: 12px; }
+</style>
+</head>
+<body>
+<h1>🔒 Security Healthcheck Brief</h1>
+<p><em>August 30, 2026 · PGC VPS (OpenClaw gateway)</em></p>
+<div class="executive-summary">
+<p><span class="posture" style="background:#dc2626">ATTENTION NEEDED</span></p>
+<p><strong>1 critical · 3 warnings · 8 checks OK</strong></p>
+<p>First run — baseline established; future weeks will diff against this snapshot.. OpenClaw audit: 0 critical / 1 warnings / 1 info. See system checks and weekly changes below.</p>
+</div>
+<h2>OpenClaw Audit Findings</h2>
+<div style="border-left:4px solid #666;padding:10px 14px;margin:10px 0;background:#f8f9fa;border-radius:0 6px 6px 0"><strong>[INFO] Attack surface summary]</strong><br><span style="white-space:pre-wrap">groups: open=0, allowlist=1
+tools.elevated: enabled
+hooks.webhooks: disabled
+hooks.internal: disabled
+browser control: enabled
+trust model: personal assistant (one trusted operator boundary), not hostile multi-tenant on one shared gateway</span></div><div style="border-left:4px solid #d97706;padding:10px 14px;margin:10px 0;background:#f8f9fa;border-radius:0 6px 6px 0"><strong>[WARN] Exec security=full is configured]</strong><br><span style="white-space:pre-wrap">Full exec trust is enabled for: main.</span><br><em>Remediation: Prefer tools.exec.security=&quot;allowlist&quot; with ask prompts, and reserve &quot;full&quot; for tightly scoped break-glass agents only.</em></div>
+<h2>System Checks</h2>
+<table><tr><th>Check</th><th>Status</th><th>Detail</th></tr>
+<tr><td>OpenClaw audit</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>0 critical, 1 warning, 1 info findings</td></tr><tr><td>SSH exposure</td><td style="color:#dc2626 font-weight:600">🔴 CRIT</td><td>Port 22, PermitRootLogin=yes, PasswordAuthentication=yes, tailnet-only socket override: present</td></tr><tr><td>Listening sockets</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>14 sockets (5 public/other, 2 all-interfaces, 2 tailnet, 5 loopback)</td></tr><tr><td>Auth failures (7d)</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>2 SSH failure events, 7 failed login records (btmp)</td></tr><tr><td>Pending updates</td><td style="color:#d97706 font-weight:600">🟡 WARN</td><td>47 packages upgradable; unattended-upgrades: enabled</td></tr><tr><td>Reboot required</td><td style="color:#d97706 font-weight:600">🟡 WARN</td><td>yes — kernel/libc update pending reboot</td></tr><tr><td>Disk usage</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>/run 1%, / 49%, /dev/shm 0%, /run/lock 0%, /boot 15%, /boot/efi 6%, /run/user/0 1%</td></tr><tr><td>Login shells</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>2 accounts with shells</td></tr><tr><td>Admin SSH keys</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>1 authorized keys</td></tr><tr><td>Crontab</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>4 scheduled jobs</td></tr><tr><td>Tailscale</td><td style="color:#16a34a font-weight:600">🟢 OK</td><td>100.67.101.108  srv1381678  openclaw4861@  linux  -</td></tr>
+</table>
+<h2>Changes Since Last Week</h2>
+<ul><li>First run — baseline established; future weeks will diff against this snapshot.</li></ul>
+<h2>Listening Sockets</h2>
+<table><tr><th>Port</th><th>Scope</th><th>Process</th></tr>
+<tr><td>53</td><td>public/other</td><td>(kernel)</td></tr><tr><td>53</td><td>public/other</td><td>(kernel)</td></tr><tr><td>41641</td><td>all-interfaces</td><td>(kernel)</td></tr><tr><td>41641</td><td>all-interfaces</td><td>(kernel)</td></tr><tr><td>11434</td><td>loopback</td><td>(kernel)</td></tr><tr><td>53</td><td>public/other</td><td>(kernel)</td></tr><tr><td>53</td><td>public/other</td><td>(kernel)</td></tr><tr><td>22</td><td>tailnet</td><td>(kernel)</td></tr><tr><td>18791</td><td>loopback</td><td>(kernel)</td></tr><tr><td>18789</td><td>loopback</td><td>(kernel)</td></tr><tr><td>38681</td><td>loopback</td><td>(kernel)</td></tr><tr><td>55322</td><td>tailnet</td><td>(kernel)</td></tr><tr><td>43552</td><td>public/other</td><td>(kernel)</td></tr><tr><td>18789</td><td>loopback</td><td>(kernel)</td></tr>
+</table>
+<h2>Recommendations</h2>
+<ol><li>Disable SSH password authentication — key-only auth.</li><li>Run apt upgrade or verify unattended-upgrades is keeping pace.</li><li>Schedule a reboot window to apply kernel/libc updates.</li><li>Review OpenClaw warnings — e.g. consider tools.exec.security=allowlist for tighter exec control.</li></ol>
+<footer>Generated 2026-08-30 17:46 UTC by security_brief.sh (system crontab, Saturdays 7:00 AM ET).
+To remediate issues, ask Joe to run the <code>healthcheck</code> skill. Uptime: 17:46:31 up 106 days, 46 min,  3 users,  load average: 0.79, 0.31, 0.20 · Memory: Mem:           7.8Gi       1.3Gi       2.6Gi       1.1Mi       4.2Gi       6.4Gi</footer>
+</body>
+</html>
