@@ -22,6 +22,13 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Book Summary: Flourish",
+    date: "August 31, 2026",
+    type: "book",
+    description: "Daniel Coyle on flourishing as joyful, meaningful growth shared with others — not a solo productivity hack. Presence (wide-beam attention), group flow, the Rule of the Beautiful Mess, yellow doors of possibility, and practical applications for PGC crews, the submittal tracker, and field huddles.",
+    file: "/briefs/book-summary-flourish.html",
+  },
+  {
     title: "Book Summary: Meditations for Mortals",
     date: "June 7, 2026",
     type: "book",
