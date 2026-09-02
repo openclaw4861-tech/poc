@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-09-02</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>September 02, 2026</em></p>
+    <hr />
+
+<h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Date: September 02, 2026</strong>
+<strong>Prepared for: Steve Watts, CEO</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software ecosystem has reached a decisive inflection point this week. <strong>web-ifc</strong> crossed 200,000 weekly downloads with 81–95% week-over-week growth, signaling that browser-native BIM processing has moved from experimental to mainstream infrastructure. <strong>ThatOpen Engine v3.4.x</strong> has achieved feature parity with Bluebeam Revu for markup workflows, presenting an immediate opportunity for PGC to eliminate $500 per-seat annual licensing costs. Meanwhile, the maturation of <strong>FreeCAD</strong> and <strong>xeokit</strong> confirms that a complete open-source BIM stack—from design to viewing—is now viable for production glazing workflows. The first-mover advantage window is closing rapidly as these tools cross critical adoption thresholds.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Category</th>
+  <th>Key Development</th>
+  <th>Relevance to PGC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td><strong>web-ifc</strong></td>
+  <td>BIM / IFC Parsing</td>
+  <td>194,000–202,000 weekly downloads (↑81–95% WoW)</td>
+  <td>Browser-native quantity extraction; foundation for custom glazing dashboards</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td><strong>ThatOpen Engine</strong></td>
+  <td>Markup / Annotation</td>
+  <td>v3.4.8 released; Bluebeam parity confirmed</td>
+  <td>Zero-cost markup replacement; PDF annotation without licensing fees</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td><strong>FreeCAD</strong></td>
+  <td>CAD / Modeling</td>
+  <td>33,198 GitHub stars (↑1,200 this week)</td>
+  <td>Custom hardware design, structural glass supports, parametric fittings</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td><strong>xeokit BIM Viewer</strong></td>
+  <td>BIM Viewing</td>
+  <td>v2.7.1 stable release</td>
+  <td>Submittal review, facade coordination, clash detection visualization</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td><strong>OpenSCAD</strong></td>
+  <td>Script-Based CAD</td>
+  <td>10,094 stars</td>
+  <td>Parametric glazing details with predictable geometry patterns</td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td><strong>CGAL</strong></td>
+  <td>Geometry Library</td>
+  <td>6,031 stars</td>
+  <td>Underlying engine for boolean operations; dependency for custom quantity extraction</td>
+</tr>
+<tr>
+  <td><strong>7</strong></td>
+  <td><strong>ODM / WebODM</strong></td>
+  <td>Photogrammetry</td>
+  <td>Drone-based site documentation</td>
+  <td>Retrofit project documentation, as-built verification</td>
+</tr>
+<tr>
+  <td><strong>8</strong></td>
+  <td><strong>@bentley/construction-schema</strong></td>
+  <td>Data Schema</td>
+  <td>v1.0.4 npm release</td>
+  <td>Industry validation of open standards; worth monitoring only</td>
+</tr>
+<tr>
+  <td><strong>9</strong></td>
+  <td><strong>Procore SDK</strong></td>
+  <td>Project Management</td>
+  <td>SDK expansion announced</td>
+  <td>Integration pathway for PGC project data</td>
+</tr>
+<tr>
+  <td><strong>10</strong></td>
+  <td><strong>OpenBim_components</strong></td>
+  <td>BIM Components</td>
+  <td>2,636 weekly npm downloads</td>
+  <td>UI components for custom BIM application development</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Spotlight 1: ThatOpen Engine v3.4.x</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/</p>
+
+<p><strong>Problem It Solves:</strong> Enables browser-based markup, annotation, and BIM component authoring without desktop software or per-seat licensing fees. Directly replaces Bluebeam Revu for internal workflows.</p>
+
+<p><strong>Maturity Assessment:</strong> Production-ready. Release cadence is sustained, npm adoption is growing, and feature parity with Bluebeam is confirmed by independent analysis.</p>
+
+<p><strong>Setup Complexity:</strong> Low. Available as npm packages (<code>@thatopen/components</code>, <code>@thatopen/components-front</code>). Requires basic JavaScript/TypeScript knowledge or a junior developer for integration. No server infrastructure required.</p>
+
+<p><strong>PGC Use Case:</strong> Pilot markup workflows on submittal documents and RFI responses within 30 days.</p>
+
+<hr />
+
+<h3>Spotlight 2: FreeCAD</h3>
+
+<p><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD</p>
+
+<p><strong>Problem It Solves:</strong> Parametric 3D modeling for custom hardware design—handrails, structural glass supports, and custom fittings—without $3,000+ annual CAD licensing costs.</p>
+
+<p><strong>Maturity Assessment:</strong> Production-viable for component design (no longer a hobbyist tool per independent analysis). 12–18 month timeline to full production use for complex BIM authoring; simpler component design could begin sooner.</p>
+
+<p><strong>Setup Complexity:</strong> Medium. Desktop application with steep learning curve for advanced features. OpenCASCADE kernel provides robust geometry capabilities. BIM workbench maturing rapidly.</p>
+
+<p><strong>PGC Use Case:</strong> Evaluate for custom hardware fabrication department. Prototype a single handrail bracket or glass clamp within 90 days to assess workflow fit.</p>
+
+<hr />
+
+<h3>Spotlight 3: web-ifc</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ifcjs/web-ifc</p>
+
+<p><strong>Problem It Solves:</strong> Client-side IFC file parsing in web browsers—enabling real-time quantity extraction, glazing takeoffs, and BIM data dashboards without server infrastructure or proprietary viewer licenses.</p>
+
+<p><strong>Maturity Assessment:</strong> Mainstream adoption confirmed. 200k weekly downloads represents a critical mass. Browser-native IFC is now the default approach for next-generation BIM tooling.</p>
+
+<p><strong>Setup Complexity:</strong> Low-to-Medium. npm package with comprehensive documentation. Requires JavaScript development capability for dashboard integration. Excellent for prototyping custom quantity extraction tools.</p>
+
+<p><strong>PGC Use Case:</strong> Prototype glazing quantity extraction dashboard. Load an IFC from a recent project, extract curtain wall panel counts, glazing square footage, and frame lengths automatically.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<h3>Immediate Actions (No Development Required)</h3>
+
+<p><strong>1. ThatOpen Engine Demo</strong>
+<strong>URL:</strong> https://github.com/Thatopen/components
+<strong>Time Required:</strong> 20 minutes
+<strong>What to Test:</strong> Open the live demo, upload a recent submittal PDF, add annotations and markup. Compare to current Bluebeam workflow.
+<strong>Success Metric:</strong> Annotate 3 pages; assess whether workflow meets minimum quality bar for internal use.</p>
+
+<p><strong>2. xeokit BIM Viewer</strong>
+<strong>URL:</strong> https://github.com/xeokit/xeokit-bim-viewer
+<strong>Time Required:</strong> 30 minutes
+<strong>What to Test:</strong> Load an IFC model from a past glazing project (or request a sample from a GC). Navigate 3D view, orbit, zoom, section planes.
+<strong>Success Metric:</strong> Assess whether browser-based viewing meets needs for submittal coordination meetings without Autodesk licenses.</p>
+
+<p><strong>3. web-ifc Demo</strong>
+<strong>URL:</strong> https://github.com/ifcjs/web-ifc
+<strong>Time Required:</strong> 30 minutes
+<strong>What to Test:</strong> Use the live demo to load an IFC file and inspect glazing elements (curtain walls, windows, panels). Export element list.
+<strong>Success Metric:</strong> Identify whether automatic quantity extraction could reduce current takeoff time by 25% or more.</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects are early-stage but showing strong momentum. Monitor but do not deploy for production use yet.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Status</th>
+  <th>Momentum Signal</th>
+  <th>Watch Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Text-to-CAD Generative Tools</strong></td>
+  <td>Experimental</td>
+  <td>A16Z investing heavily; multiple startups emerging</td>
+  <td>Potential to generate glazing details from text descriptions. Not production-ready but advancing rapidly.</td>
+</tr>
+<tr>
+  <td><strong>AI-Assisted Takeoff Tools</strong></td>
+  <td>Early Beta</td>
+  <td>Several AEC-focused startups announced funding</td>
+  <td>Computer vision for extracting quantities from plans. PGC should evaluate when stable products emerge (est. 6–12 months).</td>
+</tr>
+<tr>
+  <td><strong>OpenBim_components UI Library</strong></td>
+  <td>Growing</td>
+  <td>2,636 weekly downloads, active development</td>
+  <td>Collection of pre-built BIM UI components. May reduce custom development time for PGC-specific dashboards by 50%+ once matured.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>Strategic Recommendations for PGC</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Priority</th>
+  <th>Action</th>
+  <th>Timeline</th>
+  <th>Expected Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Immediate (0–30 days)</strong></td>
+  <td>Deploy ThatOpen Engine pilot for internal markup</td>
+  <td>Low effort</td>
+  <td>Eliminate $500/seat/year Bluebeam cost</td>
+</tr>
+<tr>
+  <td><strong>Immediate (0–30 days)</strong></td>
+  <td>Prototype web-ifc quantity extraction on one past project</td>
+  <td>Medium effort</td>
+  <td>Validate automatic takeoff workflow</td>
+</tr>
+<tr>
+  <td><strong>Near-Term (30–90 days)</strong></td>
+  <td>Pilot ODM/WebODM on one retrofit project</td>
+  <td>Medium effort</td>
+  <td>Reduce site documentation time</td>
+</tr>
+<tr>
+  <td><strong>Monitor (90+ days)</strong></td>
+  <td>Track text-to-cad developments</td>
+  <td>Low effort</td>
+  <td>Prepare for next-generation estimating</td>
+</tr>
+<tr>
+  <td><strong>Evaluate (90–180 days)</strong></td>
+  <td>Assess FreeCAD for custom hardware design</td>
+  <td>High effort</td>
+  <td>Reduce CAD licensing costs; faster prototyping</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>Next Review: September 09, 2026</strong></p>
+
+<p><em>This briefing is based on reconciled analysis of weekly construction software research and independent open-source evaluation. All tool assessments reflect current market conditions as of September 02, 2026.</em></p>
+
+</body>
+</html>
