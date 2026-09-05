@@ -6,13 +6,21 @@ import { useState } from 'react';
 interface Brief {
   title: string;
   date: string;
-  type: 'weekly' | 'book';
+  type: 'weekly' | 'book' | 'tech' | 'futurist' | 'software' | 'healthcheck';
   description: string;
   file: string;
   badge?: string;
 }
 
 const briefs: Brief[] = [
+  {
+    title: "Weekly Tech Briefing — September 05, 2026",
+    date: "September 05, 2026",
+    type: "tech",
+    description: "AI is moving to domain‑specific expertise, giving PGC a 90‑day window to capture glazing data while hardening verification and security as a must",
+    file: "/briefs/weekly-briefing-2026-09-05.html",
+    badge: "Latest"
+  },
   {
     title: "Weekly Brief — Teach the tracker one PGC rule",
     date: "September 1, 2026",
