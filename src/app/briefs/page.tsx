@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — September 08, 2026",
+    date: "September 08, 2026",
+    type: "futurist",
+    description: "Key signals: AI-driven materials discovery cutting R&D from 15 to 3-5 years, plus robotics, quantum tech, and AI-augmented engineering for glazing",
+    file: "/briefs/futurist-brief-2026-09-08.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — September 05, 2026",
     date: "September 05, 2026",
     type: "tech",
