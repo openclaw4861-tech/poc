@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-09-09</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>September 09, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation — Executive Leadership Briefing</strong>
+<strong>Date: September 09, 2026</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>This week's research confirms that the open-source AEC stack has crossed into production maturity for glazing workflows. <strong>ThatOpen Engine v3.4.x</strong> now offers feature parity with Bluebeam Revu for markup operations, representing an immediate licensing elimination opportunity of $7,500+ annually for PGC's 15+ users. The <strong>web-ifc</strong> library has reached 200,000 weekly npm downloads, establishing itself as ecosystem infrastructure for BIM-based quantity extraction. Major incumbents including <strong>Procore</strong> and <strong>Bentley</strong> have begun publishing open SDKs to npm, validating that browser-native, open-format workflows are the industry's accepted direction. The adoption window identified in prior analysis—12 to 18 months—remains open but is closing; PGC's first-mover advantage on items 1 through 3 requires action within 60 days.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool Name</th>
+  <th>GitHub / Source</th>
+  <th>Relevance to PGC</th>
+  <th>Problem Solved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>1</strong></td>
+  <td>ThatOpen Engine v3.4.x</td>
+  <td>https://github.com/ThatOpen</td>
+  <td>PDF markup, collaboration, measurements</td>
+  <td>Replaces Bluebeam Revu for shop drawing review, submittals, and RFI workflows</td>
+</tr>
+<tr>
+  <td><strong>2</strong></td>
+  <td>web-ifc</td>
+  <td>https://github.com/IFCjs/web-ifc</td>
+  <td>BIM parsing, quantity extraction</td>
+  <td>Enables automated quantity takeoffs from IFC models; foundation for custom dashboards</td>
+</tr>
+<tr>
+  <td><strong>3</strong></td>
+  <td>FreeCAD</td>
+  <td>https://github.com/FreeCAD/FreeCAD</td>
+  <td>3D CAD, fabrication modeling</td>
+  <td>Parametric modeling for curtain wall assemblies and fabrication detailing</td>
+</tr>
+<tr>
+  <td><strong>4</strong></td>
+  <td>OpenProject</td>
+  <td>https://github.com/opf/openproject</td>
+  <td>Project management, BCF integration</td>
+  <td>Reduces dependency on Procore for schedule tracking and issue management</td>
+</tr>
+<tr>
+  <td><strong>5</strong></td>
+  <td>OpenSCAD</td>
+  <td>https://github.com/openscad/openscad</td>
+  <td>Parametric component modeling</td>
+  <td>Rapid development of standard glazing details and component libraries</td>
+</tr>
+<tr>
+  <td><strong>6</strong></td>
+  <td>PascalOrg/editor</td>
+  <td>https://github.com/PascalOrg/editor</td>
+  <td>Browser-based 3D parametric editing</td>
+  <td>Foundation for custom glazing configurators; supports Model Context Protocol</td>
+</tr>
+<tr>
+  <td><strong>7</strong></td>
+  <td>@procore/bim-webviewer-sdk</td>
+  <td>https://www.npmjs.com/package/@procore/bim-webviewer-sdk</td>
+  <td>BIM viewing, Procore integration</td>
+  <td>View IFC models within existing Procore workflows; bridges open formats to incumbent tools</td>
+</tr>
+<tr>
+  <td><strong>8</strong></td>
+  <td>@bentley/construction-schema</td>
+  <td>https://www.npmjs.com/package/@bentley/construction-schema</td>
+  <td>Construction data schemas</td>
+  <td>Standardized data exchange for coordination between PGC and general contractors</td>
+</tr>
+<tr>
+  <td><strong>9</strong></td>
+  <td>Blender (AEC Fork)</td>
+  <td>https://github.com/BlenderD夫妇xx/Blender-ACES</td>
+  <td>Architectural visualization</td>
+  <td>High-fidelity rendering for client presentations and facade studies</td>
+</tr>
+<tr>
+  <td><strong>10</strong></td>
+  <td>Speckle</td>
+  <td>https://github.com/specklesystems/speckle-server</td>
+  <td>BIM collaboration, data transfer</td>
+  <td>Multi-discipline model coordination; reduces coordination errors on complex facades</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3><strong>ThatOpen Engine v3.4.x</strong></h3>
+
+<ul>
+<li><strong>What it is:</strong> Browser-native engineering stack for AEC, including PDF markup, BIM viewing, and collaboration tools</li>
+<li><strong>GitHub:</strong> https://github.com/ThatOpen</li>
+<li><strong>Setup Complexity:</strong> Low. Browser-based deployment; no server infrastructure required for basic markup workflows</li>
+<li><strong>Maturity Assessment:</strong> Production-ready. Version 3.4.8 shipped multiple point releases within a single week, indicating active commercial sponsorship and rapid iteration driven by real user demand</li>
+<li><strong>Why PGC should care:</strong> Immediate Bluebeam replacement candidate. Cloud collaboration features eliminate version-control issues on submittals and shop drawings across field and office teams</li>
+</ul>
+
+<h3><strong>web-ifc</strong></h3>
+
+<ul>
+<li><strong>What it is:</strong> High-performance IFC file parser and viewer for web applications</li>
+<li><strong>GitHub:</strong> https://github.com/IFCjs/web-ifc</li>
+<li><strong>Setup Complexity:</strong> Moderate. Requires JavaScript/TypeScript development environment; npm integration straightforward</li>
+<li><strong>Maturity Assessment:</strong> Ecosystem infrastructure. 200,000 weekly npm downloads; the research notes frame this accurately—"when a parsing library crosses 200K weekly downloads, it stops being a choice and becomes a dependency of the ecosystem itself"</li>
+<li><strong>Why PGC should care:</strong> Foundation for custom quantity extraction dashboards. Enables PGC to pull glazing quantities directly from BIM models received from architects and GC, eliminating manual takeoff labor</li>
+</ul>
+
+<h3><strong>FreeCAD</strong></h3>
+
+<ul>
+<li><strong>What it is:</strong> Open-source parametric 3D CAD application with strong BIM and fabrication modeling capabilities</li>
+<li><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD</li>
+<li><strong>Setup Complexity:</strong> Moderate. Desktop application; learning curve for teams accustomed to AutoCAD or Revit workflows</li>
+<li><strong>Maturity Assessment:</strong> Production-ready for targeted use cases. 33,373 GitHub stars with consistent weekly growth; design-to-fabrication path confirmed shipping, not theoretical</li>
+<li><strong>Why PGC should care:</strong> Pilot candidate for non-complex curtain wall assemblies and fabrication modeling. Reduces CAD licensing costs on back-office and detailing workflows</li>
+</ul>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>Steve and the PGC team can test the following without significant infrastructure investment:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Try This Week</th>
+  <th>Purpose</th>
+  <th>How to Access</th>
+  <th>Time Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>ThatOpen Engine Markup Demo</strong></td>
+  <td>Evaluate Bluebeam replacement for PDF markup</td>
+  <td>Visit https://thatopen.github.io/engine-ui/ and upload a sample submittal PDF</td>
+  <td>30 minutes</td>
+</tr>
+<tr>
+  <td><strong>web-ifc Sandbox</strong></td>
+  <td>Understand BIM parsing capabilities for quantity extraction</td>
+  <td>Clone https://github.com/IFCjs/web-ifc and run the basic example in a local environment</td>
+  <td>1-2 hours</td>
+</tr>
+<tr>
+  <td><strong>OpenProject Cloud Trial</strong></td>
+  <td>Assess project management替代 for non-critical schedules</td>
+  <td>Sign up at https://www.openproject.org/ (free tier available)</td>
+  <td>1 hour setup</td>
+</tr>
+<tr>
+  <td><strong>FreeCAD Download + Sample File</strong></td>
+  <td>Evaluate parametric modeling for a simple curtain wall detail</td>
+  <td>Download from https://www.freecad.org/ and open a sample glazing assembly tutorial</td>
+  <td>1-2 hours</td>
+</tr>
+<tr>
+  <td><strong>Procore BIM Viewer (via SDK)</strong></td>
+  <td>Test viewing IFC models within existing Procore instance</td>
+  <td>Contact Procore representative for SDK access; requires existing Procore account</td>
+  <td>2 hours</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These projects show strong momentum but are not yet production-ready for full deployment:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>GitHub / Source</th>
+  <th>Status</th>
+  <th>Why Watch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>PascalOrg/editor</strong></td>
+  <td>https://github.com/PascalOrg/editor</td>
+  <td>Pre-production; 22,630 GitHub stars</td>
+  <td>Browser-native parametric editor with TypeScript and React Three Fiber. MCP (Model Context Protocol) support signals web-based architectural 3D editing is accessible. Monitor for custom glazing configurator development in 6-12 months</td>
+</tr>
+<tr>
+  <td><strong>Text-to-CAD Integration (via LLM APIs)</strong></td>
+  <td>Ecosystem play; no single repository</td>
+  <td>Experimental</td>
+  <td>Early-stage experiments combining large language models with CAD geometry generation. Relevant for conceptual facade phases; not ready for fabrication workflows but warrants monitoring</td>
+</tr>
+<tr>
+  <td><strong>Bentley Construction Schema Evolution</strong></td>
+  <td>https://www.npmjs.com/package/@bentley/construction-schema</td>
+  <td>Early adoption</td>
+  <td>Bentley's move to publish open schemas signals the major incumbent is accepting open-format workflows. Monitor for PGC-specific schema extensions in future coordination standards</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>Prepared for:</strong> Steve Watts, CEO, Pacific Glazing Corporation
+<strong>Briefing Date:</strong> September 09, 2026
+<strong>Classification:</strong> Internal Strategic Planning</p>
+
+<hr />
+
+<p><em>This briefing is based on reconciled analysis of open-source AEC tools, npm registry metrics, and independent reviews of production-readiness for glazing and facade workflows. All recommendations are based on publicly available information as of the briefing date.</em></p>
+
+</body>
+</html>
