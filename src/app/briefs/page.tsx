@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — September 12, 2026",
+    date: "September 12, 2026",
+    type: "tech",
+    description: "AI automation, edge AI deployment, rapid domain expertise codification, and a strategic window for Pacific Glazing",
+    file: "/briefs/weekly-briefing-2026-09-12.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — September 09, 2026",
     date: "September 09, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "AI is moving to domain‑specific expertise, giving PGC a 90‑day window to capture glazing data while hardening verification and security as a must",
     file: "/briefs/weekly-briefing-2026-09-05.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Brief — Teach the tracker one PGC rule",
