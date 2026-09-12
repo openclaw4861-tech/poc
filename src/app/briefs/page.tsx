@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Security Healthcheck — September 12, 2026",
+    date: "September 12, 2026",
+    type: "healthcheck",
+    description: "Weekly VPS security audit: 1 critical, 4 warnings, 7 OK. SSH PASSWORD AUTH ENABLED, 14 listening sockets, 46 updates pending. NEW cron jobs: 1",
+    file: "/briefs/security-brief-2026-09-12.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — September 12, 2026",
     date: "September 12, 2026",
     type: "tech",
