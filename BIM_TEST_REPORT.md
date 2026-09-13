@@ -21,7 +21,8 @@ Client-only `/bim-test` module for PGC Field Tools. Uses That Open Engine to vie
 
 | Path | Role |
 | --- | --- |
-| `src/app/bim-test/page.tsx` | Server page; dynamic client import |
+| `src/app/bim-test/page.tsx` | Thin server page |
+| `src/app/bim-test/BimTestPageClient.tsx` | `"use client"` + `next/dynamic({ ssr: false })` |
 | `src/app/bim-test/runs/page.tsx` | Past metrics table |
 | `src/app/api/bim-test/runs/route.ts` | GET/POST metrics (creates table if missing) |
 | `src/bim-test/*` | Viewer module (engine, UI, cache, properties) |
@@ -85,8 +86,8 @@ Neon table `bim_test_runs`. Columns: user agent, file name, size MB, format, con
 
 | Device | Browser | Format | File | Size MB | Conv ms | TTFRms | Elements | Tris | Heap MB | Avg FPS | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Desktop | Chrome | IFC | | | | | | | | | |
-| Desktop | Chrome | FRAG | | | | | | | | | |
+| Desktop | Chrome | IFC | school_str.ifc | 8.20 | 3003 | 1888 | 1528 | 1,746,632 | 91.54 | — | Cloud-agent Chrome + SwiftShader WebGL. Persist failed (dummy `DATABASE_URL`). Orbit FPS not run. |
+| Desktop | Chrome | FRAG | | | | | | | | | Reload same file from IndexedDB / Download .frag |
 | iPad | Safari | IFC | | | | | | | | | |
 | iPad | Safari | FRAG | | | | | | | | | |
 
@@ -108,7 +109,7 @@ Static `/public` assets (not JS bundle): `web-ifc.wasm` 1.24 MB, `web-ifc-mt.was
 - **WASM / worker:** `postinstall` and `prebuild` copy exact installed files into `public/bim-test` (needed because the Docker `deps` stage runs `npm ci` before `COPY . .`). Runtime never hits unpkg/jsDelivr. Only `worker.mjs` is copied (not the min bundle).
 - **Next config:** `transpilePackages` for That Open / three / camera-controls. Webpack aliases `three/webgpu` and `three/tsl` because That Open imports those subpaths and webpack does not honor `three` package `exports` the same way as Vite. `fallback.fs/path/crypto = false`. `serverExternalPackages` stays `pdf-parse` only (`web-ifc` cannot be both transpiled and external). Next 16 defaults to Turbopack and errors if a `webpack` function exists without a `turbopack` config — `dev` / `build` scripts pass `--webpack`.
 - **SSR:** Next 16 forbids `next/dynamic({ ssr: false })` inside Server Components. `src/app/bim-test/page.tsx` is a thin server page that renders `BimTestPageClient.tsx` (`"use client"` + `dynamic(..., { ssr: false })`). `BimTestApp` dynamically `import()`s `createViewer` so the chrome renders before the ~7 MB engine chunk. Next 16 blocks `/_next/*` from `127.0.0.1` when the server is bound as `localhost` unless `allowedDevOrigins` includes it.
-- **WebGL:** `SimpleRenderer` needs a GPU/WebGL context. Headless Chrome without GPU reports `Error creating WebGL context` in the status line; the chrome still renders. Real desktop/iPad Safari must have WebGL enabled.
+- **WebGL:** `SimpleRenderer` needs a WebGL context. Headless Chrome with `--disable-gpu` reports `Error creating WebGL context`; the chrome still hydrates. Desktop Chrome with SwiftShader (`--use-angle=swiftshader-webgl`) loaded `school_str.ifc` (8.20 MB → 1528 elements, ~1.75M tris) in this environment. Real iPad Safari still needs its own GPU/WebGL pass.
 - **iOS memory:** `SimpleRenderer` (no postproduction composer); triangle counting skipped above 40k geometry items; convert-once + IndexedDB `.frag` cache; prefer loading `.frag` on iPad after a desktop conversion.
 - **Touch:** canvas `touch-action: none`; `camera-controls` orbit / pan / pinch; tap-to-select via Highlighter mouse events (iOS synthesizes them); measure/clip also on tap.
 - **DB:** API and runs page `CREATE TABLE IF NOT EXISTS` so DigitalOcean does not need a separate migrate step. If `DATABASE_URL` is missing, the viewer still works and metrics stay on-screen.
