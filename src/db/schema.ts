@@ -218,3 +218,27 @@ export type SubmittalChecklist = typeof submittalChecklists.$inferSelect;
 export type NewSubmittalChecklist = typeof submittalChecklists.$inferInsert;
 export type SubmittalItem = typeof submittalItems.$inferSelect;
 export type NewSubmittalItem = typeof submittalItems.$inferInsert;
+
+// BIM viewer test metrics — file name/size/timings/counts only. Never model bytes or IFC property values.
+export const bimTestRuns = pgTable('bim_test_runs', {
+  id: serial('id').primaryKey(),
+  userAgent: text('user_agent').notNull(),
+  fileName: varchar('file_name', { length: 512 }).notNull(),
+  fileSizeMb: decimal('file_size_mb', { precision: 12, scale: 4 }).notNull(),
+  format: varchar('format', { length: 8 }).notNull(),
+  conversionTimeMs: integer('conversion_time_ms'),
+  timeToFirstRenderMs: integer('time_to_first_render_ms'),
+  elementCount: integer('element_count'),
+  triangleCount: integer('triangle_count'),
+  jsHeapMb: decimal('js_heap_mb', { precision: 12, scale: 4 }),
+  avgFps: decimal('avg_fps', { precision: 8, scale: 2 }),
+  notes: text('notes'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+}, (table) => {
+  return {
+    idxBimTestRunsCreatedAt: index('idx_bim_test_runs_created_at').on(table.createdAt),
+  };
+});
+
+export type BimTestRun = typeof bimTestRuns.$inferSelect;
+export type NewBimTestRun = typeof bimTestRuns.$inferInsert;

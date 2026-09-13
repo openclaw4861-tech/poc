@@ -40,3 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env
+
+# Confidential BIM models — never commit IFC/fragments/BCF binaries
+*.ifc
+*.ifczip
+*.frag
+*.bcf
+!public/bim-test/wasm/**
+!public/bim-test/worker/**
