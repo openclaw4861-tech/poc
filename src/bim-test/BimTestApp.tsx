@@ -8,7 +8,7 @@ import {
   PUBLIC_SAMPLE_IFC_LABEL,
   PUBLIC_SAMPLE_IFC_URL,
 } from "./constants";
-import { createViewer, type ViewerController } from "./createViewer";
+import type { ViewerController } from "./createViewer";
 import { cacheKey, formatMb, getJsHeapMb } from "./format";
 import type {
   BimFileFormat,
@@ -83,21 +83,30 @@ export default function BimTestApp() {
       return;
     }
     let cancelled = false;
-    void createViewer(host, {
-      onSelection: (items) => {
-        if (!cancelled) {
-          setSelection(items);
+    void import("./createViewer")
+      .then(({ createViewer }) =>
+        createViewer(host, {
+          onSelection: (items) => {
+            if (!cancelled) {
+              setSelection(items);
+            }
+          },
+        }),
+      )
+      .then((viewer) => {
+        if (cancelled) {
+          viewer.dispose();
+          return;
         }
-      },
-    }).then((viewer) => {
-      if (cancelled) {
-        viewer.dispose();
-        return;
-      }
-      viewerRef.current = viewer;
-      setReady(true);
-      setStatus("Pick a local .ifc / .frag, or load the public sample.");
-    });
+        viewerRef.current = viewer;
+        setReady(true);
+        setStatus("Pick a local .ifc / .frag, or load the public sample.");
+      })
+      .catch((error: unknown) => {
+        setStatus(
+          `Viewer engine failed to load: ${error instanceof Error ? error.message : "unknown error"}`,
+        );
+      });
     return () => {
       cancelled = true;
       viewerRef.current?.dispose();

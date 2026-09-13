@@ -3,6 +3,7 @@ import path from "node:path";
 
 const nextConfig = {
   basePath: "",
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
   transpilePackages: [
     "@thatopen/components",
     "@thatopen/components-front",
