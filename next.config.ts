@@ -1,17 +1,46 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
-  // Base path for the app
-  basePath: '',
-  // reactStrictMode: true,
-  
-  // Configure webpack to handle pdf-parse properly (server-side only)
+  basePath: "",
+  transpilePackages: [
+    "@thatopen/components",
+    "@thatopen/components-front",
+    "@thatopen/fragments",
+    "camera-controls",
+    "three",
+  ],
+  serverExternalPackages: ["pdf-parse"],
   webpack: (config, { isServer }) => {
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...(config.resolve.alias ?? {}),
+      "three/webgpu": path.resolve(
+        process.cwd(),
+        "node_modules/three/build/three.webgpu.js",
+      ),
+      "three/tsl": path.resolve(
+        process.cwd(),
+        "node_modules/three/build/three.tsl.js",
+      ),
+    };
+
+    config.resolve.fallback = {
+      ...(config.resolve.fallback ?? {}),
+      fs: false,
+      path: false,
+      crypto: false,
+      module: false,
+      os: false,
+    };
+
     if (!isServer) {
-      // Exclude pdf-parse from client bundles - it's only used in API routes
-      config.externals = config.externals || [];
-      config.externals.push('pdf-parse');
+      config.externals = config.externals ?? [];
+      if (Array.isArray(config.externals)) {
+        config.externals.push("pdf-parse");
+      }
     }
+
     return config;
   },
 };
