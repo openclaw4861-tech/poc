@@ -20,6 +20,7 @@ import type {
   ModelIdMap,
   SelectedElementInfo,
   StoreyEntry,
+  ViewerHandle,
 } from "./types";
 
 export type BimWorld = OBC.SimpleWorld<
@@ -105,35 +106,11 @@ export interface ViewerCallbacks {
   onError?: (message: string) => void;
 }
 
-export interface ViewerController {
+export type ViewerController = ViewerHandle & {
   world: BimWorld;
   components: OBC.Components;
   container: HTMLElement;
-  load: (input: LoadInput) => Promise<LoadMetrics>;
-  downloadFragments: () => Promise<void>;
-  getFragmentsBuffer: () => Promise<ArrayBuffer | null>;
-  setMode: (mode: InteractionMode) => void;
-  setMultiSelect: (enabled: boolean) => void;
-  getSelectedExpressIds: () => number[];
-  colorBy: (mode: ColorByMode) => Promise<ColorLegendEntry[]>;
-  listStoreys: () => Promise<StoreyEntry[]>;
-  setStoreyVisible: (name: string, visible: boolean) => Promise<void>;
-  showAllStoreys: () => Promise<void>;
-  addClip: () => Promise<void>;
-  removeClip: (id?: string) => Promise<void>;
-  deleteAllClips: () => void;
-  listClips: () => ClipPlaneEntry[];
-  setClipEnabled: (id: string, enabled: boolean) => void;
-  createMeasurement: () => Promise<void>;
-  clearMeasurements: () => void;
-  listMeasurements: () => LengthReading[];
-  createIssue: (title: string, comment: string) => Promise<IssuePin>;
-  restoreIssue: (topicGuid: string) => Promise<void>;
-  listIssues: () => IssuePin[];
-  exportBcf: () => Promise<{ ok: boolean; note: string }>;
-  runOrbitFps: (seconds?: number) => Promise<number>;
-  dispose: () => void;
-}
+};
 
 export async function createViewer(
   container: HTMLElement,

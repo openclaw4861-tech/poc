@@ -101,3 +101,39 @@ export interface BimTestRunRow {
 }
 
 export type ModelIdMap = OBC.ModelIdMap;
+
+/** Engine handle used by the React chrome. Kept here so the UI chunk does not import That Open. */
+export interface ViewerHandle {
+  load: (input: {
+    bytes: Uint8Array;
+    fileName: string;
+    fileSizeBytes: number;
+    format: BimFileFormat;
+    fromCache: boolean;
+    conversionTimeMs: number | null;
+    onProgress?: (percent: number) => void;
+  }) => Promise<LoadMetrics>;
+  downloadFragments: () => Promise<void>;
+  getFragmentsBuffer: () => Promise<ArrayBuffer | null>;
+  setMode: (mode: InteractionMode) => void;
+  setMultiSelect: (enabled: boolean) => void;
+  getSelectedExpressIds: () => number[];
+  colorBy: (mode: ColorByMode) => Promise<ColorLegendEntry[]>;
+  listStoreys: () => Promise<StoreyEntry[]>;
+  setStoreyVisible: (name: string, visible: boolean) => Promise<void>;
+  showAllStoreys: () => Promise<void>;
+  addClip: () => Promise<void>;
+  removeClip: (id?: string) => Promise<void>;
+  deleteAllClips: () => void;
+  listClips: () => ClipPlaneEntry[];
+  setClipEnabled: (id: string, enabled: boolean) => void;
+  createMeasurement: () => Promise<void>;
+  clearMeasurements: () => void;
+  listMeasurements: () => LengthReading[];
+  createIssue: (title: string, comment: string) => Promise<IssuePin>;
+  restoreIssue: (topicGuid: string) => Promise<void>;
+  listIssues: () => IssuePin[];
+  exportBcf: () => Promise<{ ok: boolean; note: string }>;
+  runOrbitFps: (seconds?: number) => Promise<number>;
+  dispose: () => void;
+}

@@ -8,7 +8,6 @@ import {
   PUBLIC_SAMPLE_IFC_LABEL,
   PUBLIC_SAMPLE_IFC_URL,
 } from "./constants";
-import type { ViewerController } from "./createViewer";
 import { cacheKey, formatMb, getJsHeapMb } from "./format";
 import type {
   BimFileFormat,
@@ -21,6 +20,7 @@ import type {
   PersistableRun,
   SelectedElementInfo,
   StoreyEntry,
+  ViewerHandle,
 } from "./types";
 
 async function persistRun(run: PersistableRun): Promise<string | null> {
@@ -42,7 +42,7 @@ async function persistRun(run: PersistableRun): Promise<string | null> {
 
 export default function BimTestApp() {
   const canvasHostRef = useRef<HTMLDivElement>(null);
-  const viewerRef = useRef<ViewerController | null>(null);
+  const viewerRef = useRef<ViewerHandle | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [ready, setReady] = useState(false);
