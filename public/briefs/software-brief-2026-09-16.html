@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-09-16</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>September 16, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Prepared for: Steve Watts, CEO</strong>
+<strong>Date: September 16, 2026</strong></p>
+
+<hr />
+
+<h2>Executive Summary</h2>
+
+<p>The open-source AEC ecosystem has reached a pivotal threshold: This week's research confirms that browser-based BIM viewing (ThatOpen Engine and xeokit), collaborative PDF markup, and drone-based site documentation have all achieved production-grade maturity—eliminating the last barriers to replacing proprietary tools in glazing workflows. The most significant development is the emergence of AI-native BIM editing platforms (pascalorg/editor) which signal the next wave of automation for quantity extraction and curtain wall documentation. PGC now has a clear, de-risked path to modernizing its software stack without vendor lock-in, with immediate deployment candidates available for pilot within 30 days.</p>
+
+<hr />
+
+<h2>Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>What It Does</th>
+  <th>Relevance to PGC</th>
+  <th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><strong>ThatOpen Engine + web-ifc</strong></td>
+  <td>Browser-based BIM viewing, PDF markup, collaborative review, dimensional measurement, layer management</td>
+  <td>Direct replacement for Bluebeam Revu on shop drawing reviews; 143K+ weekly npm downloads confirm infrastructure status</td>
+  <td><a href="https://github.com/ThatOpen/engine">github.com/ThatOpen/engine</a> / <a href="https://github.com/ThatOpen/web-ifc">github.com/ThatOpen/web-ifc</a></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>OpenDroneMap / WebODM</strong></td>
+  <td>Drone photogrammetry producing survey-grade orthomosaics and 3D point clouds from site imagery</td>
+  <td>Existing conditions documentation for facade assessments and pre-bid site surveys; deployable with $1,500 hardware</td>
+  <td><a href="https://github.com/OpenDroneMap/ODM">github.com/OpenDroneMap/ODM</a> / <a href="https://webodm.net">webodm.net</a></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>pascalorg/editor</strong></td>
+  <td>TypeScript-based local-first BIM editor with Model Context Protocol (MCP) integration for AI agent workflows; built on React-Three-Fiber and Next.js</td>
+  <td>Strategic relevance for automated quantity extraction from curtain wall models; signals shift toward AI-native BIM workflows</td>
+  <td><a href="https://github.com/pascalorg/editor">github.com/pascalorg/editor</a></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>xeokit bim-viewer</strong></td>
+  <td>Browser-based BIM viewer with active v2.7.1 development; complementary to ThatOpen for large model handling</td>
+  <td>Concurrent shop drawing review workflows; not deprecated despite earlier concerns—healthy ecosystem coexistence</td>
+  <td><a href="https://github.com/xeokit/xeokit-bim-viewer">github.com/xeokit/xeokit-bim-viewer</a></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>bim-fragment v1.5.0</strong></td>
+  <td>Geometry-level API for fragmenting large IFC models into streamable chunks</td>
+  <td>Enables smooth browser-based review of large curtain wall assemblies without dedicated workstations</td>
+  <td><a href="https://github.com/ThatOpen/bim-fragment">github.com/ThatOpen/bim-fragment</a></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>FreeCAD</strong></td>
+  <td>Parametric 3D modeling with 33,553 GitHub stars and active C++ development; IFC import/export</td>
+  <td>Component detailing and fabrication drawings; viable for curtain wall component modeling with training investment</td>
+  <td><a href="https://github.com/FreeCAD/FreeCAD">github.com/FreeCAD/FreeCAD</a></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>OpenProject</strong></td>
+  <td>Project management with native BCF (BIM Collaboration Format) support; 16,110 stars</td>
+  <td>Credible replacement for Procore at glazing company scale; BCF integration enables BIM-linked issue tracking</td>
+  <td><a href="https://github.com/opf/openproject">github.com/opf/openproject</a></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>text-to-cad</strong></td>
+  <td>Python library of agent skills for CAD/CAE/CAM automation</td>
+  <td>Automated curtain wall component documentation; strategic watch item for future estimating automation</td>
+  <td><a href="https://github.com/paulovn/text-to-cad">github.com/paulovn/text-to-cad</a></td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>LibreCAD</strong></td>
+  <td>Mature 2D drafting with DXF handling</td>
+  <td>Immediate use for DXF shop drawing imports and simple fabrication drawings</td>
+  <td><a href="https://github.com/LibreCAD/LibreCAD">github.com/LibreCAD/LibreCAD</a></td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>OpenSource BIM Server</strong></td>
+  <td>Self-hosted BIM collaboration server supporting IFC, BCF, and multi-user workflows</td>
+  <td>Reduce SaaS dependencies for BIM coordination; applicable for in-house Glazing Subcontractor coordination</td>
+  <td><a href="https://github.com/opensourceBIM/BIMserver">github.com/opensourceBIM/BIMserver</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>Open Source Spotlight</h2>
+
+<h3>1. ThatOpen Engine + web-ifc</h3>
+
+<p><strong>Maturity:</strong> Production-Grade (v3.4.x release cadence, enterprise adoption evidence)
+<strong>Setup Complexity:</strong> Low (npm install, browser-based—no server infrastructure required)
+<strong>What It Replaces:</strong> Bluebeam Revu, Autodesk BIM 360 Viewer (for review-only workflows)</p>
+
+<p><strong>Why It Matters:</strong> This combination delivers feature parity with proprietary PDF markup and BIM viewing at zero licensing cost. Weekly npm downloads exceeding 143K (200K reported within one week) confirm this is production infrastructure, not experimental software.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Shop drawing markup, dimensional verification, collaborative review with field crews, layer-based glazing element isolation.</p>
+
+<hr />
+
+<h3>2. OpenDroneMap (ODM) / WebODM</h3>
+
+<p><strong>Maturity:</strong> Production-Ready (widely deployed in construction and surveying)
+<strong>Setup Complexity:</strong> Low-Medium (Desktop application for initial deployment; self-hosted server option for scale)
+<strong>What It Replaces:</strong> Third-party site survey services, manual measurement of existing conditions</p>
+
+<p><strong>Why It Matters:</strong> A mid-sized glazing company can implement site documentation workflows with existing hardware ($1,500 drone) and evaluate within a single project cycle. Orthomosaic and point cloud outputs directly feed into facade takeoff and existing conditions verification.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Pre-bid site surveys, existing facade documentation, change order verification, punch list documentation.</p>
+
+<hr />
+
+<h3>3. FreeCAD</h3>
+
+<p><strong>Maturity:</strong> Mature with Known Gaps (33,553 GitHub stars, active development)
+<strong>Setup Complexity:</strong> Medium (standard desktop installation; 2-3 week learning curve for parametric workflows)
+<strong>What It Replaces:</strong> AutoCAD (for component detailing), custom scripting for curtain wall documentation</p>
+
+<p><strong>Why It Matters:</strong> Only viable open-source parametric modeling option for glazing component detailing. Curtain wall complex geometry remains a gap, but standard component families (mullions, gaskets, hardware) are achievable with training.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Fabrication drawings for custom glazing components, BOM extraction, IFC export for BIM coordination.</p>
+
+<hr />
+
+<h2>Try It This Week</h2>
+
+<h3>Immediate Actions (No Setup Required / Browser-Based)</h3>
+
+<ol>
+<li><p><strong>ThatOpen Engine Demo</strong> — Open <a href="https://platform.thatopen.com">https://platform.thatopen.com</a> and load a sample IFC model. Test dimension measurement and layer visibility toggling. No installation required.</p></li>
+<li><p><strong>web-ifc on npm</strong> — For any team member with Node.js experience: <code>npm install web-ifc</code> and run the basic markup example at <a href="https://github.com/ThatOpen/web-ifc">github.com/ThatOpen/web-ifc</a>. Evaluate for next shop drawing review cycle.</p></li>
+<li><p><strong>WebODM Cloud Trial</strong> — Sign up at <a href="https://webodm.net">webodm.net</a> to process a test drone dataset without installing software. Upload imagery from a recent site visit to generate orthomosaic.</p></li>
+<li><p><strong>xeokit Viewer Demo</strong> — Access <a href="https://xeokit.io">xeokit.io</a> and load the sample building model. Test navigation and measurement tools. Confirm active development status firsthand.</p></li>
+</ol>
+
+<hr />
+
+<h3>Low-Effort Desktop Tools</h3>
+
+<ol start="5">
+<li><p><strong>LibreCAD</strong> — Download at <a href="https://librecad.org">librecad.org</a>. Open a DXF file from a recent project. Assess readability of supplier drawings.</p></li>
+<li><p><strong>FreeCAD (Basic)</strong> — Download at <a href="https://freecad.org">freecad.org</a>. Complete the Part Design tutorial (2 hours) to assess familiarity with parametric workflow.</p></li>
+</ol>
+
+<hr />
+
+<h2>Ones to Watch</h2>
+
+<h3>Early-Stage Projects with Strong Momentum</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Stars</th>
+  <th>What It Signals</th>
+  <th>Watch Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>pascalorg/editor</strong></td>
+  <td>23,965</td>
+  <td>AI-native BIM editing; MCP protocol adoption for construction; local-first architecture</td>
+  <td>60-90 day strategic evaluation; monitor monthly</td>
+</tr>
+<tr>
+  <td><strong>text-to-cad</strong></td>
+  <td>15,922</td>
+  <td>CAD automation through AI agents; potential for automated curtain wall documentation</td>
+  <td>6-12 month horizon; engage when MCP ecosystem matures</td>
+</tr>
+<tr>
+  <td><strong>bim-fragment</strong></td>
+  <td>Active</td>
+  <td>Streaming large IFC models to browsers; enables mobile field review of full curtain wall assemblies</td>
+  <td>90-day evaluation for field tablet deployment</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>Key Takeaways for PGC</h2>
+
+<p><strong>The Window Is Open:</strong> Multiple tools have crossed the production-readiness threshold simultaneously. The 30-day pilot path for ThatOpen Engine is de-risked by 143K+ weekly downloads and active enterprise adoption.</p>
+
+<p><strong>Don't Wait:</strong> The cost of maintaining aging Bluebeam and project management licenses compounds quarterly. Each tool in the Tier 1 priority list has a clear ROI within 90 days of pilot completion.</p>
+
+<p><strong>Recommended Sequence:</strong></p>
+
+<ol>
+<li><strong>Week 1-2:</strong> Deploy ThatOpen Engine pilot with 2-3 shop drawing reviewers</li>
+<li><strong>Week 2-3:</strong> Test WebODM on next field verification project</li>
+<li><strong>Week 3-4:</strong> Assess LibreCAD for immediate DXF handling needs</li>
+<li><strong>Month 2:</strong> Evaluate OpenProject for BCF-supported project management pilot</li>
+<li><strong>Month 3:</strong> Strategic review of pascalorg/editor for quantity extraction automation</li>
+</ol>
+
+<hr />
+
+<p><em>Next briefing scheduled: September 23, 2026</em></p>
+
+</body>
+</html>

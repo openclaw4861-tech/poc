@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — September 16, 2026",
+    date: "September 16, 2026",
+    type: "software",
+    description: "Browser‑based BIM viewers (ThatOpen Engine, xeokit), collaborative PDF markup, and drone site documentation are now production‑grade for glazing",
+    file: "/briefs/software-brief-2026-09-16.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — September 15, 2026",
     date: "September 15, 2026",
     type: "futurist",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Open-source AEC stack (ThatOpen Engine v3.4.x) matches Bluebeam Revu for markup, web-ifc integration, delivering $7,500+ annual licensing savings",
     file: "/briefs/software-brief-2026-09-09.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — September 08, 2026",
