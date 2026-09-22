@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — September 22, 2026",
+    date: "September 22, 2026",
+    type: "futurist",
+    description: "Domain‑specific AI merging with physical systems, driven by energy availability and data‑infrastructure quality across 2026‑2036",
+    file: "/briefs/futurist-brief-2026-09-22.html",
+    badge: "Latest"
+  },
+  {
     title: "Security Healthcheck — September 19, 2026",
     date: "September 19, 2026",
     type: "healthcheck",
@@ -43,7 +51,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Narrow AI vertical agents accelerating automation of documentation, compliance and estimation in physical industry workflows over the next decade",
     file: "/briefs/futurist-brief-2026-09-15.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Security Healthcheck — September 12, 2026",
