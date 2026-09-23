@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-09-23</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>September 23, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation — Internal Distribution</strong>
+<strong>Prepared for: Steve Watts, CEO</strong>
+<strong>Date: September 23, 2026</strong></p>
+
+<hr />
+
+<h2>Executive Summary</h2>
+
+<p>The browser-native BIM revolution has reached production maturity this week, with ThatOpen Engine v3.4.x and web-ifc demonstrating clear feature parity with legacy desktop tools for glazing workflows. The vendor-validation signal from Procore and Bentley publishing official npm packages eliminates pioneer risk for web-based BIM adoption. AI-native architectural tools, led by pascalorg/editor, are now providing MCP-compliant interfaces that enable natural language model querying—transforming quantity extraction from manual work to automated process. Open-source geometry kernels (OpenCascade via FreeCAD, CGAL) have crossed the threshold from experimental to fabrication-ready for curtain wall detailing.</p>
+
+<hr />
+
+<h2>Top 10 Software Developments</h2>
+
+<h3>1. ThatOpen Engine v3.4.x + web-ifc</h3>
+
+<p><strong>Category:</strong> Browser-Native BIM Viewer | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Replaces Bluebeam Revu ($7,500+ annually for 15+ users) for markup, annotation, and quantity extraction. Enables browser-based IFC viewing without desktop installation.</p>
+
+<p><strong>Relevance to PGC:</strong> Direct replacement for PDF-based submittal reviews and RFI markup workflows. Browser-native processing means zero-install field access on tablets.</p>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/engine
+<strong>NPM Downloads:</strong> 123,686 weekly (web-ifc)</p>
+
+<hr />
+
+<h3>2. pascalorg/editor</h3>
+
+<p><strong>Category:</strong> AI-Native Architectural Editor | <strong>Readiness:</strong> Early Production</p>
+
+<p><strong>Problem Solved:</strong> Provides MCP (Model Context Protocol) tools enabling AI agents to query 3D models via natural language. Eliminates manual schedule extraction and spec parsing.</p>
+
+<p><strong>Relevance to PGC:</strong> Automates curtain wall documentation: automated glass type extraction, frame profile quantity takeoff, conflict detection between glazing specs and structural elements.</p>
+
+<p><strong>GitHub:</strong> https://github.com/pascalorg/editor
+<strong>Stars:</strong> 24,259 (rapid growth trajectory)</p>
+
+<hr />
+
+<h3>3. FreeCAD</h3>
+
+<p><strong>Category:</strong> Parametric CAD | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Full parametric modeling with OpenCascade geometry kernel. IFC and STEP export compatibility enables direct integration with BIM workflows.</p>
+
+<p><strong>Relevance to PGC:</strong> Shop drawing production for curtain wall systems. Parametric framing profiles automatically update when specifications change. Direct path from design model to fabrication geometry.</p>
+
+<p><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD
+<strong>Stars:</strong> 33,716</p>
+
+<hr />
+
+<h3>4. earthtojake/text-to-cad</h3>
+
+<p><strong>Category:</strong> Natural Language CAD Generation | <strong>Readiness:</strong> Early Production</p>
+
+<p><strong>Problem Solved:</strong> Converts natural language descriptions directly into CAD geometry. Complements pascalorg/editor for quick sketch generation.</p>
+
+<p><strong>Relevance to PGC:</strong> Rapid concept sketches for client proposals. Describe a curtain wall configuration in plain English and generate preliminary geometry for budget estimates.</p>
+
+<p><strong>GitHub:</strong> https://github.com/earthtojake/text-to-cad
+<strong>Stars:</strong> 16,286</p>
+
+<hr />
+
+<h3>5. @procore/bim-webviewer-sdk v17.8.0</h3>
+
+<p><strong>Category:</strong> Enterprise BIM Viewer | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Procore's official browser-based BIM viewer. Validates that the industry's largest construction management platform has fully committed to web-native architecture.</p>
+
+<p><strong>Relevance to PGC:</strong> If PGC uses Procore for project management, this SDK enables seamless BIM integration. Demonstrates incumbent commitment to browser-based workflows.</p>
+
+<p><strong>npm:</strong> https://www.npmjs.com/package/@procore/bim-webviewer-sdk</p>
+
+<hr />
+
+<h3>6. @bentley/construction-schema v1.0.4</h3>
+
+<p><strong>Category:</strong> BIM Schema Tools | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Bentley Systems (iTwin, OpenBuildings) publishing construction schema via npm. Major OEM adoption of JavaScript distribution for BIM data exchange.</p>
+
+<p><strong>Relevance to PGC:</strong> Ensures IFC schema compliance for glazing element classification. Enables reliable data exchange between PGC models and structural/architectural models using Bentley platforms.</p>
+
+<p><strong>npm:</strong> https://www.npmjs.com/package/@bentley/construction-schema</p>
+
+<hr />
+
+<h3>7. assimp (Open Asset Import Library)</h3>
+
+<p><strong>Category:</strong> 3D Format Conversion | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Universal 3D format import supporting 40+ file types. Converts between proprietary formats without vendor lock-in.</p>
+
+<p><strong>Relevance to PGC:</strong> Universal asset pipeline for glazing submittals. Import manufacturer BIM files (REVIT, SKP, RVT), laser scan data, and drone imagery into a single workflow.</p>
+
+<p><strong>GitHub:</strong> https://github.com/assimp/assimp
+<strong>Stars:</strong> 13,218</p>
+
+<hr />
+
+<h3>8. google/draco</h3>
+
+<p><strong>Category:</strong> 3D Mesh Compression | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Compresses large 3D models by up to 90%, enabling streaming of 500MB+ models to field tablets over standard connections.</p>
+
+<p><strong>Relevance to PGC:</strong> Field installation crews access full-detail curtain wall models on iPads without Wi-Fi dependency. Compressed models load in seconds versus minutes.</p>
+
+<p><strong>GitHub:</strong> https://github.com/google/draco
+<strong>Stars:</strong> 7,488</p>
+
+<hr />
+
+<h3>9. CGAL/cgal</h3>
+
+<p><strong>Category:</strong> Computational Geometry | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Boolean operations on complex geometry: intersection, union, difference. Critical for frame profile intersection checks and curtain wall connection detailing.</p>
+
+<p><strong>Relevance to PGC:</strong> Automated validation of curtain wall connection geometry. Detects interference between framing members before shop drawing production.</p>
+
+<p><strong>GitHub:</strong> https://github.com/CGAL/cgal
+<strong>Stars:</strong> 6,054</p>
+
+<hr />
+
+<h3>10. Point Cloud Library (PCL)</h3>
+
+<p><strong>Category:</strong> Point Cloud Processing | <strong>Readiness:</strong> Production</p>
+
+<p><strong>Problem Solved:</strong> Advanced point cloud processing beyond visualization. Segmentation, feature detection, and object recognition from laser scans.</p>
+
+<p><strong>Relevance to PGC:</strong> As-built verification for curtain wall installation. Compare laser scans against BIM models to generate punch lists with quantified deviations.</p>
+
+<p><strong>GitHub:</strong> https://github.com/PointCloudLibrary/pcl
+<strong>Stars:</strong> 11,129</p>
+
+<hr />
+
+<h2>Open Source Spotlight</h2>
+
+<h3>1. ThatOpen Engine (Complete BIM Viewer Stack)</h3>
+
+<p><strong>Maturity:</strong> Production (v3.4.x)
+<strong>Setup Complexity:</strong> Low
+<strong>License:</strong> MPL 2.0</p>
+
+<p><strong>Evaluation Path:</strong>
+1. Clone the official examples repository: https://github.com/ThatOpen/engine-examples
+2. Open <code>index.html</code> directly in browser—no build step required
+3. Load a sample IFC file from your project archive</p>
+
+<p><strong>Why It Matters:</strong> This is the only browser-native, open-source stack providing full IFC viewing, markup, and quantity extraction. The ecosystem has 123,686 weekly npm downloads validating sustained development.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Replace Bluebeam for submittal reviews, RFIs, and field markup. Pilot with one ongoing project within 30 days.</p>
+
+<hr />
+
+<h3>2. FreeCAD (Parametric Fabrication Detailing)</h3>
+
+<p><strong>Maturity:</strong> Production (crossed from hobbyist in 2024)
+<strong>Setup Complexity:</strong> Medium
+<strong>License:</strong> LGPL 2.0</p>
+
+<p><strong>Evaluation Path:</strong>
+1. Download pre-built binary from https://www.freecad.org/downloads/
+2. Install OpenCascade development files for full geometry kernel support
+3. Load the Arch and BIM workbenches for curtain wall modeling</p>
+
+<p><strong>Why It Matters:</strong> OpenCascade kernel handles the NURBS geometry required for curved facade elements. Parametric constraints mean design changes propagate automatically to shop drawings.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Parallel test with existing AutoCAD workflow for curtain wall shop drawings. Focus on rectangular curtain wall systems first before attempting complex geometries.</p>
+
+<hr />
+
+<h3>3. CloudCompare (Point Cloud Visualization) + OpenODM (Drone Processing)</h3>
+
+<p><strong>Maturity:</strong> Production (both tools mature)
+<strong>Setup Complexity:</strong> Low (CloudCompare), Medium (OpenODM self-hosted)
+<strong>License:</strong> GPL 2.0 (both)</p>
+
+<p><strong>Evaluation Path:</strong>
+1. Download CloudCompare: https://www.danielgm.net/cc/
+2. Process drone imagery using WebODM node (https://www.opendronemap.org/webodm/) or use hosted service
+3. Register point cloud against BIM model for deviation analysis</p>
+
+<p><strong>Why It Matters:</strong> Complete as-built documentation pipeline from drone capture to quantified deviation reports. Open-source alternatives eliminate PhotoMesh licensing.</p>
+
+<p><strong>PGC Workflow Fit:</strong> Monthly drone flights for facade progress documentation. Automated comparison against BIM model generates as-built verification reports for owners.</p>
+
+<hr />
+
+<h2>Try It This Week</h2>
+
+<h3>Immediate Actions (Under 2 Hours Each)</h3>
+
+<p><strong>1. ThatOpen Engine — Markup Demo (30 minutes)</strong>
+- Navigate to: https://github.com/ThatOpen/engine-examples
+- Open the <code>simple-viewer</code> example directly in browser
+- Upload any IFC file from your current projects
+- Test markup: draw a rectangle, add a text annotation, export annotated view as PNG
+- <strong>Success Criteria:</strong> Verify that markup export matches or exceeds Bluebeam functionality for submittal review workflows</p>
+
+<p><strong>2. FreeCAD — Basic Curtain Wall Exercise (90 minutes)</strong>
+- Download FreeCAD from https://www.freecad.org/downloads/
+- Complete the Arch Workbench tutorial (built-in Help menu)
+- Model a simple 10-panel rectangular curtain wall grid
+- Export to IFC format
+- <strong>Success Criteria:</strong> IFC file opens correctly in ThatOpen Engine viewer</p>
+
+<p><strong>3. assimp — Format Conversion Test (30 minutes)</strong>
+- Download assimp-view: https://github.com/assimp/assimp/releases
+- Convert a manufacturer Revit file (RVT) to OBJ format
+- Verify geometry integrity in CloudCompare
+- <strong>Success Criteria:</strong> Successfully convert proprietary format without geometry loss</p>
+
+<hr />
+
+<h2>Ones to Watch</h2>
+
+<h3>Early-Stage Projects Showing Strong Momentum</h3>
+
+<p><strong>1. ifcjs/smart-push</strong>
+<strong>GitHub:</strong> https://github.com/ifcjs/smart-push
+<strong>Signal:</strong> AI-driven IFC error detection and automatic correction. Could automate BIM quality control before submittals.
+<strong>Watch Status:</strong> Experimental—testing on small residential projects. Monitor for glazing-specific rule sets.</p>
+
+<hr />
+
+<p><strong>2. specklesystems/speckle-server</strong>
+<strong>GitHub:</strong> https://github.com/specklesystems/speckle-server
+<strong>Signal:</strong> Federated model sharing across disciplines. PGC could receive structural and architectural models automatically when design updates occur.
+<strong>Watch Status:</strong> v2.16 production-ready for small firms. Enterprise multi-user still maturing.</p>
+
+<hr />
+
+<p><strong>3. opencae/jorma</strong>
+<strong>GitHub:</strong> https://github.com/opencae/jorma
+<strong>Signal:</strong> Browser-native parametric modeling without desktop dependency. If mature, could replace FreeCAD for field-accessible shop drawing modification.
+<strong>Watch Status:</strong> Alpha—geometry kernel incomplete. Reassess Q1 2027.</p>
+
+<hr />
+
+<p><strong>4. Autodesk/formit-ai</strong>
+<strong>External Link:</strong> https://formit.autodesk.com/
+<strong>Signal:</strong> Autodesk's AI-native parametric modeling in browser. Demonstrates industry incumbent pivot to AI-assisted design.
+<strong>Watch Status:</strong> Production for conceptual design. IFC interoperability improving but not yet fabrication-grade.</p>
+
+<hr />
+
+<h2>Recommended Next Steps</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Priority</th>
+  <th>Action</th>
+  <th>Owner</th>
+  <th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>Deploy ThatOpen Engine pilot with current project</td>
+  <td>IT/Operations</td>
+  <td>September 23-30</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Test FreeCAD curtain wall export to IFC</td>
+  <td>Drafting Lead</td>
+  <td>October 1-14</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Evaluate pascalorg/editor for schedule extraction</td>
+  <td>Project Manager</td>
+  <td>October 15-30</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Initiate WebODM drone documentation workflow</td>
+  <td>Field Supervisor</td>
+  <td>November 2026</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><em>Briefing prepared: September 23, 2026</em>
+<em>Next scheduled review: September 30, 2026</em>
+<em>Classification: Internal — Pacific Glazing Corporation</em></p>
+
+</body>
+</html>
