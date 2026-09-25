@@ -6,7 +6,7 @@ import { useState } from 'react';
 interface Brief {
   title: string;
   date: string;
-  type: 'weekly' | 'book' | 'tech' | 'futurist' | 'software' | 'healthcheck';
+  type: 'weekly' | 'book' | 'tech' | 'futurist' | 'software';
   description: string;
   file: string;
   badge?: string;
@@ -27,14 +27,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Domain‑specific AI merging with physical systems, driven by energy availability and data‑infrastructure quality across 2026‑2036",
     file: "/briefs/futurist-brief-2026-09-22.html",
-    badge: "Latest"
-  },
-  {
-    title: "Security Healthcheck — September 19, 2026",
-    date: "September 19, 2026",
-    type: "healthcheck",
-    description: "Weekly VPS security audit: 1 critical, 3 warnings, 8 OK. SSH PASSWORD AUTH ENABLED, 14 listening sockets, 50 updates pending. 50 packages awaiting updates",
-    file: "/briefs/security-brief-2026-09-19.html",
     badge: "Latest"
   },
   {
@@ -59,14 +51,6 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Narrow AI vertical agents accelerating automation of documentation, compliance and estimation in physical industry workflows over the next decade",
     file: "/briefs/futurist-brief-2026-09-15.html",
-    badge: ""
-  },
-  {
-    title: "Security Healthcheck — September 12, 2026",
-    date: "September 12, 2026",
-    type: "healthcheck",
-    description: "Weekly VPS security audit: 1 critical, 4 warnings, 7 OK. SSH PASSWORD AUTH ENABLED, 14 listening sockets, 46 updates pending. NEW cron jobs: 1",
-    file: "/briefs/security-brief-2026-09-12.html",
     badge: ""
   },
   {
