@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — September 26, 2026",
+    date: "September 26, 2026",
+    type: "tech",
+    description: "Open-source AI frameworks enable rapid agent deployment, calibrated decision models cut verification barriers, and glazing automation",
+    file: "/briefs/weekly-briefing-2026-09-26.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — September 23, 2026",
     date: "September 23, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "Weekly briefing: AI moves to smarter context management, edge AI goes production‑ready, and security hardening becomes a procurement requirement",
     file: "/briefs/weekly-briefing-2026-09-19.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — September 16, 2026",

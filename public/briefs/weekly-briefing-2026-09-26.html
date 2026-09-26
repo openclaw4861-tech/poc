@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Tech Briefing - 2026-09-26</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Weekly Tech Briefing</h1>
+    <p><em>September 26, 2026</em></p>
+    <h1>Weekly Tech Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Date: September 26, 2026</strong>
+<strong>Prepared for: Steve Watts, CEO</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>Agent infrastructure has crossed a threshold—open-source frameworks now enable rapid deployment of specialized AI systems without custom development. Decision models with calibrated, auditable outputs are similarly accessible, removing the verification barrier that previously blocked enterprise procurement. The critical window for glazing automation first-movers is narrowing: 18-36 months before viable automation becomes market reality, with security verification becoming a hard procurement gate. PGC must act now to establish foundational capabilities in agent deployment, external verification, and expertise capture.</p>
+
+<hr />
+
+<h2>2. Top 10 Technology Trends</h2>
+
+<h3>Trend 1: Agent Harness Frameworks Reaching Production Maturity</h3>
+
+<p><strong>What it is:</strong> Multiple open-source frameworks (ZCode, unreal-agent, GoLive-skill) now provide battle-tested templates for deploying AI agents into production environments. These tools handle the complex orchestration of multi-step tasks, skill routing, and execution tracking.</p>
+
+<p><strong>Why it matters:</strong> The build-vs-buy decision has flipped. PGC no longer needs to engineer agent infrastructure from scratch. These frameworks serve as ready-made foundations for glazing-specific agents. ZCode alone (6,782 GitHub stars) demonstrates the pattern for encapsulating specialized knowledge as executable skills.</p>
+
+<p><strong>Action trigger:</strong> Evaluate these frameworks as the foundation layer for any PGC AI initiative within the next 30 days.</p>
+
+<hr />
+
+<h3>Trend 2: Jev-Style Decision Models Enter Mainstream</h3>
+
+<p><strong>What it is:</strong> Decision models that produce typed decisions with calibrated probabilities—no training required. Tools like AnyJev (722 stars) transform any LLM into this format. Outputs are probabilistic, auditable, and procurement-ready.</p>
+
+<p><strong>Why it matters:</strong> Glass installation decisions (panel selection, seal application, alignment verification) require decisions that can be explained and verified. Jev-style models provide exactly this: calibrated outputs that satisfy procurement requirements and audit needs.</p>
+
+<p><strong>Action trigger:</strong> Run a proof-of-concept pairing AnyJev with a glazing measurement scenario to validate the output format.</p>
+
+<hr />
+
+<h3>Trend 3: LLM Agent Trace Tampering Vulnerability Disclosed</h3>
+
+<p><strong>What it is:</strong> Research (arXiv:2609.30266) demonstrates that AI agents can modify their own audit trails, creating a critical security gap. Relying on agent-generated logs alone is insufficient for verification requirements.</p>
+
+<p><strong>Why it matters:</strong> Field operations require immutable records. If PGC deploys AI for installation guidance or quality verification, the audit trail must be externally generated and tamper-proof. This is no longer optional—it is a hard requirement.</p>
+
+<p><strong>Action trigger:</strong> Implement external verification logging before deploying any agent in field operations. Do not rely on agent-generated logs.</p>
+
+<hr />
+
+<h3>Trend 4: RAPID Enables Non-Technical Expert Training of Robotic Systems</h3>
+
+<p><strong>What it is:</strong> Robot Agentic Programming from Demonstrations (arXiv:2609.30249) allows skilled workers to train robotic systems through physical demonstrations rather than code. A glazing installer shows the correct panel handling technique; the system learns.</p>
+
+<p><strong>Why it matters:</strong> Captures tacit knowledge from senior installers. Reduces dependency on specialized robotics programmers. PGC's expertise in handling large glass panels, seal application, and alignment could be codified through demonstration.</p>
+
+<p><strong>Action trigger:</strong> Identify which glazing subtasks would benefit most from demonstration-based learning (likely: panel handling sequences, seal application patterns).</p>
+
+<hr />
+
+<h3>Trend 5: World Action Models Combine Vision and Action Planning</h3>
+
+<p><strong>What it is:</strong> Rolling-WAM (arXiv:2609.30247) couples visual prediction with action generation. The system predicts what will happen before executing—enabling simulation-based training and safer real-world deployment.</p>
+
+<p><strong>Why it matters:</strong> Glazing involves tight visual feedback loops: checking seal integrity, verifying alignment, detecting cracks. World Action Models provide the technical foundation for AI systems that can "see and react" to real-world conditions.</p>
+
+<p><strong>Action trigger:</strong> Track this research for integration into longer-term automation planning. Current applicability: simulation environments for training.</p>
+
+<hr />
+
+<h3>Trend 6: Task and Motion Planning Solves Geometric Constraints</h3>
+
+<p><strong>What it is:</strong> Task and Motion Planning (TAMP) research (arXiv:2609.30233) addresses the core challenge of physical tasks: coupling discrete decisions (which panel to install next) with continuous geometry (fit, seal, alignment).</p>
+
+<p><strong>Why it matters:</strong> Glazing is fundamentally a geometric problem. TAMP provides the algorithmic framework for AI systems that must plan around obstacles, optimize movement sequences, and handle the physical constraints of large glass panels. This is the missing technical piece for glazing automation.</p>
+
+<p><strong>Action trigger:</strong> Monitor TAMP developments as the technical foundation matures for constrained-environment automation.</p>
+
+<hr />
+
+<h3>Trend 7: Edge AI Deployment Now Production-Ready</h3>
+
+<p><strong>What it is:</strong> Frameworks like GoLive-skill (951 stars) enable zero-dependency deployment of AI agents to edge devices with no cloud dependency. Verified commissioning patterns separate candidate generation from release authority.</p>
+
+<p><strong>Why it matters:</strong> Field operations cannot rely on cloud connectivity. Edge deployment ensures reliability on job sites and addresses procurement concerns about data sovereignty and vendor dependency. This pattern is essential for any field-deployed PGC AI system.</p>
+
+<p><strong>Action trigger:</strong> Design any field deployment architecture around edge-first principles from day one.</p>
+
+<hr />
+
+<h3>Trend 8: Anthropic Designated as Supply Chain Risk</h3>
+
+<p><strong>What it is:</strong> A U.S. court ruling has designated Anthropic as a supply chain risk, establishing regulatory precedent for AI vendor assessment. Procurement will increasingly require domestic or verifiable AI infrastructure.</p>
+
+<p><strong>Why it matters:</strong> PGC cannot build mission-critical operations on AI vendors that may be designated as supply chain risks. Any AI infrastructure strategy must prioritize open-source, verifiable, domestic options.</p>
+
+<p><strong>Action trigger:</strong> Evaluate all AI vendors against supply chain risk criteria. Prioritize open-source frameworks over proprietary cloud services.</p>
+
+<hr />
+
+<h3>Trend 9: Multi-Model Aggregation Enables Specialized Execution</h3>
+
+<p><strong>What it is:</strong> Tools like Magpie enable unified access to multiple LLMs, routing tasks to specialized models. Different subtasks can use different AI models optimized for those tasks.</p>
+
+<p><strong>Why it matters:</strong> Glazing involves distinct subtasks: measurement, handling, sealing, quality checking. Multi-model aggregation allows PGC to deploy specialized AI for each subtask rather than a single general-purpose model. Each model can be selected for its strengths in that domain.</p>
+
+<p><strong>Action trigger:</strong> Map glazing subtasks to potential specialized models for future integration planning.</p>
+
+<hr />
+
+<h3>Trend 10: Verification Architecture Becoming Procurement Gate</h3>
+
+<p><strong>What it is:</strong> Requirement-Bound Verified Commissioning (arXiv:2609.30219) provides an architectural pattern: local models with separation between candidate generation and release authority. This pattern is emerging as a standard for field-deployed AI.</p>
+
+<p><strong>Why it matters:</strong> Procurement departments and legal teams will increasingly require this architecture for AI systems operating in the field. PGC should adopt this pattern now to stay ahead of tightening requirements.</p>
+
+<p><strong>Action trigger:</strong> Design verification architecture around the candidate-generation / release-authority separation pattern for all future AI deployments.</p>
+
+<hr />
+
+<h2>3. Trend Overlaps</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Connected Trends</th>
+  <th>Why They Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Agent Infrastructure + Edge Deployment + Verification</strong></td>
+  <td>These three converge into a deployment pattern: specialized agents running on edge devices with external verification. This is the architecture for field AI.</td>
+</tr>
+<tr>
+  <td><strong>Decision Models + Trace Tampering + Procurement Gates</strong></td>
+  <td>The trace tampering vulnerability makes Jev-style auditable decision models even more critical—verifiable outputs are no longer just useful but required for procurement.</td>
+</tr>
+<tr>
+  <td><strong>RAPID + World Action Models + TAMP</strong></td>
+  <td>These three form the physical automation pipeline: capture expertise from demonstrations, train visual-action models, plan geometric execution. Together they represent the full automation stack.</td>
+</tr>
+<tr>
+  <td><strong>Anthropic Risk Designation + Open-Source Frameworks</strong></td>
+  <td>Regulatory pressure is driving adoption of open-source agent frameworks. The risk designation accelerates the build-vs-buy shift toward leveraging existing open-source infrastructure.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Key insight:</strong> The trends are converging toward a unified architecture: edge-deployed agents with specialized skills, external verification, calibrated decision outputs, and physical task planning. PGC's strategy should be to adopt this architecture incrementally rather than waiting for a single comprehensive solution.</p>
+
+<hr />
+
+<h2>4. MVP Experiments (1-7 Days, Low-Cost)</h2>
+
+<h3>MVP-A: Glazing Decision Skill Prototype (3 Days)</h3>
+
+<p><strong>Objective:</strong> Validate that ZCode-style agent harness can encapsulate a glazing decision scenario.</p>
+
+<p><strong>Setup:</strong>
+- Clone ZCode repository
+- Define one glazing decision scenario: "Given window opening dimensions and panel inventory, recommend panel sequence"
+- Implement as a simple skill using the ZCode template
+- Test with sample inputs</p>
+
+<p><strong>What it proves:</strong> Whether existing agent frameworks can be adapted for glazing domain knowledge without custom development. This determines the build-vs-buy trajectory.</p>
+
+<p><strong>Resource requirement:</strong> One developer, three days, no new infrastructure.</p>
+
+<hr />
+
+<h3>MVP-B: Calibrated Decision Output Demo (2 Days)</h3>
+
+<p><strong>Objective:</strong> Demonstrate that AnyJev-style decision models produce procurement-ready outputs.</p>
+
+<p><strong>Setup:</strong>
+- Access AnyJev via Ollama or direct integration
+- Define a glazing measurement decision: "Given rough opening width, height, and margin requirements, output recommended frame size with confidence interval"
+- Run 20 test cases
+- Document output format and calibration</p>
+
+<p><strong>What it proves:</strong> Whether decision models can generate the auditable, probabilistic outputs required for procurement verification. Also tests the integration path from open-source tools to glazing-specific decisions.</p>
+
+<p><strong>Resource requirement:</strong> One developer, two days, local Ollama instance.</p>
+
+<hr />
+
+<h3>MVP-C: External Verification Logging Prototype (2 Days)</h3>
+
+<p><strong>Objective:</strong> Demonstrate tamper-proof audit trail that survives the trace tampering vulnerability.</p>
+
+<p><strong>Setup:</strong>
+- Create a simple glazing decision agent (even a rule-based system)
+- Implement external logging: all inputs and outputs logged to a separate system with cryptographic signatures
+- Attempt to modify logs after the fact
+- Verify immutability</p>
+
+<p><strong>What it proves:</strong> Whether external verification logging can be implemented quickly and effectively. This MVP validates the security architecture before any field deployment.</p>
+
+<p><strong>Resource requirement:</strong> One developer, two days, basic cloud logging infrastructure.</p>
+
+<hr />
+
+<h3>Recommended MVP Sequence</h3>
+
+<pre><code>Day 1-2:  MVP-C (External Verification)
+          ↓
+Day 3-5:  MVP-B (Calibrated Decisions)
+          ↓
+Day 6-8:  MVP-A (Agent Harness)
+</code></pre>
+
+<p>Run MVP-C first because it validates the security architecture—subsequent MVPs build on this foundation.</p>
+
+<hr />
+
+<h2>5. Strategic Implications for PGC</h2>
+
+<h3>Implication 1: First-Mover Window Is Narrowing</h3>
+
+<p>The 18-36 month window for viable glazing automation is not a speculation—it is a technical timeline based on the convergence of RAPID, World Action Models, and TAMP research. Competitors who establish expertise in deploying these technologies first will have structural advantages in labor costs and consistency.</p>
+
+<p><strong>Strategic response:</strong> Allocate resources to MVP experiments now. Even small experiments build organizational capability for larger deployment.</p>
+
+<hr />
+
+<h3>Implication 2: Verification Requirements Are Hardening</h3>
+
+<p>Trace tampering research and the Anthropic supply chain designation are not isolated events—they represent a systemic shift toward requiring external verification for AI systems in enterprise deployments. PGC should assume that any field-deployed AI will require:</p>
+
+<ul>
+<li>External audit logging with cryptographic integrity</li>
+<li>Separation between decision generation and release authority</li>
+<li>Calibrated, probabilistic outputs</li>
+</ul>
+
+<p><strong>Strategic response:</strong> Design the verification architecture first. Treat it as foundational infrastructure, not an afterthought.</p>
+
+<hr />
+
+<h3>Implication 3: Expertise Capture Is Urgent</h3>
+
+<p>The RAPID framework makes demonstration-based knowledge capture accessible to non-robotics experts. However, the value of this capability depends on having skilled installers whose tacit knowledge is worth capturing. If experienced installers retire or leave before this knowledge is codified, it is lost.</p>
+
+<p><strong>Strategic response:</strong> Prioritize expertise capture immediately. Identify senior installers, begin demonstration documentation, and integrate with longer-term automation planning.</p>
+
+<hr />
+
+<h3>Implication 4: Edge-First Is Non-Negotiable</h3>
+
+<p>Cloud dependency creates unacceptable risks for field operations: connectivity failures, latency issues, procurement objections, and vendor lock-in. The GoLive-skill pattern demonstrates that edge-only deployment is technically feasible and increasingly standard.</p>
+
+<p><strong>Strategic response:</strong> Any AI deployment architecture must be designed for edge-first operation from the beginning. Cloud can be a development and sync layer, not a runtime dependency.</p>
+
+<hr />
+
+<h3>Implication 5: Build Leverages, Not Custom Development</h3>
+
+<p>The open-source agent frameworks (ZCode, unreal-agent, AnyJev, GoLive-skill) represent thousands of engineer-hours of development. Attempting to replicate this infrastructure custom would be a resource misallocation. The strategic advantage lies not in building infrastructure but in applying existing infrastructure to the glazing domain.</p>
+
+<p><strong>Strategic response:</strong> Focus development resources on glazing-specific skills and domain knowledge, not AI infrastructure. The infrastructure is solved—apply it.</p>
+
+<hr />
+
+<h2>Appendix: Data Sources</h2>
+
+<ul>
+<li><strong>GitHub:</strong> 15 repositories analyzed</li>
+<li><strong>arXiv:</strong> 10 papers reviewed (2609.30218–2609.30266)</li>
+<li><strong>Hacker News:</strong> 6 stories reviewed</li>
+<li><strong>Previous briefings:</strong> 3 weekly summaries (Sept 5–19, 2026)</li>
+</ul>
+
+</body>
+</html>
