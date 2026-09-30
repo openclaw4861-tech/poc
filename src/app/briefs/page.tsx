@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — September 30, 2026",
+    date: "September 30, 2026",
+    type: "software",
+    description: "The briefing highlights ThatOpen Engine v3.4.x and Procore BIM Webviewer SDK as browser‑native BIM reaches production, enabling web‑first glazing",
+    file: "/briefs/software-brief-2026-09-30.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — September 29, 2026",
     date: "September 29, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "ThatOpen Engine v3.4.x and web-ifc match desktop BIM for glazing, while Procore and Bentley npm packages erase pioneer risk in browser-native BIM",
     file: "/briefs/software-brief-2026-09-23.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — September 22, 2026",
