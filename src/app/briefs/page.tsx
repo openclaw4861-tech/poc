@@ -134,6 +134,13 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Book Summary: Inside the Box",
+    date: "October 5, 2026",
+    type: "book",
+    description: "David Epstein on why the right limits beat total freedom: Jarrett's broken piano, Murakami's English, General Magic's lack of limits, Mendeleev's deadline, satisficing, and structuring attention. With practical applications for PGC's Hub, submittal tracker, glass calculator, and AI takeoff.",
+    file: "/briefs/book-summary-inside-the-box.html",
+  },
+  {
     title: "Book Summary: Flourish",
     date: "August 31, 2026",
     type: "book",
