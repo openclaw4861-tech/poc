@@ -134,6 +134,13 @@ const briefs: Brief[] = [
     badge: "Latest"
   },
   {
+    title: "Book Summary: Hidden Patterns",
+    date: "October 6, 2026",
+    type: "book",
+    description: "Clay Parker Jones on why borrowed best practices fail and how 75 remixable patterns fix the invisible architecture of work: real teams vs co-acting groups, expanded available power, consent over consensus, dissolvable teams, and weekly steering. With practical applications for PGC's Hub team, onboarding, and AI takeoff experiments.",
+    file: "/briefs/book-summary-hidden-patterns.html",
+  },
+  {
     title: "Book Summary: Inside the Box",
     date: "October 5, 2026",
     type: "book",
