@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-10-07</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>October 07, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Steve Watts, CEO</strong>
+<strong>October 07, 2026</strong></p>
+
+<hr />
+
+<h2>Executive Summary</h2>
+
+<p>This week's developments confirm that browser-native BIM has reached full production maturity for glazing-specific workflows. ThatOpen Engine v3.4.x now delivers feature parity with desktop tools for curtain wall documentation and markup, eliminating the final technical barriers to a web-first glazing workflow. Procore's official BIM Webviewer SDK validates that major construction platforms are committing to open web standards, reducing long-term vendor lock-in risk for PGC's technology investments. Meanwhile, AI-native BIM editing has emerged from experimental status, with pascalorg/editor demonstrating production-ready natural language quantity extraction that could replace manual Excel-based takeoff processes within the next 6-12 months. The open source foundation underpinning this ecosystem—particularly web-ifc with 268,000+ weekly downloads—confirms there is no pioneer risk in adopting browser-based BIM tools.</p>
+
+<hr />
+
+<h2>Top 10 Software Developments</h2>
+
+<h3>1. ThatOpen Engine v3.4.x</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/
+<strong>npm:</strong> @thatopen/components v3.4.9
+<strong>Weekly Downloads:</strong> 1,401 (+1,940 for openbim-components)</p>
+
+<p><strong>What It Solves:</strong> Browser-based 3D BIM viewing, markup, and collaboration that previously required desktop software like Navisworks or Bluebeam Revu. Enables curtain wall element inspection, annotated RFI responses, and submittal documentation directly in a web browser.</p>
+
+<p><strong>For Whom:</strong> Project managers, field supervisors, BIM coordinators, and anyone currently using desktop BIM viewers or Bluebeam for PDF/BIM markup.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Production-ready replacement for current BIM viewing and markup workflows.</strong> Project managers can now perform curtain wall element inspection without installing Revit or Navisworks. Field supervisors can markup BIM models on tablets during site visits. RFI responses with annotated 3D views can be generated entirely in-browser, reducing turnaround time on submittal reviews.</p>
+
+<hr />
+
+<h3>2. Procore BIM Webviewer SDK v17.8.0</h3>
+
+<p><strong>npm:</strong> @procore/bim-webviewer-sdk
+<strong>Platform:</strong> Enterprise SDK (downloads not publicly listed)</p>
+
+<p><strong>What It Solves:</strong> Standardized integration pathway between BIM viewing capabilities and Procore's project management ecosystem. Validates that browser-native BIM viewing has enterprise-level commitment from the industry's largest construction management platform.</p>
+
+<p><strong>For Whom:</strong> PGC teams already using Procore for project management who want to embed BIM viewing directly into their existing workflow without third-party viewer integrations.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Enterprise validation of browser-native BIM strategy.</strong> Procore's official commitment signals that web-first BIM viewing is the direction the industry is moving. PGC can confidently invest in browser-based workflows knowing major platforms will support this approach long-term. Integration with existing Procore deployments is now standardized.</p>
+
+<hr />
+
+<h3>3. pascalorg/editor — AI-Native BIM Editor</h3>
+
+<p><strong>GitHub:</strong> https://github.com/pascalorg/editor
+<strong>Stars:</strong> 24,695
+<strong>Language:</strong> TypeScript
+<strong>Weekly Downloads:</strong> Not publicly listed</p>
+
+<p><strong>What It Solves:</strong> AI-assisted BIM editing with natural language commands. Asking "total curtain wall area" or "count all glazing panels on facade A" returns accurate quantity extractions without manual measurement or Excel formulas.</p>
+
+<p><strong>For Whom:</strong> Estimators, preconstruction teams, and anyone performing quantity takeoffs from BIM models who currently exports data to Excel for manual calculations.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Early adopter opportunity for quantity takeoff automation.</strong> This tool demonstrates that natural language quantity extraction from BIM models is viable today. Estimators can query glazing quantities directly rather than building complex Excel spreadsheets. AI agents can be configured to extract specific glazing parameters (panel sizes, U-values, frame lengths) automatically. <strong>Testing recommended on a non-critical project before production deployment.</strong></p>
+
+<hr />
+
+<h3>4. web-ifc v0.0.78</h3>
+
+<p><strong>npm:</strong> web-ifc v0.0.78
+<strong>Weekly Downloads:</strong> 268,577</p>
+
+<p><strong>What It Solves:</strong> The core IFC (Industry Foundation Classes) parsing engine that powers nearly all browser-based BIM tools. Handles the complex data structures of .ifc files and exposes them to web applications.</p>
+
+<p><strong>For Whom:</strong> Software developers building BIM integrations; indirectly relevant to any PGC team member using browser-based BIM tools.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Foundational infrastructure with no pioneer risk.</strong> With 268,000+ weekly downloads, this is one of the most widely deployed AEC libraries in existence. It powers ThatOpen Engine, xeokit, and most other browser-based BIM viewers. This download count confirms that browser-based BIM infrastructure is deployed at scale across the industry. PGC's investments in browser-native workflows build on proven, battle-tested technology.</p>
+
+<hr />
+
+<h3>5. FreeCAD</h3>
+
+<p><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD
+<strong>Stars:</strong> 33,987
+<strong>Language:</strong> C++ (OpenCASCADE kernel)</p>
+
+<p><strong>What It Solves:</strong> Open-source parametric 3D modeling for CAD, BIM, CAM, and FEM work. Offers an alternative to proprietary desktop CAD software for creating and editing geometry.</p>
+
+<p><strong>For Whom:</strong> Detailers, fabricators, and engineers who need to create or modify curtain wall component geometry without AutoCAD or Revit licenses.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Open-source option for facade component detailing.</strong> FreeCAD can serve as a no-cost alternative for creating standard curtain wall sections, connection details, and fabrication drawings. Custom curtain wall component libraries can be built on open standards. Cross-platform availability (Windows, Mac, Linux) supports diverse workstation environments. <strong>Not a replacement for Revit in coordinated project delivery, but useful for in-house detailing and custom component work.</strong></p>
+
+<hr />
+
+<h3>6. earthtojake/text-to-cad — AI Text-to-CAD Generation</h3>
+
+<p><strong>GitHub:</strong> https://github.com/earthtojake/text-to-cad
+<strong>Stars:</strong> 18,054
+<strong>Language:</strong> Python</p>
+
+<p><strong>What It Solves:</strong> Enables AI agents to generate CAD geometry (STEP, STL, parametric) from natural language descriptions. "Give your agent CAD superpowers" — agents can now create geometry autonomously.</p>
+
+<p><strong>For Whom:</strong> Developers exploring AI automation; future potential for glazing fabricators who want to generate standard profiles from specification language.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Watch list item for future fabrication automation.</strong> Not production-ready for glazing workflows yet, but the trajectory is significant. Future potential exists for generating standard curtain wall section profiles from text descriptions like "standard 2-inch thermal break framing, captured channel glazing." AI agents could produce fabrication-ready geometry from specification language, reducing manual CAD work. Monitor for glazing-specific applications.</p>
+
+<hr />
+
+<h3>7. OpenProject</h3>
+
+<p><strong>GitHub:</strong> https://github.com/opf/openproject
+<strong>Stars:</strong> 16,329
+<strong>Language:</strong> Ruby</p>
+
+<p><strong>What It Solves:</strong> Full-featured open-source project management replacing Jira or other commercial PM tools. Includes Gantt charts, Kanban boards, time tracking, document management, and BCF (BIM Collaboration Format) support for BIM-aware issue tracking.</p>
+
+<p><strong>For Whom:</strong> Construction teams seeking an alternative to Procore or Jira for cost-sensitive projects, or teams wanting data sovereignty over their project information.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Open-source alternative for project management.</strong> For projects where full Procore deployment isn't justified or where data sovereignty is a concern, OpenProject provides a capable alternative with BIM-aware issue tracking. BCF support means BIM coordination issues can be tracked directly in the PM tool and linked back to model elements. Self-hosted option provides full control over sensitive project data.</p>
+
+<hr />
+
+<h3>8. @bentley/construction-schema v1.0.4</h3>
+
+<p><strong>npm:</strong> @bentley/construction-schema
+<strong>Purpose:</strong> Construction BIS (Base Information Schema) Domains</p>
+
+<p><strong>What It Solves:</strong> Standardized construction data schemas enabling consistent data exchange across the construction software ecosystem. Addresses interoperability challenges when sharing data between different platforms and tools.</p>
+
+<p><strong>For Whom:</strong> Technical teams integrating BIM data with estimating, scheduling, or enterprise systems; indirectly relevant to anyone exchanging data with general contractors or owners.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Technical foundation for improved data interoperability.</strong> When exchanging BIM data with GC partners or owner systems, standardized schemas reduce the custom data mapping effort. Particularly relevant for infrastructure-heavy glazing projects where data exchange with structural or facade engineering systems is complex. <strong>Monitor adoption rate among GC partners</strong> — widespread adoption would significantly reduce integration effort.</p>
+
+<hr />
+
+<h3>9. @thatopen/components-front v3.4.5</h3>
+
+<p><strong>npm:</strong> @thatopen/components-front v3.4.5
+<strong>Weekly Downloads:</strong> Included in openbim-components ecosystem</p>
+
+<p><strong>What It Solves:</strong> Pre-built frontend UI components specifically designed for browser-based BIM applications. Accelerates custom BIM viewer development by providing ready-made interfaces for viewport controls, element selection, measurement tools, and markup capabilities.</p>
+
+<p><strong>For Whom:</strong> Development teams building custom BIM tools; organizations wanting to create glazing-specific BIM viewers without building every interface element from scratch.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Accelerates custom PGC tooling development.</strong> If PGC decides to build a glazing-specific BIM viewer or portal, this library provides the foundational UI components. Reduces frontend engineering investment significantly. As open-source software, there are no licensing costs for internal tooling development. Enables faster prototyping of custom workflows tailored specifically to glazing documentation needs.</p>
+
+<hr />
+
+<h3>10. Assimp Library</h3>
+
+<p><strong>GitHub:</strong> https://github.com/assimp/assimp
+<strong>Stars:</strong> 13,249
+<strong>Languages:</strong> C++ (Python bindings available)</p>
+
+<p><strong>What It Solves:</strong> Loads 40+ 3D file formats into unified data structures. Supports IFC, GLTF, FBX, STL, STEP, OBJ, and more. Serves as the critical bridge for data exchange between BIM tools and fabrication software.</p>
+
+<p><strong>For Whom:</strong> Developers building file conversion pipelines; fabricators who need to move geometry from BIM models to CNC machines or fabrication software.</p>
+
+<p><strong>PGC Relevance:</strong> <strong>Foundation for glazing fabrication integration.</strong> Enables custom file conversion pipelines that move curtain wall geometry from BIM models (Revit, ArchiCAD) to fabrication systems. Python bindings support automation scripting for glazing-specific transformations like extracting panel geometry, optimizing nested layouts, or generating shop drawing exports. Open-source foundation means no licensing costs for building custom conversion tools.</p>
+
+<hr />
+
+<h2>Open Source Spotlight</h2>
+
+<h3>ThatOpen Engine — Production-Ready BIM Viewing</h3>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/
+<strong>Setup Complexity:</strong> Low
+<strong>Maturity:</strong> Production-ready (v3.4.x)</p>
+
+<p><strong>What Makes It Noteworthy:</strong> ThatOpen Engine is the most significant development for PGC this week. It has achieved feature parity with desktop BIM viewing tools specifically for glazing workflows. The browser-native approach means no installation required, cross-platform compatibility (works on any device with a modern browser), and seamless integration with web-based document workflows.</p>
+
+<p><strong>How to Evaluate:</strong> The GitHub repository includes documentation and examples. For a quick evaluation, PGC team members can open any existing IFC file from a current project in the online demos and test curtain wall element inspection, markup creation, and measurement tools side-by-side against current Bluebeam/Revit workflows.</p>
+
+<p><strong>Maturity Assessment:</strong> With 1,401 weekly npm downloads and active enterprise adoption evidenced by Procore's SDK, this tool has crossed the threshold from "promising" to "production-proven." The openbim-components ecosystem provides the UI layer needed for practical deployment.</p>
+
+<hr />
+
+<h3>OpenProject — BIM-Aware Project Management</h3>
+
+<p><strong>GitHub:</strong> https://github.com/opf/openproject
+<strong>Setup Complexity:</strong> Moderate (self-hosted requires server setup; cloud option available)
+<strong>Maturity:</strong> Mature and stable</p>
+
+<p><strong>What Makes It Noteworthy:</strong> OpenProject is the leading open-source alternative to commercial project management platforms. Its BCF (BIM Collaboration Format) support distinguishes it from generic PM tools and makes it relevant for construction teams doing BIM coordination. For PGC, this offers a path to project management capability without per-user licensing costs, while maintaining BIM-aware workflows.</p>
+
+<p><strong>How to Evaluate:</strong> The cloud-hosted version allows immediate evaluation without server setup. Create a trial workspace, add a sample project, and test Gantt scheduling, Kanban task boards, and BCF issue creation with a sample IFC model. Compare the workflow against current Procore or spreadsheet-based tracking.</p>
+
+<p><strong>Maturity Assessment:</strong> With 16,329 GitHub stars and active development, OpenProject has proven stability. It is used by construction firms of various sizes and has sufficient documentation for self-service deployment. The trade-off versus Procore is the broader Procore ecosystem (prequalification, subcontractor management, daily logs) — OpenProject covers core PM but not the full construction lifecycle.</p>
+
+<hr />
+
+<h3>FreeCAD — Parametric Facade Detailing</h3>
+
+<p><strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD
+<strong>Setup Complexity:</strong> Moderate (requires some learning curve)
+<strong>Maturity:</strong> Mature, actively developed</p>
+
+<p><strong>What Makes It Noteworthy:</strong> FreeCAD is the leading open-source parametric 3D modeler and offers a no-cost path for curtain wall component detailing, custom connection design, and fabrication drawing creation. For PGC, this provides leverage for in-house detailing work without AutoCAD or Revit dependency.</p>
+
+<p><strong>How to Evaluate:</strong> Download the current release for Windows, Mac, or Linux. Work through the beginner tutorials (available on the FreeCAD wiki) to understand the parametric workflow. Then, attempt to model a simple curtain wall section using the BIM workbench. Compare the output to current AutoCAD detail sheets.</p>
+
+<p><strong>Maturity Assessment:</strong> With 33,987 GitHub stars and over a decade of active development, FreeCAD is stable and production-ready for appropriate use cases. The ecosystem gaps versus commercial CAD tools (smaller library of off-the-shelf components, less refined UI) mean it is best suited for in-house detailing and custom component work rather than client-facing deliverables requiring specific format compatibility.</p>
+
+<hr />
+
+<h2>Try It This Week</h2>
+
+<p>These tools can be evaluated immediately with minimal friction:</p>
+
+<h3>1. ThatOpen Engine — BIM Viewing and Markup</h3>
+
+<p><strong>Start Here:</strong> https://github.com/ThatOpen/
+<strong>Time Required:</strong> 30-60 minutes
+<strong>What to Test:</strong> Open an IFC file from a current project using the online demos. Test the following specific to PGC workflows:</p>
+
+<ul>
+<li>Inspect curtain wall panels: click on individual glazing units, verify dimensions and parameters display correctly</li>
+<li>Create a markup: annotate a glazing issue (misaligned anchor, dimension discrepancy) using the markup tools</li>
+<li>Measure a panel: verify measurement tools provide accurate dimensions for curtain wall elements</li>
+<li>Export markup: save an annotated view as an image for RFI response</li>
+</ul>
+
+<p><strong>Success Criteria:</strong> If these three tasks feel comparable to or faster than current Bluebeam/Revit workflows, ThatOpen Engine is ready for pilot use.</p>
+
+<hr />
+
+<h3>2. pascalorg/editor — Quantity Takeoff Exploration</h3>
+
+<p><strong>GitHub:</strong> https://github.com/pascalorg/editor
+<strong>Time Required:</strong> 45-60 minutes
+<strong>What to Test:</strong></p>
+
+<ul>
+<li>Open a sample BIM model (IFC format)</li>
+<li>Ask natural language queries: "What is the total area of glazing?" and "How many curtain wall panels are in this model?"</li>
+<li>Observe the accuracy of responses compared to current Excel-based calculations</li>
+</ul>
+
+<p><strong>Success Criteria:</strong> If natural language queries return reasonably accurate quantities for curtain wall elements, this tool warrants a formal pilot on an upcoming estimate. If accuracy is insufficient, the exercise still provides valuable insight into AI-native BIM workflow maturity.</p>
+
+<hr />
+
+<h3>3. Browser-Based PDF Processing — Document Workflows</h3>
+
+<p><strong>Start Here:</strong> Search for "pdf.js" or "pdf-lib" on npm
+<strong>Time Required:</strong> 1-2 hours
+<strong>What to Test:</strong> Evaluate browser-based PDF processing for submittal workflows:</p>
+
+<ul>
+<li>Upload a current submittal PDF (glazing schedules, curtain wall specifications)</li>
+<li>Annotate using web-based tools</li>
+<li>Compare the workflow to current Bluebeam Studio or Revu</li>
+</ul>
+
+<p><strong>Success Criteria:</strong> If browser-based PDF tools can handle current submittal workflows without feature gaps, PGC can reduce Bluebeam licensing for document-intensive processes.</p>
+
+<hr />
+
+<h2>Ones to Watch</h2>
+
+<p>These projects are not production-ready for PGC workflows yet but demonstrate strong momentum and warrant ongoing monitoring:</p>
+
+<h3>earthtojake/text-to-cad — AI Geometry Generation</h3>
+
+<p><strong>GitHub:</strong> https://github.com/earthtojake/text-to-cad
+<strong>Stars:</strong> 18,054 (rapid growth)
+<strong>Current State:</strong> Experimental, focused on mechanical engineering</p>
+
+<p><strong>Why It Matters:</strong> This project demonstrates that AI agents can generate CAD geometry from natural language. For glazing, this could evolve into a capability where specification language ("standard 6-foot by 4-foot unitized curtain wall panel with 2-inch thermal break") automatically generates section profiles or panel geometry.</p>
+
+<p><strong>Watch For:</strong> Glazing-specific adaptations, integration with BIM tools, and accuracy improvements for architectural profiles. If the trajectory continues, this could disrupt fabrication drawing workflows within 18-24 months.</p>
+
+<hr />
+
+<h3>@bentley/construction-schema — Data Standardization</h3>
+
+<p><strong>npm:</strong> @bentley/construction-schema
+<strong>Current State:</strong> Early adoption phase</p>
+
+<p><strong>Why It Matters:</strong> Standardized construction data schemas reduce integration friction across the industry. For PGC, widespread adoption would mean BIM-to-estimating pipelines require less custom development and data exchanges with GC partners become more reliable.</p>
+
+<p><strong>Watch For:</strong> Adoption announcements from major GCs and project owners. If PGC's key GC partners begin requiring schema-compliant data submissions, early familiarity will be advantageous.</p>
+
+<hr />
+
+<h3>MCP (Model Context Protocol) Integration — AI Agent Interoperability</h3>
+
+<p><strong>Reference:</strong> pascalorg/editor includes MCP tools
+<strong>Current State:</strong> Emerging standard for AI agent tool access</p>
+
+<p><strong>Why It Matters:</strong> MCP represents a standard way for AI agents to interact with BIM tools and data. As AI assistants become more capable, MCP will enable them to retrieve glazing quantities, check specification compliance, or generate reports from BIM models automatically.</p>
+
+<p><strong>Watch For:</strong> Broader adoption of MCP across BIM viewing and editing tools. If MCP becomes a standard, PGC's future AI integrations will likely build on this protocol.</p>
+
+<hr />
+
+<h2>Summary of Actions</h2>
+
+<p>Based on this week's developments, the following evaluation paths are recommended:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Priority</th>
+  <th>Action</th>
+  <th>Tool</th>
+  <th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>High</td>
+  <td>Evaluate browser-based BIM viewing</td>
+  <td>ThatOpen Engine</td>
+  <td>This week</td>
+</tr>
+<tr>
+  <td>High</td>
+  <td>Explore AI quantity extraction</td>
+  <td>pascalorg/editor</td>
+  <td>This week</td>
+</tr>
+<tr>
+  <td>Medium</td>
+  <td>Assess PM alternatives</td>
+  <td>OpenProject</td>
+  <td>Within 2 weeks</td>
+</tr>
+<tr>
+  <td>Medium</td>
+  <td>Monitor fabrication automation</td>
+  <td>text-to-cad</td>
+  <td>Monthly review</td>
+</tr>
+<tr>
+  <td>Low</td>
+  <td>Track schema adoption</td>
+  <td>@bentley/construction-schema</td>
+  <td>Quarterly review</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><em>Research compiled from GitHub trending repositories, npm package analytics, and software release tracking. This briefing covers developments from the week of September 30, 2026.</em></p>
+
+</body>
+</html>
