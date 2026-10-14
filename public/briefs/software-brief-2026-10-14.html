@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-10-14</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>October 14, 2026</em></p>
+    <hr />
+
+<h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Prepared for: Steve Watts, CEO</strong>
+<strong>Date: October 14, 2026</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>This week's research confirms that the open-source AEC stack has reached production maturity for core glazing workflows—browser-native BIM viewing, 2D drafting, and AI-driven quantity extraction are no longer aspirational but available immediately at zero licensing cost. The most significant development: the pascalorg/editor project demonstrates AI agents can now read and write BIM data directly via the MCP protocol, bypassing proprietary APIs entirely. For PGC, two of three remaining proprietary beachheads (shop drawings and BIM viewing) can be replaced this quarter. The last gap—open-source PDF takeoff extraction—remains unaddressed, but the clock is running on that market.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<table>
+<thead>
+<tr>
+  <th>#</th>
+  <th>Tool</th>
+  <th>Problem It Solves</th>
+  <th>Relevance to PGC</th>
+  <th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><strong>web-ifc</strong> (npm: web-ifc)</td>
+  <td>Browser-native parsing of IFC BIM files without desktop software or cloud dependency</td>
+  <td>Enables PGC to display glazing models in any web browser; foundational infrastructure for ThatOpen and other tools</td>
+  <td><a href="https://github.com/tomvandig/web-ifc">github.com/tomvandig/web-ifc</a></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>ThatOpen Engine v3.4.x</strong></td>
+  <td>Browser-based BIM viewing, markup, and specification extraction for curtain wall documentation</td>
+  <td>Replaces Autodesk Navisworks for model review; eliminates per-seat licensing for field and PM teams</td>
+  <td><a href="https://github.com/ThatOpen/engine">github.com/ThatOpen/engine</a></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>pascalorg/editor</strong></td>
+  <td>AI-native BIM data extraction; agents read/write IFC via MCP protocol</td>
+  <td>Directly replaces Excel-based takeoff workflows; quantity extraction from models is production-ready</td>
+  <td><a href="https://github.com/pascalorg/editor">github.com/pascalorg/editor</a></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>Procore @bim-webviewer-sdk v17.8.0</strong></td>
+  <td>Browser-native 3D model access within Procore without Autodesk Construction Cloud licensing</td>
+  <td>PGC's GC partners already run Procore; deploys BIM viewing without additional ACC seats</td>
+  <td><a href="https://www.npmjs.com/package/@bentley/bim-webviewer-sdk">npmjs.com/package/@bentley/bim-webviewer-sdk</a></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>CloudCompare</strong></td>
+  <td>Point cloud comparison for scan-vs-model delta verification</td>
+  <td>Reduces field-measure errors before unitized fabrication release; fewer remakes, direct margin impact</td>
+  <td><a href="https://github.com/CloudCompare/CloudCompare">github.com/CloudCompare/CloudCompare</a></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>LibreCAD</strong></td>
+  <td>2D drafting for shop drawings without AutoCAD licensing</td>
+  <td>Replaces AutoCAD for production shop drawings; DXF/DWG compatible with existing fabrication workflows</td>
+  <td><a href="https://librecad.org">librecad.org</a></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>OpenProject</strong></td>
+  <td>Open-source BIM Collaboration Format (BCF) management and project coordination</td>
+  <td>Pilot against ACC seat costs; enables issue tracking with GC partners without proprietary lock-in</td>
+  <td><a href="https://github.com/opf/openproject">github.com/opf/openproject</a></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>OpenSCAD</strong></td>
+  <td>Parametric geometry generation as version-controlled code</td>
+  <td>Applicable for gasket profiles, extrusion dies, and setting blocks as versioned part families</td>
+  <td><a href="https://github.com/openscad/openscad">github.com/openscad/openscad</a></td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>@bentley/construction-schema v1.0.4</strong></td>
+  <td>Standardized data schemas published as npm packages by an industry oligopolist</td>
+  <td>Signals that major platform vendors are conceding the data layer to open standards</td>
+  <td><a href="https://www.npmjs.com/package/@bentley/construction-schema">npmjs.com/package/@bentley/construction-schema</a></td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>earthtojake/text-to-cad</strong></td>
+  <td>Text-to-CAD geometry generation using AI</td>
+  <td>Emerging alternative for facade detailing; currently mechanical-engineering oriented, requires glazing-domain validation</td>
+  <td><a href="https://github.com/earthtojake/text-to-cad">github.com/earthtojake/text-to-cad</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>A. ThatOpen Engine + web-ifc Stack</h3>
+
+<p><strong>Setup Complexity:</strong> Low (WASM-based, runs in any modern browser)
+<strong>Maturity:</strong> Production-mature; used as infrastructure by commercial platforms</p>
+
+<p>This combination provides browser-native BIM viewing without any desktop installation. The curtain wall documentation workflow—including markup and specification extraction—is fully functional. For PGC, this means project managers and field crews can review glazing models on any device without Navisworks licenses. The stack loads IFC files directly; no conversion or cloud upload required.</p>
+
+<p><strong>Try it:</strong> Clone the ThatOpen Engine examples, load a sample IFC file, and navigate a curtain wall model in under 30 minutes.</p>
+
+<hr />
+
+<h3>B. LibreCAD</h3>
+
+<p><strong>Setup Complexity:</strong> Low (Windows/Mac/Linux installers; portable version available)
+<strong>Maturity:</strong> Stable; active community since 2011</p>
+
+<p>LibreCAD is a 2D drafting tool that reads and writes DXF and DWG files. For PGC, this directly replaces AutoCAD for shop drawing production. The interface is older than modern tools, but the file compatibility is complete. Fabricators can continue using existing drawing templates without file conversion.</p>
+
+<p><strong>Try it:</strong> Open a current shop drawing in LibreCAD, make a simple revision, and save back to DXF.</p>
+
+<hr />
+
+<h3>C. CloudCompare</h3>
+
+<p><strong>Setup Complexity:</strong> Medium (desktop application with some configuration for point cloud workflows)
+<strong>Maturity:</strong> Production-ready; used widely in surveying and fabrication QA</p>
+
+<p>CloudCompare compares point clouds (from laser scans) against BIM models to identify dimensional deltas. For PGC, this is a direct margin lever: verifying unitized fabrication against field conditions before installation reduces costly remakes. The workflow fits into pre-fabrication release checks.</p>
+
+<p><strong>Try it:</strong> Import a point cloud scan and an IFC model, run the default distance comparison, and review the delta report.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>The following tools require minimal setup and provide immediate value to PGC workflows:</p>
+
+<ol>
+<li><p><strong>ThatOpen Engine (Browser BIM Viewer)</strong></p>
+
+<ul>
+<li>What: View curtain wall IFC models in any browser, add markup and annotations</li>
+<li>Who benefits: Project managers, field supervisors</li>
+<li>Time to value: 30 minutes</li>
+<li>URL: <a href="https://thatopen.com">thatopen.com</a></li>
+</ul></li>
+<li><p><strong>LibreCAD (2D Shop Drawings)</strong></p>
+
+<ul>
+<li>What: Open and edit DXF/DWG shop drawings without AutoCAD</li>
+<li>Who benefits: Detailers, fabrication leads</li>
+<li>Time to value: 1 hour</li>
+<li>URL: <a href="https://librecad.org">librecad.org</a></li>
+</ul></li>
+<li><p><strong>pascalorg/editor (AI Quantity Extraction)</strong></p>
+
+<ul>
+<li>What: Extract quantities from IFC models using AI agents via MCP protocol</li>
+<li>Who benefits: Estimators, preconstruction team</li>
+<li>Time to value: 2 hours (including MCP setup)</li>
+<li>URL: <a href="https://github.com/pascalorg/editor">github.com/pascalorg/editor</a></li>
+</ul></li>
+<li><p><strong>web-ifc Demo (IFC Parsing)</strong></p>
+
+<ul>
+<li>What: Confirm browser can load and parse IFC files without plugins</li>
+<li>Who benefits: IT/operations, anyone evaluating browser-native BIM</li>
+<li>Time to value: 15 minutes</li>
+<li>URL: <a href="https://github.com/tomvandig/web-ifc">github.com/tomvandig/web-ifc</a></li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>The following projects show strong momentum but are not yet production-ready for glazing-specific workflows:</p>
+
+<table>
+<thead>
+<tr>
+  <th>Project</th>
+  <th>Why It Matters</th>
+  <th>Current Status</th>
+  <th>Watch Signals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>earthtojake/text-to-cad</strong> (20,040 stars)</td>
+  <td>AI-driven geometry generation could automate facade component detailing</td>
+  <td>Mechanical-engineering oriented today; glazing geometry validation pending</td>
+  <td>Monitor for glazing-domain demonstrations</td>
+</tr>
+<tr>
+  <td><strong>Open PDF Takeoff Tools</strong></td>
+  <td>No open-source challenger has emerged for PDF-based quantity extraction from bids and submittals</td>
+  <td>This remains the last proprietary beachhead in PGC's workflow stack</td>
+  <td>Watch for first credible entrant; market is being addressed by multiple startups</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<p><strong>End of Briefing</strong></p>
+
+<p><em>Next week's briefing will continue tracking the open-source AEC stack with a focus on project management integrations and emerging AI tooling.</em></p>
+
+</body>
+</html>

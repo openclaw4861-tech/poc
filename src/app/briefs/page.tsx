@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — October 14, 2026",
+    date: "October 14, 2026",
+    type: "software",
+    description: "Open-source AEC stack production-ready, providing browser-native BIM viewing, 2D drafting, and AI-driven quantity extraction for glazing at zero cost",
+    file: "/briefs/software-brief-2026-10-14.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — October 13, 2026",
     date: "October 13, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "ThatOpen Engine v3.4.x and Procore’s BIM Webviewer SDK enable browser‑native BIM for glazing, delivering curtain‑wall parity and web‑first workflows",
     file: "/briefs/software-brief-2026-10-07.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — October 06, 2026",
