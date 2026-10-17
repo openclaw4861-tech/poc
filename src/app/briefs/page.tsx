@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — October 17, 2026",
+    date: "October 17, 2026",
+    type: "tech",
+    description: "AI deployment gap narrowing to 18-36 months, verification infrastructure now a procurement must, and physical agents emerging as key frontier",
+    file: "/briefs/weekly-briefing-2026-10-17.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — October 14, 2026",
     date: "October 14, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "Verification infrastructure is now required, Typesafe AI's $870M raise highlights trust as a market, and Rust adoption expands to desktop production",
     file: "/briefs/weekly-briefing-2026-10-10.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — October 07, 2026",
