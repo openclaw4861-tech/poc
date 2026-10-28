@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — October 28, 2026",
+    date: "October 28, 2026",
+    type: "software",
+    description: "Please share the construction software briefing so I can summarize its main tools and trends",
+    file: "/briefs/software-brief-2026-10-28.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — October 27, 2026",
     date: "October 27, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Key tools this week include ThatOpen Engine and web-ifc, driving browser-native BIM viewing and the rise of open-source AEC cost reduction",
     file: "/briefs/software-brief-2026-10-21.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — October 20, 2026",
