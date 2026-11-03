@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — November 03, 2026",
+    date: "November 03, 2026",
+    type: "futurist",
+    description: "AI evolving into a transactional actor that autonomously initiates, negotiates and settles commercial deals across glazing and installation markets",
+    file: "/briefs/futurist-brief-2026-11-03.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — October 31, 2026",
     date: "October 31, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "AI acceleration, quantum breakthroughs, biotech innovations, climate solutions, neurotechnology, and space commercialization signal a new era",
     file: "/briefs/futurist-brief-2026-10-27.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — October 24, 2026",
