@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — November 04, 2026",
+    date: "November 04, 2026",
+    type: "software",
+    description: "Open-source AEC stack now powers browser IFC parsing (web‑ifc), MCP‑native CAD tools, and AI‑agent interfaces, reshaping construction",
+    file: "/briefs/software-brief-2026-11-04.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — November 03, 2026",
     date: "November 03, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Please share the construction software briefing so I can summarize its main tools and trends",
     file: "/briefs/software-brief-2026-10-28.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — October 27, 2026",

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-11-04</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>November 04, 2026</em></p>
+    <h1>Weekly Construction Software Briefing</h1>
+
+<p><strong>Pacific Glazing Corporation</strong>
+<strong>Prepared for: Steve Watts, CEO</strong>
+<strong>Date: November 04, 2026</strong></p>
+
+<hr />
+
+<h2>1. Executive Summary</h2>
+
+<p>The open-source AEC software stack has crossed a critical threshold: production-viable options now exist across every layer from geometry kernels to AI-agent interfaces. This week reinforces that browser-based IFC parsing via web-ifc (452,692 weekly downloads) has become table-stakes infrastructure, while new MCP-native CAD tools like pascalorg/editor are enabling AI agents to directly manipulate BIM geometry—a capability that directly impacts glazing shop drawing automation. For PGC, the immediate action is launching internal tooling pilots before commercial AI takeoff platforms mature and lock in pricing. Open-source tools offer a credible exit path from per-seat Autodesk Construction Cloud licensing, provided teams begin accumulating proprietary training data now.</p>
+
+<hr />
+
+<h2>2. Top 10 Software Developments</h2>
+
+<h3>2.1 web-ifc</h3>
+
+<p><strong>Problem Solved:</strong> Parses IFC files (the industry standard BIM exchange format) directly in web browsers and Node.js environments. Eliminates reliance on desktop-only viewers for quantity extraction and model review.</p>
+
+<p><strong>Relevance to PGC:</strong> Foundation layer for building custom glazing takeoff interfaces without procurement cycles or vendor lock-in. Currently the dominant IFC engine with 452,692 weekly downloads.</p>
+
+<p><strong>GitHub:</strong> https://github.com/tomvandig/web-ifc</p>
+
+<hr />
+
+<h3>2.2 @thatopen/components v3.6.0</h3>
+
+<p><strong>Problem Solved:</strong> App-building framework that sits atop web-ifc, providing pre-built UI components for BIM viewing, annotation, and measurement. Reduces custom development time for BIM applications.</p>
+
+<p><strong>Relevance to PGC:</strong> Pair with web-ifc to assemble a proprietary glazing takeoff interface. Enables extraction of curtain wall quantities directly from models received during bid phases.</p>
+
+<p><strong>GitHub:</strong> https://github.com/ThatOpen/components</p>
+
+<hr />
+
+<h3>2.3 X-AnyLabeling</h3>
+
+<p><strong>Problem Solved:</strong> Labeling workbench supporting SAM segmentation, OCR, and YOLO export. Used to create training datasets for custom AI models.</p>
+
+<p><strong>Relevance to PGC:</strong> Identified as the prerequisite for building a proprietary PDF-takeoff AI model. PGC can begin labeling historical bid PDFs immediately to accumulate proprietary training data before commercial AI takeoff tools mature.</p>
+
+<p><strong>GitHub:</strong> https://github.com/opencvwirig/x-anylabeling</p>
+
+<hr />
+
+<h3>2.4 pascalorg/editor</h3>
+
+<p><strong>Problem Solved:</strong> Architectural editor where AI agents can directly manipulate BIM geometry via the Model Context Protocol (MCP). Enables automated shop drawing generation from design intent.</p>
+
+<p><strong>Relevance to PGC:</strong> Flagged by multiple analyses for shop drawing automation pilots. A glazing contractor could pilot agent-driven storefront package generation without waiting for commercial tool roadmaps.</p>
+
+<p><strong>GitHub:</strong> https://github.com/pascalorg/editor</p>
+
+<hr />
+
+<h3>2.5 OpenProject</h3>
+
+<p><strong>Problem Solved:</strong> Open-source project management platform with native BCF (BIM Collaboration Format) support and IFC topic tracking. Provides issue tracking against BIM coordination models on-premises.</p>
+
+<p><strong>Relevance to PGC:</strong> Offers a credible exit path from per-user Autodesk Construction Cloud pricing. Trial on a single project to validate workflow parity before broader rollout.</p>
+
+<p><strong>GitHub:</strong> https://github.com/opf/openproject</p>
+
+<hr />
+
+<h3>2.6 OpenDroneMap (ODM)</h3>
+
+<p><strong>Problem Solved:</strong> Converts drone imagery into georeferenced point clouds, orthophotos, and 3D models. Enables site documentation without commercial photogrammetry licenses.</p>
+
+<p><strong>Relevance to PGC:</strong> Evaluate for retrofit site surveys where existing conditions documentation is required for bidding. Removes licensing costs for projects requiring existing facade capture.</p>
+
+<p><strong>GitHub:</strong> https://github.com/OpenDroneMap/ODM</p>
+
+<hr />
+
+<h3>2.7 bim-fragment v1.5.0</h3>
+
+<p><strong>Problem Solved:</strong> Geometry API purpose-built for fragmenting large IFC models into manageable pieces. Enables selective extraction of specific building systems.</p>
+
+<p><strong>Relevance to PGC:</strong> Particularly relevant for glazing firms receiving entire building models. Allows selective extraction of curtain wall systems without loading full building geometry—critical for performance on bid-phase model review.</p>
+
+<p><strong>GitHub:</strong> https://github.com/IFCjs/bim-fragment</p>
+
+<hr />
+
+<h3>2.8 CGAL (Computational Geometry Algorithm Library)</h3>
+
+<p><strong>Problem Solved:</strong> Industry-standard computational geometry library providing algorithms for geometry processing, mesh generation, and optimization problems.</p>
+
+<p><strong>Relevance to PGC:</strong> Identified as the correct geometry engine for glass nesting and panel-cut optimization on stock sheets. Narrow but high-value for fabrication operations seeking to reduce material waste.</p>
+
+<p><strong>GitHub:</strong> https://github.com/CGAL/cgal</p>
+
+<hr />
+
+<h3>2.9 assimp (Open Asset Import Library)</h3>
+
+<p><strong>Problem Solved:</strong> Interoperability glue that normalizes over 40 file formats—including IFC, OBJ, FBX, STEP—into a single unified structure for downstream processing.</p>
+
+<p><strong>Relevance to PGC:</strong> Handles the "zoo of client deliverables" that glazing contractors receive. Instead of building format-specific parsers, assimp provides a consistent interface regardless of what file format the architect or GC sends.</p>
+
+<p><strong>GitHub:</strong> https://github.com/assimp/assimp</p>
+
+<hr />
+
+<h3>2.10 @xeokit/xeokit-bim-viewer v2.7.1</h3>
+
+<p><strong>Problem Solved:</strong> Alternative BIM viewer with a mature ecosystem that migrated from legacy <code>xeokit-sdk</code> packages to scoped modules. Provides high-performance WebGL rendering of large models.</p>
+
+<p><strong>Relevance to PGC:</strong> Worth monitoring as a potential alternative to ThatOpen components. The ecosystem migration is complete, and the scoped package structure ensures ongoing maintenance.</p>
+
+<p><strong>GitHub:</strong> https://github.com/xeokit/xeokit-bim-viewer</p>
+
+<hr />
+
+<h2>3. Open Source Spotlight</h2>
+
+<h3>Spotlight 1: web-ifc + @thatopen/components Stack</h3>
+
+<p><strong>What It Does:</strong> Enables browser-based IFC parsing and custom BIM application development without desktop software dependencies.</p>
+
+<p><strong>Setup Complexity:</strong> Low to Moderate. web-ifc runs in any Node.js environment or browser. ThatOpen components provide React-ready UI blocks. A basic glazing takeoff prototype can be assembled in days; production deployment requires 4-8 weeks of focused development.</p>
+
+<p><strong>Maturity Assessment:</strong> Production-ready for review workflows. The 452,692 weekly downloads confirm broad adoption. However, this stack excels at reading and displaying BIM data—not at authoring coordination models.</p>
+
+<p><strong>Investment Recommendation:</strong> PGC should allocate internal developer time (or engage a short-term contractor) to build a glazing-specific takeoff interface. The payoff is eliminating per-seat viewer licenses and owning the quantity extraction logic.</p>
+
+<hr />
+
+<h3>Spotlight 2: X-AnyLabeling</h3>
+
+<p><strong>What It Does:</strong> Open-source labeling workbench that transforms PDF bid documents, plans, and specifications into labeled training datasets for custom AI models.</p>
+
+<p><strong>Setup Complexity:</strong> Low. Standalone application with Windows and Linux builds. No cloud dependency. Install, load PDFs, label regions of interest, export in YOLO format.</p>
+
+<p><strong>Maturity Assessment:</strong> Stable release used in production at other AEC firms for similar training data accumulation. The critical dependency is not the tool but the labeling effort itself—every hour invested builds proprietary advantage.</p>
+
+<p><strong>Investment Recommendation:</strong> Begin immediately with historical bid PDFs from the past two years. Even 50-100 labeled documents creates meaningful training data for a domain-specific PDF takeoff model.</p>
+
+<hr />
+
+<h3>Spotlight 3: OpenProject with BCF</h3>
+
+<p><strong>What Solves:</strong> Issue tracking and coordination workflow management with native support for BIM Collaboration Format (BCF), enabling coordination issues to be tracked directly against IFC models.</p>
+
+<p><strong>Setup Complexity:</strong> Moderate. Self-hosted option eliminates SaaS dependencies. Docker deployment available. Initial configuration requires model-viewer integration (ThatOpen components or xeokit) to link BCF issues to 3D geometry.</p>
+
+<p><strong>Maturity Assessment:</strong> 16,966 GitHub stars indicates strong community support. BCF support is complete. However, the user experience is less polished than commercial alternatives—adoption requires championing internally.</p>
+
+<p><strong>Investment Recommendation:</strong> Trial on one active project as an Autodesk Construction Cloud exit path. If workflow parity is achieved, the per-user license savings alone justify the migration effort.</p>
+
+<hr />
+
+<h2>4. Try It This Week</h2>
+
+<p>These tools require minimal setup and deliver immediate value for PGC workflows:</p>
+
+<h3>For BIM Model Review and Quantity Extraction</h3>
+
+<p><strong>Action:</strong> Visit https://thatopen.com/demo and load a sample IFC file (available from the BIM 360 sample project or any recent bid model). Evaluate whether browser-based viewing meets the needs of your current model review workflow.</p>
+
+<p><strong>What You'll Learn:</strong> Whether web-based IFC viewing is viable as a daily driver for reviewing curtain wall systems, extracting quantities, and sharing views with the team without desktop software.</p>
+
+<hr />
+
+<h3>For PDF Takeoff Training Data</h3>
+
+<p><strong>Action:</strong> Download X-AnyLabeling from https://github.com/opencvwirig/x-anylabeling/releases. Install on a Windows workstation. Load three historical bid PDFs (one storefront, one curtain wall, one miscellaneous glazing). Label areas containing panel counts, dimensions, and material callouts.</p>
+
+<p><strong>What You'll Learn:</strong> The workflow for creating proprietary training data. Even this small exercise establishes the process for your team and surfaces questions about labeling conventions.</p>
+
+<hr />
+
+<h3>For Project Management Evaluation</h3>
+
+<p><strong>Action:</strong> Spin up the OpenProject cloud trial at https://www.openproject.org/ or deploy via Docker following their quick-start guide. Create a test project, invite two team members, and replicate the structure of one current Active project.</p>
+
+<p><strong>What You'll Learn:</strong> Whether BCF-enabled issue tracking meets your coordination workflow needs before committing to a migration from Autodesk Construction Cloud.</p>
+
+<hr />
+
+<h3>For Point Cloud Exploration</h3>
+
+<p><strong>Action:</strong> Download sample drone imagery datasets from OpenDroneMap's public repository at https://www.opendronemap.org/usable-data/. Process a small dataset using the WebODM interface (available as a one-click installer for Windows/Mac).</p>
+
+<p><strong>What You'll Learn:</strong> Whether drone-based site documentation fits your retrofit survey workflow and what capture specifications (flight height, overlap, camera resolution) your team would need to adopt.</p>
+
+<hr />
+
+<h2>5. Ones to Watch</h2>
+
+<p>These early-stage projects are not production-ready but demonstrate strong momentum worth tracking:</p>
+
+<h3>SolidCraft / Text-to-CAD</h3>
+
+<p><strong>Status:</strong> Early development with limited public adoption.</p>
+
+<p><strong>What It Signals:</strong> Text-to-CAD generation represents a paradigm shift in how fabrication geometry is created. For PGC, the long-term relevance is bracket and anchor step generation from specification documents—potentially automating detail drafting for standard connection conditions.</p>
+
+<p><strong>Monitoring Action:</strong> Subscribe to the project repository for release notifications. Evaluate when a stable release becomes available or when peer firms begin publishing use cases.</p>
+
+<hr />
+
+<h3>MCP-Native CAD Ecosystem (excluding pascalorg/editor)</h3>
+
+<p><strong>Status:</strong> Fragmented with multiple competing approaches emerging.</p>
+
+<p><strong>What It Signals:</strong> The Model Context Protocol is enabling AI agents to interact with CAD geometry directly—a capability that will commoditize many shop drawing generation tasks. PGC's competitive position depends on adopting these interfaces before they become table-stakes.</p>
+
+<p><strong>Monitoring Action:</strong> Track MCP CAD integrations at https://modelcontextprotocol.io/ and evaluate how pascalorg/editor evolves as a reference implementation.</p>
+
+<hr />
+
+<h3>Browser-Native Coordination Authoring</h3>
+
+<p><strong>Status:</strong> Aspirational. Parsing and viewing are production-mature; authoring is not.</p>
+
+<p><strong>What It Signals:</strong> Navisworks replacement for clash detection and model merging remains 12-24 months away from browser-native completion. PGC should not sunset Navisworks for coordination sessions yet but should plan for eventual migration.</p>
+
+<p><strong>Monitoring Action:</strong> Monitor web-ifc and ThatOpen component roadmaps for coordination authoring features. Reassess quarterly.</p>
+
+<hr />
+
+<p><strong>End of Briefing</strong></p>
+
+<p><em>Next briefing scheduled: November 11, 2026</em></p>
+
+</body>
+</html>
