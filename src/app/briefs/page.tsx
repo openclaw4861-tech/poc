@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — November 07, 2026",
+    date: "November 07, 2026",
+    type: "tech",
+    description: "AI agents become autonomous, targeting interruption cost, while AI stacks with LiDAR and LLM‑native 3D modeling enable site surveys and installation",
+    file: "/briefs/weekly-briefing-2026-11-07.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — November 04, 2026",
     date: "November 04, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "AI agents move to portable hardware using accessibility APIs as security threats emerge across distribution, binary, behavior, and endpoint layers",
     file: "/briefs/weekly-briefing-2026-10-31.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — October 28, 2026",
