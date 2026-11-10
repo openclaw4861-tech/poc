@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — November 10, 2026",
+    date: "November 10, 2026",
+    type: "futurist",
+    description: "LLM call failed - model 'minimax-m2.7:cloud' may not be available",
+    file: "/briefs/futurist-brief-2026-11-10.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — November 07, 2026",
     date: "November 07, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "AI evolving into a transactional actor that autonomously initiates, negotiates and settles commercial deals across glazing and installation markets",
     file: "/briefs/futurist-brief-2026-11-03.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — October 31, 2026",
