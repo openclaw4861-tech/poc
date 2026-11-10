@@ -17,7 +17,7 @@ const briefs: Brief[] = [
     title: "Futurist Technology Brief — November 10, 2026",
     date: "November 10, 2026",
     type: "futurist",
-    description: "LLM call failed - model 'minimax-m2.7:cloud' may not be available",
+    description: "Protocol-driven autonomous commerce and physical-AI retrofit layers bypass OEM cycles via machine-to-machine rule-based agents",
     file: "/briefs/futurist-brief-2026-11-10.html",
     badge: "Latest"
   },
@@ -53,22 +53,8 @@ const briefs: Brief[] = [
     file: "/briefs/weekly-briefing-2026-10-31.html",
     badge: ""
   },
-  {
-    title: "Construction Software Brief — October 28, 2026",
-    date: "October 28, 2026",
-    type: "software",
-    description: "Please share the construction software briefing so I can summarize its main tools and trends",
-    file: "/briefs/software-brief-2026-10-28.html",
-    badge: ""
-  },
-  {
-    title: "Futurist Technology Brief — October 27, 2026",
-    date: "October 27, 2026",
-    type: "futurist",
-    description: "AI acceleration, quantum breakthroughs, biotech innovations, climate solutions, neurotechnology, and space commercialization signal a new era",
-    file: "/briefs/futurist-brief-2026-10-27.html",
-    badge: ""
-  },
+
+
   {
     title: "Weekly Tech Briefing — October 24, 2026",
     date: "October 24, 2026",
@@ -157,14 +143,7 @@ const briefs: Brief[] = [
     file: "/briefs/software-brief-2026-09-30.html",
     badge: ""
   },
-  {
-    title: "Futurist Technology Brief — September 29, 2026",
-    date: "September 29, 2026",
-    type: "futurist",
-    description: "Could you share the futurist technology briefing so I can summarize the main signals",
-    file: "/briefs/futurist-brief-2026-09-29.html",
-    badge: ""
-  },
+
   {
     title: "Weekly Tech Briefing — September 26, 2026",
     date: "September 26, 2026",
