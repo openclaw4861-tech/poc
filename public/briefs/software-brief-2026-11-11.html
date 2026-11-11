@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-11-11</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>November 11, 2026</em></p>
+    <p><strong>Weekly Construction Software Briefing</strong>
+<strong>Pacific Glazing Corporation | Steve Watts, CEO</strong>
+<strong>November 11, 2026</strong></p>
+
+<hr />
+
+<h3>1. Executive Summary</h3>
+
+<p>The open-source AEC stack is now operational for production glazing workflows, with browser-native IFC kernels and open construction-PM platforms eliminating per-seat licensing costs while matching legacy commercial capability. For PGC, this means direct quantity extraction from IfcCurtainWall and IfcWindow elements in a standard browser and a portable replacement for Procore and Autodesk Construction Cloud issue tracking. An 18-to-24-month strategic window remains before commercial AI platforms lock equivalent features behind restrictive SaaS APIs, making immediate evaluation critical. This week’s priority is to validate low-friction takeoff and issue-tracking pilots that reduce dependency on aging Autodesk runtime environments.</p>
+
+<hr />
+
+<h3>2. Top 10 Software Developments</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Rank</th>
+  <th>Tool</th>
+  <th>GitHub URL</th>
+  <th>What It Solves for PGC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><strong>web-ifc</strong></td>
+  <td>https://github.com/ThatOpen/engine_web-ifc</td>
+  <td>Browser-native IFC geometry kernel (450k–515k weekly downloads). Eliminates per-seat viewer licenses and enables direct extraction of glass, curtain-wall, and plate quantities.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong>ThatOpen Components (v3.6.x)</strong> and <strong>bim-fragment</strong></td>
+  <td>https://github.com/ThatOpen/engine_components<br>https://github.com/ThatOpen/engine_fragment</td>
+  <td>Complete BIM authoring SDK with no Autodesk runtime dependency. Enables in-house browser-based model authoring and glazing-system coordination.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>pascalorg/editor</strong></td>
+  <td>https://github.com/pascalorg/editor</td>
+  <td>Fastest-rising browser-first authoring tool with MCP/agent hooks for scan-to-BIM and floor-plan extraction. Accelerates as-built digitization of facade conditions without desktop CAD seats.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong>FreeCAD</strong></td>
+  <td>https://github.com/FreeCAD/FreeCAD</td>
+  <td>Mature parametric fabrication seat (35,346 stars) with native BIM and STEP/IFC export. Supports detailed bracketry, extrusion, and glazing-anchor modeling at fabrication-level precision.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong>OpenProject</strong></td>
+  <td>https://github.com/opf/openproject</td>
+  <td>Mature open construction-PM platform (17,243 stars) with native BCF/IFC topic tracking. Direct, portable alternative to Procore and Autodesk Construction Cloud.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>CloudCompare</strong></td>
+  <td>https://github.com/CloudCompare/CloudCompare</td>
+  <td>Zero-cost point-cloud processing and comparison. Supports scan-to-fabricate verification of installed curtain-wall assemblies against design intent.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>WebODM</strong></td>
+  <td>https://github.com/OpenDroneMap/WebODM</td>
+  <td>Drone-based photogrammetry pipeline for progress documentation. Generates site orthomosaics without per-flight SaaS fees.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>X-AnyLabeling</strong></td>
+  <td>https://github.com/CVHub520/X-AnyLabeling</td>
+  <td>SAM/VLM annotation tool for point-cloud and image labeling. Lets PGC build proprietary glazing-assembly training datasets before commercial AI platforms lock the market.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>IfcOpenShell</strong></td>
+  <td>https://github.com/IfcOpenShell/IfcOpenShell</td>
+  <td>Established Python-side IFC workhorse. Automates quantity extraction, model manipulation, and schedule generation from glazing models via Python pipelines.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong>drawio-skill</strong></td>
+  <td>https://github.com/drawio-skill/drawio-skill</td>
+  <td>Facade system diagramming with drift detection. Replaces static PDF drawing packages by flagging deviations in glazing system logic.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3>3. Open Source Spotlight</h3>
+
+<p><strong>ThatOpen Components + web-ifc</strong>
+- <strong>Setup complexity:</strong> Medium. Requires an npm/Node.js build pipeline. Verify scoped package names (e.g., <code>@thatopen/components</code>) and pin dependency versions before production use; avoid deprecated keywords like <code>ifc.js</code>.
+- <strong>Maturity:</strong> Operational. Weekly download volume confirms enterprise reliance. The stack is production-viable today for browser-based takeoff, though the misleading <code>v0.0.x</code> semver on <code>web-ifc</code> demands manual version vetting.
+- <strong>PGC relevance:</strong> Immediate zero-license viewer and quantity extraction from curtain-wall IFC models.</p>
+
+<p><strong>OpenProject</strong>
+- <strong>Setup complexity:</strong> Low to medium. Docker containers are well-documented, and a cloud-hosted option exists for teams wanting zero local infrastructure.
+- <strong>Maturity:</strong> High. At 17,243 stars, it is the most mature open construction-PM platform available, with proven BCF/IFC topic tracking.
+- <strong>PGC relevance:</strong> Portable migration path from proprietary construction clouds while preserving issue-data ownership.</p>
+
+<p><strong>pascalorg/editor</strong>
+- <strong>Setup complexity:</strong> Medium to high. The browser client deploys easily, but enabling MCP/agent hooks for scan-to-BIM requires scan-data pipeline configuration and cleanup workflows.
+- <strong>Maturity:</strong> Rising fast. Strong community traction at 25,441 stars, yet agent-driven facade extraction should be treated as pilot-grade, not release-grade, until behavior is deterministic on your project types.
+- <strong>PGC relevance:</strong> Reduces desktop CAD reliance for as-built floor-plan generation and curtain-wall condition capture.</p>
+
+<hr />
+
+<h3>4. Try It This Week</h3>
+
+<p><strong>A. Browser-Based Glass Takeoff with web-ifc + ThatOpen Components</strong>
+- <strong>Action:</strong> Load one live bid’s IFC model into a local browser viewer using <code>@thatopen/components</code> and <code>web-ifc</code>. Isolate <code>IfcCurtainWall</code> and <code>IfcWindow</code> instances to cross-check glass quantities against your current takeoff.
+- <strong>Who:</strong> Estimating team. No Autodesk viewer license required.</p>
+
+<p><strong>B. OpenProject BCF Issue Tracking</strong>
+- <strong>Action:</strong> Spin up an OpenProject instance (Docker or cloud trial) and import the BCF topics from a current facade project. Test the native IFC-linked issue workflow against your existing Procore or ACC process.
+- <strong>Who:</strong> Project managers and field engineers. Data remains fully portable.</p>
+
+<p><strong>C. As-Built Verification with CloudCompare</strong>
+- <strong>Action:</strong> Download CloudCompare and load a recent site laser scan. Overlay the point cloud against the fabrication model to verify mullion alignment and flag deviations before glass release.
+- <strong>Who:</strong> VDC and shop-drawing team. Free desktop install; no subscription required.</p>
+
+<hr />
+
+<h3>5. Ones to Watch</h3>
+
+<p><strong>SolidCraft</strong>
+- Early-stage generative fabrication tool flagged for custom extrusions and bracketry evaluation within 6–12 months. For PGC: potential automation of unique glazing hardware generation. Not yet cleared for structural-release workflows; monitor repository releases and portfolio updates.</p>
+
+<p><strong>text-to-cad</strong>
+- Emerging generative CAD category for detail generation. For PGC: could reduce manual CAD labor on custom facade connectors and anchors. Track alongside SolidCraft for pilot eligibility in mid-2027.</p>
+
+<p><strong>Agent-Driven Scan-to-BIM Ecosystem (MCP hooks)</strong>
+- The Model Context Protocol integrations inside rising editors (e.g., <code>pascalorg/editor</code>) are stabilizing but unstandardized. For PGC: promises automated facade extraction from scans, yet interoperability remains unproven. Restrict to non-critical pilot projects until agent output is deterministic and repeatable.</p>
+
+</body>
+</html>

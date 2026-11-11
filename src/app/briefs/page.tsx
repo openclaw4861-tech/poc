@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — November 11, 2026",
+    date: "November 11, 2026",
+    type: "software",
+    description: "Open-source browser-native IFC tools eliminate per-seat licensing and match commercial glazing capability",
+    file: "/briefs/software-brief-2026-11-11.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — November 10, 2026",
     date: "November 10, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Open-source AEC stack now powers browser IFC parsing (web‑ifc), MCP‑native CAD tools, and AI‑agent interfaces, reshaping construction",
     file: "/briefs/software-brief-2026-11-04.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — November 03, 2026",
