@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — November 17, 2026",
+    date: "November 17, 2026",
+    type: "futurist",
+    description: "Narrow schema-driven autonomous agents and machine-readable interfaces will reshape commerce across glazing and construction",
+    file: "/briefs/futurist-brief-2026-11-17.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — November 14, 2026",
     date: "November 14, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Protocol-driven autonomous commerce and physical-AI retrofit layers bypass OEM cycles via machine-to-machine rule-based agents",
     file: "/briefs/futurist-brief-2026-11-10.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — November 07, 2026",
