@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-11-18</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>November 18, 2026</em></p>
+    <p><strong>WEEKLY CONSTRUCTION SOFTWARE BRIEFING</strong></p>
+
+<p><strong>To:</strong> Steve Watts, CEO, Pacific Glazing Corporation<br />
+<strong>Date:</strong> November 18, 2026<br />
+<strong>Re:</strong> Open-Source AEC Stack Hits Production for Glazing, Facades, and Project Management</p>
+
+<hr />
+
+<h3>Executive Summary</h3>
+
+<p>This week, the open-source AEC stack crossed firmly into production territory for glazing contractors, with the <code>web-ifc</code> kernel and ThatOpen v3.6.x release train forming a complete, browser-native alternative to Autodesk authoring tools. Agent-native CAD tools shipping MCP servers now allow AI agents to query and edit geometry directly, while OpenProject validated its BCF-native workflows as a credible, self-hosted replacement for Procore and ACC issue tracking. On the reality-capture front, the combination of ODM, Point Cloud Library, and Draco is ready for facade as-built verification, though strong open-source alternatives for PDF takeoff and 2D drawing comparison remain unfilled. Pacific Glazing Corporation should move immediately to pilot OpenProject on a live project and benchmark the two leading browser IFC viewers before proprietary AI platforms replicate these open interfaces behind closed APIs.</p>
+
+<hr />
+
+<h3>Top 10 Software Developments</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Rank</th>
+  <th>Tool / Project</th>
+  <th>GitHub URL</th>
+  <th>What It Solves for PGC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td><strong>ThatOpen Engine v3.6.x</strong> (<code>@thatopen/components</code>, <code>bim-fragment</code>, <code>components-front</code>)</td>
+  <td>https://github.com/ThatOpen/engine_components</td>
+  <td>A complete zero-Autodesk BIM authoring SDK. PGC can view, fragment, and manipulate facade IFC models in a browser without Revit or Navisworks licenses, and the <code>bim-fragment</code> format is optimized for fast loading of large curtain-wall datasets on field tablets.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><strong><code>web-ifc</code> v0.0.79</strong></td>
+  <td>https://github.com/ThatOpen/web-ifc</td>
+  <td>The underlying browser-native IFC kernel logging over 529,000 weekly downloads. It parses IFC 4.x geometry and properties for <code>IfcCurtainWall</code> and <code>IfcWindow</code> elements client-side, making it the core engine for any custom takeoff or verification tool PGC builds.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><strong>OpenProject (BCF-native)</strong></td>
+  <td>https://github.com/opf/openproject</td>
+  <td>A self-hosted, open-source replacement for Procore and ACC. Its native Building Collaborative Format (BCF) support preserves 3D viewpoint and camera-position data during punch-list and RFI workflows, which is critical for glazing issue resolution.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><strong><code>pascalorg/editor</code></strong></td>
+  <td>https://github.com/pascalorg/editor</td>
+  <td>An agent-native CAD environment that ships an MCP server, enabling AI agents to query and edit geometry directly. For PGC, this opens the door to automated quantity extraction from <code>IfcCurtainWall</code> assemblies without traditional manual takeoff software.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><strong><code>@xeokit/xeokit-bim-viewer</code> v2.7.1</strong></td>
+  <td>https://github.com/xeokit/xeokit-bim-viewer</td>
+  <td>A performance-oriented browser viewer built specifically for massive models. PGC should benchmark this against ThatOpen on its largest facade IFC to determine which loads faster and uses less memory on site tablets.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><strong>OpenDroneMap (ODM)</strong></td>
+  <td>https://github.com/OpenDroneMap/ODM</td>
+  <td>An open-source photogrammetry pipeline that turns drone imagery into georeferenced point clouds and meshes. PGC can use it to document completed facade installations and verify them against design intent without proprietary reality-capture subscriptions.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><strong>Point Cloud Library (PCL)</strong></td>
+  <td>https://github.com/PointCloudLibrary/pcl</td>
+  <td>The industry-standard open library for 2D/3D point cloud processing. PGC can run deviation analysis between drone-captured facade point clouds and the original design IFC to catch installation variances before final sign-off.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><strong>SolidCraft</strong></td>
+  <td>https://github.com/SolidCraft/SolidCraft</td>
+  <td>An MCP-enabled CAD environment for script-driven part generation. PGC can automate bracket, plate, and anchor drawings with parametric inputs, exporting STEP or DXF directly to fabrication equipment.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><strong>Draco</strong></td>
+  <td>https://github.com/google/draco</td>
+  <td>A geometry compression library that dramatically reduces point-cloud and mesh file sizes. For PGC, this means faster transfer of as-built facade scans from the field to the office over standard mobile networks.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><strong><code>@bentley/construction-schema</code> v1.0.4</strong></td>
+  <td>https://www.npmjs.com/package/@bentley/construction-schema</td>
+  <td>Bentley quietly open-published this schema on npm, signaling that interoperability pressure is forcing proprietary vendors to concede open data formats. PGC should monitor this to ensure future subcontractor model exchanges do not rely solely on closed Bentley formats.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h3>Open Source Spotlight</h3>
+
+<p><strong>1. OpenProject</strong><br />
+<em>GitHub:</em> https://github.com/opf/openproject<br />
+<em>Maturity:</em> Enterprise-grade. 17.4k stars and a long release history; the BCF plugin is stable enough for production issue tracking.<br />
+<em>Setup Complexity:</em> Low to Moderate. A Docker-based install can be running in under an hour, but PGC will need to verify that BCF viewpoint and camera metadata round-trip correctly between OpenProject and existing model viewers before declaring it a Procore replacement.</p>
+
+<p><strong>2. ThatOpen Components + <code>web-ifc</code></strong><br />
+<em>GitHub:</em> https://github.com/ThatOpen/engine_components and https://github.com/ThatOpen/web-ifc<br />
+<em>Maturity:</em> Production. The kernel logs over 529,000 weekly downloads and the v3.6.x SDK is a complete, zero-Autodesk authoring environment.<br />
+<em>Setup Complexity:</em> Moderate to High. These are browser-native libraries, not desktop executables. PGC will need front-end development capacity or a systems integrator to embed them into internal tools, and must deliberately pin <code>web-ifc</code> to v0.0.79 due to volatile 0.0.x versioning.</p>
+
+<p><strong>3. <code>@xeokit/xeokit-bim-viewer</code></strong><br />
+<em>GitHub:</em> https://github.com/xeokit/xeokit-bim-viewer<br />
+<em>Maturity:</em> Stable and active. Version 2.7.1 resolves the confusion around the legacy package flatline; it is purpose-built for very large models.<br />
+<em>Setup Complexity:</em> Moderate. The scoped npm package migration means some older documentation still references deprecated names. It is best deployed by PGC's IT team into a controlled field-tablet dashboard for head-to-head load testing against ThatOpen.</p>
+
+<hr />
+
+<h3>Try It This Week</h3>
+
+<ul>
+<li><strong>OpenProject BCF Pilot:</strong> Spin up OpenProject via Docker on a workstation, import the punch list from one active PGC project, and create a BCF issue linked to a 3D viewpoint in a facade IFC model. Verify that the camera position and selected component survive the round trip when reopened in a BCF-compatible viewer.  </li>
+<li><strong>Browser IFC Smoke Test:</strong> Load the same project IFC into the ThatOpen viewer on a standard iPad or Android tablet. Isolate <code>IfcCurtainWall</code> elements and export a property CSV to confirm the data is accessible without Autodesk software.  </li>
+<li><strong>Xeokit Load Benchmark:</strong> Load PGC's largest facade IFC into <code>@xeokit/xeokit-bim-viewer</code> v2.7.1 on the same tablet used for the ThatOpen test. Record initial load time, memory usage, and frame rate during orbit to establish a quantitative baseline for standardizing field hardware.</li>
+</ul>
+
+<hr />
+
+<h3>Ones to Watch</h3>
+
+<p><strong><code>text-to-cad</code></strong> (26.7k stars) — <em>https://github.com/zoo-dev/text-to-cad</em><br />
+An experimental generative-CAD tool that produces 3D hardware concepts from text prompts. Momentum is strong, but PGC should treat it as experimental until it outputs fabrication-grade STEP files verified by your CNC vendors. Ideal for rapid bracket prototyping once maturity arrives.</p>
+
+<p><strong><code>@bentley/construction-schema</code></strong> — <em>https://www.npmjs.com/package/@bentley/construction-schema</em><br />
+Bentley's quiet move to open-publish its construction schema is an early signal that proprietary AEC data moats are weakening. If adoption spreads, PGC may soon receive open-schema models from project partners instead of locked DGN files. Monitor version releases for production stability.</p>
+
+<p><strong>Open-Source PDF Takeoff &amp; Spec-Parsing Gap:</strong><br />
+While no dominant open-source tool currently exists for PDF quantity takeoff or specification parsing, the agent-native CAD trend makes this the most likely remaining gap to close within the next 12 months. Watch for the first MCP-compatible PDF-to-quantity connector to emerge from the <code>pascalorg/editor</code> ecosystem or adjacent projects.</p>
+
+</body>
+</html>
