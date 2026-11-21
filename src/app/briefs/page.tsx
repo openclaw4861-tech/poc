@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — November 21, 2026",
+    date: "November 21, 2026",
+    type: "tech",
+    description: "MCP fragments the AI stack into portable agents while trust engineering and edge inference advance amid adversarial threats driving sandboxed ingestion",
+    file: "/briefs/weekly-briefing-2026-11-21.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — November 18, 2026",
     date: "November 18, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "Briefing covers verified trust for deployable physical AI and agent stacks plus hybrid classical-neural reasoning as a hedge against GPU scarcity",
     file: "/briefs/weekly-briefing-2026-11-14.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — November 11, 2026",
