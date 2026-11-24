@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Futurist Technology Brief — November 24, 2026",
+    date: "November 24, 2026",
+    type: "futurist",
+    description: "Signals highlight a shift to narrow adversarial B2B agentic workflows and retrofitted physical intelligence",
+    file: "/briefs/futurist-brief-2026-11-24.html",
+    badge: "Latest"
+  },
+  {
     title: "Weekly Tech Briefing — November 21, 2026",
     date: "November 21, 2026",
     type: "tech",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "futurist",
     description: "Narrow schema-driven autonomous agents and machine-readable interfaces will reshape commerce across glazing and construction",
     file: "/briefs/futurist-brief-2026-11-17.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Weekly Tech Briefing — November 14, 2026",
