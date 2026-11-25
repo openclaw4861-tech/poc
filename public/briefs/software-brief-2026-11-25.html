@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Software Brief - 2026-11-25</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        h3 { color: #555; }
+        .executive-summary { background: #f8f9fa; padding: 20px; border-left: 4px solid #007bff; margin: 20px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Construction Software Brief</h1>
+    <p><em>November 25, 2026</em></p>
+    <p><strong>WEEKLY CONSTRUCTION SOFTWARE BRIEFING</strong><br />
+<strong>Pacific Glazing Corporation (PGC)</strong><br />
+<strong>November 25, 2026</strong><br />
+<strong>TO:</strong> Steve Watts, CEO<br />
+<strong>FROM:</strong> Software Evaluation Team<br />
+<strong>RE:</strong> Open-Source AEC Inflection and Q4 Priorities  </p>
+
+<hr />
+
+<h2>1. EXECUTIVE SUMMARY</h2>
+
+<p>The open-source inflection in AEC software is now production-grade. ThatOpen Engine v3.6.x and web-ifc have reached 489,194 weekly npm downloads and can displace Autodesk Forge and Navisworks for browser-native IFC interrogation immediately. PGC should not renew legacy PDF takeoff licenses; instead, deploy model-based quantity takeoff this quarter using @thatopen/components, while piloting OpenProject as a self-hosted replacement for Procore/ACC field coordination. These are direct swaps requiring no kernel migration and immediately address glazing workflows from facade detailing to as-built verification.</p>
+
+<hr />
+
+<h2>2. TOP 10 SOFTWARE DEVELOPMENTS</h2>
+
+<p><strong>1. ThatOpen Engine v3.6.x / web-ifc</strong><br />
+- <strong>GitHub:</strong> https://github.com/ThatOpen/engine_web-ifc<br />
+- <strong>Relevance to PGC:</strong> Browser-native IFC parsing at 489,194 weekly npm downloads. Eliminates per-seat costs for Forge/Navisworks and lets PGC view federated facade models in any modern browser.  </p>
+
+<p><strong>2. @thatopen/components</strong><br />
+- <strong>GitHub:</strong> https://github.com/ThatOpen/engine_components<br />
+- <strong>Relevance to PGC:</strong> Native model-based quantity takeoff (QTO) embedded in the ThatOpen stack. PGC can extract glazing quantities, panel counts, and surface areas directly from IFC geometry this quarter, replacing PDF-based manual takeoff.  </p>
+
+<p><strong>3. OpenProject</strong><br />
+- <strong>GitHub:</strong> https://github.com/opf/openproject<br />
+- <strong>Relevance to PGC:</strong> Validated BCF-native issue tracking and self-hosted project management. Immediate replacement candidate for Procore/ACC on field coordination, RFIs, and punch lists without vendor lock-in.  </p>
+
+<p><strong>4. bim-fragment v1.5.0</strong><br />
+- <strong>GitHub:</strong> https://github.com/ThatOpen/fragment<br />
+- <strong>Relevance to PGC:</strong> Explicitly optimized for massive curtain-wall datasets, enabling sub-second browser loading of heavy facade models—previously gated behind desktop viewers. Critical for field tablet navigation.  </p>
+
+<p><strong>5. FreeCAD</strong><br />
+- <strong>GitHub:</strong> https://github.com/FreeCAD/FreeCAD<br />
+- <strong>Relevance to PGC:</strong> Stable parametric facade detailing with 35,763 GitHub stars. Shop teams can script extrusion profiles and export direct STEP files to fabrication equipment, bypassing intermediate CAD licenses.  </p>
+
+<p><strong>6. OpenDroneMap (ODM)</strong><br />
+- <strong>GitHub:</strong> https://github.com/OpenDroneMap/ODM<br />
+- <strong>Relevance to PGC:</strong> Open-source photogrammetry pipeline converting drone/site photography into georeferenced point clouds. Foundation for pre-installation facade verification on large glazing projects.  </p>
+
+<p><strong>7. CloudCompare</strong><br />
+- <strong>GitHub:</strong> https://github.com/CloudCompare/CloudCompare<br />
+- <strong>Relevance to PGC:</strong> Production-ready point cloud and mesh processing. PGC can run deviation analysis between as-built scans and design intent to catch curtain wall misalignment before glass is ordered or installed.  </p>
+
+<p><strong>8. openMVS</strong><br />
+- <strong>GitHub:</strong> https://github.com/cdcseacave/openMVS<br />
+- <strong>Relevance to PGC:</strong> Dense meshing for facade as-built verification. Fills the meshing gap alongside ODM, producing high-density surface models required for tight glazing tolerance checks.  </p>
+
+<p><strong>9. OpenSCAD</strong><br />
+- <strong>GitHub:</strong> https://github.com/openscad/openscad<br />
+- <strong>Relevance to PGC:</strong> Scripted shop geometry for immediate tactical wins. Fabrication teams can codify mullion and bracket geometry parametrically without heavy CAD overhead.  </p>
+
+<p><strong>10. xeokit-sdk</strong><br />
+- <strong>GitHub:</strong> https://github.com/xeokit/xeokit-sdk<br />
+- <strong>Relevance to PGC:</strong> Proven for embedded BIM portals, but carries a critical license-diligence warning. PGC must audit commercial licensing terms before embedding xeokit in any customer-facing client portal to avoid downstream liability.  </p>
+
+<hr />
+
+<h2>3. OPEN SOURCE SPOTLIGHT</h2>
+
+<p><strong>OpenProject</strong><br />
+- <strong>Maturity:</strong> Production-ready. BCF-native issue tracking is validated and stable.<br />
+- <strong>Setup Complexity:</strong> Low-to-medium. A Docker Compose deployment or managed cloud instance can be running in under an hour; no kernel migration or retraining required.<br />
+- <strong>Assessment:</strong> Lowest-risk swap available. PGC should move one active project's RFI and field-issue workflow into OpenProject immediately to benchmark against Procore/ACC.  </p>
+
+<p><strong>ThatOpen Engine (web-ifc + bim-fragment + components)</strong><br />
+- <strong>Maturity:</strong> Production-grade. Browser-native IFC interrogation is no longer experimental; weekly npm adoption confirms industry trust.<br />
+- <strong>Setup Complexity:</strong> Low for evaluation (static HTML or npm install); medium for full QTO integration into existing estimating workflows.<br />
+- <strong>Assessment:</strong> The single highest-impact displacement opportunity. PGC can drop Navisworks/Forge this quarter and transition estimators to model-native QTO without changing the underlying IFC standard.  </p>
+
+<p><strong>openMVS</strong><br />
+- <strong>Maturity:</strong> Proven but narrow. 4,299 GitHub stars with a stable track record in dense reconstruction.<br />
+- <strong>Setup Complexity:</strong> Medium-to-high. Requires a Linux build environment, optional CUDA acceleration, and photogrammetry pipeline knowledge. Best paired with ODM outputs.<br />
+- <strong>Assessment:</strong> A tactical addition to the reality-capture stack. PGC should bundle this into the ODM/CloudCompare beta rather than deploying standalone.  </p>
+
+<hr />
+
+<h2>4. TRY IT THIS WEEK</h2>
+
+<ul>
+<li><strong>OpenProject Pilot:</strong> Deploy a self-hosted instance via Docker Compose. Import one project's current RFI log and run a week-long parallel test against Procore to validate BCF-native issue tracking for field crews.  </li>
+<li><strong>ThatOpen Browser Viewer:</strong> Load a current PGC facade IFC model into the web-ifc browser viewer (CDN build available). Time the load and sectioning performance against your existing Navisworks workflow on a tablet.  </li>
+<li><strong>Model-Based QTO Test:</strong> Use @thatopen/components to run quantity extraction on the same IFC. Export curtain wall panel counts and surface areas to CSV and compare accuracy against your last PDF takeoff.  </li>
+<li><strong>FreeCAD Shop Test:</strong> Download the portable FreeCAD build. Model one parametric mullion extrusion and export a STEP file directly to your CNC or fabrication lead for tolerance review.  </li>
+<li><strong>CloudCompare Deviation Check:</strong> If a recent site scan (LAS/E57) is available, import it into CloudCompare alongside the design mesh. Run a cloud-to-mesh distance check to quantify facade deviation before glazing installation begins.  </li>
+</ul>
+
+<hr />
+
+<h2>5. ONES TO WATCH</h2>
+
+<ul>
+<li><strong>pascalorg/editor:</strong> A scan-to-BIM and agent-intake tool served via an MCP server. It is newer but trending fast. PGC should scope a 30-day evaluation trial to test automated intake of field conditions into federated models, though it is not yet ready for production estimating.  </li>
+<li><strong>solidcraft / text-to-cad:</strong> Rust-based geometry kernels and AI hardware generation pipelines. Monitor closely for future scripted component workflows in the shop, but do not commit production fabrication resources until the toolchain stabilizes.</li>
+</ul>
+
+</body>
+</html>

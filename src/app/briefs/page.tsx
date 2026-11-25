@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Construction Software Brief — November 25, 2026",
+    date: "November 25, 2026",
+    type: "software",
+    description: "Open-source AEC tools ThatOpen Engine and web-ifc now displace Autodesk Forge for browser-native IFC interrogation with 489k weekly downloads",
+    file: "/briefs/software-brief-2026-11-25.html",
+    badge: "Latest"
+  },
+  {
     title: "Futurist Technology Brief — November 24, 2026",
     date: "November 24, 2026",
     type: "futurist",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "software",
     description: "Open-source AEC tools web-ifc and ThatOpen v3.6.x enter production for glazing as browser-native alternatives to Autodesk tools",
     file: "/briefs/software-brief-2026-11-18.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Futurist Technology Brief — November 17, 2026",
