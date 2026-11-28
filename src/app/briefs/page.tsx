@@ -14,6 +14,14 @@ interface Brief {
 
 const briefs: Brief[] = [
   {
+    title: "Weekly Tech Briefing — November 28, 2026",
+    date: "November 28, 2026",
+    type: "tech",
+    description: "Portable AI enables cloud-free field agents on tablets but GPS spoofing and adversarial outputs make location and vendor files liabilities",
+    file: "/briefs/weekly-briefing-2026-11-28.html",
+    badge: "Latest"
+  },
+  {
     title: "Construction Software Brief — November 25, 2026",
     date: "November 25, 2026",
     type: "software",
@@ -35,7 +43,7 @@ const briefs: Brief[] = [
     type: "tech",
     description: "MCP fragments the AI stack into portable agents while trust engineering and edge inference advance amid adversarial threats driving sandboxed ingestion",
     file: "/briefs/weekly-briefing-2026-11-21.html",
-    badge: "Latest"
+    badge: ""
   },
   {
     title: "Construction Software Brief — November 18, 2026",
